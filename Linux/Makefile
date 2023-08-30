@@ -14,6 +14,9 @@ TARGET2 = psxtract
 OBJS2 = psxtract.o cdrom.o crypto.o lz.o utils.o
 
 all: $(TARGET1)
+	@echo
+	@echo
+	@echo "WARNING: Linux version if woefully out of date, use the Windows code instead"
 
 $(TARGET1): $(OBJS1)
 	$(AR) rcs $@ $(OBJS1)

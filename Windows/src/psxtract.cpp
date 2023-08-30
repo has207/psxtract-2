@@ -757,8 +757,30 @@ int convert_iso(FILE *iso_table, char *iso_file_name, char *cdrom_file_name, cha
 	// Read track 02
 	fseek(iso_table, cue_offset, SEEK_SET);
 	fread(cue_entry, sizeof(CUE_ENTRY), 1, iso_table);
+	int track_num = 2;
+	FILE* bin_file = fopen(cdrom_file_path, "ab");
+	if (bin_file == NULL)
+	{
+		printf("ERROR: Can't open %s for updating!\n", cdrom_file_path);
+		return -1;
+	}
 	while (cue_entry->type)
 	{
+		char track_filename[0x10];
+		audio_file_name(track_filename, track_num, "BIN");
+		FILE* track_file = fopen(track_filename, "rb");
+		if (track_file == NULL)
+		{
+			printf("ERROR: %s cannot be opened\n", track_filename);
+			return -1;
+		}
+		fseek(track_file, 0, SEEK_END);
+		int track_size = ftell(track_file);
+		unsigned char* track_data = (unsigned char*)malloc(track_size);
+		fseek(track_file, 0, SEEK_SET);
+		fread(track_data, track_size, 1, track_file);
+		fwrite(track_data, track_size, 1, bin_file);
+		fclose(track_file);
 		int ff1, ss1, mm1, mm0, ss0;
 		i++;
 		// convert 0xXY into decimal XY
@@ -793,9 +815,11 @@ int convert_iso(FILE *iso_table, char *iso_file_name, char *cdrom_file_name, cha
 		// Read next track
 		fseek(iso_table, cue_offset, SEEK_SET);
 		fread(cue_entry, sizeof(CUE_ENTRY), 1, iso_table);
+		track_num++;
 	}
 
 	fclose(cue_file);
+	fclose(bin_file);
 
 	return 0;
 }

@@ -4,6 +4,7 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 #define GAP_SIZE	2 * 75 * 2352  // 2 seconds * 75 frames * 2352 sector size
+#define MAX_DISCS	5
 #define NBYTES		0x180
 #define ES32(v)((unsigned int)(((v & 0xFF000000) >> 24) | \
                            ((v & 0x00FF0000) >> 8 ) | \

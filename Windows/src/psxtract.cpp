@@ -65,7 +65,7 @@ int decrypt_document(FILE* document)
 
 	// Read the DOCUMENT.DAT.
 	unsigned char *document_data = new unsigned char[document_size];  
-	fread(document_data, 1, document_size, document);
+	fread(document_data, document_size, 1, document);
 
 	printf("Decrypting DOCUMENT.DAT...\n");
 
@@ -122,7 +122,7 @@ int decrypt_special_data(FILE *psar, int psar_size, int special_data_offset)
 		// Read the data.
 		int special_data_size = psar_size - special_data_offset;  // Always the last portion of the DATA.PSAR.
 		unsigned char *special_data = new unsigned char[special_data_size];
-		fread(special_data, 1, special_data_size, psar);
+		fread(special_data, special_data_size, 1, psar);
 
 		printf("Decrypting special data...\n");
 
@@ -139,12 +139,12 @@ int decrypt_special_data(FILE *psar, int psar_size, int special_data_offset)
 
 		// Store the decrypted special data.
 		FILE* dec_special_data = fopen("SPECIAL_DATA.BIN", "wb");
-		fwrite(special_data + 0x90, 1, pgd_size, dec_special_data);
+		fwrite(special_data + 0x90, pgd_size, 1, dec_special_data);
 		fclose(dec_special_data);
 
 		// Store the decrypted special data png.
 		FILE* dec_special_data_png = fopen("SPECIAL_DATA.PNG", "wb");
-		fwrite(special_data + 0xAC, 1, pgd_size - 0x1C, dec_special_data_png);
+		fwrite(special_data + 0xAC, pgd_size - 0x1C, 1, dec_special_data_png);
 		fclose(dec_special_data_png);
 
 		delete[] special_data;
@@ -171,7 +171,7 @@ int decrypt_unknown_data(FILE *psar, int unknown_data_offset, int startdat_offse
 		// Read the data.
 		int unknown_data_size = startdat_offset - unknown_data_offset;   // Always located before the STARDAT and after the ISO.
 		unsigned char *unknown_data = new unsigned char[unknown_data_size];
-		fread(unknown_data, 1, unknown_data_size, psar);
+		fread(unknown_data, unknown_data_size, 1, psar);
 
 		printf("Decrypting unknown data...\n");
 
@@ -188,7 +188,7 @@ int decrypt_unknown_data(FILE *psar, int unknown_data_offset, int startdat_offse
 
 		// Store the decrypted unknown data.
 		FILE* dec_unknown_data = fopen("UNKNOWN_DATA.BIN", "wb");
-		fwrite(unknown_data + 0x90, 1, pgd_size, dec_unknown_data);
+		fwrite(unknown_data + 0x90, pgd_size, 1, dec_unknown_data);
 		fclose(dec_unknown_data);
 		delete[] unknown_data;
 	}
@@ -488,12 +488,12 @@ int build_audio(FILE *psar, FILE *iso_table, int base_offset, unsigned char *pgd
 
 		// Read the data.
 		unsigned char *track_data = new unsigned char[audio_entry->size];
-		fread(track_data, 1, audio_entry->size, psar);
+		fread(track_data, audio_entry->size, 1, psar);
 		
 		
-		// Store the decrypted unknown data.
+		// Store the decrypted track data.
 		// Open a new file to write the track image.
-		sprintf(track_filename, "TRACK %02d.BIN", i);
+		sprintf(track_filename, "TRACK %02d.AT3", i);
 		FILE* track = fopen(track_filename, "wb");
 		if (track == NULL)
 		{
@@ -618,9 +618,9 @@ int decrypt_single_disc(FILE *psar, int psar_size, int startdat_offset, unsigned
 	memset(iso_disc_name, 0, 0x10);
 
 	fseek(iso_table, 0, SEEK_SET);
-	fread(iso_disc_name, 1, 0x10, iso_table);
+	fread(iso_disc_name, 0x10, 1, iso_table);
 	fseek(iso_table, 0xE2C, SEEK_SET);
-	fread(iso_title, 1, 0x80, iso_table);
+	fread(iso_title, 0x80, 1, iso_table);
 
 	printf("ISO disc: %s\n", strip_utf8(iso_disc_name, 0x10));
 	printf("ISO title: %s\n\n", strip_utf8(iso_title, 0x80));
@@ -709,9 +709,9 @@ int decrypt_multi_disc(FILE *psar, int psar_size, int startdat_offset, unsigned 
 	memset(iso_disc_name, 0, 0x10);
 
 	fseek(iso_map, 0x64, SEEK_SET);
-	fread(iso_disc_name, 1, 0x10, iso_map);
+	fread(iso_disc_name, 0x10, 1, iso_map);
 	fseek(iso_map, 0x10C, SEEK_SET);
-	fread(iso_title, 1, 0x80, iso_map);
+	fread(iso_title, 0x80, 1, iso_map);
 
 	printf("ISO disc: %s\n", strip_utf8(iso_disc_name, 0x10));
 	printf("ISO title: %s\n\n", strip_utf8(iso_title, 0x80));

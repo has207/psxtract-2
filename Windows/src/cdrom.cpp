@@ -429,7 +429,6 @@ struct fixImageStatus fixImage(char* inputfilepath, char* outputfilepath, enum E
             //Close the input and output files
             fclose(inputfile);
             fclose(outputfile);
-
             status.errorcode = ERROR_UNEXPECTED_MODE;
             return status;
         }
@@ -533,7 +532,7 @@ int make_cdrom(char* inputfile, char* outputfile, bool verbose)
             break;
 
         case ERROR_UNEXPECTED_MODE:
-            printf("ERROR: Encountered unknown mode! This is probably not a proper image.\n");
+            printf("WARNING: Encountered unknown mode, fix aborted.\n");
             break;
 
         case ERROR_UNSUPPORTED_MODE:

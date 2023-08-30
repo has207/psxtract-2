@@ -538,6 +538,7 @@ int build_audio_at3(FILE *psar, FILE *iso_table, int base_offset, unsigned char 
 	if (audio_entry->offset == 0)
 	{
 		printf("there is no audio tracks in the ISO!\n");
+		return 0;
 	}
 	int track_size, cur_track_offset, next_track_offset;
 	while (audio_entry->offset)
@@ -911,12 +912,10 @@ int decrypt_multi_disc(FILE *psar, int psar_size, int startdat_offset, unsigned 
 	// - The final data block contains the disc title, NULL padding and some unknown integers.
 
 	// Get the discs' offsets.
-	int disc1_offset, disc2_offset, disc3_offset, disc4_offset, disc5_offset;
-	fread(&disc1_offset, sizeof(disc1_offset), 1, iso_map);
-	fread(&disc2_offset, sizeof(disc2_offset), 1, iso_map);
-	fread(&disc3_offset, sizeof(disc3_offset), 1, iso_map);
-	fread(&disc4_offset, sizeof(disc4_offset), 1, iso_map);
-	fread(&disc5_offset, sizeof(disc5_offset), 1, iso_map);
+	int disc_offset[5];
+	for (int i = 0; i < 5; i++)
+		fread(&disc_offset[i], sizeof(int), 1, iso_map);
+
 
 	// Get the disc collection ID and title (UTF-8).
 	unsigned char iso_title[0x80];
@@ -943,180 +942,48 @@ int decrypt_multi_disc(FILE *psar, int psar_size, int startdat_offset, unsigned 
 
 	// Build each valid ISO image.
 	int disc_count = 0;
-	if (disc1_offset > 0)
+
+	for (int i = 0; i < MAX_DISCS; i++)
 	{
-		// Decrypt the ISO header and get the block table.
-		// NOTE: In multidisc, the ISO header is located at the disc offset + 0x400 bytes. 
-		if (decrypt_iso_header(psar, disc1_offset + 0x400, 0xB6600, pgd_key, 1))
-			printf("Aborting...\n");
-
-		// Re-open in read mode (just to be safe).
-		FILE* iso_table = fopen("ISO_HEADER.BIN", "rb");
-		if (iso_table == NULL)
+		if (disc_offset[i] > 0)
 		{
-			printf("ERROR: No decrypted ISO header found!\n");
-			return -1;
-		}
+			// Decrypt the ISO header and get the block table.
+			// NOTE: In multidisc, the ISO header is located at the disc offset + 0x400 bytes. 
+			if (decrypt_iso_header(psar, disc_offset[i] + 0x400, 0xB6600, pgd_key, i + 1))
+				printf("Aborting...\n");
 
-		// Build the first ISO image.
-		printf("Building the ISO image number 1...\n");
-		if (build_iso(psar, iso_table, disc1_offset, 1))
-			printf("ERROR: Failed to reconstruct the ISO image number 1!\n\n");
-		else
-			printf("ISO image successfully reconstructed! Saving as ISO_1.BIN...\n\n");
-
-		// Convert the ISO image if required.
-		if (conv)
-		{
-			printf("Converting ISO image number 1...\n");
-			if (convert_iso(iso_table, "ISO_1.BIN", "CDROM_1.BIN", "CDROM_1.CUE", iso_disc_name))
-				printf("ERROR: Failed to convert ISO image number 1!\n\n");
+			// Re-open in read mode (just to be safe).
+			FILE* iso_table = fopen("ISO_HEADER.BIN", "rb");
+			if (iso_table == NULL)
+			{
+				printf("ERROR: No decrypted ISO header found!\n");
+				return -1;
+			}
+			// Build the first ISO image.
+			printf("Building the ISO image number %d...\n", i + 1);
+			if (build_iso(psar, iso_table, disc_offset[i], i + 1))
+				printf("ERROR: Failed to reconstruct the ISO image number %d!\n\n", i + 1);
 			else
-				printf("ISO image number 1 successfully converted to CD-ROM format!\n\n");
+				printf("ISO image successfully reconstructed! Saving as ISO_%d.BIN...\n\n", i + 1);
+
+			// Convert the ISO image if required.
+			if (conv)
+			{
+				printf("Converting ISO image number %d...\n", i + 1);
+				char iso_x_bin[0x10];
+				sprintf(iso_x_bin, "ISO_%d.BIN", i + 1);
+				char cdrom_x_bin[0x10];
+				sprintf(cdrom_x_bin, "CDROM_%d.BIN", i + 1);
+				char cdrom_x_cue[0x10];
+				sprintf(cdrom_x_cue, "CDROM_%d.CUE", i + 1);
+				if (convert_iso(iso_table, iso_x_bin, cdrom_x_bin, cdrom_x_cue, iso_disc_name))
+					printf("ERROR: Failed to convert ISO image number %d!\n\n", i + 1);
+				else
+					printf("ISO image number %d successfully converted to CD-ROM format!\n\n", i + 1);
+			}
+			disc_count++;
+			fclose(iso_table);
 		}
-
-		disc_count++;
-		fclose(iso_table);
-	}
-	if (disc2_offset > 0)
-	{
-		// Decrypt the ISO header and get the block table.
-		// NOTE: In multidisc, the ISO header is located at the disc offset + 0x400 bytes. 
-		if (decrypt_iso_header(psar, disc2_offset + 0x400, 0xB6600, pgd_key, 2))
-			printf("Aborting...\n");
-
-		// Re-open in read mode (just to be safe).
-		FILE* iso_table = fopen("ISO_HEADER.BIN", "rb");
-		if (iso_table == NULL)
-		{
-			printf("ERROR: No decrypted ISO header found!\n");
-			return -1;
-		}
-
-		// Build the second ISO image.
-		printf("Building the ISO image number 2...\n");
-		if (build_iso(psar, iso_table, disc2_offset, 2))
-			printf("ERROR: Failed to reconstruct the ISO image number 2!\n\n");
-		else
-			printf("ISO image successfully reconstructed! Saving as ISO_2.BIN...\n\n");
-
-		// Convert the ISO image if required.
-		if (conv)
-		{
-			printf("Converting ISO image number 2...\n");
-			if (convert_iso(iso_table, "ISO_2.BIN", "CDROM_2.BIN", "CDROM_2.CUE", iso_disc_name))
-				printf("ERROR: Failed to convert ISO image number 2!\n\n");
-			else
-				printf("ISO image number 2 successfully converted to CD-ROM format!\n\n");
-		}
-
-		disc_count++;
-		fclose(iso_table);
-	}
-	if (disc3_offset > 0)
-	{
-		// Decrypt the ISO header and get the block table.
-		// NOTE: In multidisc, the ISO header is located at the disc offset + 0x400 bytes. 
-		if (decrypt_iso_header(psar, disc3_offset + 0x400, 0xB6600, pgd_key, 3))
-			printf("Aborting...\n");
-
-		// Re-open in read mode (just to be safe).
-		FILE* iso_table = fopen("ISO_HEADER.BIN", "rb");
-		if (iso_table == NULL)
-		{
-			printf("ERROR: No decrypted ISO header found!\n");
-			return -1;
-		}
-
-		// Build the third ISO image.
-		printf("Building the ISO image number 3...\n");
-		if (build_iso(psar, iso_table, disc3_offset, 3))
-			printf("ERROR: Failed to reconstruct the ISO image number 3!\n\n");
-		else
-			printf("ISO image successfully reconstructed! Saving as ISO_3.BIN...\n\n");
-
-		// Convert the ISO image if required.
-		if (conv)
-		{
-			printf("Converting ISO image number 3...\n");
-			if (convert_iso(iso_table, "ISO_3.BIN", "CDROM_3.BIN", "CDROM_3.CUE", iso_disc_name))
-				printf("ERROR: Failed to convert ISO image number 1!\n\n");
-			else
-				printf("ISO image number 3 successfully converted to CD-ROM format!\n\n");
-		}
-
-		disc_count++;
-		fclose(iso_table);
-	}
-	if (disc4_offset > 0)
-	{
-		// Decrypt the ISO header and get the block table.
-		// NOTE: In multidisc, the ISO header is located at the disc offset + 0x400 bytes. 
-		if (decrypt_iso_header(psar, disc4_offset + 0x400, 0xB6600, pgd_key, 4))
-			printf("Aborting...\n");
-
-		// Re-open in read mode (just to be safe).
-		FILE* iso_table = fopen("ISO_HEADER.BIN", "rb");
-		if (iso_table == NULL)
-		{
-			printf("ERROR: No decrypted ISO header found!\n");
-			return -1;
-		}
-
-		// Build the fourth ISO image.
-		printf("Building the ISO image number 4...\n");
-		if (build_iso(psar, iso_table, disc4_offset, 4))
-			printf("ERROR: Failed to reconstruct the ISO image number 4!\n\n");
-		else
-			printf("ISO image successfully reconstructed! Saving as ISO_4.BIN...\n\n");
-
-		// Convert the ISO image if required.
-		if (conv)
-		{
-			printf("Converting ISO image number 4...\n");
-			if (convert_iso(iso_table, "ISO_4.BIN", "CDROM_4.BIN", "CDROM_4.CUE", iso_disc_name))
-				printf("ERROR: Failed to convert ISO image number 4!\n\n");
-			else
-				printf("ISO image number 4 successfully converted to CD-ROM format!\n\n");
-		}
-
-		disc_count++;
-		fclose(iso_table);
-	}
-	if (disc5_offset > 0)
-	{
-		// Decrypt the ISO header and get the block table.
-		// NOTE: In multidisc, the ISO header is located at the disc offset + 0x400 bytes. 
-		if (decrypt_iso_header(psar, disc5_offset + 0x400, 0xB6600, pgd_key, 5))
-			printf("Aborting...\n");
-
-		// Re-open in read mode (just to be safe).
-		FILE* iso_table = fopen("ISO_HEADER.BIN", "rb");
-		if (iso_table == NULL)
-		{
-			printf("ERROR: No decrypted ISO header found!\n");
-			return -1;
-		}
-
-		// Build the fifth ISO image.
-		printf("Building the ISO image number 5...\n");
-		if (build_iso(psar, iso_table, disc5_offset, 5))
-			printf("ERROR: Failed to reconstruct the ISO image number 5!\n\n");
-		else
-			printf("ISO image successfully reconstructed! Saving as ISO_5.BIN...\n\n");
-
-		// Convert the ISO image if required.
-		if (conv)
-		{
-			printf("Converting ISO image number 5...\n");
-			if (convert_iso(iso_table, "ISO_5.BIN", "CDROM_5.BIN", "CDROM_5.CUE", iso_disc_name))
-				printf("ERROR: Failed to convert ISO image number 5!\n\n");
-			else
-				printf("ISO image number 5 successfully converted to CD-ROM format!\n\n");
-		}
-
-		disc_count++;
-		fclose(iso_table);
 	}
 
 	printf("Successfully reconstructed %d ISO images!\n", disc_count);

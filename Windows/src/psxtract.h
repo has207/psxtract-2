@@ -3,9 +3,17 @@
 // http://www.gnu.org/licenses/gpl-3.0.txt
 
 #define _CRT_SECURE_NO_WARNINGS
+#define GAP_SIZE	2 * 75 * 2352  // 2 seconds * 75 frames * 2352 sector size
+#define NBYTES		0x180
+#define ES32(v)((unsigned int)(((v & 0xFF000000) >> 24) | \
+                           ((v & 0x00FF0000) >> 8 ) | \
+							             ((v & 0x0000FF00) << 8 ) | \
+							             ((v & 0x000000FF) << 24)))
 
 #include <cstdint>
 #include <direct.h>
+#include <sys/stat.h>
+#include <windows.h>
 
 #include "cdrom.h"
 #include "lz.h"

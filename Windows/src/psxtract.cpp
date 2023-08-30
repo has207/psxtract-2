@@ -388,23 +388,19 @@ int build_iso(FILE *psar, FILE *iso_table, int base_offset, int disc_num)
 	fclose(iso);
 	return 0;
 }
-
-#define ES32(v)((unsigned int)(((v & 0xFF000000) >> 24) | \
-                           ((v & 0x00FF0000) >> 8 ) | \
-							             ((v & 0x0000FF00) << 8 ) | \
-							             ((v & 0x000000FF) << 24)))
-							             
+						             
 unsigned int ROTR32(unsigned int v, int n)
 {
   return (((n &= 32 - 1) == 0) ? v : (v >> n) | (v << (32 - n)));
 }
 
-#define NBYTES    0x180
+
 
 int unscramble_atrac_data(unsigned char *track_data, CDDA_ENTRY *track)
 {
 	unsigned int blocks = (track->size / NBYTES) / 0x10;
 	unsigned int chunks_rest = (track->size / NBYTES) % 0x10;
+	printf("chunk_rest is %d\n", chunks_rest);
 	unsigned int *ptr = (unsigned int*)track_data;
 	unsigned int tmp = 0, tmp2 = track->checksum, value = 0;
 	
@@ -453,7 +449,7 @@ int unscramble_atrac_data(unsigned char *track_data, CDDA_ENTRY *track)
 	return 0;
 }
 
-int fill_at3_header(AT3_HEADER *header, CDDA_ENTRY *audio_entry, int track_size) {
+int fill_at3_header(AT3_HEADER *header, CDDA_ENTRY *audio_entry, int track_sectors) {
 	memset(header, 0, sizeof(AT3_HEADER));  // reset before filling
 	memcpy(header->riff_id, "RIFF", 4);
 	header->riff_size = audio_entry->size + sizeof(AT3_HEADER) - 8;
@@ -475,35 +471,44 @@ int fill_at3_header(AT3_HEADER *header, CDDA_ENTRY *audio_entry, int track_size)
 	header->param7 = 0;
 	memcpy(header->fact_id, "fact", 4);
 	header->fact_size = 8;
-	header->fact_param1 = track_size * 2352;  // multiply track size in frames by sector size
+	header->fact_param1 = track_sectors * 2352 / 4;
 	header->fact_param2 = 1024;
 	memcpy(header->data_id, "data", 4);
 	header->data_size = audio_entry->size;
 	return 0;
 }
 
-int extract_frames_from_cue(FILE *iso_table, int cue_offset, int entry_type)
+int extract_frames_from_cue(FILE *iso_table, int cue_offset, int gap)
 {
 	CUE_ENTRY cue_entry[sizeof(CUE_ENTRY)];
 	memset(cue_entry, 0, sizeof(CUE_ENTRY));
 
 	fseek(iso_table, cue_offset, SEEK_SET);
 	fread(cue_entry, sizeof(CUE_ENTRY), 1, iso_table);
-	int mmD, ssD, ffD;
-	if (cue_entry->type == entry_type)
+	int mm1, ss1, ff1;
+	unsigned char mm = cue_entry->I1m;
+	unsigned char ss = cue_entry->I1s;
+	unsigned char ff = cue_entry->I1f;
+	if (cue_entry->type == 0x01) // Sanity check that this is an Audio track
 	{
 		// convert 0xXY into decimal XY
-		mmD = 10 * (cue_entry->I1m - cue_entry->I1m % 16) / 16 + cue_entry->I1m % 16;
-		ssD = 10 * (cue_entry->I1s - cue_entry->I1s % 16) / 16 + cue_entry->I1s % 16 - 2;
-		ffD = 10 * (cue_entry->I1f - cue_entry->I1f % 16) / 16 + cue_entry->I1f % 16;
-		return (mmD * 60 * 75) + (ssD * 75) + ffD;
+		mm1 = 10 * (mm - mm % 16) / 16 + mm % 16;
+		ss1 = (10 * (ss - ss % 16) / 16 + ss % 16) - gap;
+		ff1 = 10 * (ff - ff % 16) / 16 + ff % 16;
+		//printf("Offset %dm:%ds:%df\n", mm1, ss1, ff1);
+		return (mm1 * 60 * 75) + (ss1 * 75) + ff1;
 	}
 	else
 		printf("Last track found\n");
 	return -1;
 }
 
-int build_audio(FILE *psar, FILE *iso_table, int base_offset, unsigned char *pgd_key)
+void audio_file_name(char* filename, int track_num, char* extension)
+{
+	sprintf(filename, "TRACK %02d.%s", track_num, extension);
+}
+
+int build_audio_at3(FILE *psar, FILE *iso_table, int base_offset, unsigned char *pgd_key)
 {	
 	if ((psar == NULL) || (iso_table == NULL))
 	{
@@ -511,7 +516,7 @@ int build_audio(FILE *psar, FILE *iso_table, int base_offset, unsigned char *pgd
 		return -1;
 	}
 	char track_filename[0x10];
-	int i=1;
+	int track_num = 1;
 	int iso_base_offset = 0x100000 + base_offset;  // Start of audio tracks.
 	
 	AT3_HEADER at3_header[sizeof(AT3_HEADER)];
@@ -537,35 +542,38 @@ int build_audio(FILE *psar, FILE *iso_table, int base_offset, unsigned char *pgd
 	int track_size, cur_track_offset, next_track_offset;
 	while (audio_entry->offset)
 	{
-		cur_track_offset = extract_frames_from_cue(iso_table, cue_offset, 0x01);
-		next_track_offset = extract_frames_from_cue(iso_table, cue_offset + sizeof(CUE_ENTRY), 0x01);
+		cur_track_offset = extract_frames_from_cue(iso_table, cue_offset, 2);
+		next_track_offset = extract_frames_from_cue(iso_table, cue_offset + sizeof(CUE_ENTRY), 2);
 		if (next_track_offset < 0)
-			// get disc size to calculate last track
-			next_track_offset = extract_frames_from_cue(iso_table, 0x416, 0xA2);
+		{
+			// get disc size to calculate last track, no gap after last track
+			next_track_offset = extract_frames_from_cue(iso_table, 0x414, 0);
+		}
 		track_size = next_track_offset - cur_track_offset;
-
+		printf("Track size %d sectors\n", track_size);
 		// Choose the output track file name based on the counter.
-		i++;
+		track_num++;
 		
 		// Locate the block offset in the DATA.PSAR.
+		printf("Seeking into position %x\n", iso_base_offset + audio_entry->offset);
 		fseek(psar, iso_base_offset + audio_entry->offset, SEEK_SET);
 
 		// Read the data.
-		unsigned char *track_data = new unsigned char[audio_entry->size];
-		fread(track_data, audio_entry->size, 1, psar);
+		unsigned char *track_data = new unsigned char[audio_entry->size + NBYTES];
+		fread(track_data, audio_entry->size + NBYTES, 1, psar);
 		
 		
 		// Store the decrypted track data.
-		// Open a new file to write the track image.
-		sprintf(track_filename, "TRACK %02d.AT3", i);
+		// Open a new file to write the track image with AT3 header
+		audio_file_name(track_filename, track_num, "AT3");
 		FILE* track = fopen(track_filename, "wb");
 		if (track == NULL)
 		{
-			printf("ERROR: Can't open output file for audio track %d!\n", i);
+			printf("ERROR: Can't open output file for audio track %d!\n", track_num);
 			return -1;
 		}
 
-		printf("Extracting audio track...%02d!\n", i);
+		printf("Extracting audio track...%02d!\n", track_num);
 		
 		unscramble_atrac_data(track_data, audio_entry);
 		
@@ -583,7 +591,134 @@ int build_audio(FILE *psar, FILE *iso_table, int base_offset, unsigned char *pgd
 		fseek(iso_table, audio_offset, SEEK_SET);
 		fread(audio_entry, sizeof(CDDA_ENTRY), 1, iso_table);
 	}
-	return 0;
+	return track_num - 1;
+}
+
+int convert_at3_to_wav(int num_tracks)
+{
+	for (int i = 2; i <= num_tracks + 1; i++)
+	{
+		char at3_filename[0x10];
+		audio_file_name(at3_filename, i, "AT3");
+		struct stat st;
+		if (stat(at3_filename, &st) != 0 || st.st_size == 0)
+		{
+			printf("%s doesn't exist or empty, aborting...\n", at3_filename);
+			return -1;
+		}
+
+		char wav_filename[0x10];
+		audio_file_name(wav_filename, i, "WAV");
+
+		char wdir[_MAX_PATH];
+		char command[_MAX_PATH + 50];
+
+		if (GetModuleFileName(NULL, wdir, MAX_PATH) == 0)
+		{
+			printf("ERROR: Failed to obtained current directory\n%d\n", GetLastError());
+			return 1;
+		}
+
+		// Find the last backslash in the path, and null-terminate there to remove the executable name
+		char* last_backslash = strrchr(wdir, '\\');
+		if (last_backslash) {
+			*last_backslash = '\0';
+		}
+		sprintf(command, "%s\\at3tool.exe", wdir);
+		if (stat(command, &st) != 0)
+		{
+			printf("ERROR: Failed to find at3tool.exe, aborting...");
+			return -1;
+		}
+		sprintf(command, "%s\\msvcr71.dll", wdir);
+		if (stat(command, &st) != 0)
+		{
+			printf("ERROR: Failed to find msvcr71.dll needed by at3tool.exe, aborting...");
+			return -1;
+		}
+		sprintf(command, "%s\\at3tool.exe -d \"%s\" \"%s\"", wdir, at3_filename, wav_filename);
+		printf("%s\n", command);
+		// It would be nice to check error codes/output but we just assume it goes as planned
+		// and check that a WAV file is created and non-zero later
+		system(command);
+		printf("\n");
+
+	}
+	return num_tracks;
+}
+
+int convert_wav_to_bin(int num_tracks)
+{
+	for (int i = 2; i <= num_tracks + 1; i++)
+	{
+		char wav_filename[0x10];
+		audio_file_name(wav_filename, i, "WAV");
+		struct stat st;
+		if (stat(wav_filename, &st) != 0 || st.st_size == 0)
+		{
+			printf("%s doesn't exist or empty, aborting...\n", wav_filename);
+			return -1;
+		}
+		FILE* wav_file = fopen(wav_filename, "rb");
+		if (wav_file == NULL)
+		{
+			printf("ERROR: Can't open %s, aborting...\n", wav_filename);
+			return -1;
+		}
+		// For some reason extracted AT3 files end up having the 2 second gap at the end rather
+		// than at the start.
+		// So we use the opportunity to move it to the front while stripping the WAVE header.
+		// Unfortunately we also have an issue with the last track ending up being too short
+		// by what appears to be roughly 2 seconds, so
+		// I suspect something in the decoding/unscrambling step is a little bit off,
+		// that results with the tracks to be read with the gaps shifted over,
+		// and the last track missing its 2 second gap.
+		// So we introduce a gross hack here, where we move the gaps to the front and also 
+		// pad the last track with zeroes until its expected length.
+		// This tends to work out in practice, but is pretty gross
+		// and it would be better to figure out what's wrong in the earlier decoding step.
+		unsigned char gap[GAP_SIZE];
+		fseek(wav_file, st.st_size - GAP_SIZE, SEEK_SET);
+		fread(gap, GAP_SIZE, 1, wav_file);
+
+		char bin_filename[0x10];
+		audio_file_name(bin_filename, i, "BIN");
+		FILE* bin_file = fopen(bin_filename, "wb");
+		if (bin_file == NULL)
+		{
+			printf("ERROR: Can't open %s, aborting...\n", bin_filename);
+			return -1;
+		}
+		fwrite(gap, GAP_SIZE, 1, bin_file);
+		fseek(wav_file, 44, SEEK_SET);  // skip the WAVE header
+		int data_size = st.st_size - GAP_SIZE - 44;
+		unsigned char* audio_data = (unsigned char*)malloc(data_size);
+		fread(audio_data, data_size, 1, wav_file);
+		fwrite(audio_data, data_size, 1, bin_file);
+		if (audio_data != NULL) free(audio_data);
+
+		// grab the expected size from the AT3 header
+		char at3_filename[0x10];
+		audio_file_name(at3_filename, i, "AT3");
+		FILE* at3_file = fopen(at3_filename, "rb");
+		if (at3_file != NULL)
+		{
+			AT3_HEADER at3_header[sizeof(AT3_HEADER)];
+			fread(at3_header, sizeof(AT3_HEADER), 1, at3_file);
+			long expected_size = at3_header->fact_param1 * 4;
+			fseek(bin_file, 0, SEEK_END);
+			long file_size = ftell(bin_file);
+			if (file_size < expected_size)
+			{
+				printf("Need to pad %d bytes\n", expected_size - file_size);
+				unsigned char zero[1];
+				fwrite(zero, 1, expected_size - file_size, bin_file);
+			}
+		}
+		else
+			printf("WARNING: Can't open %s, skipping padding step...\n", at3_filename);
+	}
+	return num_tracks;
 }
 
 int convert_iso(FILE *iso_table, char *iso_file_name, char *cdrom_file_name, char *cue_file_name, unsigned char *iso_disc_name)
@@ -719,10 +854,23 @@ int decrypt_single_disc(FILE *psar, int psar_size, int startdat_offset, unsigned
 	else
 		printf("ISO image successfully reconstructed! Saving as ISO.BIN...\n\n");
 
-	if (build_audio(psar, iso_table, 0, pgd_key))
-		printf("Audio track extraction failed!\n\n");
+	int num_tracks = build_audio_at3(psar, iso_table, 0, pgd_key);
+	if (num_tracks < 0)
+		printf("ERROR: Audio track extraction failed!\n");
 	else
-		printf("Audio tracks extracted...\n\n");
+		printf("%d audio tracks extracted to ATRAC3\n", num_tracks);
+
+	if (convert_at3_to_wav(num_tracks) < 0)
+		printf("ERROR: ATRAC3 to WAV conversion failed!\n");
+	else
+		printf("%d audio tracks converted to WAV\n", num_tracks);
+
+	if (convert_wav_to_bin(num_tracks) < 0)
+		printf("ERROR: WAV to BIN conversion failed!\n");
+	else
+		printf("%d audio tracks converted to BIN\n", num_tracks);
+
+	printf("\n");
 
 	// Convert the final ISO image if required.
 	if (conv)
@@ -1015,9 +1163,10 @@ int main(int argc, char **argv)
 	if ((argc - arg_offset) >= 3)
 	{
 		FILE* document = fopen(argv[arg_offset + 2], "rb");
-		if (document != NULL)
+		if (document != NULL) {
 			decrypt_document(document);
-		fclose(document);
+			fclose(document);
+		}
 	}
 
 	// Use a supplied key when available.

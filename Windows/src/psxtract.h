@@ -4,6 +4,7 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 
+#include <cstdint>
 #include <direct.h>
 
 #include "cdrom.h"
@@ -48,7 +49,7 @@ char iso_magic[0xC] = {
 
 // CUE structure
 typedef struct {
-	unsigned short    type;		    // Track Type = 41h for DATA, 01h for CDDA
+	unsigned short    type;		    // Track Type = 41h for DATA, 01h for CDDA, A2h for lead out
 	unsigned char    number;		// Track Number (01h to 99h)
 	unsigned char    I0m;		    // INDEX 00 MM
 	unsigned char    I0s;		    // INDEX 00 SS
@@ -85,12 +86,33 @@ typedef struct {
 	unsigned int	 data_size;
 } STARTDAT_HEADER;
 
-// SPECIAL header structure.
+// ATRAC3 RIFF WAVE header structure.
 typedef struct {
-	unsigned char    magic[8];		// SIMPLE__
-	unsigned int	 unk1;			// 0x64
-	unsigned int	 unk2;			// 0x01
-	unsigned int	 data_size;
-	unsigned int	 unk3;			// 0 or chcksm
-	unsigned int	 unk4;			// 0 or chcksm
-} SPECIAL_HEADER;
+	unsigned char    riff_id[4];	// "RIFF"
+	uint32_t		 riff_size;		// size of rest of the file: audio + header - 8
+	unsigned char	 riff_format[4]; // "WAVE"
+	unsigned char	 fmt_id[4];		// "fmt\x20"
+	uint32_t		 fmt_size;		// size of format, always 32
+	uint16_t		 codec_id;		// always 624 (ATRAC3+?)
+	uint16_t		 channels;		// number of channels, always 2
+	uint32_t		 sample_rate;	// sample rate - always 44100
+	uint32_t		 unknown1;		// always 16538, seems connected to next value
+	uint32_t		 bytes_per_frame; // always 384
+	uint16_t		 param_size;	// likely the length of remaining params, always 14
+	uint16_t		 param1;		// unknown, always 1
+	uint16_t		 param2;		// unknown, always 4096
+	uint16_t		 param3;		// unknown, always 0
+	uint16_t		 param4;		// unknown, always 0
+	uint16_t	     param5;		// unknown, always 0
+	uint16_t		 param6;		// unknown, always 1
+	uint16_t	     param7;		// unknown, always 0
+	unsigned char    fact_id[4];	// "fact"
+	uint32_t		 fact_size;		// always 8
+	uint32_t		 fact_param1;	// size of (in|out)put file sans 44byte WAVE header, divided by 4
+									// we can get this by taking the track time in mm:ss:ff
+									// convert to frames (mm*60*75 + ss*75 + ff)
+									// and multiply by sector size 2352
+	uint32_t		 fact_param2;	// unknown, always 1024
+	unsigned char    data_id[4];	// "data"
+	uint32_t		 data_size;		// size of data segment
+} AT3_HEADER;

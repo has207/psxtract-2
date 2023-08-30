@@ -453,6 +453,56 @@ int unscramble_atrac_data(unsigned char *track_data, CDDA_ENTRY *track)
 	return 0;
 }
 
+int fill_at3_header(AT3_HEADER *header, CDDA_ENTRY *audio_entry, int track_size) {
+	memset(header, 0, sizeof(AT3_HEADER));  // reset before filling
+	memcpy(header->riff_id, "RIFF", 4);
+	header->riff_size = audio_entry->size + sizeof(AT3_HEADER) - 8;
+	memcpy(header->riff_format, "WAVE", 4);
+	memcpy(header->fmt_id, "fmt\x20", 4);
+	header->fmt_size = 32;
+	header->codec_id = 624;
+	header->channels = 2;
+	header->sample_rate = 44100;
+	header->unknown1 = 16538;
+	header->bytes_per_frame = 384;
+	header->param_size = 14;
+	header->param1 = 1;
+	header->param2 = 4096;
+	header->param3 = 0;
+	header->param4 = 0;
+	header->param5 = 0;
+	header->param6 = 1;
+	header->param7 = 0;
+	memcpy(header->fact_id, "fact", 4);
+	header->fact_size = 8;
+	header->fact_param1 = track_size * 2352;  // multiply track size in frames by sector size
+	header->fact_param2 = 1024;
+	memcpy(header->data_id, "data", 4);
+	header->data_size = audio_entry->size;
+	return 0;
+}
+
+int extract_frames_from_cue(FILE *iso_table, int cue_offset, int entry_type)
+{
+	CUE_ENTRY cue_entry[sizeof(CUE_ENTRY)];
+	memset(cue_entry, 0, sizeof(CUE_ENTRY));
+
+	fseek(iso_table, cue_offset, SEEK_SET);
+	fread(cue_entry, sizeof(CUE_ENTRY), 1, iso_table);
+	int mmD, ssD, ffD;
+	if (cue_entry->type == entry_type)
+	{
+		// convert 0xXY into decimal XY
+		mmD = 10 * (cue_entry->I1m - cue_entry->I1m % 16) / 16 + cue_entry->I1m % 16;
+		ssD = 10 * (cue_entry->I1s - cue_entry->I1s % 16) / 16 + cue_entry->I1s % 16 - 2;
+		ffD = 10 * (cue_entry->I1f - cue_entry->I1f % 16) / 16 + cue_entry->I1f % 16;
+		return (mmD * 60 * 75) + (ssD * 75) + ffD;
+	}
+	else
+		printf("Last track found\n");
+	return -1;
+}
+
 int build_audio(FILE *psar, FILE *iso_table, int base_offset, unsigned char *pgd_key)
 {	
 	if ((psar == NULL) || (iso_table == NULL))
@@ -463,23 +513,37 @@ int build_audio(FILE *psar, FILE *iso_table, int base_offset, unsigned char *pgd
 	char track_filename[0x10];
 	int i=1;
 	int iso_base_offset = 0x100000 + base_offset;  // Start of audio tracks.
-
 	
-
+	AT3_HEADER at3_header[sizeof(AT3_HEADER)];
 	CDDA_ENTRY audio_entry[sizeof(CDDA_ENTRY)];
 	memset(audio_entry, 0, sizeof(CDDA_ENTRY));
 
+	CUE_ENTRY cue_entry_cur[sizeof(CUE_ENTRY)];
+	memset(cue_entry_cur, 0, sizeof(CUE_ENTRY));
+
+	CUE_ENTRY cue_entry_next[sizeof(CUE_ENTRY)];
+	memset(cue_entry_next, 0, sizeof(CUE_ENTRY));
+
+	// Read track 02
+	int cue_offset = 0x428;  // track 02 offset
 	int audio_offset = 0x800;  // Fixed audio table offset.
 	
-	// Read the first entry.
 	fseek(iso_table, audio_offset, SEEK_SET);
 	fread(audio_entry, sizeof(CDDA_ENTRY), 1, iso_table);
 	if (audio_entry->offset == 0)
 	{
 		printf("there is no audio tracks in the ISO!\n");
 	}
+	int track_size, cur_track_offset, next_track_offset;
 	while (audio_entry->offset)
 	{
+		cur_track_offset = extract_frames_from_cue(iso_table, cue_offset, 0x01);
+		next_track_offset = extract_frames_from_cue(iso_table, cue_offset + sizeof(CUE_ENTRY), 0x01);
+		if (next_track_offset < 0)
+			// get disc size to calculate last track
+			next_track_offset = extract_frames_from_cue(iso_table, 0x416, 0xA2);
+		track_size = next_track_offset - cur_track_offset;
+
 		// Choose the output track file name based on the counter.
 		i++;
 		
@@ -505,12 +569,16 @@ int build_audio(FILE *psar, FILE *iso_table, int base_offset, unsigned char *pgd
 		
 		unscramble_atrac_data(track_data, audio_entry);
 		
-		fwrite(track_data, 1, audio_entry->size, track);
+		fill_at3_header(at3_header, audio_entry, track_size);
+
+		fwrite(at3_header, sizeof(AT3_HEADER), 1, track);
+		fwrite(track_data, audio_entry->size, 1, track);
 		
 		fclose(track);
 		delete[] track_data;
 		
 		audio_offset += sizeof(CDDA_ENTRY);
+		cue_offset += sizeof(CUE_ENTRY);
 		// Go to next entry.
 		fseek(iso_table, audio_offset, SEEK_SET);
 		fread(audio_entry, sizeof(CDDA_ENTRY), 1, iso_table);

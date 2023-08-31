@@ -718,6 +718,7 @@ int convert_wav_to_bin(int num_tracks)
 		}
 		else
 			printf("WARNING: Can't open %s, skipping padding step...\n", at3_filename);
+		fclose(bin_file);
 	}
 	return num_tracks;
 }

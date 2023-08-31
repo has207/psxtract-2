@@ -31,6 +31,10 @@ Using the internal files' hashes, psxtract can calculate the key by itself.
 
 Game file manual decryption is also supported (DOCUMENT.DAT).
 
+DO NOT use the Linux code, it is hopeless behind the Windows code at this
+point, and is only there as a historical curiousity. If you want to use
+this tool on Linux/OSX try it with Wine.
+
 For more details about the algorithms involved in the extraction process
 please check the following sources:
 - PBP unpacking: 

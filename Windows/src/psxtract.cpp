@@ -400,7 +400,6 @@ int unscramble_atrac_data(unsigned char *track_data, CDDA_ENTRY *track)
 {
 	unsigned int blocks = (track->size / NBYTES) / 0x10;
 	unsigned int chunks_rest = (track->size / NBYTES) % 0x10;
-	printf("chunk_rest is %d\n", chunks_rest);
 	unsigned int *ptr = (unsigned int*)track_data;
 	unsigned int tmp = 0, tmp2 = track->checksum, value = 0;
 	
@@ -551,12 +550,10 @@ int build_audio_at3(FILE *psar, FILE *iso_table, int base_offset, unsigned char 
 			next_track_offset = extract_frames_from_cue(iso_table, 0x414, 0);
 		}
 		track_size = next_track_offset - cur_track_offset;
-		printf("Track size %d sectors\n", track_size);
 		// Choose the output track file name based on the counter.
 		track_num++;
 		
 		// Locate the block offset in the DATA.PSAR.
-		printf("Seeking into position %x\n", iso_base_offset + audio_entry->offset);
 		fseek(psar, iso_base_offset + audio_entry->offset, SEEK_SET);
 
 		// Read the data.
@@ -574,7 +571,7 @@ int build_audio_at3(FILE *psar, FILE *iso_table, int base_offset, unsigned char 
 			return -1;
 		}
 
-		printf("Extracting audio track...%02d!\n", track_num);
+		printf("Extracting audio track %d (%d sectors)\n", track_num, track_size);
 		
 		unscramble_atrac_data(track_data, audio_entry);
 		
@@ -718,6 +715,8 @@ int convert_wav_to_bin(int num_tracks)
 		}
 		else
 			printf("WARNING: Can't open %s, skipping padding step...\n", at3_filename);
+		fclose(at3_file);
+		fclose(wav_file);
 		fclose(bin_file);
 	}
 	return num_tracks;
@@ -731,7 +730,7 @@ int copy_track_to_iso(FILE *bin_file, char *track_filename, int track_num)
 		printf("ERROR: %s cannot be opened\n", track_filename);
 		return -1;
 	}
-	printf("copying %s\n", track_filename);
+	printf("\tadding %s\n", track_filename);
 	fseek(track_file, 0, SEEK_END);
 	int track_size = ftell(track_file);
 	unsigned char* track_data = (unsigned char*)malloc(track_size);
@@ -746,10 +745,10 @@ int convert_iso(FILE *iso_table, char *data_track_file_name, char *cdrom_file_na
 {
 	char data_fixed_file_path[256];
 	strcat(data_fixed_file_path, data_track_file_name);
-	strcat(data_fixed_file_path, ".FIXED");
-	char cdrom_file_path[256] = "../CDROM/";
+	strcat(data_fixed_file_path, ".ISO");
+	char cdrom_file_path[256] = "../";
 	strcat(cdrom_file_path, cdrom_file_name);
-	char cue_file_path[256] = "../CDROM/";
+	char cue_file_path[256] = "../";
 	strcat(cue_file_path, cue_file_name);
 
 	// Patch ECC/EDC and build a new proper CD-ROM image for this ISO.
@@ -838,7 +837,7 @@ int convert_iso(FILE *iso_table, char *data_track_file_name, char *cdrom_file_na
 	return 0;
 }
 
-int decrypt_single_disc(FILE *psar, int psar_size, int startdat_offset, unsigned char *pgd_key, bool conv)
+int decrypt_single_disc(FILE *psar, int psar_size, int startdat_offset, unsigned char *pgd_key)
 {
 	// Decrypt the ISO header and get the block table.
 	// NOTE: In a single disc, the ISO header is located at offset 0x400 and has a length of 0xB6600.
@@ -912,20 +911,17 @@ int decrypt_single_disc(FILE *psar, int psar_size, int startdat_offset, unsigned
 	printf("\n");
 
 	// Convert the final ISO image if required.
-	if (conv)
-	{
-		printf("Converting the final ISO image...\n");
-		if (convert_iso(iso_table, "TRACK 01.BIN", "CDROM.BIN", "CDROM.CUE", iso_disc_name))
-			printf("ERROR: Failed to convert the ISO image!\n");
-		else
-			printf("ISO image successfully converted to CD-ROM format!\n");
-	}
+	printf("Converting the final ISO image...\n");
+	if (convert_iso(iso_table, "TRACK 01.BIN", "CDROM.BIN", "CDROM.CUE", iso_disc_name))
+		printf("ERROR: Failed to convert the ISO image!\n");
+	else
+		printf("ISO image successfully converted to CD-ROM format!\n");
 
 	fclose(iso_table);
 	return 0;
 }
 
-int decrypt_multi_disc(FILE *psar, int psar_size, int startdat_offset, unsigned char *pgd_key, bool conv)
+int decrypt_multi_disc(FILE *psar, int psar_size, int startdat_offset, unsigned char *pgd_key)
 {
 	// Decrypt the multidisc ISO map header and get the disc map.
 	// NOTE: The ISO map header is located at offset 0x200 and 
@@ -1005,20 +1001,18 @@ int decrypt_multi_disc(FILE *psar, int psar_size, int startdat_offset, unsigned 
 				printf("ISO image successfully reconstructed! Saving as DATA_%d.BIN...\n\n", i + 1);
 
 			// Convert the ISO image if required.
-			if (conv)
-			{
-				printf("Converting ISO image number %d...\n", i + 1);
-				char data_x_bin[0x10];
-				sprintf(data_x_bin, "DATA_%d.BIN", i + 1);
-				char cdrom_x_bin[0x10];
-				sprintf(cdrom_x_bin, "CDROM_%d.BIN", i + 1);
-				char cdrom_x_cue[0x10];
-				sprintf(cdrom_x_cue, "CDROM_%d.CUE", i + 1);
-				if (convert_iso(iso_table, data_x_bin, cdrom_x_bin, cdrom_x_cue, iso_disc_name))
-					printf("ERROR: Failed to convert ISO image number %d!\n\n", i + 1);
-				else
-					printf("ISO image number %d successfully converted to CD-ROM format!\n\n", i + 1);
-			}
+			printf("Converting ISO image number %d...\n", i + 1);
+			char data_x_bin[0x10];
+			sprintf(data_x_bin, "DATA_%d.BIN", i + 1);
+			char cdrom_x_bin[0x10];
+			sprintf(cdrom_x_bin, "CDROM_%d.BIN", i + 1);
+			char cdrom_x_cue[0x10];
+			sprintf(cdrom_x_cue, "CDROM_%d.CUE", i + 1);
+			if (convert_iso(iso_table, data_x_bin, cdrom_x_bin, cdrom_x_cue, iso_disc_name))
+				printf("ERROR: Failed to convert ISO image number %d!\n\n", i + 1);
+			else
+				printf("ISO image number %d successfully converted to CD-ROM format!\n\n", i + 1);
+
 			disc_count++;
 			fclose(iso_table);
 		}
@@ -1037,22 +1031,22 @@ int main(int argc, char **argv)
 		printf("psxtract - Convert your PSOne Classics to ISO format.\n");
 		printf("         - Written by Hykem (C).\n");
 		printf("*****************************************************\n\n");
-		printf("Usage: psxtract [-c] <EBOOT.PBP> <DOCUMENT.DAT> <KEYS.BIN>\n");
-		printf("[-c] - Convert raw image to the original PSOne CD-ROM format.\n");
-		printf("<EBOOT.PBP> - Your PSOne Classic main PBP.\n");
-		printf("<DOCUMENT.DAT> - Game manual file (optional).\n");
-		printf("<KEYS.BIN> - Key file (optional).\n");
+		printf("Usage: psxtract [-c] <EBOOT.PBP> [DOCUMENT.DAT] [KEYS.BIN]\n");
+		printf("[-c] - Clean up temporary files after finishing.\n");
+		printf("EBOOT.PBP - Your PSOne Classic main PBP.\n");
+		printf("DOCUMENT.DAT - Game manual file (optional).\n");
+		printf("KEYS.BIN - Key file (optional).\n");
 		return 0;
 	}
 
 	// Keep track of the each argument's offset.
 	int arg_offset = 0;
 
-	// Check if we're converting data into CD-ROM format.
-	bool conv = false;
+	// Check if we want to clean up temp files before exiting.
+	bool cleanup = false;
 	if (!strcmp(argv[1], "-c"))
 	{
-		conv = true;
+		cleanup = true;
 		arg_offset++;
 	}
 
@@ -1088,6 +1082,9 @@ int main(int argc, char **argv)
 			printf("%02X", pgd_key[i]);
 		printf("\n\n");
 	}
+	// Make a new directory for the ISO data.
+	_mkdir("TEMP");
+	_chdir("TEMP");
 
 	printf("Unpacking PBP %s...\n", argv[arg_offset + 1]);
 
@@ -1106,19 +1103,10 @@ int main(int argc, char **argv)
 	else
 		printf("Successfully unpacked %s!\n\n", argv[arg_offset + 1]);
 
-	// Change the directory back.
 	_chdir("..");
 
-	// Make a directory for CD-ROM images if required.
-	if (conv)
-		_mkdir("CDROM");
-
-	// Make a new directory for the ISO data.
-	_mkdir("ISO");
-	_chdir("ISO");
-
 	// Locate DATA.PSAR.
-	FILE* psar = fopen("../PBP/DATA.PSAR", "rb");
+	FILE* psar = fopen("PBP/DATA.PSAR", "rb");
 	if (psar == NULL)
 	{
 		printf("ERROR: No DATA.PSAR found!\n");
@@ -1163,9 +1151,9 @@ int main(int argc, char **argv)
 
 	// Decrypt the disc(s).
 	if (isMultidisc)
-		decrypt_multi_disc(psar, psar_size, startdat_offset, pgd_key, conv);
+		decrypt_multi_disc(psar, psar_size, startdat_offset, pgd_key);
 	else
-		decrypt_single_disc(psar, psar_size, startdat_offset, pgd_key, conv);
+		decrypt_single_disc(psar, psar_size, startdat_offset, pgd_key);
 
 	// Change the directory back.
 	_chdir("..");
@@ -1173,5 +1161,10 @@ int main(int argc, char **argv)
 	fclose(psar);
 	fclose(input);
 
+	if (cleanup)
+	{
+		printf("Cleanup requested, removing TEMP folder");
+		system("rmdir /S /Q TEMP");
+	}
 	return 0;
 }

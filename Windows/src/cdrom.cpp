@@ -64,6 +64,8 @@ struct fixImageStatus fixImage(char* inputfilepath, char* outputfilepath, enum E
             delete[] bootloader;
 
             status.errorcode = ERROR_IMAGE_INCOMPLETE;
+            fclose(inputfile);
+            fclose(outputfile);
             return status;
         }
 
@@ -116,6 +118,8 @@ struct fixImageStatus fixImage(char* inputfilepath, char* outputfilepath, enum E
     if(sector == NULL)
     {
         status.errorcode = ERROR_OUT_OF_MEMORY;
+        fclose(inputfile);
+        fclose(outputfile);
         return status;
     }
     for(int i = 0; i < filesize; i += SECTOR_SIZE)
@@ -212,6 +216,8 @@ struct fixImageStatus fixImage(char* inputfilepath, char* outputfilepath, enum E
             if(remainder_is_zero)
             {
                 // We had indeed reached the beginning of the zero-padding. We are done here!
+                fclose(inputfile);
+                fclose(outputfile);
                 return status;
             }
             else

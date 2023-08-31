@@ -1,5 +1,5 @@
-psxtract
-========
+psxtract-2
+==========
 
 Tool to decrypt and convert PSOne Classics from PSP/PS3.
 Originally written by **Hykem**.

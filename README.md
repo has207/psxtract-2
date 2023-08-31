@@ -17,8 +17,8 @@ Notes
 Output of running psxtract.exe EBOOT.PBP is two files - CDROM.BIN and
 CDROM.cue in the current directory. You should know what to do with those.
 
-Using the "-c" option in the command line, psxtract will clean up any
-temporary files it generates while it runs (of where there are many).
+Using the "-c" option on the command line, psxtract will clean up any
+temporary files it generates while it runs (of which there are many).
 This flag is kept for backwards compatibility with old psxtract that used
 it to force CDROM creation. Current version always creates a BIN/CUE pair
 but we keep the flag for nostalgia.

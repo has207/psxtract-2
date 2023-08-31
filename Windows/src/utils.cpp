@@ -4,25 +4,6 @@
 
 #include "utils.h"
 
-unsigned char* strip_utf8(unsigned char *src, int size)
-{
-	unsigned char* ret = new unsigned char[size];
-	int index = 0;
-
-    for (int i = 0; i < size; i++)
-	{
-		if (src[i] == 0)
-		{
-			ret[index++] = '\0';
-			break;
-		}
-		else if (src[i] <= 0x80)
-			ret[index++] = src[i];
-	}
-
-    return ret;
-}
-
 bool isEmpty(unsigned char* buf, int buf_size)
 {
 	if (buf != NULL)

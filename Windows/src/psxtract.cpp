@@ -858,13 +858,13 @@ int decrypt_single_disc(FILE *psar, int psar_size, int startdat_offset, unsigned
 	memset(iso_title, 0, 0x80);
 	memset(iso_disc_name, 0, 0x10);
 
-	fseek(iso_table, 0, SEEK_SET);
-	fread(iso_disc_name, 0x10, 1, iso_table);
+	fseek(iso_table, 1, SEEK_SET);
+	fread(iso_disc_name, 0x0F, 1, iso_table);
 	fseek(iso_table, 0xE2C, SEEK_SET);
 	fread(iso_title, 0x80, 1, iso_table);
 
-	printf("ISO disc: %s\n", strip_utf8(iso_disc_name, 0x10));
-	printf("ISO title: %s\n\n", strip_utf8(iso_title, 0x80));
+	printf("ISO disc: %s\n", iso_disc_name);
+	printf("ISO title: %s\n\n", iso_title);
 
 	// Seek inside the ISO table to find the special data offset.
 	int special_data_offset;
@@ -957,13 +957,13 @@ int decrypt_multi_disc(FILE *psar, int psar_size, int startdat_offset, unsigned 
 	memset(iso_title, 0, 0x80);
 	memset(iso_disc_name, 0, 0x10);
 
-	fseek(iso_map, 0x64, SEEK_SET);
-	fread(iso_disc_name, 0x10, 1, iso_map);
+	fseek(iso_map, 0x65, SEEK_SET);
+	fread(iso_disc_name, 0x0F, 1, iso_map);
 	fseek(iso_map, 0x10C, SEEK_SET);
 	fread(iso_title, 0x80, 1, iso_map);
 
-	printf("ISO disc: %s\n", strip_utf8(iso_disc_name, 0x10));
-	printf("ISO title: %s\n\n", strip_utf8(iso_title, 0x80));
+	printf("ISO disc: %s\n", iso_disc_name);
+	printf("ISO title: %s\n\n", iso_title);
 
 	// Seek inside the ISO map to find the special data offset.
 	int special_data_offset;
@@ -1025,6 +1025,7 @@ int decrypt_multi_disc(FILE *psar, int psar_size, int startdat_offset, unsigned 
 
 int main(int argc, char **argv)
 {
+	SetConsoleOutputCP(CP_UTF8);
 	if ((argc <= 1) || (argc > 5))
 	{
 		printf("*****************************************************\n");

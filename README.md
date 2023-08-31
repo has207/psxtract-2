@@ -2,19 +2,29 @@ psxtract
 ========
 
 Tool to decrypt and convert PSOne Classics from PSP/PS3.
-Written by **Hykem**.
+Originally written by **Hykem**.
 
-This tool allows you to decrypt a PSOne Classics EBOOT.PBP on your PC, using
-the emulated PSP method.
+This tool allows you to decrypt a PSOne Classics EBOOT.PBP on your PC.
 It features a modified version of libkirk's source code to support DES
 encryption/decryption and the AMCTRL functions.
+Also features isofix code for ensuring finalized ISO matches real discs.
+And uses at3tool for ATRAC3 decoding of CDDA audio tracks.
 
 
 Notes
 -------
 
-Using the "-c" option in the command line, psxtract will additionally
-convert the resulting ISO image to a mountable PSOne CD-ROM binary image (BIN/CUE).
+Output of running psxtract.exe EBOOT.PBP is two files - CDROM.BIN and
+CDROM.cue in the current directory. You should know what to do with those.
+
+Using the "-c" option in the command line, psxtract will clean up any
+temporary files it generates while it runs (of where there are many).
+This flag is kept for backwards compatibility with old psxtract that used
+it to force CDROM creation. Current version always creates a BIN/CUE pair
+but we keep the flag for nostalgia.
+
+at3tool.exe and its accompanying dll are required to be in the same
+directory for ATRAC3 audio decoding of CDDA tracks.
 
 You may supply a KEYS.BIN file to the tool, but this is not necessary.
 Using the internal files' hashes, psxtract can calculate the key by itself.
@@ -42,25 +52,8 @@ please check the following sources:
 Working games and compatibility
 -------------------------------
 
-The following games have been tested with ePSXe and are known to work. All games were bought from the PSN US store unless another store is indicated.
-
-- Breath of Fire IV
-- Crash Bandicoot
-- Crash Bandicoot 2: Cortex Strikes Back
-- Crash Bandicoot 3: WARPED
-- CTR: Crash Team Racing
-- Final Fantasy VII (German)
-- Final Fantasy IX
-- Grandia
-- Disney's Hercules
-- Metal Gear Solid (German)
-- Metal Slug X
-- Simcity 2000
-- Spyro the Dragon
-- Spyro 2: Ripto's Rage
-- Spyro Year of the Dragon
-
-If a game does not appear on this list, that does not mean it won't work - it means it hasn't been tested yet. All tested games have worked so far. If you experience graphic issues, it will be due to the settings of your emulator. For example, in Final Fantasy IX and Breath of Fire IV, the battle intro animation will not happen or look different from the original game with default ePSXe settings. Make sure to set "Framebuffer effects" to 1 or more in the settings of Pete's graphics plugin. Enabling off-screen drawing is also worth a shot. The games from the PSN store should be full versions. For example, Crash Bandicoot 3 even includes the demo of Spyro the Dragon which is accessible through a cheat code in the main menu, just like the original game.
+All PSN eboots should be supported. If you encounter issues with a particular game
+report it here.
 
 
 Credits
@@ -73,3 +66,7 @@ Draan, Proxima and everyone involved in kirk-engine (libkirk source code)
 tpunix (C port and research of the PGD and AMCTRL algorithms)
 
 PSPSDK (PBP unpacking sample code)
+
+zeroxao (Unscrambling and decoding of audio tracks)
+
+Heel (ATRACT3 decoding for CDDA tracks)

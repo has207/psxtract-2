@@ -303,9 +303,9 @@ int build_iso(FILE *psar, FILE *iso_table, int base_offset, int disc_num)
 	// Choose the output ISO file name based on the disc number.
 	char iso_filename[0x10];
 	if (disc_num > 0)
-		sprintf(iso_filename, "ISO_%d.BIN", disc_num);
+		sprintf(iso_filename, "DATA_%d.BIN", disc_num);
 	else
-		sprintf(iso_filename, "ISO.BIN");
+		sprintf(iso_filename, "TRACK 01.BIN");
 
 	// Open a new file to write overdump
 	FILE* overdump = fopen("OVERDUMP.BIN", "wb");
@@ -723,15 +723,37 @@ int convert_wav_to_bin(int num_tracks)
 	return num_tracks;
 }
 
-int convert_iso(FILE *iso_table, char *iso_file_name, char *cdrom_file_name, char *cue_file_name, unsigned char *iso_disc_name)
+int copy_track_to_iso(FILE *bin_file, char *track_filename, int track_num)
 {
-	// Set the CD-ROM file path.
-	char cdrom_file_path[256] = "../CDROM/", cue_file_path[256] = "../CDROM/";
+	FILE* track_file = fopen(track_filename, "rb");
+	if (track_file == NULL)
+	{
+		printf("ERROR: %s cannot be opened\n", track_filename);
+		return -1;
+	}
+	printf("copying %s\n", track_filename);
+	fseek(track_file, 0, SEEK_END);
+	int track_size = ftell(track_file);
+	unsigned char* track_data = (unsigned char*)malloc(track_size);
+	fseek(track_file, 0, SEEK_SET);
+	fread(track_data, track_size, 1, track_file);
+	fwrite(track_data, track_size, 1, bin_file);
+	fclose(track_file);
+	return 0;
+}
+
+int convert_iso(FILE *iso_table, char *data_track_file_name, char *cdrom_file_name, char *cue_file_name, unsigned char *iso_disc_name)
+{
+	char data_fixed_file_path[256];
+	strcat(data_fixed_file_path, data_track_file_name);
+	strcat(data_fixed_file_path, ".FIXED");
+	char cdrom_file_path[256] = "../CDROM/";
 	strcat(cdrom_file_path, cdrom_file_name);
+	char cue_file_path[256] = "../CDROM/";
 	strcat(cue_file_path, cue_file_name);
 
 	// Patch ECC/EDC and build a new proper CD-ROM image for this ISO.
-	make_cdrom(iso_file_name, cdrom_file_path, false);
+	make_cdrom(data_track_file_name, data_fixed_file_path, false);
 
 	// Generate a CUE file for mounting/burning.
 	FILE* cue_file = fopen(cue_file_path, "wb");
@@ -755,33 +777,24 @@ int convert_iso(FILE *iso_table, char *iso_file_name, char *cdrom_file_name, cha
 	int cue_offset = 0x428;  // track 02 offset
 	int i = 1;
 
+	// Copy data track
+	FILE* bin_file = fopen(cdrom_file_path, "wb");
+	if (bin_file == NULL)
+	{
+		printf("ERROR: Can't open %s!\n", cdrom_file_path);
+		return -1;
+	}
+	copy_track_to_iso(bin_file, data_fixed_file_path, 1);
+
 	// Read track 02
 	fseek(iso_table, cue_offset, SEEK_SET);
 	fread(cue_entry, sizeof(CUE_ENTRY), 1, iso_table);
 	int track_num = 2;
-	FILE* bin_file = fopen(cdrom_file_path, "ab");
-	if (bin_file == NULL)
-	{
-		printf("ERROR: Can't open %s for updating!\n", cdrom_file_path);
-		return -1;
-	}
 	while (cue_entry->type)
 	{
 		char track_filename[0x10];
 		audio_file_name(track_filename, track_num, "BIN");
-		FILE* track_file = fopen(track_filename, "rb");
-		if (track_file == NULL)
-		{
-			printf("ERROR: %s cannot be opened\n", track_filename);
-			return -1;
-		}
-		fseek(track_file, 0, SEEK_END);
-		int track_size = ftell(track_file);
-		unsigned char* track_data = (unsigned char*)malloc(track_size);
-		fseek(track_file, 0, SEEK_SET);
-		fread(track_data, track_size, 1, track_file);
-		fwrite(track_data, track_size, 1, bin_file);
-		fclose(track_file);
+		copy_track_to_iso(bin_file, track_filename, track_num);
 		int ff1, ss1, mm1, mm0, ss0;
 		i++;
 		// convert 0xXY into decimal XY
@@ -902,7 +915,7 @@ int decrypt_single_disc(FILE *psar, int psar_size, int startdat_offset, unsigned
 	if (conv)
 	{
 		printf("Converting the final ISO image...\n");
-		if (convert_iso(iso_table, "ISO.BIN", "CDROM.BIN", "CDROM.CUE", iso_disc_name))
+		if (convert_iso(iso_table, "TRACK 01.BIN", "CDROM.BIN", "CDROM.CUE", iso_disc_name))
 			printf("ERROR: Failed to convert the ISO image!\n");
 		else
 			printf("ISO image successfully converted to CD-ROM format!\n");
@@ -989,19 +1002,19 @@ int decrypt_multi_disc(FILE *psar, int psar_size, int startdat_offset, unsigned 
 			if (build_iso(psar, iso_table, disc_offset[i], i + 1))
 				printf("ERROR: Failed to reconstruct the ISO image number %d!\n\n", i + 1);
 			else
-				printf("ISO image successfully reconstructed! Saving as ISO_%d.BIN...\n\n", i + 1);
+				printf("ISO image successfully reconstructed! Saving as DATA_%d.BIN...\n\n", i + 1);
 
 			// Convert the ISO image if required.
 			if (conv)
 			{
 				printf("Converting ISO image number %d...\n", i + 1);
-				char iso_x_bin[0x10];
-				sprintf(iso_x_bin, "ISO_%d.BIN", i + 1);
+				char data_x_bin[0x10];
+				sprintf(data_x_bin, "DATA_%d.BIN", i + 1);
 				char cdrom_x_bin[0x10];
 				sprintf(cdrom_x_bin, "CDROM_%d.BIN", i + 1);
 				char cdrom_x_cue[0x10];
 				sprintf(cdrom_x_cue, "CDROM_%d.CUE", i + 1);
-				if (convert_iso(iso_table, iso_x_bin, cdrom_x_bin, cdrom_x_cue, iso_disc_name))
+				if (convert_iso(iso_table, data_x_bin, cdrom_x_bin, cdrom_x_cue, iso_disc_name))
 					printf("ERROR: Failed to convert ISO image number %d!\n\n", i + 1);
 				else
 					printf("ISO image number %d successfully converted to CD-ROM format!\n\n", i + 1);

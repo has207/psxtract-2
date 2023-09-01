@@ -83,6 +83,6 @@ tpunix (C port and research of the PGD and AMCTRL algorithms)
 
 PSPSDK (PBP unpacking sample code)
 
-zeroxao (Unscrambling and decoding of audio tracks)
+zecoxao (Unscrambling and decoding of audio tracks)
 
 Heel (ATRACT3 decoding for CDDA tracks)

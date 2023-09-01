@@ -625,13 +625,13 @@ int convert_at3_to_wav(int num_tracks)
 		sprintf(command, "%s\\at3tool.exe", wdir);
 		if (stat(command, &st) != 0)
 		{
-			printf("ERROR: Failed to find at3tool.exe, aborting...");
+			printf("ERROR: Failed to find at3tool.exe, aborting...\n");
 			return -1;
 		}
 		sprintf(command, "%s\\msvcr71.dll", wdir);
 		if (stat(command, &st) != 0)
 		{
-			printf("ERROR: Failed to find msvcr71.dll needed by at3tool.exe, aborting...");
+			printf("ERROR: Failed to find msvcr71.dll needed by at3tool.exe, aborting...\n");
 			return -1;
 		}
 		sprintf(command, "%s\\at3tool.exe -d \"%s\" \"%s\"", wdir, at3_filename, wav_filename);
@@ -885,13 +885,6 @@ int decrypt_single_disc(FILE *psar, int psar_size, int startdat_offset, unsigned
 	if (startdat_offset > 0)
 		decrypt_unknown_data(psar, unknown_data_offset, startdat_offset);
 
-	// Build the ISO image.
-	printf("Building the final ISO image...\n");
-	if (build_iso(psar, iso_table, 0, 0))
-		printf("ERROR: Failed to reconstruct the ISO image!\n\n");
-	else
-		printf("ISO image successfully reconstructed! Saving as ISO.BIN...\n\n");
-
 	int num_tracks = build_audio_at3(psar, iso_table, 0, pgd_key);
 	if (num_tracks < 0)
 		printf("ERROR: Audio track extraction failed!\n");
@@ -899,21 +892,40 @@ int decrypt_single_disc(FILE *psar, int psar_size, int startdat_offset, unsigned
 		printf("%d audio tracks extracted to ATRAC3\n", num_tracks);
 
 	if (convert_at3_to_wav(num_tracks) < 0)
+	{
 		printf("ERROR: ATRAC3 to WAV conversion failed!\n");
+		fclose(iso_table);
+		return -1;
+	}
 	else
 		printf("%d audio tracks converted to WAV\n", num_tracks);
 
 	if (convert_wav_to_bin(num_tracks) < 0)
+	{
 		printf("ERROR: WAV to BIN conversion failed!\n");
+		fclose(iso_table);
+		return -1;
+	}
 	else
 		printf("%d audio tracks converted to BIN\n", num_tracks);
+
+	// Build the ISO image.
+	printf("Building the final ISO image...\n");
+	if (build_iso(psar, iso_table, 0, 0))
+		printf("ERROR: Failed to reconstruct the ISO image!\n\n");
+	else
+		printf("ISO image successfully reconstructed! Saving as ISO.BIN...\n\n");
 
 	printf("\n");
 
 	// Convert the final ISO image if required.
 	printf("Converting the final ISO image...\n");
 	if (convert_iso(iso_table, "TRACK 01.BIN", "CDROM.BIN", "CDROM.CUE", iso_disc_name))
+	{
 		printf("ERROR: Failed to convert the ISO image!\n");
+		fclose(iso_table);
+		return -1;
+	}
 	else
 		printf("ISO image successfully converted to CD-ROM format!\n");
 
@@ -1164,7 +1176,8 @@ int main(int argc, char **argv)
 
 	if (cleanup)
 	{
-		printf("Cleanup requested, removing TEMP folder");
+		printf("Cleanup requested, removing TEMP folder\n");
+		printf("If process terminated abormally try running without -c to leave TEMP files in place.\n");
 		system("rmdir /S /Q TEMP");
 	}
 	return 0;

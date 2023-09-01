@@ -239,7 +239,7 @@ struct fixImageStatus fixImage(char* inputfilepath, char* outputfilepath, enum E
                 sector[HEADER_OFFSET + 0] = minutes;
                 sector[HEADER_OFFSET + 1] = seconds;
                 sector[HEADER_OFFSET + 2] = blocks;
-                sector[HEADER_OFFSET + 3] = mode;
+                sector[HEADER_OFFSET + 3] = MODE_2;
 
                 //Update sector mode count
                 ++status.mode0sectors;

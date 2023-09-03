@@ -149,4 +149,4 @@ char* warningString = (char *)malloc(maxLength);\
 snprintf(warningString, maxLength, formatString, __VA_ARGS__);\
 status.warnings[status.warningscount - 1] = warningString;\
 
-int make_cdrom(char* inputfile, char* outputfile, bool verbose);
+int make_cdrom(char* inputfile, char* outputfile, int num_sectors, bool verbose);

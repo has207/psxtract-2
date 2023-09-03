@@ -8,7 +8,7 @@
 
 #include "cdrom.h"
 
-struct fixImageStatus fixImage(char* inputfilepath, char* outputfilepath, enum EDCMode form2EDCMode, bool verbose)
+struct fixImageStatus fixImage(char* inputfilepath, char* outputfilepath, int num_sectors, enum EDCMode form2EDCMode, bool verbose)
 {
     //Initialize return value struct
     struct fixImageStatus status;
@@ -49,6 +49,12 @@ struct fixImageStatus fixImage(char* inputfilepath, char* outputfilepath, enum E
     //Determine file size
     fseek(inputfile, 0, SEEK_END);
     int filesize = ftell(inputfile);
+    if (filesize < num_sectors * SECTOR_SIZE)
+    {
+        fclose(inputfile);
+        status.errorcode = ERROR_IMAGE_INCOMPLETE;
+        return status;
+    }
     fseek(inputfile, 0, SEEK_SET);
 
     if(form2EDCMode == INFER)
@@ -124,7 +130,9 @@ struct fixImageStatus fixImage(char* inputfilepath, char* outputfilepath, enum E
         fclose(outputfile);
         return status;
     }
-    for(int i = 0; i < filesize; i += SECTOR_SIZE)
+    printf("Processing %d sectors\n", num_sectors);
+
+    for(int i = 0; i < num_sectors * SECTOR_SIZE; i += SECTOR_SIZE)
     {
         //Read next sector
         int bytesread = fread(sector, 1, SECTOR_SIZE, inputfile);
@@ -503,10 +511,10 @@ struct fixImageStatus fixImage(char* inputfilepath, char* outputfilepath, enum E
     return status;
 }
 
-int make_cdrom(char* inputfile, char* outputfile, bool verbose)
+int make_cdrom(char* inputfile, char* outputfile, int num_sectors, bool verbose)
 {
     // Use the INFER method for EDC calculation (proved to be the more accurate approach).
-	struct fixImageStatus status = fixImage(inputfile, outputfile, INFER, false);
+	struct fixImageStatus status = fixImage(inputfile, outputfile, num_sectors, INFER, false);
 
     switch(status.errorcode)
     {

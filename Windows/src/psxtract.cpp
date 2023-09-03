@@ -195,7 +195,7 @@ int decrypt_unknown_data(FILE *psar, int unknown_data_offset, int startdat_offse
 	return 0;
 }
 
-int decrypt_iso_header(FILE *psar, int header_offset, int header_size, unsigned char *pgd_key, int disc_num)
+int decrypt_iso_header(FILE *psar, int header_offset, unsigned char *pgd_key, int disc_num)
 {
 	if (psar == NULL)
 	{
@@ -207,13 +207,13 @@ int decrypt_iso_header(FILE *psar, int header_offset, int header_size, unsigned 
 	fseek(psar, header_offset, SEEK_SET);
 
 	// Read the ISO header.
-	unsigned char *iso_header = new unsigned char[header_size];
-	fread(iso_header, header_size, 1, psar);
+	unsigned char *iso_header = new unsigned char[ISO_HEADER_SIZE];
+	fread(iso_header, ISO_HEADER_SIZE, 1, psar);
 
 	printf("Decrypting ISO header...\n");
 
 	// Decrypt the PGD and get the block table.
-	int pgd_size = decrypt_pgd(iso_header, header_size, 2, pgd_key);
+	int pgd_size = decrypt_pgd(iso_header, ISO_HEADER_SIZE, 2, pgd_key);
 
 	if (pgd_size > 0)
 		printf("ISO header successfully decrypted! Saving as ISO_HEADER_%d.BIN...\n\n", disc_num);
@@ -224,22 +224,17 @@ int decrypt_iso_header(FILE *psar, int header_offset, int header_size, unsigned 
 	}
 
 	// Choose the output ISO header file name based on the disc number.
-	char iso_header_filename[0x12];
-	sprintf(iso_header_filename, "ISO_HEADER.BIN");
+	char iso_header_filename[0x14];
+	if (disc_num > 0)
+		sprintf(iso_header_filename, "ISO_HEADER_%d.BIN", disc_num);
+	else
+		sprintf(iso_header_filename, "ISO_HEADER.BIN");
 
 	// Store the decrypted ISO header.
 	FILE* dec_iso_header = fopen(iso_header_filename, "wb");
 	fwrite(iso_header + 0x90, pgd_size, 1, dec_iso_header);
-	fclose(dec_iso_header);
 
-	// disc_num is 0 for single disc games
-	if (disc_num > 0)
-	{
-		sprintf(iso_header_filename, "ISO_HEADER_%d.BIN", disc_num);
-		dec_iso_header = fopen(iso_header_filename, "wb");
-		fwrite(iso_header + 0x90, pgd_size, 1, dec_iso_header);
-		fclose(dec_iso_header);
-	}
+	fclose(dec_iso_header);
 	delete[] iso_header;
 
 	return 0;
@@ -501,7 +496,7 @@ int extract_frames_from_cue(FILE *iso_table, int cue_offset, int gap)
 		mm1 = 10 * (mm - mm % 16) / 16 + mm % 16;
 		ss1 = (10 * (ss - ss % 16) / 16 + ss % 16) - gap;
 		ff1 = 10 * (ff - ff % 16) / 16 + ff % 16;
-		//printf("Offset %dm:%ds:%df\n", mm1, ss1, ff1);
+		printf("Offset %dm:%ds:%df at %04x\n", mm1, ss1, ff1, cue_offset);
 		return (mm1 * 60 * 75) + (ss1 * 75) + ff1;
 	}
 	// once we hit invalid track type, indicate this is last track
@@ -534,7 +529,7 @@ int data_track_sectors(FILE *iso_table)
 {
 	int track = 1;
 	int cue_offset = 0x41E;  // track 01 offset
-	int track_size = get_track_size_from_cue(iso_table, cue_offset) - 150;  // subtrack 2 seconds
+	int track_size = get_track_size_from_cue(iso_table, cue_offset) - 150;  // subtract 2 seconds
 	if (track_size < 0) {
 		printf("Unable to get data track size\n");
 		return -1;
@@ -914,12 +909,12 @@ int extract_and_convert_audio(FILE *psar, FILE *iso_table, int base_audio_offset
 	return num_tracks;
 }
 
-int decrypt_single_disc(FILE *psar, int psar_size, int startdat_offset, unsigned char *pgd_key)
+int decrypt_single_disc(FILE* psar, int psar_size, int startdat_offset, unsigned char* pgd_key)
 {
 	// Decrypt the ISO header and get the block table.
 	// NOTE: In a single disc, the ISO header is located at offset 0x400 and has a length of 0xB6600.
-	if (decrypt_iso_header(psar, 0x400, 0xB6600, pgd_key, 0))
-		printf("Aborting...\n");
+	if (decrypt_iso_header(psar, ISO_HEADER_OFFSET, pgd_key, 0) < 0)
+		return -1;
 
 	// Re-open in read mode (just to be safe).
 	FILE* iso_table = fopen("ISO_HEADER.BIN", "rb");
@@ -962,11 +957,10 @@ int decrypt_single_disc(FILE *psar, int psar_size, int startdat_offset, unsigned
 	if (startdat_offset > 0)
 		decrypt_unknown_data(psar, unknown_data_offset, startdat_offset);
 
-	int base_audio_offset = 0x100000;  // Start of audio tracks.
 	// Attempt to extact and convert audio tracks before doing the data track
 	// as this step has more dependencies and we want to know it fails before
 	// wasting time dumping track 1.
-	if (extract_and_convert_audio(psar, iso_table, base_audio_offset, pgd_key, 1) < 0)
+	if (extract_and_convert_audio(psar, iso_table, BASE_AUDIO_OFFSET, pgd_key, 1) < 0)
 	{
 		printf("ERROR: extract and convert audio failed, aborting...\n");
 		fclose(iso_table);
@@ -1064,11 +1058,15 @@ int decrypt_multi_disc(FILE *psar, int psar_size, int startdat_offset, unsigned 
 		{
 			// Decrypt the ISO header and get the block table.
 			// NOTE: In multidisc, the ISO header is located at the disc offset + 0x400 bytes. 
-			if (decrypt_iso_header(psar, disc_offset[i] + 0x400, 0xB6600, pgd_key, i + 1))
-				printf("Aborting...\n");
-
+			if (decrypt_iso_header(psar, disc_offset[i] + ISO_HEADER_OFFSET, pgd_key, i + 1) < 0)
+			{
+				fclose(iso_map);
+				return -1;
+			}
 			// Re-open in read mode (just to be safe).
-			FILE* iso_table = fopen("ISO_HEADER.BIN", "rb");
+			char iso_header_filename[0x14];
+			sprintf(iso_header_filename, "ISO_HEADER_%d.BIN", i + 1);
+			FILE* iso_table = fopen(iso_header_filename, "rb");
 			if (iso_table == NULL)
 			{
 				printf("ERROR: No decrypted ISO header found!\n");
@@ -1076,12 +1074,13 @@ int decrypt_multi_disc(FILE *psar, int psar_size, int startdat_offset, unsigned 
 			}
 
 			// Attempt to extact and convert audio tracks
-			/*if (extract_and_convert_audio(psar, iso_table, disc_offset[i], pgd_key, 1) < 0)
+			// TODO: this base audio offset is bad on multi disc games, figure out the right one
+			/* if (extract_and_convert_audio(psar, iso_table, disc_offset[i] + BASE_AUDIO_OFFSET, pgd_key, 1) < 0)
 			{
 				printf("ERROR: extract and convert audio failed, aborting...\n");
 				fclose(iso_table);
 				return -1;
-			}*/
+			} */
 			// Build the data track.
 			printf("Building data track for disc %d...\n", i + 1);
 			if (build_data_track(psar, iso_table, disc_offset[i], i + 1) < 0)

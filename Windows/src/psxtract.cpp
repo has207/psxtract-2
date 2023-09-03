@@ -431,20 +431,20 @@ int unscramble_atrac_data(unsigned char *track_data, CDDA_ENTRY *track)
 	
 	// do rest chunks
 	for(unsigned int i = 0; i < chunks_rest; i++)
-  {
-    tmp = tmp2;
+	{
+		tmp = tmp2;
 	  
-	  // for each value of chunk
-	  for(int k = 0; k < (NBYTES / 4); k++)
-	  {
-	    value = ptr[k];
-		  ptr[k] = (tmp ^ value);
-		  tmp = tmp2 + (value * 123456789);
-	  }
+		// for each value of chunk
+		for(int k = 0; k < (NBYTES / 4); k++)
+		{
+		value = ptr[k];
+			ptr[k] = (tmp ^ value);
+			tmp = tmp2 + (value * 123456789);
+		}
     
-    tmp2 = ROTR32(tmp2, 1);
-	  ptr += (NBYTES / 4); // next chunk
-  }
+		tmp2 = ROTR32(tmp2, 1);
+		ptr += (NBYTES / 4); // next chunk
+	}
   
 	return 0;
 }

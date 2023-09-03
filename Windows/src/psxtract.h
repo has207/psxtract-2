@@ -14,12 +14,11 @@
 #include "crypto.h"
 
 #define GAP_SIZE	2 * 75 * SECTOR_SIZE  // 2 seconds * 75 frames * 2352 sector size
+#define ISO_HEADER_OFFSET 0x400
+#define ISO_HEADER_SIZE	0xB6600
+#define BASE_AUDIO_OFFSET	0x100000
 #define MAX_DISCS	5
 #define NBYTES		0x180
-#define ES32(v)((unsigned int)(((v & 0xFF000000) >> 24) | \
-                           ((v & 0x00FF0000) >> 8 ) | \
-							             ((v & 0x0000FF00) << 8 ) | \
-							             ((v & 0x000000FF) << 24)))
 
 // Multidisc ISO image signature.
 char multi_iso_magic[0x10] = {

@@ -505,8 +505,6 @@ struct fixImageStatus fixImage(char* inputfilepath, char* outputfilepath, enum E
 
 int make_cdrom(char* inputfile, char* outputfile, bool verbose)
 {
-    printf("Fixing CD-ROM image...\n");
-
     // Use the INFER method for EDC calculation (proved to be the more accurate approach).
 	struct fixImageStatus status = fixImage(inputfile, outputfile, INFER, false);
 

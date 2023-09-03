@@ -60,7 +60,7 @@ int decrypt_document(FILE* document)
 {
 	// Get DOCUMENT.DAT size.
 	fseek(document, 0, SEEK_END);
-	int document_size = ftell(document);
+	long document_size = ftell(document);
 	fseek(document, 0, SEEK_SET);
 
 	// Read the DOCUMENT.DAT.
@@ -281,7 +281,7 @@ int decrypt_iso_map(FILE *psar, int map_offset, int map_size, unsigned char *pgd
 	return 0;
 }
 
-int build_iso(FILE *psar, FILE *iso_table, int base_offset, int disc_num)
+int build_data_track(FILE *psar, FILE *iso_table, int base_offset, int disc_num)
 {
 	if ((psar == NULL) || (iso_table == NULL))
 	{
@@ -300,7 +300,7 @@ int build_iso(FILE *psar, FILE *iso_table, int base_offset, int disc_num)
 	int table_offset = 0x3C00;  // Fixed offset.
 	fseek(iso_table, table_offset, SEEK_SET);
 
-	// Choose the output ISO file name based on the disc number.
+	// Choose the output file name based on the disc number.
 	char iso_filename[0x10];
 	if (disc_num > 0)
 		sprintf(iso_filename, "DATA_%d.BIN", disc_num);
@@ -488,7 +488,12 @@ int extract_frames_from_cue(FILE *iso_table, int cue_offset, int gap)
 	unsigned char mm = cue_entry->I1m;
 	unsigned char ss = cue_entry->I1s;
 	unsigned char ff = cue_entry->I1f;
-	if (cue_entry->type == 0x01) // Sanity check that this is an Audio track
+	// According to documentation http://endlessparadigm.com/forum/showthread.php?tid=14
+	// and for the vast majority of games tested Audio track type should be 0x01,
+	// however at least one case exists (Castlevania: SOTN) where the track types
+	// are increased by 0x20 (so data track is 0x61 rather than 0x41 and audio is
+	// 0x21 rather than 0x01).
+	if (cue_entry->type == 0x01 || cue_entry->type == 0x21) // Sanity check that this is an Audio track
 	{
 		// convert 0xXY into decimal XY
 		mm1 = 10 * (mm - mm % 16) / 16 + mm % 16;
@@ -497,8 +502,8 @@ int extract_frames_from_cue(FILE *iso_table, int cue_offset, int gap)
 		//printf("Offset %dm:%ds:%df\n", mm1, ss1, ff1);
 		return (mm1 * 60 * 75) + (ss1 * 75) + ff1;
 	}
-	else
-		printf("Last track found\n");
+	// once we hit invalid track type, indicate this is last track
+	// at which point we'll need to get entire disc size to calculate its length
 	return -1;
 }
 
@@ -536,22 +541,30 @@ int build_audio_at3(FILE *psar, FILE *iso_table, int base_offset, unsigned char 
 	fread(audio_entry, sizeof(CDDA_ENTRY), 1, iso_table);
 	if (audio_entry->offset == 0)
 	{
-		printf("there is no audio tracks in the ISO!\n");
+		printf("There are no CDDA audio tracks, continuing...\n");
 		return 0;
 	}
 	int track_size, cur_track_offset, next_track_offset;
 	while (audio_entry->offset)
 	{
+		track_num++;
 		cur_track_offset = extract_frames_from_cue(iso_table, cue_offset, 2);
+		if (cur_track_offset < 0) {
+			printf("ERROR: retrieving offset for track %d, aborting...\n", track_num);
+			return -1;
+		}
 		next_track_offset = extract_frames_from_cue(iso_table, cue_offset + sizeof(CUE_ENTRY), 2);
 		if (next_track_offset < 0)
 		{
 			// get disc size to calculate last track, no gap after last track
 			next_track_offset = extract_frames_from_cue(iso_table, 0x414, 0);
+			if (next_track_offset < 0)
+			{
+				"ERROR: last track size calculation failed, aborting...\n";
+				return -1;
+			}
 		}
 		track_size = next_track_offset - cur_track_offset;
-		// Choose the output track file name based on the counter.
-		track_num++;
 		
 		// Locate the block offset in the DATA.PSAR.
 		fseek(psar, iso_base_offset + audio_entry->offset, SEEK_SET);
@@ -594,6 +607,8 @@ int build_audio_at3(FILE *psar, FILE *iso_table, int base_offset, unsigned char 
 
 int convert_at3_to_wav(int num_tracks)
 {
+	if (num_tracks > 0)
+		printf("Attempting to convert from ATRAC3 to WAV, this may take awhile...\n");
 	for (int i = 2; i <= num_tracks + 1; i++)
 	{
 		char at3_filename[0x10];
@@ -649,6 +664,7 @@ int convert_wav_to_bin(int num_tracks)
 {
 	for (int i = 2; i <= num_tracks + 1; i++)
 	{
+		printf("\tprocessing track %d\n", i);
 		char wav_filename[0x10];
 		audio_file_name(wav_filename, i, "WAV");
 		struct stat st;
@@ -676,7 +692,9 @@ int convert_wav_to_bin(int num_tracks)
 		// This tends to work out in practice, but is pretty gross
 		// and it would be better to figure out what's wrong in the earlier decoding step.
 		unsigned char gap[GAP_SIZE];
-		fseek(wav_file, st.st_size - GAP_SIZE, SEEK_SET);
+		fseek(wav_file, 0, SEEK_END);
+		long wav_size = ftell(wav_file);
+		fseek(wav_file, wav_size - GAP_SIZE, SEEK_SET);
 		fread(gap, GAP_SIZE, 1, wav_file);
 
 		char bin_filename[0x10];
@@ -688,9 +706,16 @@ int convert_wav_to_bin(int num_tracks)
 			return -1;
 		}
 		fwrite(gap, GAP_SIZE, 1, bin_file);
+
 		fseek(wav_file, 44, SEEK_SET);  // skip the WAVE header
-		int data_size = st.st_size - GAP_SIZE - 44;
+		int data_size = wav_size - GAP_SIZE - 44;
 		unsigned char* audio_data = (unsigned char*)malloc(data_size);
+		if (audio_data == NULL) {
+			printf("Unable to allocated data size %d, aborting...\n", data_size);
+			fclose(bin_file);
+			fclose(bin_file);
+			return -1;
+		}
 		fread(audio_data, data_size, 1, wav_file);
 		fwrite(audio_data, data_size, 1, bin_file);
 		if (audio_data != NULL) free(audio_data);
@@ -732,7 +757,7 @@ int copy_track_to_iso(FILE *bin_file, char *track_filename, int track_num)
 	}
 	printf("\tadding %s\n", track_filename);
 	fseek(track_file, 0, SEEK_END);
-	int track_size = ftell(track_file);
+	long track_size = ftell(track_file);
 	unsigned char* track_data = (unsigned char*)malloc(track_size);
 	fseek(track_file, 0, SEEK_SET);
 	fread(track_data, track_size, 1, track_file);
@@ -752,6 +777,7 @@ int convert_iso(FILE *iso_table, char *data_track_file_name, char *cdrom_file_na
 	strcat(cue_file_path, cue_file_name);
 
 	// Patch ECC/EDC and build a new proper CD-ROM image for this ISO.
+	printf("Patching ECC/EDC data...\n");
 	make_cdrom(data_track_file_name, data_fixed_file_path, false);
 
 	// Generate a CUE file for mounting/burning.
@@ -888,11 +914,12 @@ int decrypt_single_disc(FILE *psar, int psar_size, int startdat_offset, unsigned
 	// Attempt to extact and convert audio tracks before doing the data track
 	// as this step has more dependencies and we want to know it fails before
 	// wasting time dumping track 1.
-	// We only bother with audio extraction for single disc games as there are
-	// no known multi-disc games with CDDA audio tracks
 	int num_tracks = build_audio_at3(psar, iso_table, 0, pgd_key);
-	if (num_tracks < 0)
+	if (num_tracks < 0) {
 		printf("ERROR: Audio track extraction failed!\n");
+		fclose(iso_table);
+		return -1;
+	}
 	else if (num_tracks > 0)
 		printf("%d audio tracks extracted to ATRAC3\n", num_tracks);
 
@@ -914,25 +941,25 @@ int decrypt_single_disc(FILE *psar, int psar_size, int startdat_offset, unsigned
 	else if (num_tracks > 0)
 		printf("%d audio tracks converted to BIN\n", num_tracks);
 
-	// Build the ISO image.
-	printf("Building the final ISO image...\n");
-	if (build_iso(psar, iso_table, 0, 0))
-		printf("ERROR: Failed to reconstruct the ISO image!\n\n");
+	// Build the data track image.
+	printf("Building the data track...\n");
+	if (build_data_track(psar, iso_table, 0, 0))
+		printf("ERROR: Failed to reconstruct the data track!\n\n");
 	else
-		printf("ISO image successfully reconstructed! Saving as ISO.BIN...\n\n");
+		printf("Data track successfully reconstructed! Saving as ISO.BIN...\n\n");
 
 	printf("\n");
 
-	// Convert the final ISO image if required.
-	printf("Converting the final ISO image...\n");
+	// Convert to BIN/CUE.
+	printf("Converting the final image to BIN/CUE...\n");
 	if (convert_iso(iso_table, "TRACK 01.BIN", "CDROM.BIN", "CDROM.CUE", iso_disc_name))
 	{
-		printf("ERROR: Failed to convert the ISO image!\n");
+		printf("ERROR: Failed to convert to BIN/CUE!\n");
 		fclose(iso_table);
 		return -1;
 	}
 	else
-		printf("ISO image successfully converted to CD-ROM format!\n");
+		printf("Disc successfully converted to BIN/CUE format!\n");
 
 	fclose(iso_table);
 	return 0;
@@ -1010,15 +1037,15 @@ int decrypt_multi_disc(FILE *psar, int psar_size, int startdat_offset, unsigned 
 				printf("ERROR: No decrypted ISO header found!\n");
 				return -1;
 			}
-			// Build the first ISO image.
-			printf("Building the ISO image number %d...\n", i + 1);
-			if (build_iso(psar, iso_table, disc_offset[i], i + 1))
-				printf("ERROR: Failed to reconstruct the ISO image number %d!\n\n", i + 1);
+			// Build the data track.
+			printf("Building data track for disc %d...\n", i + 1);
+			if (build_data_track(psar, iso_table, disc_offset[i], i + 1))
+				printf("ERROR: Failed to reconstruct data track for disc %d!\n\n", i + 1);
 			else
-				printf("ISO image successfully reconstructed! Saving as DATA_%d.BIN...\n\n", i + 1);
+				printf("Data track successfully reconstructed! Saving as DATA_%d.BIN...\n\n", i + 1);
 
 			// Convert the ISO image if required.
-			printf("Converting ISO image number %d...\n", i + 1);
+			printf("Converting disc %d to BIN/CUE...\n", i + 1);
 			char data_x_bin[0x10];
 			sprintf(data_x_bin, "DATA_%d.BIN", i + 1);
 			char cdrom_x_bin[0x10];
@@ -1026,16 +1053,16 @@ int decrypt_multi_disc(FILE *psar, int psar_size, int startdat_offset, unsigned 
 			char cdrom_x_cue[0x10];
 			sprintf(cdrom_x_cue, "CDROM_%d.CUE", i + 1);
 			if (convert_iso(iso_table, data_x_bin, cdrom_x_bin, cdrom_x_cue, iso_disc_name))
-				printf("ERROR: Failed to convert ISO image number %d!\n\n", i + 1);
+				printf("ERROR: Encountered issues converting disc %d to BIN/CUE!\n\n", i + 1);
 			else
-				printf("ISO image number %d successfully converted to CD-ROM format!\n\n", i + 1);
+				printf("Disc %d successfully converted to BIN/CUE format!\n\n", i + 1);
 
 			disc_count++;
 			fclose(iso_table);
 		}
 	}
 
-	printf("Successfully reconstructed %d ISO images!\n", disc_count);
+	printf("Successfully reconstructed %d discs!\n", disc_count);
 	fclose(iso_map);
 	return 0;
 }
@@ -1046,7 +1073,7 @@ int main(int argc, char **argv)
 	if ((argc <= 1) || (argc > 5))
 	{
 		printf("*****************************************************\n");
-		printf("psxtract - Convert your PSOne Classics to ISO format.\n");
+		printf("psxtract - Convert your PSOne Classics to BIN/CUE format.\n");
 		printf("         - Written by Hykem (C).\n");
 		printf("*****************************************************\n\n");
 		printf("Usage: psxtract [-c] <EBOOT.PBP> [DOCUMENT.DAT] [KEYS.BIN]\n");
@@ -1100,7 +1127,7 @@ int main(int argc, char **argv)
 			printf("%02X", pgd_key[i]);
 		printf("\n\n");
 	}
-	// Make a new directory for the ISO data.
+	// Make a new directory for intermediate data.
 	_mkdir("TEMP");
 	_chdir("TEMP");
 
@@ -1133,7 +1160,7 @@ int main(int argc, char **argv)
 
 	// Get DATA.PSAR size.
 	fseek(psar, 0, SEEK_END);
-	int psar_size = ftell(psar);
+	long psar_size = ftell(psar);
 	fseek(psar, 0, SEEK_SET);
 
 	// Check PSISOIMG0000 or PSTITLEIMG0000 magic.
@@ -1153,13 +1180,13 @@ int main(int argc, char **argv)
 		}
 		else
 		{
-			printf("Multidisc ISO detected!\n\n");
+			printf("Multi-disc game detected!\n\n");
 			isMultidisc = true;
 		}
 	}
 	else
 	{
-		printf("Single disc ISO detected!\n\n");
+		printf("Single disc game detected!\n\n");
 		isMultidisc = false;
 	}
 
@@ -1182,7 +1209,7 @@ int main(int argc, char **argv)
 	if (cleanup)
 	{
 		printf("Cleanup requested, removing TEMP folder\n");
-		printf("If process terminated abormally try running without -c to leave TEMP files in place.\n");
+		printf("[If you see errors above try running without -c to leave TEMP files in place in order to debug.]\n");
 		system("rmdir /S /Q TEMP");
 	}
 	return 0;

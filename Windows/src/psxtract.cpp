@@ -885,10 +885,15 @@ int decrypt_single_disc(FILE *psar, int psar_size, int startdat_offset, unsigned
 	if (startdat_offset > 0)
 		decrypt_unknown_data(psar, unknown_data_offset, startdat_offset);
 
+	// Attempt to extact and convert audio tracks before doing the data track
+	// as this step has more dependencies and we want to know it fails before
+	// wasting time dumping track 1.
+	// We only bother with audio extraction for single disc games as there are
+	// no known multi-disc games with CDDA audio tracks
 	int num_tracks = build_audio_at3(psar, iso_table, 0, pgd_key);
 	if (num_tracks < 0)
 		printf("ERROR: Audio track extraction failed!\n");
-	else
+	else if (num_tracks > 0)
 		printf("%d audio tracks extracted to ATRAC3\n", num_tracks);
 
 	if (convert_at3_to_wav(num_tracks) < 0)
@@ -897,7 +902,7 @@ int decrypt_single_disc(FILE *psar, int psar_size, int startdat_offset, unsigned
 		fclose(iso_table);
 		return -1;
 	}
-	else
+	else if (num_tracks > 0)
 		printf("%d audio tracks converted to WAV\n", num_tracks);
 
 	if (convert_wav_to_bin(num_tracks) < 0)
@@ -906,7 +911,7 @@ int decrypt_single_disc(FILE *psar, int psar_size, int startdat_offset, unsigned
 		fclose(iso_table);
 		return -1;
 	}
-	else
+	else if (num_tracks > 0)
 		printf("%d audio tracks converted to BIN\n", num_tracks);
 
 	// Build the ISO image.

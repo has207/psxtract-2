@@ -277,7 +277,7 @@ int decrypt_iso_map(FILE *psar, int map_offset, int map_size, unsigned char *pgd
 	return 0;
 }
 
-int build_data_track(FILE *psar, FILE *iso_table, int base_offset, int disc_num)
+int build_data_track(FILE *psar, FILE *iso_table, int disc_offset, int disc_num)
 {
 	if ((psar == NULL) || (iso_table == NULL))
 	{
@@ -286,11 +286,10 @@ int build_data_track(FILE *psar, FILE *iso_table, int base_offset, int disc_num)
 	}
 
 	// Setup buffers.
-	int iso_block_size = 0x9300;
-	unsigned char iso_block_comp[0x9300];   // Compressed block.
-	unsigned char iso_block_decomp[0x9300]; // Decompressed block.
-	memset(iso_block_comp, 0, iso_block_size);
-	memset(iso_block_decomp, 0, iso_block_size);
+	unsigned char iso_block_comp[ISO_BLOCK_SIZE];   // Compressed block.
+	unsigned char iso_block_decomp[ISO_BLOCK_SIZE]; // Decompressed block.
+	memset(iso_block_comp, 0, ISO_BLOCK_SIZE);
+	memset(iso_block_decomp, 0, ISO_BLOCK_SIZE);
 
 	// Locate the block table.
 	int table_offset = 0x3C00;  // Fixed offset.
@@ -313,7 +312,10 @@ int build_data_track(FILE *psar, FILE *iso_table, int base_offset, int disc_num)
 		return -1;
 	}
 
-	int iso_base_offset = 0x100000 + base_offset;  // Start of compressed ISO data.
+	int iso_offset = ISO_BASE_OFFSET + disc_offset;  // Start of compressed ISO data.
+	printf("ISO offset %x\n", iso_offset);
+	int read_size = 0;
+	int block_count = 0;
 	ISO_ENTRY entry[sizeof(ISO_ENTRY)];
 	memset(entry, 0, sizeof(ISO_ENTRY));
 
@@ -323,15 +325,17 @@ int build_data_track(FILE *psar, FILE *iso_table, int base_offset, int disc_num)
 	// Keep reading entries until we reach the end of the table.
 	while (entry->size > 0)
 	{
+		read_size += entry->size;
+		if (block_count % 100 == 0) printf(".");
 		// Locate the block offset in the DATA.PSAR.
-		fseek(psar, iso_base_offset + entry->offset, SEEK_SET);
+		fseek(psar, iso_offset + entry->offset, SEEK_SET);
 		fread(iso_block_comp, entry->size, 1, psar);
 
 		// Decompress if necessary.
-		if (entry->size < iso_block_size)   // Compressed.
-			decompress(iso_block_decomp, iso_block_comp, iso_block_size);
+		if (entry->size < ISO_BLOCK_SIZE)   // Compressed.
+			decompress(iso_block_decomp, iso_block_comp, ISO_BLOCK_SIZE);
 		else								// Not compressed.
-			memcpy(iso_block_decomp, iso_block_comp, iso_block_size);
+			memcpy(iso_block_decomp, iso_block_comp, ISO_BLOCK_SIZE);
 
 		// trash and overdump generating
 		if (entry->marker == 0)
@@ -357,29 +361,27 @@ int build_data_track(FILE *psar, FILE *iso_table, int base_offset, int disc_num)
 				FILE* trash = fopen("TRASH.BIN", "wb");
 				fwrite(iso_block_decomp + trash_start, trash_size, 1, trash);
 				fclose(trash);
-				// write before trash
-				// fwrite(iso_block_decomp, trash_start, 1, iso);
-				// write after trash
-				// fwrite(iso_block_decomp + trash_start + trash_size, iso_block_size - trash_start - trash_size, 1, iso);
-				// start writing overdump
-				fwrite(iso_block_decomp + trash_start + trash_size, iso_block_size - trash_start - trash_size, 1, overdump);
+				fwrite(iso_block_decomp + trash_start + trash_size, ISO_BLOCK_SIZE - trash_start - trash_size, 1, overdump);
 			}
 			else
-				fwrite(iso_block_decomp, iso_block_size, 1, overdump);
+				fwrite(iso_block_decomp, ISO_BLOCK_SIZE, 1, overdump);
 		}
 
 		// Write it to the output file.
-		fwrite(iso_block_decomp, iso_block_size, 1, iso);
+		fwrite(iso_block_decomp, ISO_BLOCK_SIZE, 1, iso);
+		block_count++;
 					
 		// Clear buffers.
-		memset(iso_block_comp, 0, iso_block_size);
-		memset(iso_block_decomp, 0, iso_block_size);
+		memset(iso_block_comp, 0, ISO_BLOCK_SIZE);
+		memset(iso_block_decomp, 0, ISO_BLOCK_SIZE);
 
 		// Go to next entry.
 		table_offset += sizeof(ISO_ENTRY);
 		fseek(iso_table, table_offset, SEEK_SET);
 		fread(entry, sizeof(ISO_ENTRY), 1, iso_table);
 	}
+	printf("\n");
+	printf("Read %x bytes, wrote %x bytes\n", read_size, block_count * ISO_BLOCK_SIZE);
 	fclose(overdump);
 	fclose(iso);
 	return 0;
@@ -398,8 +400,6 @@ int unscramble_atrac_data(unsigned char *track_data, CDDA_ENTRY *track)
 	unsigned int chunks_rest = (track->size / NBYTES) % 0x10;
 	unsigned int *ptr = (unsigned int*)track_data;
 	unsigned int tmp = 0, tmp2 = track->checksum, value = 0;
-	
-	
 	
 	// for each block
 	while(blocks)
@@ -515,7 +515,7 @@ int get_track_size_from_cue(FILE *iso_table, int cue_offset)
 	if (next_track_offset < 0)
 	{
 		// get disc size to calculate last track, no gap after last track
-		next_track_offset = extract_frames_from_cue(iso_table, 0x414, 0);
+		next_track_offset = extract_frames_from_cue(iso_table, CUE_LEADOUT_OFFSET, 0);
 		if (next_track_offset < 0)
 		{
 			"ERROR: last track size calculation failed, aborting...\n";
@@ -602,7 +602,7 @@ int build_audio_at3(FILE *psar, FILE *iso_table, int base_audio_offset, unsigned
 			return -1;
 		}
 
-		printf("Extracting audio track %d (%d sectors)\n", track_num, track_size);
+		printf("Extracting audio track %d (%d sectors, %d bytes)\n", track_num, track_size, audio_entry->size + NBYTES);
 		
 		unscramble_atrac_data(track_data, audio_entry);
 		
@@ -626,7 +626,7 @@ int build_audio_at3(FILE *psar, FILE *iso_table, int base_audio_offset, unsigned
 int convert_at3_to_wav(int disc_num, int num_tracks)
 {
 	if (num_tracks > 0)
-		printf("Attempting to convert from ATRAC3 to WAV, this may take awhile...\n");
+		printf("Attempting to convert from ATRAC3 to WAV, this may take awhile...\n\n");
 	for (int i = 2; i <= num_tracks + 1; i++)
 	{
 		char at3_filename[0x10];
@@ -669,9 +669,12 @@ int convert_at3_to_wav(int disc_num, int num_tracks)
 		}
 		sprintf(command, "%s\\at3tool.exe -d \"%s\" \"%s\"", wdir, at3_filename, wav_filename);
 		printf("%s\n", command);
-		// It would be nice to check error codes/output but we just assume it goes as planned
-		// and check that a WAV file is created and non-zero later
 		system(command);
+		if (stat(wav_filename, &st) != 0 || st.st_size <= 44)
+		{
+			printf("%s failed to convert, ignoring audio tracks...\n", wav_filename);
+			return -1;
+		}
 		printf("\n");
 
 	}
@@ -735,7 +738,7 @@ int convert_wav_to_bin(int disc_num, int num_tracks)
 		}
 		fread(audio_data, data_size, 1, wav_file);
 		fwrite(audio_data, data_size, 1, bin_file);
-		if (audio_data != NULL) free(audio_data);
+		free(audio_data);
 
 		// grab the expected size from the AT3 header
 		char at3_filename[0x10];
@@ -776,10 +779,17 @@ int copy_track_to_iso(FILE *bin_file, char *track_filename, int track_num)
 	fseek(track_file, 0, SEEK_END);
 	long track_size = ftell(track_file);
 	unsigned char* track_data = (unsigned char*)malloc(track_size);
+	if (track_data == NULL)
+	{
+		printf("ERROR: could not allocate memory to read data, aborting...\n");
+		fclose(track_file);
+		return -1;
+	}
 	fseek(track_file, 0, SEEK_SET);
 	fread(track_data, track_size, 1, track_file);
 	fwrite(track_data, track_size, 1, bin_file);
 	fclose(track_file);
+	free(track_data);
 	return 0;
 }
 
@@ -837,7 +847,15 @@ int convert_iso(FILE *iso_table, char *data_track_file_name, char *cdrom_file_na
 	{
 		char track_filename[0x10];
 		audio_file_name(track_filename, disc_num, track_num, "BIN");
-		copy_track_to_iso(bin_file, track_filename, track_num);
+		if (copy_track_to_iso(bin_file, track_filename, track_num) < 0)
+		{
+			// if audio track copy failed just bail and generate valid cue for the data track
+			// this is mainly a workaround for RE2 EBOOT having audio track pointers but no
+			// audio tracks
+			printf("Proceeding to generate CUE file without audio tracks\n");
+			break;
+		}
+	
 		int ff1, ss1, mm1, mm0, ss0;
 		i++;
 		// convert 0xXY into decimal XY
@@ -893,19 +911,19 @@ int extract_and_convert_audio(FILE *psar, FILE *iso_table, int base_audio_offset
 
 	if (convert_at3_to_wav(disc_num, num_tracks) < 0)
 	{
-		printf("ERROR: ATRAC3 to WAV conversion failed!\n");
-		return -1;
+		printf("ATRAC3 to WAV conversion failed!\n\n");
+		return 0;
 	}
 	else if (num_tracks > 0)
 		printf("%d audio tracks converted to WAV\n", num_tracks);
 
 	if (convert_wav_to_bin(disc_num, num_tracks) < 0)
 	{
-		printf("ERROR: WAV to BIN conversion failed!\n");
+		printf("ERROR: WAV to BIN conversion failed!\n\n");
 		return -1;
 	}
 	else if (num_tracks > 0)
-		printf("%d audio tracks converted to BIN\n", num_tracks);
+		printf("%d audio tracks converted to BIN\n\n", num_tracks);
 	return num_tracks;
 }
 
@@ -960,7 +978,7 @@ int decrypt_single_disc(FILE* psar, int psar_size, int startdat_offset, unsigned
 	// Attempt to extact and convert audio tracks before doing the data track
 	// as this step has more dependencies and we want to know it fails before
 	// wasting time dumping track 1.
-	if (extract_and_convert_audio(psar, iso_table, BASE_AUDIO_OFFSET, pgd_key, 1) < 0)
+	if (extract_and_convert_audio(psar, iso_table, ISO_BASE_OFFSET, pgd_key, 1) < 0)
 	{
 		printf("ERROR: extract and convert audio failed, aborting...\n");
 		fclose(iso_table);
@@ -1075,12 +1093,12 @@ int decrypt_multi_disc(FILE *psar, int psar_size, int startdat_offset, unsigned 
 
 			// Attempt to extact and convert audio tracks
 			// TODO: this base audio offset is bad on multi disc games, figure out the right one
-			/* if (extract_and_convert_audio(psar, iso_table, disc_offset[i] + BASE_AUDIO_OFFSET, pgd_key, 1) < 0)
+			if (extract_and_convert_audio(psar, iso_table, disc_offset[i] + ISO_BASE_OFFSET, pgd_key, i + 1) < 0)
 			{
 				printf("ERROR: extract and convert audio failed, aborting...\n");
 				fclose(iso_table);
 				return -1;
-			} */
+			}
 			// Build the data track.
 			printf("Building data track for disc %d...\n", i + 1);
 			if (build_data_track(psar, iso_table, disc_offset[i], i + 1) < 0)

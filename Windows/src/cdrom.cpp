@@ -568,10 +568,15 @@ int make_cdrom(char* inputfile, char* outputfile, int num_sectors, bool verbose)
 
     if(status.warningscount > 0)
     {
-        printf("The following warnings occured during the process:\n");
+        printf("%d warnings occured during the process:\n", status.warningscount);
         for(int i = 0; i < status.warningscount; ++i)
         {
             printf(status.warnings[i]);
+            if (!verbose)
+            {
+                printf("\n(%d warnings suppressed)\n", status.warningscount - 1);
+                break;
+            }
             printf("\n");
         }
     }

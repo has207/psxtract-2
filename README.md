@@ -56,20 +56,31 @@ please check the following sources:
 Working games and compatibility
 -------------------------------
 
-All PSN eboots should be supported. If you encounter issues with a particular game
-report it here.
+Nearly all PSN eboots should be supported. Some known problems are mentioned in the bug tracker:
 
-In general output of this tool should match information on redump.org,
+  https://github.com/has207/psxtract-2/issues
+
+If you encounter issues with a particular game report it there, but in general the game should
+be fully playable even in those cases where we have md5 sum mismatches vs redump.org.
+
+Generally speaking BIN/CUE pair created by this tool SHOULD match information on redump.org,
 in other words all .BIN files should be the correct size and match md5 hashes
 of a real disc dump.
 
-One exception to this is games with CDDA audio. In which case
-the data track should match redump.org exactly and all the audio tracks
-should be generated with the correct size and as close to original as
-possible. However, as we're dealing with a lossy compression to ATRAC3,
-the conversion back to PCM results in md5 hash mismatches for the audio
-tracks. You can still verify that the data track matches redump.org info
-by omitting -c and preserving temp files, then checking the hash on "TRACK 01.BIN".
+However, if the game has CDDA audio audio tracks, i.e. 2 or more tracks per BIN, those audio
+track md5 sums will NOT match redump.org info. This is working as intended, we generate the
+audio tracks with the correct size and as close to original as possible. However, as we're dealing
+with a lossy compression to ATRAC3, the conversion back to raw audio necessarily results in md5 hash
+mismatches for the audio tracks.
+
+The easiest way to verify hashes is by importing the game into Duckstation and checking hashes from
+the game Properties menu.
+
+There is one additional known issue that is actually working as intended -- with Resident Evil 2 Dualshock Edition. The EBOOT for that game retains
+CUE entries and pointers to audio tracks, however these were not included in the EBOOT.
+The audio tracks present on the physical discs are empty so this is not a real loss, just an issue
+with the EBOOT itself, so there will be warnings when this EBOOT is extracted but the resulting
+BIN/CUE is fully playable.
 
 
 Credits

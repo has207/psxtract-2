@@ -381,7 +381,7 @@ int build_data_track(FILE *psar, FILE *iso_table, int disc_offset, int disc_num)
 		fread(entry, sizeof(ISO_ENTRY), 1, iso_table);
 	}
 	printf("\n");
-	printf("Read %x bytes, wrote %x bytes\n", read_size, block_count * ISO_BLOCK_SIZE);
+	printf("Raw data track written to %s\n", iso_filename);
 	fclose(overdump);
 	fclose(iso);
 	return 0;
@@ -529,7 +529,7 @@ int data_track_sectors(FILE *iso_table)
 {
 	int track = 1;
 	int cue_offset = 0x41E;  // track 01 offset
-	int track_size = get_track_size_from_cue(iso_table, cue_offset) - 150;  // subtract 2 seconds
+	int track_size = get_track_size_from_cue(iso_table, cue_offset) - GAP_FRAMES;  // subtract 2 seconds
 	if (track_size < 0) {
 		printf("Unable to get data track size\n");
 		return -1;
@@ -675,13 +675,28 @@ int convert_at3_to_wav(int disc_num, int num_tracks)
 			printf("%s failed to convert, ignoring audio tracks...\n", wav_filename);
 			return -1;
 		}
+		if (stat(wav_filename, &st) == 0)
+		{
+			FILE* at3_file = fopen(at3_filename, "rb");
+			if (at3_file == NULL)
+			{
+				printf("ERROR: Can't open %s for verification, aborting...\n", at3_filename);
+				return -1;
+			}
+			AT3_HEADER at3_header[sizeof(AT3_HEADER)];
+			fread(at3_header, sizeof(AT3_HEADER), 1, at3_file);
+			printf("%s created with size %d (expected %d)...\n", at3_filename, st.st_size, 44 + at3_header->fact_param1 * 4);
+			fclose(at3_file);
+		}
+		else
+			printf("Unable to open %s for verification...\n", wav_filename);
 		printf("\n");
 
 	}
 	return num_tracks;
 }
 
-int convert_wav_to_bin(int disc_num, int num_tracks)
+int convert_wav_to_bin(int data_gap, int disc_num, int num_tracks)
 {
 	for (int i = 2; i <= num_tracks + 1; i++)
 	{
@@ -699,22 +714,18 @@ int convert_wav_to_bin(int disc_num, int num_tracks)
 			printf("ERROR: Can't open %s, aborting...\n", wav_filename);
 			return -1;
 		}
-		// For some reason extracted AT3 files end up having the 2 second gap at the end rather
-		// than at the start.
-		// So we use the opportunity to move it to the front while stripping the WAVE header.
-		// Unfortunately we also have an issue with the last track ending up being too short
-		// by what appears to be roughly 2 seconds, so
-		// I suspect something in the decoding/unscrambling step is a little bit off,
-		// that results with the tracks to be read with the gaps shifted over,
-		// and the last track missing its 2 second gap.
-		// So we introduce a gross hack here, where we move the gaps to the front and also 
-		// pad the last track with zeroes until its expected length.
-		// This tends to work out in practice, but is pretty gross
-		// and it would be better to figure out what's wrong in the earlier decoding step.
+		// EBOOT stores only 2 seconds of audio gap for each track, and places it at the end
+		// of the AT3 file rather than the start as they appear on the physical disc.
+		// As we anyway need to strip the WAVE header we also generate the required gaps
+		// by moving the last 2 seconds of silence to the front and further prepad the track
+		// to ensure it has expected length gap, as defined by the CUE values relative to
+		// actual data size of the previous track.
+		// In addition, we also pad the last track with zeroes until it reaches its expected length.
 		unsigned char gap[GAP_SIZE];
 		fseek(wav_file, 0, SEEK_END);
 		long wav_size = ftell(wav_file);
-		fseek(wav_file, wav_size - GAP_SIZE, SEEK_SET);
+		int gap_size = (GAP_FRAMES - 2) * SECTOR_SIZE;
+		fseek(wav_file, wav_size - gap_size, SEEK_SET);
 		fread(gap, GAP_SIZE, 1, wav_file);
 
 		char bin_filename[0x10];
@@ -725,7 +736,21 @@ int convert_wav_to_bin(int disc_num, int num_tracks)
 			printf("ERROR: Can't open %s, aborting...\n", bin_filename);
 			return -1;
 		}
-		fwrite(gap, GAP_SIZE, 1, bin_file);
+		char zero = '\0';
+		if (i > 2)
+		{
+			fseek(bin_file, gap_size - 1, SEEK_SET);
+			fwrite(&zero, 1, 1, bin_file);
+		}
+		else
+		{
+			long track2_gap = data_gap * SECTOR_SIZE;
+			long current_pos = ftell(bin_file);
+			long new_pos = current_pos + track2_gap - 1;
+			printf("Adding data gap %d bytes...\n", track2_gap);
+			fseek(bin_file, new_pos, SEEK_SET);
+			int written = fwrite(&zero, 1, 1, bin_file);
+		}
 
 		fseek(wav_file, 44, SEEK_SET);  // skip the WAVE header
 		int data_size = wav_size - GAP_SIZE - 44;
@@ -733,7 +758,7 @@ int convert_wav_to_bin(int disc_num, int num_tracks)
 		if (audio_data == NULL) {
 			printf("Unable to allocated data size %d, aborting...\n", data_size);
 			fclose(bin_file);
-			fclose(bin_file);
+			fclose(wav_file);
 			return -1;
 		}
 		fread(audio_data, data_size, 1, wav_file);
@@ -753,9 +778,10 @@ int convert_wav_to_bin(int disc_num, int num_tracks)
 			long file_size = ftell(bin_file);
 			if (file_size < expected_size)
 			{
-				printf("Need to pad %d bytes\n", expected_size - file_size);
-				unsigned char zero[1];
-				fwrite(zero, 1, expected_size - file_size, bin_file);
+				printf("Padding track %d with additional %d bytes\n", i, expected_size - file_size);
+				long new_pos = expected_size - 1;
+				fseek(bin_file, new_pos, SEEK_SET);
+				int written = fwrite(&zero, 1, 1, bin_file);
 			}
 		}
 		else
@@ -793,20 +819,27 @@ int copy_track_to_iso(FILE *bin_file, char *track_filename, int track_num)
 	return 0;
 }
 
-int convert_iso(FILE *iso_table, char *data_track_file_name, char *cdrom_file_name, char *cue_file_name, unsigned char *iso_disc_name, int disc_num, int num_sectors)
+int fix_iso(FILE *iso_table, char* data_track_file_name, char* data_fixed_file_path)
 {
-	char data_fixed_file_path[256];
-	strcat(data_fixed_file_path, data_track_file_name);
-	strcat(data_fixed_file_path, ".ISO");
+	// Patch ECC/EDC and build a new proper CD-ROM image for this ISO.
+	printf("Patching ECC/EDC data...\n");
+	int num_sectors_expected = data_track_sectors(iso_table);
+	if (num_sectors_expected < 0)
+	{
+		return -1;
+	}
+	int actual_data_sectors = make_cdrom(data_track_file_name, data_fixed_file_path, num_sectors_expected, true);
+	int gap = num_sectors_expected - actual_data_sectors + GAP_FRAMES;
+	printf("Gap after data track: %d sectors\n", gap);
+	return gap;
+}
+
+int build_bin_cue(FILE *iso_table, char *data_fixed_file_path, char *cdrom_file_name, char *cue_file_name, unsigned char *iso_disc_name, int disc_num, int data_gap)
+{
 	char cdrom_file_path[256] = "../";
 	strcat(cdrom_file_path, cdrom_file_name);
 	char cue_file_path[256] = "../";
 	strcat(cue_file_path, cue_file_name);
-
-	// Patch ECC/EDC and build a new proper CD-ROM image for this ISO.
-	printf("Patching ECC/EDC data...\n");
-	make_cdrom(data_track_file_name, data_fixed_file_path, num_sectors, false);
-	printf("\n");
 
 	// Generate a CUE file for mounting/burning.
 	FILE* cue_file = fopen(cue_file_path, "wb");
@@ -856,30 +889,27 @@ int convert_iso(FILE *iso_table, char *data_track_file_name, char *cdrom_file_na
 			break;
 		}
 	
-		int ff1, ss1, mm1, mm0, ss0;
+		int ff1, ss1, mm1, mm0, ss0, ff0;
 		i++;
 		// convert 0xXY into decimal XY
 		mm1 = 10 * (cue_entry->I1m - cue_entry->I1m % 16) / 16 + cue_entry->I1m % 16;
-		ss1 = 10 * (cue_entry->I1s - cue_entry->I1s % 16) / 16 + cue_entry->I1s % 16 - 2; // minus 2 seconds pregap
-		if (ss1 < 0)
-		{
-			ss1 = 60 + ss1;
-			mm1 = mm1 - 1;
-		}
-		ff1 = 10 * (cue_entry->I1f - cue_entry->I1f % 16) / 16 + cue_entry->I1f % 16;
-
+		ss1 = mm1 * 60 + 10 * (cue_entry->I1s - cue_entry->I1s % 16) / 16 + cue_entry->I1s % 16;
+		ff1 = ss1 * 75 + 10 * (cue_entry->I1f - cue_entry->I1f % 16) / 16 + cue_entry->I1f % 16;
+		ff1 -= GAP_FRAMES;
 		memset(cue, 0, 0x100);
 		sprintf(cue, "  TRACK %02d AUDIO\n", i);
 		fputs(cue, cue_file);
 		memset(cue, 0, 0x100);
-		ss0 = ss1 - 2;
-		mm0 = mm1;
-		if (ss0 < 0)
-		{
-			ss0 = 60 + ss0;
-			mm0 = mm1 - 1;
-		}
-		sprintf(cue, "    INDEX 00 %02d:%02d:%02d\n", mm0, ss0, ff1);
+		ff0 = ff1 - (track_num == 2 ? data_gap : GAP_FRAMES);
+		ss0 = ff0 / 75;
+		mm0 = ss0 / 60;
+		ss0 = ss0 % 60;
+		ff0 = ff0 % 75;
+		ss1 = ff1 / 75;
+		mm1 = ss1 / 60;
+		ss1 = ss1 % 60;
+		ff1 = ff1 % 75;
+		sprintf(cue, "    INDEX 00 %02d:%02d:%02d\n", mm0, ss0, ff0);
 		fputs(cue, cue_file);
 		
 		memset(cue, 0, 0x100);
@@ -899,8 +929,9 @@ int convert_iso(FILE *iso_table, char *data_track_file_name, char *cdrom_file_na
 	return 0;
 }
 
-int extract_and_convert_audio(FILE *psar, FILE *iso_table, int base_audio_offset, unsigned char *pgd_key, int disc_num)
+int extract_and_convert_audio(FILE *psar, FILE *iso_table, int base_audio_offset, unsigned char *pgd_key, int disc_num, int data_gap)
 {
+	printf("Attempting to extract audio tracks...\n");
 	int num_tracks = build_audio_at3(psar, iso_table, base_audio_offset, pgd_key, disc_num);
 	if (num_tracks < 0) {
 		printf("ERROR: Audio track extraction failed!\n");
@@ -917,7 +948,7 @@ int extract_and_convert_audio(FILE *psar, FILE *iso_table, int base_audio_offset
 	else if (num_tracks > 0)
 		printf("%d audio tracks converted to WAV\n", num_tracks);
 
-	if (convert_wav_to_bin(disc_num, num_tracks) < 0)
+	if (convert_wav_to_bin(data_gap, disc_num, num_tracks) < 0)
 	{
 		printf("ERROR: WAV to BIN conversion failed!\n\n");
 		return -1;
@@ -975,34 +1006,40 @@ int decrypt_single_disc(FILE* psar, int psar_size, int startdat_offset, unsigned
 	if (startdat_offset > 0)
 		decrypt_unknown_data(psar, unknown_data_offset, startdat_offset);
 
-	// Attempt to extact and convert audio tracks before doing the data track
-	// as this step has more dependencies and we want to know it fails before
-	// wasting time dumping track 1.
-	if (extract_and_convert_audio(psar, iso_table, ISO_BASE_OFFSET, pgd_key, 1) < 0)
+	// Build the data track image.
+	printf("Building the data track...\n");
+	if (build_data_track(psar, iso_table, 0, 0) < 0)
+		printf("ERROR: Failed to reconstruct the data track!\n");
+	else
+		printf("Data track successfully reconstructed!\n");
+
+	printf("\n");
+
+	char data_bin[16] = "DATA TRACK.BIN";
+	char data_bin_fixed[256];
+	memset(data_bin_fixed, 0, 256);
+	strcat(data_bin_fixed, data_bin);
+	strcat(data_bin_fixed, ".ISO");
+	int data_gap = fix_iso(iso_table, data_bin, data_bin_fixed);
+	if (data_gap < 0)
+	{
+		printf("ERROR: unable to fix data track %s\n", data_bin);
+		fclose(iso_table);
+		return -1;
+	}
+	printf("\n");
+
+	// Handle audio tracks
+	if (extract_and_convert_audio(psar, iso_table, ISO_BASE_OFFSET, pgd_key, 1, data_gap) < 0)
 	{
 		printf("ERROR: extract and convert audio failed, aborting...\n");
 		fclose(iso_table);
 		return -1;
 	}
 
-	// Build the data track image.
-	printf("Building the data track...\n");
-	if (build_data_track(psar, iso_table, 0, 0) < 0)
-		printf("ERROR: Failed to reconstruct the data track!\n");
-	else
-		printf("Data track successfully reconstructed! Saving as ISO.BIN...\n");
-
-	printf("\n");
-
 	// Convert to BIN/CUE.
-	int num_sectors = data_track_sectors(iso_table);
-	if (num_sectors < 0)
-	{
-		fclose(iso_table);
-		return -1;
-	}
 	printf("Converting the final image to BIN/CUE...\n");
-	if (convert_iso(iso_table, "DATA TRACK.BIN", "CDROM.BIN", "CDROM.CUE", iso_disc_name, 1, num_sectors))
+	if (build_bin_cue(iso_table, data_bin_fixed, "CDROM.BIN", "CDROM.CUE", iso_disc_name, 1, data_gap))
 	{
 		printf("ERROR: Failed to convert to BIN/CUE!\n");
 		fclose(iso_table);
@@ -1091,35 +1128,45 @@ int decrypt_multi_disc(FILE *psar, int psar_size, int startdat_offset, unsigned 
 				return -1;
 			}
 
+			// Build the data track.
+			printf("Building data track for disc %d...\n", i + 1);
+			if (build_data_track(psar, iso_table, disc_offset[i], i + 1) < 0)
+				printf("ERROR: Failed to reconstruct data track for disc %d!\n", i + 1);
+			else
+				printf("Data track successfully reconstructed for disc %d!\n", i + 1);
+			printf("\n");
+
+			char data_x_bin[0x10];
+			sprintf(data_x_bin, "DATA_%d.BIN", i + 1);
+			char data_x_bin_fixed[256];
+			memset(data_x_bin_fixed, 0, 256);
+			strcat(data_x_bin_fixed, data_x_bin);
+			strcat(data_x_bin_fixed, ".ISO");
+			int data_gap = fix_iso(iso_table, data_x_bin, data_x_bin_fixed);
+			if (data_gap < 0)
+			{
+				printf("ERROR: unable to fix data track\n");
+				fclose(iso_table);
+				return -1;
+			}
+			printf("\n");
+
 			// Attempt to extact and convert audio tracks
-			// TODO: this base audio offset is bad on multi disc games, figure out the right one
-			if (extract_and_convert_audio(psar, iso_table, disc_offset[i] + ISO_BASE_OFFSET, pgd_key, i + 1) < 0)
+			if (extract_and_convert_audio(psar, iso_table, disc_offset[i] + ISO_BASE_OFFSET, pgd_key, i + 1, data_gap) < 0)
 			{
 				printf("ERROR: extract and convert audio failed, aborting...\n");
 				fclose(iso_table);
 				return -1;
 			}
-			// Build the data track.
-			printf("Building data track for disc %d...\n", i + 1);
-			if (build_data_track(psar, iso_table, disc_offset[i], i + 1) < 0)
-				printf("ERROR: Failed to reconstruct data track for disc %d!\n\n", i + 1);
-			else
-				printf("Data track successfully reconstructed! Saving as DATA_%d.BIN...\n\n", i + 1);
 
 			// Convert to BIN/CUE
 			printf("Converting disc %d to BIN/CUE...\n", i + 1);
-			int num_sectors = data_track_sectors(iso_table);
-			if (num_sectors < 0)
-			{
-				return -1;
-			}
-			char data_x_bin[0x10];
-			sprintf(data_x_bin, "DATA_%d.BIN", i + 1);
+
 			char cdrom_x_bin[0x10];
 			sprintf(cdrom_x_bin, "CDROM_%d.BIN", i + 1);
 			char cdrom_x_cue[0x10];
 			sprintf(cdrom_x_cue, "CDROM_%d.CUE", i + 1);
-			if (convert_iso(iso_table, data_x_bin, cdrom_x_bin, cdrom_x_cue, iso_disc_name, i + 1, num_sectors))
+			if (build_bin_cue(iso_table, data_x_bin_fixed, cdrom_x_bin, cdrom_x_cue, iso_disc_name, i + 1, data_gap))
 				printf("ERROR: Encountered issues converting disc %d to BIN/CUE!\n\n", i + 1);
 			else
 				printf("Disc %d successfully converted to BIN/CUE format!\n\n", i + 1);

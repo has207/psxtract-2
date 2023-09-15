@@ -131,7 +131,7 @@ struct fixImageStatus fixImage(char* inputfilepath, char* outputfilepath, int nu
         return status;
     }
     printf("Processing %d sectors\n", num_sectors);
-
+    status.totalsectors = 0;
     for(int i = 0; i < num_sectors * SECTOR_SIZE; i += SECTOR_SIZE)
     {
         //Read next sector
@@ -304,11 +304,6 @@ struct fixImageStatus fixImage(char* inputfilepath, char* outputfilepath, int nu
             //Compute and write EDC
             if(isForm2)
             {
-                if(verbose)
-                {
-                    printf("Encountered form 2 sector @ 0x%08X\n", i);
-                }
-
                 //Write header
                 sector[HEADER_OFFSET + 0] = minutes;
                 sector[HEADER_OFFSET + 1] = seconds;
@@ -439,6 +434,7 @@ struct fixImageStatus fixImage(char* inputfilepath, char* outputfilepath, int nu
                 //Update sector mode count
                 ++status.mode2form1sectors;
             }
+            ++status.totalsectors;
         }
         else
         {
@@ -514,22 +510,22 @@ struct fixImageStatus fixImage(char* inputfilepath, char* outputfilepath, int nu
 int make_cdrom(char* inputfile, char* outputfile, int num_sectors, bool verbose)
 {
     // Use the INFER method for EDC calculation (proved to be the more accurate approach).
-	struct fixImageStatus status = fixImage(inputfile, outputfile, num_sectors, INFER, false);
-
+	struct fixImageStatus status = fixImage(inputfile, outputfile, num_sectors, INFER, verbose);
+    if (verbose)
+    {
+        printf("Number of mode 0 sectors:               %i\n", status.mode0sectors);
+        printf("Number of mode 1 sectors:               Mode 1 sectors are not supported.\n");
+        printf("Number of mode 2 form 1 sectors:        %i\n", status.mode2form1sectors);
+        printf("Number of mode 2 form 2 sectors:        %i\n", status.mode2form2sectors);
+        printf("Mode 2 form 2 boot sectors with EDC:    %i\n", status.form2bootsectorswithedc);
+        printf("Mode 2 form 2 boot sectors without EDC: %i\n", status.form2bootsectorswithoutedc);
+        printf("Total sectors processed:                %i\n", status.totalsectors);
+    }
     switch(status.errorcode)
     {
         //Print success message
         case 0:
             printf("The image has been fixed!\n");
-            if(verbose)
-            {
-                printf("Number of mode 0 sectors:               %i\n", status.mode0sectors);
-                printf("Number of mode 1 sectors:               Mode 1 sectors are not supported.\n");
-                printf("Number of mode 2 form 1 sectors:        %i\n", status.mode2form1sectors);
-                printf("Number of mode 2 form 2 sectors:        %i\n", status.mode2form2sectors);
-                printf("Mode 2 form 2 boot sectors with EDC:    %i\n", status.form2bootsectorswithedc);
-                printf("Mode 2 form 2 boot sectors without EDC: %i\n", status.form2bootsectorswithoutedc);
-            }
             break;
 
         //Print an error message
@@ -550,7 +546,7 @@ int make_cdrom(char* inputfile, char* outputfile, int num_sectors, bool verbose)
             break;
 
         case ERROR_UNEXPECTED_MODE:
-            printf("Encountered unknown mode! This is probably not a proper image.\n");
+            printf("The image has been fixed!\nProcess stopped early, this is likely due to non-standard pregap before audio tracks present.\n");
             break;
 
         case ERROR_UNSUPPORTED_MODE:
@@ -581,5 +577,5 @@ int make_cdrom(char* inputfile, char* outputfile, int num_sectors, bool verbose)
         }
     }
 
-    return status.errorcode;
+    return status.totalsectors;
 }

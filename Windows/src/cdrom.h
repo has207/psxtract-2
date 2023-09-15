@@ -138,6 +138,7 @@ struct fixImageStatus
     int mode2form2sectors;
     int form2bootsectorswithedc;
     int form2bootsectorswithoutedc;
+    int totalsectors;
     char** warnings;
     unsigned int warningscount;
 };

@@ -724,8 +724,7 @@ int convert_wav_to_bin(int data_gap, int disc_num, int num_tracks)
 		unsigned char gap[GAP_SIZE];
 		fseek(wav_file, 0, SEEK_END);
 		long wav_size = ftell(wav_file);
-		int gap_size = (GAP_FRAMES - 2) * SECTOR_SIZE;
-		fseek(wav_file, wav_size - gap_size, SEEK_SET);
+		fseek(wav_file, wav_size - GAP_SIZE, SEEK_SET);
 		fread(gap, GAP_SIZE, 1, wav_file);
 
 		char bin_filename[0x10];
@@ -739,7 +738,7 @@ int convert_wav_to_bin(int data_gap, int disc_num, int num_tracks)
 		char zero = '\0';
 		if (i > 2)
 		{
-			fseek(bin_file, gap_size - 1, SEEK_SET);
+			fseek(bin_file, GAP_SIZE - 1, SEEK_SET);
 			fwrite(&zero, 1, 1, bin_file);
 		}
 		else

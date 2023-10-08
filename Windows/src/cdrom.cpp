@@ -568,9 +568,9 @@ int make_cdrom(char* inputfile, char* outputfile, int num_sectors, bool verbose)
         for(int i = 0; i < status.warningscount; ++i)
         {
             printf(status.warnings[i]);
-            if (!verbose)
+            if (i > MAX_WARNINGS)
             {
-                printf("\n(%d warnings suppressed)\n", status.warningscount - 1);
+                printf("\n(%d warnings suppressed)\n", status.warningscount - i);
                 break;
             }
             printf("\n");

@@ -4,6 +4,58 @@
 
 #include "psxtract.h"
 
+char* exec(const char* cmd) {
+    HANDLE hRead, hWrite;
+    SECURITY_ATTRIBUTES saAttr;
+    char* output = NULL;
+    DWORD outputSize = 0;
+
+    ZeroMemory(&saAttr, sizeof(saAttr));
+    saAttr.nLength = sizeof(SECURITY_ATTRIBUTES);
+    saAttr.bInheritHandle = TRUE;
+    saAttr.lpSecurityDescriptor = NULL;
+
+    // Create a pipe to capture the output
+    if (!CreatePipe(&hRead, &hWrite, &saAttr, 0))
+        return NULL;
+
+    STARTUPINFO si;
+    PROCESS_INFORMATION pi;
+    ZeroMemory(&si, sizeof(si));
+    ZeroMemory(&pi, sizeof(pi));
+
+    si.cb = sizeof(STARTUPINFO);
+    si.hStdError = hWrite;
+    si.hStdOutput = hWrite;
+    si.dwFlags |= STARTF_USESTDHANDLES;
+
+    // Create the process
+    BOOL bSuccess = CreateProcess(NULL, (LPSTR)cmd, NULL, NULL, TRUE, 0, NULL, NULL, &si, &pi);
+    if (!bSuccess) {
+        CloseHandle(hWrite);
+        CloseHandle(hRead);
+        return NULL;
+    }
+
+    CloseHandle(hWrite); // Close write end of pipe
+
+    // Read the output from the pipe
+    DWORD dwRead;
+    CHAR chBuf[4096];
+    while (ReadFile(hRead, chBuf, 4096, &dwRead, NULL) && dwRead > 0) {
+        output = (char*)realloc(output, outputSize + dwRead + 1);
+        memcpy(output + outputSize, chBuf, dwRead);
+        outputSize += dwRead;
+        output[outputSize] = '\0';
+    }
+
+    CloseHandle(hRead);
+    CloseHandle(pi.hProcess);
+    CloseHandle(pi.hThread);
+
+    return output;
+}
+
 int extract_startdat(FILE *psar, bool isMultidisc)
 {
 	if (psar == NULL)
@@ -300,7 +352,7 @@ int build_data_track(FILE *psar, FILE *iso_table, int disc_offset, int disc_num)
 	if (disc_num > 0)
 		sprintf(iso_filename, "DATA_%d.BIN", disc_num);  // multi-disc
 	else
-		sprintf(iso_filename, "DATA TRACK.BIN");  // single disc
+		sprintf(iso_filename, "DATA_TRACK.BIN");  // single disc
 
 	// Open a new file to write overdump
 	FILE* overdump = fopen("OVERDUMP.BIN", "wb");
@@ -539,10 +591,10 @@ int data_track_sectors(FILE *iso_table)
 
 void audio_file_name(char* filename, int disc_num, int track_num, char* extension)
 {
-	sprintf(filename, "D%02d TRACK%02d.%s", disc_num, track_num, extension);
+	sprintf(filename, "D%02d_TRACK%02d.%s", disc_num, track_num, extension);
 }
 
-int build_audio_at3(FILE *psar, FILE *iso_table, int base_audio_offset, unsigned char *pgd_key, int disc_num)
+int build_audio_at3(FILE *psar, FILE *iso_table, int base_audio_offset, unsigned char *pgd_key, int disc_num, const PREGAP_OVERRIDE* pregap_override)
 {	
 	if ((psar == NULL) || (iso_table == NULL))
 	{
@@ -577,6 +629,32 @@ int build_audio_at3(FILE *psar, FILE *iso_table, int base_audio_offset, unsigned
 	{
 		track_num++;
 		int track_size = get_track_size_from_cue(iso_table, cue_offset);
+
+        if (pregap_override != NULL)
+        {
+            const TIMESTAMP* curr_t = &pregap_override->timestamps[track_num - 2];
+            int curr_pregap = (curr_t->mm * 60 + curr_t->ss) * 75 + curr_t->ff;
+            if (track_num - 1 < pregap_override->num_tracks)
+            {
+                printf("checking pregap override\n");
+                // check if the pregap of the next track is less than 2
+                const TIMESTAMP* next_t = &pregap_override->timestamps[track_num - 1];
+                int next_pregap = (next_t->mm * 60 + next_t->ss) * 75 + next_t->ff;
+                if (next_pregap < GAP_FRAMES && curr_pregap >= GAP_FRAMES)
+                {
+                    printf("Track needs additional padding due to short pregap on following track\n");
+                    track_size += (GAP_FRAMES - next_pregap);
+                }
+            }
+            else  // last track
+            {
+                if (curr_pregap < GAP_FRAMES)
+                {
+                    printf("Truncating last track by %d frames\n", (GAP_FRAMES - curr_pregap));
+                    track_size -= (GAP_FRAMES - curr_pregap);
+                }
+            }
+        }
 		if (track_size < 0)
 		{
 			printf("ERROR: retrieving offset for track %d, aborting...\n", track_num);
@@ -626,7 +704,7 @@ int build_audio_at3(FILE *psar, FILE *iso_table, int base_audio_offset, unsigned
 int convert_at3_to_wav(int disc_num, int num_tracks)
 {
 	if (num_tracks > 0)
-		printf("Attempting to convert from ATRAC3 to WAV, this may take awhile...\n\n");
+		printf("\nAttempting to convert from ATRAC3 to WAV, this may take awhile...\n\n");
 	for (int i = 2; i <= num_tracks + 1; i++)
 	{
 		char at3_filename[0x10];
@@ -667,9 +745,13 @@ int convert_at3_to_wav(int disc_num, int num_tracks)
 			printf("ERROR: Failed to find msvcr71.dll needed by at3tool.exe, aborting...\n");
 			return -1;
 		}
-		sprintf(command, "%s\\at3tool.exe -d \"%s\" \"%s\"", wdir, at3_filename, wav_filename);
+		sprintf(command, "cmd /c %s\\at3tool.exe -d \"%s\" \"%s\"", wdir, at3_filename, wav_filename);
 		printf("%s\n", command);
-		system(command);
+		char *result = exec(command);
+        if (result) {
+            printf("%s\n", result);
+            free(result);
+        }
 		if (stat(wav_filename, &st) != 0 || st.st_size <= 44)
 		{
 			printf("%s failed to convert, ignoring audio tracks...\n", wav_filename);
@@ -685,7 +767,7 @@ int convert_at3_to_wav(int disc_num, int num_tracks)
 			}
 			AT3_HEADER at3_header[sizeof(AT3_HEADER)];
 			fread(at3_header, sizeof(AT3_HEADER), 1, at3_file);
-			printf("%s created with size %d (expected %d)...\n", at3_filename, st.st_size, 44 + at3_header->fact_param1 * 4);
+			printf("%s created with size %d (expected %d)...\n", wav_filename, st.st_size, 44 + at3_header->fact_param1 * 4);
 			fclose(at3_file);
 		}
 		else
@@ -696,8 +778,37 @@ int convert_at3_to_wav(int disc_num, int num_tracks)
 	return num_tracks;
 }
 
-int convert_wav_to_bin(int data_gap, int disc_num, int num_tracks)
+// EBOOT stores audio tracks with the assumption that a 2 second pregap exists on each track.
+// This assumption results in information loss wrt original pregap values present on physical
+// discs. While a vast majority of audio tracks on most games do in fact have 2 second pregaps,
+// there are notable exceptions, for the most part with larger pregaps present on one or more
+// tracks on the disc. And there are also games where the pregaps on disc are only
+// 1 second long as opposed to 2 or more and these are the most troublesome.
+//
+// In all cases, the EBOOT seems to store only *up to* 2 seconds pregap silence at the end of the track
+// regardless of how long the pregap should be and we have no way to figure this out from the data
+// at runtime.
+//
+// Luckily, there are very few games that have this issue and they have all been enumerated
+// and custom pregap values are hardcoded for them so that we can generate accurate images. In
+// most cases having shorter, i.e. only 2 seconds, of pregap instead of the slightly longer ones
+// on the disc should not matter, but there are cases where the pregap is intentionally quite long
+// and there are also two specific eboots that have 1 second pregaps, so special handling is
+// required to produce working results in all cases.
+//
+// In any case, we need to strip the WAVE header and generate the required gaps
+// by moving pregap silence to the front, then further prepad the track
+// to ensure it has expected length gap, as defined by the CUE values relative to
+// actual data size of the previous track. Such prepadding only really works with track 2, i.e.
+// the very first audio track, since we know the exact length of the data track and the start of
+// first audio track can always be kept consistent with the disc.
+//
+// On further audio tracks we assume 2 second gaps unless the game is known to have different
+// pregap timings. Finally we pad the last track with zeroes until the disc reaches its expected
+// length.
+int convert_wav_to_bin(int data_gap, int disc_num, int num_tracks, const PREGAP_OVERRIDE* pregap_override)
 {
+	printf("\nAttempting to convert WAV audio to BIN...\n\n");
 	for (int i = 2; i <= num_tracks + 1; i++)
 	{
 		char wav_filename[0x10];
@@ -714,18 +825,10 @@ int convert_wav_to_bin(int data_gap, int disc_num, int num_tracks)
 			printf("ERROR: Can't open %s, aborting...\n", wav_filename);
 			return -1;
 		}
-		// EBOOT stores only 2 seconds of audio gap for each track, and places it at the end
-		// of the AT3 file rather than the start as they appear on the physical disc.
-		// As we anyway need to strip the WAVE header we also generate the required gaps
-		// by moving the last 2 seconds of silence to the front and further prepad the track
-		// to ensure it has expected length gap, as defined by the CUE values relative to
-		// actual data size of the previous track.
-		// In addition, we also pad the last track with zeroes until it reaches its expected length.
-		unsigned char gap[GAP_SIZE];
+
 		fseek(wav_file, 0, SEEK_END);
 		long wav_size = ftell(wav_file);
 		fseek(wav_file, wav_size - GAP_SIZE, SEEK_SET);
-		fread(gap, GAP_SIZE, 1, wav_file);
 
 		char bin_filename[0x10];
 		audio_file_name(bin_filename, disc_num, i, "BIN");
@@ -733,29 +836,59 @@ int convert_wav_to_bin(int data_gap, int disc_num, int num_tracks)
 		if (bin_file == NULL)
 		{
 			printf("ERROR: Can't open %s, aborting...\n", bin_filename);
+			fclose(wav_file);
 			return -1;
 		}
-		char zero = '\0';
-		if (i > 2)
+
+		// grab the expected size from the AT3 header
+		long expected_size = -1;
+		char at3_filename[0x10];
+		audio_file_name(at3_filename, disc_num, i, "AT3");
+		FILE* at3_file = fopen(at3_filename, "rb");
+		if (at3_file != NULL)
 		{
-			fseek(bin_file, GAP_SIZE - 1, SEEK_SET);
-			fwrite(&zero, 1, 1, bin_file);
+			AT3_HEADER at3_header[sizeof(AT3_HEADER)];
+			fread(at3_header, sizeof(AT3_HEADER), 1, at3_file);
+			expected_size = at3_header->fact_param1 * 4;
 		}
 		else
-		{
-			long track2_gap = data_gap * SECTOR_SIZE;
-			long current_pos = ftell(bin_file);
-			long new_pos = current_pos + track2_gap - 1;
-			printf("Adding data gap %d bytes...\n", track2_gap);
-			fseek(bin_file, new_pos, SEEK_SET);
-			int written = fwrite(&zero, 1, 1, bin_file);
-		}
+			printf("WARNING: Can't open %s, skipping padding step...\n", at3_filename);
+        int gap_frames = GAP_FRAMES;
+        if (pregap_override != NULL && i > 2 && i - 2 < pregap_override->num_tracks)
+        {
+            // check if the pregap for this track gets an override
+            const TIMESTAMP* t = &pregap_override->timestamps[i - 2];
+            printf("Overriding pregap with %02d:%02d:%02d\n", t->mm, t->ss, t->ff);
+            gap_frames = (t->mm * 60 + t->ss) * 75 + t->ff;
+        }
+		int pregap_size = (((i == 2) ? data_gap : gap_frames) - 1) * SECTOR_SIZE;
+
+		char zero = '\0';
+		printf("Adding gap %d bytes...\n", pregap_size);
+		fseek(bin_file, pregap_size - 1, SEEK_SET);
+		fwrite(&zero, 1, 1, bin_file);
 
 		fseek(wav_file, 44, SEEK_SET);  // skip the WAVE header
-		int data_size = wav_size - GAP_SIZE - 44;
+		int data_size = wav_size - pregap_size - 44;
+
+        if (pregap_override != NULL && i - 1 < pregap_override->num_tracks)
+        {
+            // check if the pregap of the next track is less than 2
+            const TIMESTAMP* t = &pregap_override->timestamps[i - 1];
+            int next_pregap = (t->mm * 60 + t->ss) * 75 + t->ff;
+            if (next_pregap < gap_frames)
+            {
+                printf("Extending data_size due to short next_gap (%d < %d)\n", next_pregap, gap_frames);
+                data_size += (gap_frames - next_pregap) * SECTOR_SIZE;
+            }
+        }
+        if (data_size + pregap_size > expected_size)
+            data_size = expected_size - pregap_size;
+
 		unsigned char* audio_data = (unsigned char*)malloc(data_size);
 		if (audio_data == NULL) {
 			printf("Unable to allocated data size %d, aborting...\n", data_size);
+			if (at3_file != NULL) fclose(at3_file);
 			fclose(bin_file);
 			fclose(wav_file);
 			return -1;
@@ -764,27 +897,16 @@ int convert_wav_to_bin(int data_gap, int disc_num, int num_tracks)
 		fwrite(audio_data, data_size, 1, bin_file);
 		free(audio_data);
 
-		// grab the expected size from the AT3 header
-		char at3_filename[0x10];
-		audio_file_name(at3_filename, disc_num, i, "AT3");
-		FILE* at3_file = fopen(at3_filename, "rb");
-		if (at3_file != NULL)
+		fseek(bin_file, 0, SEEK_END);
+		long file_size = ftell(bin_file);
+		if (file_size < expected_size)
 		{
-			AT3_HEADER at3_header[sizeof(AT3_HEADER)];
-			fread(at3_header, sizeof(AT3_HEADER), 1, at3_file);
-			long expected_size = at3_header->fact_param1 * 4;
-			fseek(bin_file, 0, SEEK_END);
-			long file_size = ftell(bin_file);
-			if (file_size < expected_size)
-			{
-				printf("Padding track %d with additional %d bytes\n", i, expected_size - file_size);
-				long new_pos = expected_size - 1;
-				fseek(bin_file, new_pos, SEEK_SET);
-				int written = fwrite(&zero, 1, 1, bin_file);
-			}
+			printf("Padding track %d with additional %d bytes\n", i, expected_size - file_size);
+			long new_pos = expected_size - 1;
+			fseek(bin_file, new_pos, SEEK_SET);
+			int written = fwrite(&zero, 1, 1, bin_file);
 		}
-		else
-			printf("WARNING: Can't open %s, skipping padding step...\n", at3_filename);
+
 		fclose(at3_file);
 		fclose(wav_file);
 		fclose(bin_file);
@@ -815,7 +937,7 @@ int copy_track_to_iso(FILE *bin_file, char *track_filename, int track_num)
 	fwrite(track_data, track_size, 1, bin_file);
 	fclose(track_file);
 	free(track_data);
-	return 0;
+	return track_size;
 }
 
 int fix_iso(FILE *iso_table, char* data_track_file_name, char* data_fixed_file_path)
@@ -833,7 +955,8 @@ int fix_iso(FILE *iso_table, char* data_track_file_name, char* data_fixed_file_p
 	return gap;
 }
 
-int build_bin_cue(FILE *iso_table, char *data_fixed_file_path, char *cdrom_file_name, char *cue_file_name, unsigned char *iso_disc_name, int disc_num, int data_gap)
+int build_bin_cue(FILE *iso_table, char *data_fixed_file_path, char *cdrom_file_name, char *cue_file_name, char *iso_disc_name, int disc_num, int data_gap, const PREGAP_OVERRIDE *pregap_override
+)
 {
 	char cdrom_file_path[256] = "../";
 	strcat(cdrom_file_path, cdrom_file_name);
@@ -869,8 +992,13 @@ int build_bin_cue(FILE *iso_table, char *data_fixed_file_path, char *cdrom_file_
 		printf("ERROR: Can't open %s!\n", cdrom_file_path);
 		return -1;
 	}
-	copy_track_to_iso(bin_file, data_fixed_file_path, 1);
-
+	int data_track_size = copy_track_to_iso(bin_file, data_fixed_file_path, 1);
+	if (data_track_size < 0)
+	{
+		printf("Error copying data track to CDROM.BIN, aborting...\n");
+		fclose(bin_file);
+		return -1;
+	}
 	// Read track 02
 	fseek(iso_table, cue_offset, SEEK_SET);
 	fread(cue_entry, sizeof(CUE_ENTRY), 1, iso_table);
@@ -879,15 +1007,25 @@ int build_bin_cue(FILE *iso_table, char *data_fixed_file_path, char *cdrom_file_
 	{
 		char track_filename[0x10];
 		audio_file_name(track_filename, disc_num, track_num, "BIN");
-		if (copy_track_to_iso(bin_file, track_filename, track_num) < 0)
+		int audio_track_size = copy_track_to_iso(bin_file, track_filename, track_num);
+		if (audio_track_size < 0)
 		{
-			// if audio track copy failed just bail and generate valid cue for the data track
-			// this is mainly a workaround for RE2 EBOOT having audio track pointers but no
-			// audio tracks
-			printf("Proceeding to generate CUE file without audio tracks\n");
-			break;
+			// If audio track copy failed on track 2 just bail and generate valid cue for the data track.
+			// This is mainly a workaround for RE2 EBOOT having audio track pointers but no audio tracks
+			if (track_num == 2)
+			{
+				printf("Proceeding to generate CUE file without audio tracks\n");
+				break;
+			}
+			else
+			{
+				printf("ERROR: failed to copy track %d to CDROM.BIN, aborting...\n", track_num);
+				fclose(cue_file);
+				fclose(bin_file);
+				return -1;
+			}
 		}
-	
+
 		int ff1, ss1, mm1, mm0, ss0, ff0;
 		i++;
 		// convert 0xXY into decimal XY
@@ -899,7 +1037,15 @@ int build_bin_cue(FILE *iso_table, char *data_fixed_file_path, char *cdrom_file_
 		sprintf(cue, "  TRACK %02d AUDIO\n", i);
 		fputs(cue, cue_file);
 		memset(cue, 0, 0x100);
-		ff0 = ff1 - (track_num == 2 ? data_gap : GAP_FRAMES);
+		int pregap_frames = GAP_FRAMES;
+		if (pregap_override != NULL) {
+			int mm = pregap_override->timestamps[track_num - 2].mm;
+			int ss = pregap_override->timestamps[track_num - 2].ss;
+			int ff = pregap_override->timestamps[track_num - 2].ff;
+			pregap_frames = ff + 75 * ss + 75 * 60 * mm;
+			printf("Overriding pregap with %02d:%02d%02d (%d)\n", mm, ss, ff, pregap_frames);
+		}
+		ff0 = ff1 - (track_num == 2 ? data_gap : pregap_frames);
 		ss0 = ff0 / 75;
 		mm0 = ss0 / 60;
 		ss0 = ss0 % 60;
@@ -928,10 +1074,10 @@ int build_bin_cue(FILE *iso_table, char *data_fixed_file_path, char *cdrom_file_
 	return 0;
 }
 
-int extract_and_convert_audio(FILE *psar, FILE *iso_table, int base_audio_offset, unsigned char *pgd_key, int disc_num, int data_gap)
+int extract_and_convert_audio(FILE *psar, FILE *iso_table, int base_audio_offset, unsigned char *pgd_key, int disc_num, int data_gap, const PREGAP_OVERRIDE* pregap_override)
 {
-	printf("Attempting to extract audio tracks...\n");
-	int num_tracks = build_audio_at3(psar, iso_table, base_audio_offset, pgd_key, disc_num);
+	printf("\nAttempting to extract audio tracks...\n\n");
+	int num_tracks = build_audio_at3(psar, iso_table, base_audio_offset, pgd_key, disc_num, pregap_override);
 	if (num_tracks < 0) {
 		printf("ERROR: Audio track extraction failed!\n");
 		return -1;
@@ -947,7 +1093,7 @@ int extract_and_convert_audio(FILE *psar, FILE *iso_table, int base_audio_offset
 	else if (num_tracks > 0)
 		printf("%d audio tracks converted to WAV\n", num_tracks);
 
-	if (convert_wav_to_bin(data_gap, disc_num, num_tracks) < 0)
+	if (convert_wav_to_bin(data_gap, disc_num, num_tracks, pregap_override) < 0)
 	{
 		printf("ERROR: WAV to BIN conversion failed!\n\n");
 		return -1;
@@ -955,6 +1101,16 @@ int extract_and_convert_audio(FILE *psar, FILE *iso_table, int base_audio_offset
 	else if (num_tracks > 0)
 		printf("%d audio tracks converted to BIN\n\n", num_tracks);
 	return num_tracks;
+}
+
+const PREGAP_OVERRIDE* find_pregap_mapping(char* game_id)
+{
+    for (int i = 0; i < sizeof(pregap_overrides) / sizeof(PREGAP_OVERRIDE); i++)
+    {
+        if (strcmp(game_id, pregap_overrides[i].game_id) == 0)
+            return &pregap_overrides[i];
+    }
+    return NULL;
 }
 
 int decrypt_single_disc(FILE* psar, int psar_size, int startdat_offset, unsigned char* pgd_key)
@@ -973,8 +1129,8 @@ int decrypt_single_disc(FILE* psar, int psar_size, int startdat_offset, unsigned
 	}
 
 	// Save the ISO disc name and title (UTF-8).
-	unsigned char iso_title[0x80];
-	unsigned char iso_disc_name[0x10];
+	char iso_title[0x80];
+	char iso_disc_name[0x10];
 	memset(iso_title, 0, 0x80);
 	memset(iso_disc_name, 0, 0x10);
 
@@ -1014,7 +1170,7 @@ int decrypt_single_disc(FILE* psar, int psar_size, int startdat_offset, unsigned
 
 	printf("\n");
 
-	char data_bin[16] = "DATA TRACK.BIN";
+	char data_bin[16] = "DATA_TRACK.BIN";
 	char data_bin_fixed[256];
 	memset(data_bin_fixed, 0, 256);
 	strcat(data_bin_fixed, data_bin);
@@ -1028,8 +1184,13 @@ int decrypt_single_disc(FILE* psar, int psar_size, int startdat_offset, unsigned
 	}
 	printf("\n");
 
+    const PREGAP_OVERRIDE* pregap_override = find_pregap_mapping(iso_disc_name);
+    if (pregap_override != NULL) {
+        printf("Using custom pregaps for %s (%d tracks)\n", iso_disc_name, pregap_override->num_tracks);
+    }
+
 	// Handle audio tracks
-	if (extract_and_convert_audio(psar, iso_table, ISO_BASE_OFFSET, pgd_key, 1, data_gap) < 0)
+	if (extract_and_convert_audio(psar, iso_table, ISO_BASE_OFFSET, pgd_key, 1, data_gap, pregap_override) < 0)
 	{
 		printf("ERROR: extract and convert audio failed, aborting...\n");
 		fclose(iso_table);
@@ -1038,7 +1199,7 @@ int decrypt_single_disc(FILE* psar, int psar_size, int startdat_offset, unsigned
 
 	// Convert to BIN/CUE.
 	printf("Converting the final image to BIN/CUE...\n");
-	if (build_bin_cue(iso_table, data_bin_fixed, "CDROM.BIN", "CDROM.CUE", iso_disc_name, 1, data_gap))
+	if (build_bin_cue(iso_table, data_bin_fixed, "CDROM.BIN", "CDROM.CUE", iso_disc_name, 1, data_gap, pregap_override))
 	{
 		printf("ERROR: Failed to convert to BIN/CUE!\n");
 		fclose(iso_table);
@@ -1081,8 +1242,8 @@ int decrypt_multi_disc(FILE *psar, int psar_size, int startdat_offset, unsigned 
 		fread(&disc_offset[i], sizeof(int), 1, iso_map);
 
 	// Get the disc collection ID and title (UTF-8).
-	unsigned char iso_title[0x80];
-	unsigned char iso_disc_name[0x10];
+	char iso_title[0x80];
+	char iso_disc_name[0x10];
 	memset(iso_title, 0, 0x80);
 	memset(iso_disc_name, 0, 0x10);
 
@@ -1151,7 +1312,7 @@ int decrypt_multi_disc(FILE *psar, int psar_size, int startdat_offset, unsigned 
 			printf("\n");
 
 			// Attempt to extact and convert audio tracks
-			if (extract_and_convert_audio(psar, iso_table, disc_offset[i] + ISO_BASE_OFFSET, pgd_key, i + 1, data_gap) < 0)
+			if (extract_and_convert_audio(psar, iso_table, disc_offset[i] + ISO_BASE_OFFSET, pgd_key, i + 1, data_gap, NULL) < 0)
 			{
 				printf("ERROR: extract and convert audio failed, aborting...\n");
 				fclose(iso_table);
@@ -1165,7 +1326,7 @@ int decrypt_multi_disc(FILE *psar, int psar_size, int startdat_offset, unsigned 
 			sprintf(cdrom_x_bin, "CDROM_%d.BIN", i + 1);
 			char cdrom_x_cue[0x10];
 			sprintf(cdrom_x_cue, "CDROM_%d.CUE", i + 1);
-			if (build_bin_cue(iso_table, data_x_bin_fixed, cdrom_x_bin, cdrom_x_cue, iso_disc_name, i + 1, data_gap))
+			if (build_bin_cue(iso_table, data_x_bin_fixed, cdrom_x_bin, cdrom_x_cue, iso_disc_name, i + 1, data_gap, NULL))
 				printf("ERROR: Encountered issues converting disc %d to BIN/CUE!\n\n", i + 1);
 			else
 				printf("Disc %d successfully converted to BIN/CUE format!\n\n", i + 1);

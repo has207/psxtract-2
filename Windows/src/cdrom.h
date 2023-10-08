@@ -35,6 +35,7 @@
 #define CDROMXA_FORM1_PARITY_P_SIZE    (43 * 2 * 2)
 #define CDROMXA_FORM1_PARITY_Q_OFFSET  (CDROMXA_FORM1_PARITY_P_OFFSET + CDROMXA_FORM1_PARITY_P_SIZE)
 #define CDROMXA_FORM1_PARITY_Q_SIZE    (26 * 2 * 2)
+#define MAX_WARNINGS                   5
 
 //The following table is used for computing the error detection code (EDC)
 static unsigned int EDCTable[256] =

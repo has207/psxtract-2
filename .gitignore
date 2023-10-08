@@ -1,4 +1,4 @@
 .vs/
-Windows/bin/
-Windows/src/Debug/
-Windows/src/Release/
+bin/
+src/Debug/
+src/Release/

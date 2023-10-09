@@ -32,7 +32,11 @@ Using the internal files' hashes, psxtract can calculate the key by itself.
 Game file manual decryption is also supported (DOCUMENT.DAT).
 
 Linux code has diverged significantly and has been removed. If you want to use
-this tool on Linux/OSX try it with Wine.
+this tool on Linux/OSX try it with Wine, just make sure to set WINEPREFIX approprirately.
+Otherwise spawning external processes needed to decode AT3 files will fail. Hint:
+
+
+```$ WINEPREFIX=~/.wine/drive_c wine /path/to/psxtract.exe -c /path/to/EBOOT.PBP```
 
 For more details about the algorithms involved in the extraction process
 please check the following sources:

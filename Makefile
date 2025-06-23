@@ -48,4 +48,28 @@ clean:
 install: $(TARGET)
 	cp $(TARGET) /usr/local/bin/ 2>/dev/null || echo "Note: Could not install to /usr/local/bin (may need sudo)"
 
-.PHONY: all clean install
+release: $(TARGET)
+	@echo "Creating release package..."
+	@if [ ! -f at3tool.exe ]; then \
+		echo "ERROR: at3tool.exe not found in current directory"; \
+		echo "Please obtain at3tool.exe and place it in the project root"; \
+		exit 1; \
+	fi
+	@if [ ! -f msvcr71.dll ]; then \
+		echo "ERROR: msvcr71.dll not found in current directory"; \
+		echo "Please obtain msvcr71.dll and place it in the project root"; \
+		exit 1; \
+	fi
+	mkdir -p release/psxtract-2
+	cp $(TARGET) release/psxtract-2/
+	cp at3tool.exe release/psxtract-2/
+	cp msvcr71.dll release/psxtract-2/
+	cp README.md release/psxtract-2/ 2>/dev/null || true
+	cp LICENSE release/psxtract-2/ 2>/dev/null || true
+	cd release && zip -r ../psxtract-2.zip psxtract-2 && cd ..
+	rm -rf release
+	@echo "Release package created: psxtract-2.zip"
+	@echo "Contents:"
+	@unzip -l psxtract-2.zip
+
+.PHONY: all clean install release

@@ -49,7 +49,7 @@ int decrypt_pgd(unsigned char* pgd_data, int pgd_size, int flag, unsigned char* 
 	unsigned char*fkey;
 
 	// Read in the PGD header parameters.
-	memset(PGD, 0, sizeof(PGD_HEADER));
+	memset(PGD, 0, sizeof(PGD));
 
 	PGD->buf = pgd_data;
 	PGD->key_index = *(u32*)(pgd_data + 4);
@@ -218,7 +218,7 @@ int unpack_pbp(FILE *infile)
 	}
 
 	// Check the signature
-	for (loop0 = 0; loop0 < sizeof(pbp_sig); loop0++) {
+	for (loop0 = 0; loop0 < (int)sizeof(pbp_sig); loop0++) {
 		if (header.signature[loop0] != pbp_sig[loop0]) {
 			printf("UNPACK_PBP ERROR: Input file is not a PBP file.\n");
 			return -1;
@@ -270,7 +270,7 @@ int unpack_pbp(FILE *infile)
 			// Create the read buffer
 			buffer = malloc(readsize);
 			if (buffer == NULL) {
-				printf("UNPACK_PBP ERROR: Could not allocate the section data buffer. (%d)\n", readsize);
+				printf("UNPACK_PBP ERROR: Could not allocate the section data buffer. (%lld)\n", readsize);
 				return -1;
 			}
 

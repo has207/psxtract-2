@@ -3,6 +3,11 @@
 // http://www.gnu.org/licenses/gpl-3.0.txt
 
 #include "psxtract.h"
+#include "md5_data.h"
+
+// Global MD5 database
+MD5_ENTRY* g_md5_entries = NULL;
+int g_md5_count = 0;
 
 char* exec(const char* cmd) {
     HANDLE hRead, hWrite;
@@ -74,11 +79,11 @@ unsigned long extract_startdat(FILE *psar, bool isMultidisc)
 
 	if (startdat_offset)
 	{
-		printf("Found STARTDAT offset: 0x%08x\n", startdat_offset);
+		printf("Found STARTDAT offset: 0x%08lx\n", startdat_offset);
 
 		// Read the STARTDAT header.
 		STARTDAT_HEADER startdat_header[sizeof(STARTDAT_HEADER)];
-		memset(startdat_header, 0, sizeof(STARTDAT_HEADER));
+		memset(startdat_header, 0, sizeof(startdat_header));
 
 		// Save the header as well.
 		_fseeki64(psar, startdat_offset, SEEK_SET);
@@ -365,11 +370,11 @@ int build_data_track(FILE *psar, FILE *iso_table, unsigned int disc_offset, int 
 	}
 
 	long long iso_offset = ISO_BASE_OFFSET + disc_offset;  // Start of compressed ISO data.
-	printf("ISO offset %x\n", iso_offset);
+	printf("ISO offset %llx\n", iso_offset);
 	int read_size = 0;
 	int block_count = 0;
 	ISO_ENTRY entry[sizeof(ISO_ENTRY)];
-	memset(entry, 0, sizeof(ISO_ENTRY));
+	memset(entry, 0, sizeof(entry));
 
 	// Read the first entry.
 	fread(entry, sizeof(ISO_ENTRY), 1, iso_table);
@@ -528,7 +533,7 @@ int fill_at3_header(AT3_HEADER *header, CDDA_ENTRY *audio_entry, int track_secto
 int extract_frames_from_cue(FILE *iso_table, int cue_offset, int gap)
 {
 	CUE_ENTRY cue_entry[sizeof(CUE_ENTRY)];
-	memset(cue_entry, 0, sizeof(CUE_ENTRY));
+	memset(cue_entry, 0, sizeof(cue_entry));
 
 	fseek(iso_table, cue_offset, SEEK_SET);
 	fread(cue_entry, sizeof(CUE_ENTRY), 1, iso_table);
@@ -570,7 +575,7 @@ int get_track_size_from_cue(FILE *iso_table, int cue_offset)
 		next_track_offset = extract_frames_from_cue(iso_table, CUE_LEADOUT_OFFSET, 0);
 		if (next_track_offset < 0)
 		{
-			"ERROR: last track size calculation failed, aborting...\n";
+			printf("ERROR: last track size calculation failed, aborting...\n");
 			return -1;
 		}
 	}
@@ -579,7 +584,7 @@ int get_track_size_from_cue(FILE *iso_table, int cue_offset)
 
 int data_track_sectors(FILE *iso_table)
 {
-	int track = 1;
+	// int track = 1;  // unused variable
 	int cue_offset = 0x41E;  // track 01 offset
 	int track_size = get_track_size_from_cue(iso_table, cue_offset) - GAP_FRAMES;  // subtract 2 seconds
 	if (track_size < 0) {
@@ -606,13 +611,13 @@ int build_audio_at3(FILE *psar, FILE *iso_table, int base_audio_offset, unsigned
 	
 	AT3_HEADER at3_header[sizeof(AT3_HEADER)];
 	CDDA_ENTRY audio_entry[sizeof(CDDA_ENTRY)];
-	memset(audio_entry, 0, sizeof(CDDA_ENTRY));
+	memset(audio_entry, 0, sizeof(audio_entry));
 
 	CUE_ENTRY cue_entry_cur[sizeof(CUE_ENTRY)];
-	memset(cue_entry_cur, 0, sizeof(CUE_ENTRY));
+	memset(cue_entry_cur, 0, sizeof(cue_entry_cur));
 
 	CUE_ENTRY cue_entry_next[sizeof(CUE_ENTRY)];
-	memset(cue_entry_next, 0, sizeof(CUE_ENTRY));
+	memset(cue_entry_next, 0, sizeof(cue_entry_next));
 
 	// Read track 02
 	int cue_offset = 0x428;  // track 02 offset
@@ -634,7 +639,7 @@ int build_audio_at3(FILE *psar, FILE *iso_table, int base_audio_offset, unsigned
         {
             const TIMESTAMP* curr_t = &pregap_override->timestamps[track_num - 2];
             int curr_pregap = (curr_t->mm * 60 + curr_t->ss) * 75 + curr_t->ff;
-            if (track_num - 1 < pregap_override->num_tracks)
+            if ((size_t)(track_num - 1) < pregap_override->num_tracks)
             {
                 printf("checking pregap override\n");
                 // check if the pregap of the next track is less than 2
@@ -672,7 +677,7 @@ int build_audio_at3(FILE *psar, FILE *iso_table, int base_audio_offset, unsigned
 		
 		// Store the decrypted track data.
 		// Open a new file to write the track image with AT3 header
-		audio_file_name(track_filename, disc_num, track_num, "AT3");
+		audio_file_name(track_filename, disc_num, track_num, (char*)"AT3");
 		FILE* track = fopen(track_filename, "wb");
 		if (track == NULL)
 		{
@@ -708,7 +713,7 @@ int convert_at3_to_wav(int disc_num, int num_tracks)
 	for (int i = 2; i <= num_tracks + 1; i++)
 	{
 		char at3_filename[0x10];
-		audio_file_name(at3_filename, disc_num, i, "AT3");
+		audio_file_name(at3_filename, disc_num, i, (char*)"AT3");
 		struct stat st;
 		if (stat(at3_filename, &st) != 0 || st.st_size == 0)
 		{
@@ -717,21 +722,15 @@ int convert_at3_to_wav(int disc_num, int num_tracks)
 		}
 
 		char wav_filename[0x10];
-		audio_file_name(wav_filename, disc_num, i, "WAV");
+		audio_file_name(wav_filename, disc_num, i, (char*)"WAV");
 
 		char wdir[_MAX_PATH];
 		char command[_MAX_PATH + 50];
 
-		if (GetModuleFileName(NULL, wdir, MAX_PATH) == 0)
+		if (get_exe_directory(wdir, _MAX_PATH) != 0)
 		{
-			printf("ERROR: Failed to obtained current directory\n%d\n", GetLastError());
+			printf("ERROR: Failed to obtained current directory\n%lu\n", GetLastError());
 			return 1;
-		}
-
-		// Find the last backslash in the path, and null-terminate there to remove the executable name
-		char* last_backslash = strrchr(wdir, '\\');
-		if (last_backslash) {
-			*last_backslash = '\0';
 		}
 		sprintf(command, "%s\\at3tool.exe", wdir);
 		if (stat(command, &st) != 0)
@@ -767,7 +766,7 @@ int convert_at3_to_wav(int disc_num, int num_tracks)
 			}
 			AT3_HEADER at3_header[sizeof(AT3_HEADER)];
 			fread(at3_header, sizeof(AT3_HEADER), 1, at3_file);
-			printf("%s created with size %d (expected %d)...\n", wav_filename, st.st_size, 44 + at3_header->fact_param1 * 4);
+			printf("%s created with size %ld (expected %d)...\n", wav_filename, st.st_size, 44 + at3_header->fact_param1 * 4);
 			fclose(at3_file);
 		}
 		else
@@ -812,7 +811,7 @@ int convert_wav_to_bin(int data_gap, int disc_num, int num_tracks, const PREGAP_
 	for (int i = 2; i <= num_tracks + 1; i++)
 	{
 		char wav_filename[0x10];
-		audio_file_name(wav_filename, disc_num, i, "WAV");
+		audio_file_name(wav_filename, disc_num, i, (char*)"WAV");
 		struct stat st;
 		if (stat(wav_filename, &st) != 0 || st.st_size == 0)
 		{
@@ -831,7 +830,7 @@ int convert_wav_to_bin(int data_gap, int disc_num, int num_tracks, const PREGAP_
 		fseek(wav_file, wav_size - GAP_SIZE, SEEK_SET);
 
 		char bin_filename[0x10];
-		audio_file_name(bin_filename, disc_num, i, "BIN");
+		audio_file_name(bin_filename, disc_num, i, (char*)"BIN");
 		FILE* bin_file = fopen(bin_filename, "wb");
 		if (bin_file == NULL)
 		{
@@ -843,7 +842,7 @@ int convert_wav_to_bin(int data_gap, int disc_num, int num_tracks, const PREGAP_
 		// grab the expected size from the AT3 header
 		long expected_size = -1;
 		char at3_filename[0x10];
-		audio_file_name(at3_filename, disc_num, i, "AT3");
+		audio_file_name(at3_filename, disc_num, i, (char*)"AT3");
 		FILE* at3_file = fopen(at3_filename, "rb");
 		if (at3_file != NULL)
 		{
@@ -854,7 +853,7 @@ int convert_wav_to_bin(int data_gap, int disc_num, int num_tracks, const PREGAP_
 		else
 			printf("WARNING: Can't open %s, skipping padding step...\n", at3_filename);
         int gap_frames = GAP_FRAMES;
-        if (pregap_override != NULL && i > 2 && i - 2 < pregap_override->num_tracks)
+        if (pregap_override != NULL && i > 2 && (size_t)(i - 2) < pregap_override->num_tracks)
         {
             // check if the pregap for this track gets an override
             const TIMESTAMP* t = &pregap_override->timestamps[i - 2];
@@ -871,7 +870,7 @@ int convert_wav_to_bin(int data_gap, int disc_num, int num_tracks, const PREGAP_
 		fseek(wav_file, 44, SEEK_SET);  // skip the WAVE header
 		int data_size = wav_size - pregap_size - 44;
 
-        if (pregap_override != NULL && i - 1 < pregap_override->num_tracks)
+        if (pregap_override != NULL && (size_t)(i - 1) < pregap_override->num_tracks)
         {
             // check if the pregap of the next track is less than 2
             const TIMESTAMP* t = &pregap_override->timestamps[i - 1];
@@ -901,10 +900,10 @@ int convert_wav_to_bin(int data_gap, int disc_num, int num_tracks, const PREGAP_
 		long file_size = ftell(bin_file);
 		if (file_size < expected_size)
 		{
-			printf("Padding track %d with additional %d bytes\n", i, expected_size - file_size);
+			printf("Padding track %d with additional %ld bytes\n", i, expected_size - file_size);
 			long new_pos = expected_size - 1;
 			fseek(bin_file, new_pos, SEEK_SET);
-			int written = fwrite(&zero, 1, 1, bin_file);
+			(void)fwrite(&zero, 1, 1, bin_file);  // suppress unused variable warning
 		}
 
 		fclose(at3_file);
@@ -980,7 +979,7 @@ int build_bin_cue(FILE *iso_table, char *data_fixed_file_path, char *cdrom_file_
 
 	// genereating cue table
 	CUE_ENTRY cue_entry[sizeof(CUE_ENTRY)];
-	memset(cue_entry, 0, sizeof(CUE_ENTRY));
+	memset(cue_entry, 0, sizeof(cue_entry));
 
 	int cue_offset = 0x428;  // track 02 offset
 	int i = 1;
@@ -1006,7 +1005,7 @@ int build_bin_cue(FILE *iso_table, char *data_fixed_file_path, char *cdrom_file_
 	while (cue_entry->type)
 	{
 		char track_filename[0x10];
-		audio_file_name(track_filename, disc_num, track_num, "BIN");
+		audio_file_name(track_filename, disc_num, track_num, (char*)"BIN");
 		int audio_track_size = copy_track_to_iso(bin_file, track_filename, track_num);
 		if (audio_track_size < 0)
 		{
@@ -1105,7 +1104,7 @@ int extract_and_convert_audio(FILE *psar, FILE *iso_table, int base_audio_offset
 
 const PREGAP_OVERRIDE* find_pregap_mapping(char* game_id)
 {
-    for (int i = 0; i < sizeof(pregap_overrides) / sizeof(PREGAP_OVERRIDE); i++)
+    for (size_t i = 0; i < sizeof(pregap_overrides) / sizeof(PREGAP_OVERRIDE); i++)
     {
         if (strcmp(game_id, pregap_overrides[i].game_id) == 0)
             return &pregap_overrides[i];
@@ -1130,12 +1129,19 @@ bool check_prebaked_cue_file(char* disc_name, char* game_title)
 {
     char cue_name[0x20];
     char cue_file_path[256];
+    char exe_dir[_MAX_PATH];
+    
+    // Get executable directory (same logic as copy_prebaked_cue_file)
+    if (get_exe_directory(exe_dir, _MAX_PATH) != 0)
+    {
+        return false;
+    }
     
     // Convert disc name to CUE format
     convert_disc_name_to_cue_format(disc_name, cue_name);
     
-    // Build the path to the CUE file
-    sprintf(cue_file_path, "../cue/%s.cue", cue_name);
+    // Build the path to the CUE file relative to executable directory
+    sprintf(cue_file_path, "%s\\cue\\%s.cue", exe_dir, cue_name);
     
     // Check if file exists
     struct stat st;
@@ -1188,12 +1194,20 @@ int copy_prebaked_cue_file(char* disc_name, char* game_title, char* output_bin_n
     char cue_name[0x20];
     char cue_file_path[256];
     char output_cue_path[256];
+    char exe_dir[_MAX_PATH];
+    
+    // Get executable directory (same logic as at3tool.exe)
+    if (get_exe_directory(exe_dir, _MAX_PATH) != 0)
+    {
+        printf("ERROR: Failed to get executable directory\n");
+        return -1;
+    }
     
     // Convert disc name to CUE format
     convert_disc_name_to_cue_format(disc_name, cue_name);
     
-    // Build paths
-    sprintf(cue_file_path, "../cue/%s.cue", cue_name);
+    // Build paths relative to executable directory
+    sprintf(cue_file_path, "%s\\cue\\%s.cue", exe_dir, cue_name);
     sprintf(output_cue_path, "../%s.cue", game_title);
     
     // Open source CUE file
@@ -1323,9 +1337,10 @@ int decrypt_single_disc(FILE* psar, long long psar_size, long long startdat_offs
 	}
 	printf("\n");
 
+
     const PREGAP_OVERRIDE* pregap_override = find_pregap_mapping(iso_disc_name);
     if (pregap_override != NULL) {
-        printf("Using custom pregaps for %s (%d tracks)\n", iso_disc_name, pregap_override->num_tracks);
+        printf("Using custom pregaps for %s (%llu tracks)\n", iso_disc_name, pregap_override->num_tracks);
     }
 
 	// Handle audio tracks
@@ -1387,7 +1402,7 @@ int decrypt_single_disc(FILE* psar, long long psar_size, long long startdat_offs
 		int cue_offset = 0x428;  // track 02 offset
 		
 		CUE_ENTRY cue_entry[sizeof(CUE_ENTRY)];
-		memset(cue_entry, 0, sizeof(CUE_ENTRY));
+		memset(cue_entry, 0, sizeof(cue_entry));
 		
 		// Read track 02
 		fseek(iso_table, cue_offset, SEEK_SET);
@@ -1396,7 +1411,7 @@ int decrypt_single_disc(FILE* psar, long long psar_size, long long startdat_offs
 		while (cue_entry->type)
 		{
 			char track_filename[0x10];
-			audio_file_name(track_filename, 1, track_num, "BIN");
+			audio_file_name(track_filename, 1, track_num, (char*)"BIN");
 			int audio_track_size = copy_track_to_iso(bin_file, track_filename, track_num);
 			if (audio_track_size < 0)
 			{
@@ -1432,6 +1447,13 @@ int decrypt_single_disc(FILE* psar, long long psar_size, long long startdat_offs
 			return -1;
 		}
 		
+		// MD5 verification before the success message
+		if (g_md5_entries != NULL && g_md5_count > 0) {
+			printf("\n=== MD5 VERIFICATION ===\n");
+			verify_data_track_md5(data_bin_fixed, iso_disc_name, g_md5_entries, g_md5_count);
+			printf("========================\n\n");
+		}
+		
 		printf("Disc successfully converted using prebaked CUE file!\n");
 	}
 	else
@@ -1443,8 +1465,15 @@ int decrypt_single_disc(FILE* psar, long long psar_size, long long startdat_offs
 			fclose(iso_table);
 			return -1;
 		}
-		else
-			printf("Disc successfully converted to BIN/CUE format!\n");
+		
+		// MD5 verification before the success message
+		if (g_md5_entries != NULL && g_md5_count > 0) {
+			printf("\n=== MD5 VERIFICATION ===\n");
+			verify_data_track_md5(data_bin_fixed, iso_disc_name, g_md5_entries, g_md5_count);
+			printf("========================\n\n");
+		}
+		
+		printf("Disc successfully converted to BIN/CUE format!\n");
 	}
 
 	fclose(iso_table);
@@ -1579,6 +1608,7 @@ int decrypt_multi_disc(FILE *psar, long long psar_size, long long startdat_offse
 			}
 			printf("\n");
 
+
 			// Attempt to extact and convert audio tracks
 			if (extract_and_convert_audio(psar, iso_table, disc_offset[i] + ISO_BASE_OFFSET, pgd_key, i + 1, data_gap, NULL) < 0)
 			{
@@ -1638,7 +1668,7 @@ int decrypt_multi_disc(FILE *psar, long long psar_size, long long startdat_offse
 				int cue_offset = 0x428;  // track 02 offset
 				
 				CUE_ENTRY cue_entry[sizeof(CUE_ENTRY)];
-				memset(cue_entry, 0, sizeof(CUE_ENTRY));
+				memset(cue_entry, 0, sizeof(cue_entry));
 				
 				// Read track 02
 				fseek(iso_table, cue_offset, SEEK_SET);
@@ -1647,7 +1677,7 @@ int decrypt_multi_disc(FILE *psar, long long psar_size, long long startdat_offse
 				while (cue_entry->type)
 				{
 					char track_filename[0x10];
-					audio_file_name(track_filename, i + 1, track_num, "BIN");
+					audio_file_name(track_filename, i + 1, track_num, (char*)"BIN");
 					int audio_track_size = copy_track_to_iso(bin_file, track_filename, track_num);
 					if (audio_track_size < 0)
 					{
@@ -1700,6 +1730,35 @@ int decrypt_multi_disc(FILE *psar, long long psar_size, long long startdat_offse
 		}
 	}
 
+	// MD5 verification before the success message
+	if (g_md5_entries != NULL && g_md5_count > 0) {
+		printf("\n=== MD5 VERIFICATION ===\n");
+		// Verify each disc's data track
+		for (int i = 0; i < MAX_DISCS; i++) {
+			if (disc_offset[i] > 0) {
+				// Re-open the ISO header to get the disc serial
+				char iso_header_filename[0x14];
+				sprintf(iso_header_filename, "ISO_HEADER_%d.BIN", i + 1);
+				FILE* iso_table = fopen(iso_header_filename, "rb");
+				if (iso_table != NULL) {
+					// Read the disc serial
+					char disc_serial[0x10];
+					memset(disc_serial, 0, 0x10);
+					fseek(iso_table, 1, SEEK_SET);
+					fread(disc_serial, 0x0F, 1, iso_table);
+					fclose(iso_table);
+					
+					// Verify the data track
+					char data_track_file[256];
+					sprintf(data_track_file, "DATA_%d.BIN.ISO", i + 1);
+					verify_data_track_md5(data_track_file, disc_serial, g_md5_entries, g_md5_count);
+					printf("\n"); // Add spacing between disc verifications
+				}
+			}
+		}
+		printf("========================\n\n");
+	}
+	
 	printf("Successfully reconstructed %d discs!\n", disc_count);
 	fclose(iso_map);
 	return 0;
@@ -1737,6 +1796,15 @@ int main(int argc, char **argv)
 
 	// Start KIRK.
 	kirk_init();
+	
+	// Load MD5 database for verification
+	g_md5_count = load_md5_entries(&g_md5_entries);
+	if (g_md5_count > 0) {
+		printf("MD5 verification database loaded with %d entries\n\n");
+	} else {
+		printf("Warning: MD5 verification database not available\n\n");
+	}
+
 
 	// Set an empty PGD key.
 	unsigned char pgd_key[0x10] = {};
@@ -1844,11 +1912,20 @@ int main(int argc, char **argv)
 	fclose(psar);
 	fclose(input);
 
+
 	if (cleanup)
 	{
 		printf("Cleanup requested, removing TEMP folder\n");
 		printf("[If you see errors above try running without -c to leave TEMP files in place in order to debug.]\n");
 		system("rmdir /S /Q TEMP");
 	}
+	
+	// Clean up MD5 database
+	if (g_md5_entries != NULL) {
+		free(g_md5_entries);
+		g_md5_entries = NULL;
+		g_md5_count = 0;
+	}
+	
 	return 0;
 }

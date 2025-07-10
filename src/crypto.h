@@ -94,7 +94,7 @@ static char pbp_sig[4] = {
 };
 
 // Names of files included in a PBP.
-static char *pbp_filenames[8] = {
+static const char *pbp_filenames[8] = {
 	"PARAM.SFO",
 	"ICON0.PNG",
 	"ICON1.PMF",

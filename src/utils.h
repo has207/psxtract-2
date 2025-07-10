@@ -10,3 +10,4 @@ unsigned char* strip_utf8(unsigned char *src, int size);
 bool isEmpty(unsigned char* buf, int buf_size);
 int se32(int i);
 u64 se64(u64 i);
+int get_exe_directory(char* buffer, int buffer_size);

@@ -8,6 +8,7 @@
 #include <direct.h>
 #include <sys/stat.h>
 #include <windows.h>
+#include <cstring>
 
 #include "cdrom.h"
 #include "lz.h"

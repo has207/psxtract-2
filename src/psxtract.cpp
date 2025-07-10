@@ -1113,6 +1113,130 @@ const PREGAP_OVERRIDE* find_pregap_mapping(char* game_id)
     return NULL;
 }
 
+// Convert disc name from underscore format to dash format (e.g., "SCES_00003" → "SCES-00003")
+void convert_disc_name_to_cue_format(char* disc_name, char* cue_name)
+{
+    strcpy(cue_name, disc_name);
+    // Replace underscores with dashes
+    for (int i = 0; cue_name[i]; i++)
+    {
+        if (cue_name[i] == '_')
+            cue_name[i] = '-';
+    }
+}
+
+// Check if a prebaked CUE file exists and extract the title from it
+bool check_prebaked_cue_file(char* disc_name, char* game_title)
+{
+    char cue_name[0x20];
+    char cue_file_path[256];
+    
+    // Convert disc name to CUE format
+    convert_disc_name_to_cue_format(disc_name, cue_name);
+    
+    // Build the path to the CUE file
+    sprintf(cue_file_path, "../cue/%s.cue", cue_name);
+    
+    // Check if file exists
+    struct stat st;
+    if (stat(cue_file_path, &st) != 0)
+    {
+        return false;
+    }
+    
+    // Read the CUE file and extract the title
+    FILE* cue_file = fopen(cue_file_path, "r");
+    if (cue_file == NULL)
+    {
+        return false;
+    }
+    
+    char line[512];
+    game_title[0] = '\0';
+    
+    // Read the first line to get the FILE entry
+    if (fgets(line, sizeof(line), cue_file) != NULL)
+    {
+        // Parse the FILE line: FILE "Game Title.bin" BINARY
+        char* start = strchr(line, '"');
+        if (start != NULL)
+        {
+            start++; // Skip the opening quote
+            char* end = strchr(start, '"');
+            if (end != NULL)
+            {
+                *end = '\0'; // Null terminate
+                strcpy(game_title, start);
+                
+                // Remove the .bin extension from the title
+                char* bin_ext = strstr(game_title, ".bin");
+                if (bin_ext != NULL)
+                {
+                    *bin_ext = '\0';
+                }
+            }
+        }
+    }
+    
+    fclose(cue_file);
+    return strlen(game_title) > 0;
+}
+
+// Copy prebaked CUE file to output directory with proper file naming
+int copy_prebaked_cue_file(char* disc_name, char* game_title, char* output_bin_name)
+{
+    char cue_name[0x20];
+    char cue_file_path[256];
+    char output_cue_path[256];
+    
+    // Convert disc name to CUE format
+    convert_disc_name_to_cue_format(disc_name, cue_name);
+    
+    // Build paths
+    sprintf(cue_file_path, "../cue/%s.cue", cue_name);
+    sprintf(output_cue_path, "../%s.cue", game_title);
+    
+    // Open source CUE file
+    FILE* source_cue = fopen(cue_file_path, "r");
+    if (source_cue == NULL)
+    {
+        printf("ERROR: Could not open source CUE file %s\n", cue_file_path);
+        return -1;
+    }
+    
+    // Open destination CUE file
+    FILE* dest_cue = fopen(output_cue_path, "w");
+    if (dest_cue == NULL)
+    {
+        printf("ERROR: Could not create output CUE file %s\n", output_cue_path);
+        fclose(source_cue);
+        return -1;
+    }
+    
+    // Copy the CUE file, but replace the BIN filename with our output name
+    char line[512];
+    while (fgets(line, sizeof(line), source_cue) != NULL)
+    {
+        // Check if this is the FILE line
+        if (strncmp(line, "FILE ", 5) == 0)
+        {
+            // Replace with our BIN filename (lowercase .bin extension)
+            fprintf(dest_cue, "FILE \"%s.bin\" BINARY\n", output_bin_name);
+        }
+        else
+        {
+            // Copy the line as-is
+            fputs(line, dest_cue);
+        }
+    }
+    
+    fclose(source_cue);
+    fclose(dest_cue);
+    
+    printf("Copied prebaked CUE file to %s\n", output_cue_path);
+    return 0;
+}
+
 int decrypt_single_disc(FILE* psar, long long psar_size, long long startdat_offset, unsigned char* pgd_key)
 {
 	// Decrypt the ISO header and get the block table.
@@ -1141,6 +1265,21 @@ int decrypt_single_disc(FILE* psar, long long psar_size, long long startdat_offs
 
 	printf("ISO disc: %s\n", iso_disc_name);
 	printf("ISO title: %s\n\n", iso_title);
+
+	// Check if we have a prebaked CUE file for this disc
+	char game_title[256];
+	bool use_prebaked_cue = check_prebaked_cue_file(iso_disc_name, game_title);
+	
+	if (use_prebaked_cue)
+	{
+		printf("Found prebaked CUE file for %s\n", iso_disc_name);
+		printf("Game title from CUE: %s\n\n", game_title);
+	}
+	else
+	{
+		printf("No prebaked CUE file found for %s, will generate CUE file\n\n", iso_disc_name);
+		strcpy(game_title, "CDROM"); // Default fallback
+	}
 
 	// Seek inside the ISO table to find the special data offset.
 	int special_data_offset;
@@ -1199,14 +1338,114 @@ int decrypt_single_disc(FILE* psar, long long psar_size, long long startdat_offs
 
 	// Convert to BIN/CUE.
 	printf("Converting the final image to BIN/CUE...\n");
-	if (build_bin_cue(iso_table, data_bin_fixed, "CDROM.BIN", "CDROM.CUE", iso_disc_name, 1, data_gap, pregap_override))
+	
+	// Use appropriate file names based on whether we have a prebaked CUE
+	char output_bin_name[256];
+	char output_cue_name[256];
+	
+	if (use_prebaked_cue)
 	{
-		printf("ERROR: Failed to convert to BIN/CUE!\n");
-		fclose(iso_table);
-		return -1;
+		sprintf(output_bin_name, "%s.bin", game_title);
+		sprintf(output_cue_name, "%s.cue", game_title);
 	}
 	else
-		printf("Disc successfully converted to BIN/CUE format!\n");
+	{
+		strcpy(output_bin_name, "CDROM.BIN");
+		strcpy(output_cue_name, "CDROM.CUE");
+	}
+	
+	if (use_prebaked_cue)
+	{
+		// For prebaked CUE files, we only need to generate the BIN file
+		// and copy the prebaked CUE file with the correct BIN filename
+		printf("Using prebaked CUE file, generating BIN file only...\n");
+		
+		// Build the BIN file with the correct name
+		char bin_file_path[256];
+		sprintf(bin_file_path, "../%s", output_bin_name);
+		
+		FILE* bin_file = fopen(bin_file_path, "wb");
+		if (bin_file == NULL)
+		{
+			printf("ERROR: Can't open %s!\n", bin_file_path);
+			fclose(iso_table);
+			return -1;
+		}
+		
+		// Copy data track
+		int data_track_size = copy_track_to_iso(bin_file, data_bin_fixed, 1);
+		if (data_track_size < 0)
+		{
+			printf("Error copying data track to %s, aborting...\n", output_bin_name);
+			fclose(bin_file);
+			fclose(iso_table);
+			return -1;
+		}
+		
+		// Handle audio tracks if present
+		int track_num = 2;
+		int cue_offset = 0x428;  // track 02 offset
+		
+		CUE_ENTRY cue_entry[sizeof(CUE_ENTRY)];
+		memset(cue_entry, 0, sizeof(CUE_ENTRY));
+		
+		// Read track 02
+		fseek(iso_table, cue_offset, SEEK_SET);
+		fread(cue_entry, sizeof(CUE_ENTRY), 1, iso_table);
+		
+		while (cue_entry->type)
+		{
+			char track_filename[0x10];
+			audio_file_name(track_filename, 1, track_num, "BIN");
+			int audio_track_size = copy_track_to_iso(bin_file, track_filename, track_num);
+			if (audio_track_size < 0)
+			{
+				// If audio track copy failed on track 2 just bail
+				if (track_num == 2)
+				{
+					printf("Proceeding without audio tracks\n");
+					break;
+				}
+				else
+				{
+					printf("ERROR: failed to copy track %d to %s, aborting...\n", track_num, output_bin_name);
+					fclose(bin_file);
+					fclose(iso_table);
+					return -1;
+				}
+			}
+			
+			cue_offset += sizeof(CUE_ENTRY);
+			// Read next track
+			fseek(iso_table, cue_offset, SEEK_SET);
+			fread(cue_entry, sizeof(CUE_ENTRY), 1, iso_table);
+			track_num++;
+		}
+		
+		fclose(bin_file);
+		
+		// Copy the prebaked CUE file
+		if (copy_prebaked_cue_file(iso_disc_name, game_title, game_title) < 0)
+		{
+			printf("ERROR: Failed to copy prebaked CUE file!\n");
+			fclose(iso_table);
+			return -1;
+		}
+		
+		printf("Disc successfully converted using prebaked CUE file!\n");
+	}
+	else
+	{
+		// Generate CUE file normally
+		if (build_bin_cue(iso_table, data_bin_fixed, output_bin_name, output_cue_name, iso_disc_name, 1, data_gap, pregap_override))
+		{
+			printf("ERROR: Failed to convert to BIN/CUE!\n");
+			fclose(iso_table);
+			return -1;
+		}
+		else
+			printf("Disc successfully converted to BIN/CUE format!\n");
+	}
 
 	fclose(iso_table);
 	return 0;
@@ -1288,6 +1527,35 @@ int decrypt_multi_disc(FILE *psar, long long psar_size, long long startdat_offse
 				return -1;
 			}
 
+			// Extract the individual disc serial and title for this specific disc
+			char disc_iso_disc_name[0x10];
+			char disc_iso_title[0x80];
+			memset(disc_iso_disc_name, 0, 0x10);
+			memset(disc_iso_title, 0, 0x80);
+
+			fseek(iso_table, 1, SEEK_SET);
+			fread(disc_iso_disc_name, 0x0F, 1, iso_table);
+			fseek(iso_table, 0xE2C, SEEK_SET);
+			fread(disc_iso_title, 0x80, 1, iso_table);
+
+			printf("Disc %d serial: %s\n", i + 1, disc_iso_disc_name);
+			printf("Disc %d title: %s\n\n", i + 1, disc_iso_title);
+
+			// Check if we have a prebaked CUE file for this specific disc
+			char disc_game_title[256];
+			bool use_prebaked_cue = check_prebaked_cue_file(disc_iso_disc_name, disc_game_title);
+			
+			if (use_prebaked_cue)
+			{
+				printf("Found prebaked CUE file for disc %d (%s)\n", i + 1, disc_iso_disc_name);
+				printf("Game title from CUE: %s\n\n", disc_game_title);
+			}
+			else
+			{
+				printf("No prebaked CUE file found for disc %d (%s), will generate CUE file\n\n", i + 1, disc_iso_disc_name);
+				sprintf(disc_game_title, "CDROM_%d", i + 1); // Default fallback
+			}
+
 			// Build the data track.
 			printf("Building data track for disc %d...\n", i + 1);
 			if (build_data_track(psar, iso_table, disc_offset[i], i + 1) < 0)
@@ -1322,16 +1590,112 @@ int decrypt_multi_disc(FILE *psar, long long psar_size, long long startdat_offse
 			// Convert to BIN/CUE
 			printf("Converting disc %d to BIN/CUE...\n", i + 1);
 
-			char cdrom_x_bin[0x10];
-			sprintf(cdrom_x_bin, "CDROM_%d.BIN", i + 1);
-			char cdrom_x_cue[0x10];
-			sprintf(cdrom_x_cue, "CDROM_%d.CUE", i + 1);
-			if (build_bin_cue(iso_table, data_x_bin_fixed, cdrom_x_bin, cdrom_x_cue, iso_disc_name, i + 1, data_gap, NULL))
-				printf("ERROR: Encountered issues converting disc %d to BIN/CUE!\n\n", i + 1);
+			// Use appropriate file names based on whether we have a prebaked CUE
+			char output_bin_name[256];
+			char output_cue_name[256];
+			
+			if (use_prebaked_cue)
+			{
+				sprintf(output_bin_name, "%s.bin", disc_game_title);
+				sprintf(output_cue_name, "%s.cue", disc_game_title);
+			}
 			else
-				printf("Disc %d successfully converted to BIN/CUE format!\n\n", i + 1);
+			{
+				sprintf(output_bin_name, "CDROM_%d.BIN", i + 1);
+				sprintf(output_cue_name, "CDROM_%d.CUE", i + 1);
+			}
+			
+			if (use_prebaked_cue)
+			{
+				// For prebaked CUE files, we only need to generate the BIN file
+				// and copy the prebaked CUE file with the correct BIN filename
+				printf("Using prebaked CUE file for disc %d, generating BIN file only...\n", i + 1);
+				
+				// Build the BIN file with the correct name
+				char bin_file_path[256];
+				sprintf(bin_file_path, "../%s", output_bin_name);
+				
+				FILE* bin_file = fopen(bin_file_path, "wb");
+				if (bin_file == NULL)
+				{
+					printf("ERROR: Can't open %s!\n", bin_file_path);
+					fclose(iso_table);
+					goto next_disc; // Continue with next disc instead of aborting
+				}
+				
+				// Copy data track
+				int data_track_size = copy_track_to_iso(bin_file, data_x_bin_fixed, 1);
+				if (data_track_size < 0)
+				{
+					printf("Error copying data track to %s, aborting disc %d...\n", output_bin_name, i + 1);
+					fclose(bin_file);
+					fclose(iso_table);
+					goto next_disc;
+				}
+				
+				// Handle audio tracks if present
+				int track_num = 2;
+				int cue_offset = 0x428;  // track 02 offset
+				
+				CUE_ENTRY cue_entry[sizeof(CUE_ENTRY)];
+				memset(cue_entry, 0, sizeof(CUE_ENTRY));
+				
+				// Read track 02
+				fseek(iso_table, cue_offset, SEEK_SET);
+				fread(cue_entry, sizeof(CUE_ENTRY), 1, iso_table);
+				
+				while (cue_entry->type)
+				{
+					char track_filename[0x10];
+					audio_file_name(track_filename, i + 1, track_num, "BIN");
+					int audio_track_size = copy_track_to_iso(bin_file, track_filename, track_num);
+					if (audio_track_size < 0)
+					{
+						// If audio track copy failed on track 2 just bail
+						if (track_num == 2)
+						{
+							printf("Proceeding without audio tracks for disc %d\n", i + 1);
+							break;
+						}
+						else
+						{
+							printf("ERROR: failed to copy track %d to %s, aborting disc %d...\n", track_num, output_bin_name, i + 1);
+							fclose(bin_file);
+							fclose(iso_table);
+							goto next_disc;
+						}
+					}
+					
+					cue_offset += sizeof(CUE_ENTRY);
+					// Read next track
+					fseek(iso_table, cue_offset, SEEK_SET);
+					fread(cue_entry, sizeof(CUE_ENTRY), 1, iso_table);
+					track_num++;
+				}
+				
+				fclose(bin_file);
+				
+				// Copy the prebaked CUE file
+				if (copy_prebaked_cue_file(disc_iso_disc_name, disc_game_title, disc_game_title) < 0)
+				{
+					printf("ERROR: Failed to copy prebaked CUE file for disc %d!\n", i + 1);
+					fclose(iso_table);
+					goto next_disc;
+				}
+				
+				printf("Disc %d successfully converted using prebaked CUE file!\n\n", i + 1);
+			}
+			else
+			{
+				// Generate CUE file normally
+				if (build_bin_cue(iso_table, data_x_bin_fixed, output_bin_name, output_cue_name, disc_iso_disc_name, i + 1, data_gap, NULL))
+					printf("ERROR: Encountered issues converting disc %d to BIN/CUE!\n\n", i + 1);
+				else
+					printf("Disc %d successfully converted to BIN/CUE format!\n\n", i + 1);
+			}
 
 			disc_count++;
+		next_disc:
 			fclose(iso_table);
 		}
 	}

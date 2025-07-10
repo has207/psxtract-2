@@ -1,0 +1,6 @@
+FILE "Breath of Fire IV - Utsurowazaru Mono (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 MODE2/2352
+    INDEX 00 61:50:62
+    INDEX 01 61:52:62

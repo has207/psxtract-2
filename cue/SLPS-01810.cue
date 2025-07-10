@@ -1,0 +1,6 @@
+FILE "Dekiru! Game Center (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 09:42:30
+    INDEX 01 09:44:30

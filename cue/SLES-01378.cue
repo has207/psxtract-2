@@ -1,0 +1,6 @@
+FILE "Pocket Fighter (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 21:35:55
+    INDEX 01 21:37:55

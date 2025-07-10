@@ -1,0 +1,6 @@
+FILE "Pro Wrestling Sengokuden 2 - Kakutou Emaki (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 10:18:62
+    INDEX 01 10:20:62

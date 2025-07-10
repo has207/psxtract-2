@@ -1,0 +1,6 @@
+FILE "Aquanaut no Kyuujitsu - Memories of Summer 1996 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 15:35:36
+    INDEX 01 15:37:36

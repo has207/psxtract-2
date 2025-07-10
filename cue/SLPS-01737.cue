@@ -1,0 +1,6 @@
+FILE "Susume! Kaizoku - Be Pirates! (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 19:46:23
+    INDEX 01 19:48:23

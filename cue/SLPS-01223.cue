@@ -1,0 +1,6 @@
+FILE "Biohazard 2 (Japan) (Disc 2) (Claire-hen).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 59:12:28
+    INDEX 01 59:14:28

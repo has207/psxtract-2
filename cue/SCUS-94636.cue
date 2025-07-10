@@ -1,0 +1,6 @@
+FILE "Disney's Atlantis - The Lost Empire (USA, Canada).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 32:13:10
+    INDEX 01 32:15:10

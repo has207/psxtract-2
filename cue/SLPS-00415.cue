@@ -1,0 +1,6 @@
+FILE "Street Fighter Zero 2 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 MODE2/2352
+    INDEX 00 54:04:52
+    INDEX 01 54:06:52

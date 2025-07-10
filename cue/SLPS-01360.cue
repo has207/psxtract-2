@@ -1,0 +1,6 @@
+FILE "Pocket Fighter (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 31:17:36
+    INDEX 01 31:19:36

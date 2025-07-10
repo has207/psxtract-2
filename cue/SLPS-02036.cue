@@ -1,0 +1,9 @@
+FILE "Logic Mahjong Souryuu - Yonin Uchi, Sannin Uchi (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 02:47:64
+    INDEX 01 02:49:64
+  TRACK 03 AUDIO
+    INDEX 00 05:55:53
+    INDEX 01 05:57:53

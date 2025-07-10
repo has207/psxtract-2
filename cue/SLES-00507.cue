@@ -1,0 +1,6 @@
+FILE "Soviet Strike (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 58:50:09
+    INDEX 01 58:52:09

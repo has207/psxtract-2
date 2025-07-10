@@ -1,0 +1,6 @@
+FILE "Castlevania - Symphony of the Night (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 50:53:49
+    INDEX 01 50:55:49

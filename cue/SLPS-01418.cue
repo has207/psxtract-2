@@ -1,0 +1,9 @@
+FILE "Marie no Atelier Plus - Salburg no Renkinjutsushi (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 28:43:57
+    INDEX 01 28:45:57
+  TRACK 03 AUDIO
+    INDEX 00 33:15:59
+    INDEX 01 33:17:59

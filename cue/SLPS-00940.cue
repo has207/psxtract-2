@@ -1,0 +1,6 @@
+FILE "Space Invaders (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 05:40:47
+    INDEX 01 05:42:47

@@ -1,0 +1,6 @@
+FILE "Dai-3-Ji Super Robot Taisen (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 51:41:30
+    INDEX 01 51:43:30

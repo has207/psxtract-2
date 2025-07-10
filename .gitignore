@@ -4,3 +4,5 @@ src/Debug/
 src/Release/
 CLAUDE.md
 obj/
+*.exe
+*.dll

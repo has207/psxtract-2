@@ -1,0 +1,6 @@
+FILE "Dragon Valor (Italy) (Disc 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 62:08:71
+    INDEX 01 62:10:71

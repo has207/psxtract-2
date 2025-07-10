@@ -1,0 +1,6 @@
+FILE "Street Fighter Alpha 2 (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 MODE2/2352
+    INDEX 00 53:51:07
+    INDEX 01 53:53:07

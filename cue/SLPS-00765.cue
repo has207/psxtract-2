@@ -1,0 +1,6 @@
+FILE "Namco Museum Encore (Japan) (Shokai Gentei Special Box).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 66:08:55
+    INDEX 01 66:10:55

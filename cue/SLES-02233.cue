@@ -1,0 +1,6 @@
+FILE "Fighting Force 2 (Europe) (En,Fr).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 43:57:35
+    INDEX 01 43:59:35

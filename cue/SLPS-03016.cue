@@ -4,3 +4,4 @@ FILE "Tantei Jinguuji Saburou - Mikan no Report (Japan) (Fukyuuban).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 39:45:57
     INDEX 01 39:47:57
+REM LEADOUT 44:12:74

@@ -16,3 +16,4 @@ FILE "Wai Wai Trump Taisen (Japan).bin" BINARY
   TRACK 06 AUDIO
     INDEX 00 16:27:12
     INDEX 01 16:29:12
+REM LEADOUT 20:00:43

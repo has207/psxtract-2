@@ -151,3 +151,4 @@ FILE "Street Fighter Alpha - Warriors' Dreams (USA) (Track 01).bin" BINARY
   TRACK 51 AUDIO
     INDEX 00 55:31:00
     INDEX 01 55:33:00
+REM LEADOUT 59:03:00

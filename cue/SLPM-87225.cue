@@ -58,3 +58,4 @@ FILE "Wai Wai Bowling (Japan) (Track 01).bin" BINARY
   TRACK 20 AUDIO
     INDEX 00 55:56:00
     INDEX 01 55:58:00
+REM LEADOUT 59:58:00

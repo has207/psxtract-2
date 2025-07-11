@@ -6,3 +6,4 @@ FILE "Castlevania - Symphony of the Night (USA).bin" BINARY
     FLAGS DCP
     INDEX 00 50:53:45
     INDEX 01 50:55:45
+REM LEADOUT 55:06:65

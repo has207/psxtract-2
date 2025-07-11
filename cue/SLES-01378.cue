@@ -4,3 +4,4 @@ FILE "Pocket Fighter (Europe).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 21:35:55
     INDEX 01 21:37:55
+REM LEADOUT 25:07:55

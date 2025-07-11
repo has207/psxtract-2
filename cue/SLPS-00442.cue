@@ -37,3 +37,4 @@ FILE "Nyan to Wonderful (Japan) (Track 01).bin" BINARY
   TRACK 13 AUDIO
     INDEX 00 36:02:00
     INDEX 01 36:04:00
+REM LEADOUT 39:04:00

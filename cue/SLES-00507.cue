@@ -4,3 +4,4 @@ FILE "Soviet Strike (Europe).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 58:50:09
     INDEX 01 58:52:09
+REM LEADOUT 63:27:10

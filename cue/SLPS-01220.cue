@@ -4,3 +4,4 @@ FILE "Namco Anthology 1 (Japan).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 44:29:15
     INDEX 01 44:31:15
+REM LEADOUT 48:28:73

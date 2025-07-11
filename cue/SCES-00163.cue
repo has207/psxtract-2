@@ -82,3 +82,4 @@ FILE "Mickey's Wild Adventure (Europe) (EDC) (Track 01).bin" BINARY
   TRACK 28 AUDIO
     INDEX 00 47:16:18
     INDEX 01 47:18:18
+REM LEADOUT 50:28:35

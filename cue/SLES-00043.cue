@@ -181,3 +181,4 @@ FILE "Super Pang Collection (Europe) (Track 01).bin" BINARY
   TRACK 61 AUDIO
     INDEX 00 45:17:73
     INDEX 01 45:19:73
+REM LEADOUT 48:49:73

@@ -37,3 +37,4 @@ FILE "Arcade Hits - Magical Drop (Japan) (Track 01).bin" BINARY
   TRACK 13 AUDIO
     INDEX 00 40:06:48
     INDEX 01 40:08:48
+REM LEADOUT 47:02:42

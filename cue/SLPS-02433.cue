@@ -37,3 +37,4 @@ FILE "Simple 1500 Series Vol. 18 - The Bowling (Japan) (Track 01).bin" BINARY
   TRACK 13 AUDIO
     INDEX 00 09:28:38
     INDEX 01 09:30:38
+REM LEADOUT 11:00:74

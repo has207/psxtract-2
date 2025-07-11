@@ -9,6 +9,9 @@
 MD5_ENTRY* g_md5_entries = NULL;
 int g_md5_count = 0;
 
+// Dynamic pregap override storage
+static PREGAP_OVERRIDE* g_dynamic_pregap_override = NULL;
+
 char* exec(const char* cmd) {
     HANDLE hRead, hWrite;
     SECURITY_ATTRIBUTES saAttr;
@@ -853,13 +856,14 @@ int convert_wav_to_bin(int data_gap, int disc_num, int num_tracks, const PREGAP_
 		else
 			printf("WARNING: Can't open %s, skipping padding step...\n", at3_filename);
         int gap_frames = GAP_FRAMES;
-        if (pregap_override != NULL && i > 2 && (size_t)(i - 2) < pregap_override->num_tracks)
+        if (pregap_override != NULL && i >= 2 && i - 2 < pregap_override->num_tracks)
         {
             // check if the pregap for this track gets an override
             const TIMESTAMP* t = &pregap_override->timestamps[i - 2];
             printf("Overriding pregap with %02d:%02d:%02d\n", t->mm, t->ss, t->ff);
             gap_frames = (t->mm * 60 + t->ss) * 75 + t->ff;
         }
+        
 		int pregap_size = (((i == 2) ? data_gap : gap_frames) - 1) * SECTOR_SIZE;
 
 		char zero = '\0';
@@ -868,33 +872,56 @@ int convert_wav_to_bin(int data_gap, int disc_num, int num_tracks, const PREGAP_
 		fwrite(&zero, 1, 1, bin_file);
 
 		fseek(wav_file, 44, SEEK_SET);  // skip the WAVE header
-		int data_size = wav_size - pregap_size - 44;
+		
+		// Calculate target track size from CUE file if available
+		int target_track_size = expected_size;
+		if (pregap_override != NULL && i - 2 < pregap_override->num_tracks)
+		{
+			const TIMESTAMP* expected_length = &pregap_override->track_lengths[i - 2];
+			int expected_frames = expected_length->mm * 60 * 75 + expected_length->ss * 75 + expected_length->ff;
+			int cue_track_size = expected_frames * SECTOR_SIZE;
+			
+			// Only use CUE size if it's reasonable (not 0 or too small)
+			if (cue_track_size > pregap_size) {
+				target_track_size = cue_track_size;
+			}
+		}
+		
+		// Calculate audio data size to reach target track size
+		int data_size = target_track_size - pregap_size;
+		
+		// Ensure we don't read more than available in WAV file
+		int max_wav_data = wav_size - 44;
+		if (data_size > max_wav_data) {
+			printf("Warning: Need %d bytes but WAV only has %d, will use available data and pad\n", data_size, max_wav_data);
+			// We'll read all available data and pad the rest
+		}
 
-        if (pregap_override != NULL && (size_t)(i - 1) < pregap_override->num_tracks)
-        {
-            // check if the pregap of the next track is less than 2
-            const TIMESTAMP* t = &pregap_override->timestamps[i - 1];
-            int next_pregap = (t->mm * 60 + t->ss) * 75 + t->ff;
-            if (next_pregap < gap_frames)
-            {
-                printf("Extending data_size due to short next_gap (%d < %d)\n", next_pregap, gap_frames);
-                data_size += (gap_frames - next_pregap) * SECTOR_SIZE;
-            }
-        }
-        if (data_size + pregap_size > expected_size)
-            data_size = expected_size - pregap_size;
-
-		unsigned char* audio_data = (unsigned char*)malloc(data_size);
+		// Read available WAV data
+		int read_size = (data_size > max_wav_data) ? max_wav_data : data_size;
+		unsigned char* audio_data = (unsigned char*)malloc(read_size);
 		if (audio_data == NULL) {
-			printf("Unable to allocated data size %d, aborting...\n", data_size);
+			printf("Unable to allocated audio data size %d, aborting...\n", read_size);
 			if (at3_file != NULL) fclose(at3_file);
 			fclose(bin_file);
 			fclose(wav_file);
 			return -1;
 		}
-		fread(audio_data, data_size, 1, wav_file);
-		fwrite(audio_data, data_size, 1, bin_file);
+		
+		fread(audio_data, read_size, 1, wav_file);
+		fwrite(audio_data, read_size, 1, bin_file);
 		free(audio_data);
+		
+		// Pad the rest if needed
+		if (data_size > read_size) {
+			int padding_needed = data_size - read_size;
+			printf("Padding track %d with %d bytes to reach expected length\n", i, padding_needed);
+			unsigned char* padding = (unsigned char*)calloc(padding_needed, 1);
+			if (padding != NULL) {
+				fwrite(padding, padding_needed, 1, bin_file);
+				free(padding);
+			}
+		}
 
 		fseek(bin_file, 0, SEEK_END);
 		long file_size = ftell(bin_file);
@@ -909,6 +936,20 @@ int convert_wav_to_bin(int data_gap, int disc_num, int num_tracks, const PREGAP_
 		fclose(at3_file);
 		fclose(wav_file);
 		fclose(bin_file);
+		
+		// Verify track length against CUE file expectation
+		if (pregap_override != NULL && i - 2 < pregap_override->num_tracks)
+		{
+			const TIMESTAMP* expected_length = &pregap_override->track_lengths[i - 2];
+			int expected_frames = expected_length->mm * 60 * 75 + expected_length->ss * 75 + expected_length->ff;
+			int expected_bytes = expected_frames * SECTOR_SIZE;
+			
+			printf("Track %d length verification:\n", i);
+			printf("  Expected: %02d:%02d:%02d (%d bytes)\n", 
+				   expected_length->mm, expected_length->ss, expected_length->ff, expected_bytes);
+			printf("  Actual:   %ld bytes\n", file_size);
+			printf("  Result:   %s\n", (file_size == expected_bytes) ? "PASS" : "FAIL");
+		}
 	}
 	return num_tracks;
 }
@@ -1104,11 +1145,26 @@ int extract_and_convert_audio(FILE *psar, FILE *iso_table, int base_audio_offset
 
 const PREGAP_OVERRIDE* find_pregap_mapping(char* game_id)
 {
-    for (size_t i = 0; i < sizeof(pregap_overrides) / sizeof(PREGAP_OVERRIDE); i++)
+    // Check if we have a dynamically generated pregap override
+    if (g_dynamic_pregap_override != NULL)
     {
-        if (strcmp(game_id, pregap_overrides[i].game_id) == 0)
-            return &pregap_overrides[i];
+        // Convert game_id (underscore format) to dash format for comparison
+        char converted_game_id[32];
+        strcpy(converted_game_id, game_id);
+        for (int i = 0; converted_game_id[i]; i++)
+        {
+            if (converted_game_id[i] == '_')
+                converted_game_id[i] = '-';
+        }
+        
+        // Compare with the stored dash format
+        if (strcmp(g_dynamic_pregap_override->game_id, converted_game_id) == 0)
+        {
+            return g_dynamic_pregap_override;
+        }
     }
+    
+    // No dynamic override found
     return NULL;
 }
 
@@ -1186,6 +1242,269 @@ bool check_prebaked_cue_file(char* disc_name, char* game_title)
     
     fclose(cue_file);
     return strlen(game_title) > 0;
+}
+
+// Parse prebaked CUE file and generate pregap override
+PREGAP_OVERRIDE* parse_prebaked_cue_pregaps(char* disc_name)
+{
+    char cue_name[0x20];
+    char cue_file_path[256];
+    char exe_dir[_MAX_PATH];
+    
+    // Get executable directory
+    if (get_exe_directory(exe_dir, _MAX_PATH) != 0)
+    {
+        return NULL;
+    }
+    
+    // Convert disc name to CUE format
+    convert_disc_name_to_cue_format(disc_name, cue_name);
+    
+    // Build the path to the CUE file
+    sprintf(cue_file_path, "%s\\cue\\%s.cue", exe_dir, cue_name);
+    
+    // Open the CUE file
+    FILE* cue_file = fopen(cue_file_path, "r");
+    if (cue_file == NULL)
+    {
+        return NULL;
+    }
+    
+    // Allocate memory for the dynamic pregap override
+    PREGAP_OVERRIDE* pregap_override = (PREGAP_OVERRIDE*)malloc(sizeof(PREGAP_OVERRIDE));
+    if (pregap_override == NULL)
+    {
+        fclose(cue_file);
+        return NULL;
+    }
+    
+    // Initialize the pregap override
+    memset(pregap_override, 0, sizeof(PREGAP_OVERRIDE));
+    pregap_override->game_id = _strdup(cue_name); // Store the disc name
+    pregap_override->num_tracks = 0;
+    
+    char line[512];
+    int track_index = 0;
+    int track_index00_starts[100];  // Store INDEX 00 times for each track
+    int track_index01_starts[100];  // Store INDEX 01 times for each track
+    int num_track_starts = 0;
+    int leadout_frames = -1;  // Store LEADOUT position if found
+    
+    // First pass: collect all track start times (INDEX 00 and INDEX 01) and LEADOUT
+    while (fgets(line, sizeof(line), cue_file) != NULL)
+    {
+        // Look for REM LEADOUT entry
+        if (strncmp(line, "REM LEADOUT ", 12) == 0)
+        {
+            int mm, ss, ff;
+            if (sscanf(line, "REM LEADOUT %d:%d:%d", &mm, &ss, &ff) == 3)
+            {
+                leadout_frames = mm * 60 * 75 + ss * 75 + ff;
+                printf("Found LEADOUT at %02d:%02d:%02d (%d frames)\n", mm, ss, ff, leadout_frames);
+            }
+        }
+        else if (strncmp(line, "  TRACK ", 8) == 0)
+        {
+            int track_num;
+            char track_type[32];
+            if (sscanf(line, "  TRACK %d %s", &track_num, track_type) == 2)
+            {
+                int index00_frames = -1, index01_frames = -1;
+                
+                // Look for INDEX 00 and INDEX 01 for all tracks
+                while (fgets(line, sizeof(line), cue_file) != NULL)
+                {
+                    if (strncmp(line, "    INDEX 00 ", 13) == 0)
+                    {
+                        int mm, ss, ff;
+                        if (sscanf(line, "    INDEX 00 %d:%d:%d", &mm, &ss, &ff) == 3)
+                        {
+                            index00_frames = mm * 60 * 75 + ss * 75 + ff;
+                        }
+                    }
+                    else if (strncmp(line, "    INDEX 01 ", 13) == 0)
+                    {
+                        int mm, ss, ff;
+                        if (sscanf(line, "    INDEX 01 %d:%d:%d", &mm, &ss, &ff) == 3)
+                        {
+                            index01_frames = mm * 60 * 75 + ss * 75 + ff;
+                        }
+                        break; // INDEX 01 is usually the last index
+                    }
+                    else if (strncmp(line, "  TRACK ", 8) == 0)
+                    {
+                        // Hit another track, put the line back
+                        fseek(cue_file, -strlen(line), SEEK_CUR);
+                        break;
+                    }
+                }
+                
+                // Store the track start positions
+                if (index01_frames >= 0)
+                {
+                    track_index01_starts[num_track_starts] = index01_frames;
+                    // If no INDEX 00, assume it's same as INDEX 01 (data track)
+                    track_index00_starts[num_track_starts] = (index00_frames >= 0) ? index00_frames : index01_frames;
+                    num_track_starts++;
+                }
+            }
+        }
+    }
+    
+    // Reset file pointer for second pass
+    fseek(cue_file, 0, SEEK_SET);
+    
+    // Second pass: collect pregap info for audio tracks
+    while (fgets(line, sizeof(line), cue_file) != NULL)
+    {
+        if (strncmp(line, "  TRACK ", 8) == 0)
+        {
+            int track_num;
+            char track_type[32];
+            if (sscanf(line, "  TRACK %d %s", &track_num, track_type) == 2)
+            {
+                if (track_num > 1 && strcmp(track_type, "AUDIO") == 0)
+                {
+                    // This is an audio track, look for INDEX 00 and INDEX 01 lines to calculate pregap
+                    int index00_mm = -1, index00_ss = -1, index00_ff = -1;
+                    int index01_mm = -1, index01_ss = -1, index01_ff = -1;
+                    
+                    while (fgets(line, sizeof(line), cue_file) != NULL)
+                    {
+                        if (strncmp(line, "    INDEX 00 ", 13) == 0)
+                        {
+                            sscanf(line, "    INDEX 00 %d:%d:%d", &index00_mm, &index00_ss, &index00_ff);
+                        }
+                        else if (strncmp(line, "    INDEX 01 ", 13) == 0)
+                        {
+                            sscanf(line, "    INDEX 01 %d:%d:%d", &index01_mm, &index01_ss, &index01_ff);
+                            break; // We have both indices, calculate pregap
+                        }
+                        else if (strncmp(line, "  TRACK ", 8) == 0)
+                        {
+                            // Hit another track, put the line back and use default
+                            fseek(cue_file, -strlen(line), SEEK_CUR);
+                            break;
+                        }
+                    }
+                    
+                    // Calculate pregap duration if we have both indices
+                    if (index00_mm >= 0 && index01_mm >= 0 && track_index < 99)
+                    {
+                        // Convert both times to frames
+                        int index00_frames = index00_mm * 60 * 75 + index00_ss * 75 + index00_ff;
+                        int index01_frames = index01_mm * 60 * 75 + index01_ss * 75 + index01_ff;
+                        int pregap_frames = index01_frames - index00_frames;
+                        
+                        // Convert back to mm:ss:ff
+                        int pregap_mm = pregap_frames / (60 * 75);
+                        int pregap_ss = (pregap_frames % (60 * 75)) / 75;
+                        int pregap_ff = pregap_frames % 75;
+                        
+                        pregap_override->timestamps[track_index].mm = pregap_mm;
+                        pregap_override->timestamps[track_index].ss = pregap_ss;
+                        pregap_override->timestamps[track_index].ff = pregap_ff;
+                        
+                        // Calculate track length (distance from current INDEX 00 to next track's INDEX 00)
+                        // This includes pregap + audio content
+                        if (track_num - 1 < num_track_starts && track_num < num_track_starts)
+                        {
+                            int current_track_start = track_index00_starts[track_num - 1];
+                            int next_track_start = track_index00_starts[track_num];
+                            int track_length_frames = next_track_start - current_track_start;
+                            
+                            int length_mm = track_length_frames / (60 * 75);
+                            int length_ss = (track_length_frames % (60 * 75)) / 75;
+                            int length_ff = track_length_frames % 75;
+                            
+                            pregap_override->track_lengths[track_index].mm = length_mm;
+                            pregap_override->track_lengths[track_index].ss = length_ss;
+                            pregap_override->track_lengths[track_index].ff = length_ff;
+                        }
+                        else if (track_num - 1 < num_track_starts && leadout_frames > 0)
+                        {
+                            // For the last track, use LEADOUT position
+                            int current_track_start = track_index00_starts[track_num - 1];
+                            int track_length_frames = leadout_frames - current_track_start;
+                            
+                            int length_mm = track_length_frames / (60 * 75);
+                            int length_ss = (track_length_frames % (60 * 75)) / 75;
+                            int length_ff = track_length_frames % 75;
+                            
+                            pregap_override->track_lengths[track_index].mm = length_mm;
+                            pregap_override->track_lengths[track_index].ss = length_ss;
+                            pregap_override->track_lengths[track_index].ff = length_ff;
+                        }
+                        
+                        track_index++;
+                        pregap_override->num_tracks = track_index;
+                    }
+                    else if (track_index < 99)
+                    {
+                        // Use default 2-second pregap
+                        pregap_override->timestamps[track_index].mm = 0;
+                        pregap_override->timestamps[track_index].ss = 2;
+                        pregap_override->timestamps[track_index].ff = 0;
+                        
+                        // Calculate track length for default case too
+                        if (track_num - 1 < num_track_starts && track_num < num_track_starts)
+                        {
+                            int current_track_start = track_index01_starts[track_num - 1] - GAP_FRAMES;
+                            int next_track_start = track_index00_starts[track_num];
+                            int track_length_frames = next_track_start - current_track_start;
+                            
+                            int length_mm = track_length_frames / (60 * 75);
+                            int length_ss = (track_length_frames % (60 * 75)) / 75;
+                            int length_ff = track_length_frames % 75;
+                            
+                            pregap_override->track_lengths[track_index].mm = length_mm;
+                            pregap_override->track_lengths[track_index].ss = length_ss;
+                            pregap_override->track_lengths[track_index].ff = length_ff;
+                        }
+                        else if (track_num - 1 < num_track_starts && leadout_frames > 0)
+                        {
+                            // For the last track with default pregap, use LEADOUT position
+                            int current_track_start = track_index01_starts[track_num - 1] - GAP_FRAMES;
+                            int track_length_frames = leadout_frames - current_track_start;
+                            
+                            int length_mm = track_length_frames / (60 * 75);
+                            int length_ss = (track_length_frames % (60 * 75)) / 75;
+                            int length_ff = track_length_frames % 75;
+                            
+                            pregap_override->track_lengths[track_index].mm = length_mm;
+                            pregap_override->track_lengths[track_index].ss = length_ss;
+                            pregap_override->track_lengths[track_index].ff = length_ff;
+                        }
+                        
+                        track_index++;
+                        pregap_override->num_tracks = track_index;
+                    }
+                }
+            }
+        }
+    }
+    
+    fclose(cue_file);
+    
+    if (pregap_override->num_tracks == 0)
+    {
+        // No audio tracks found, clean up
+        free((void*)pregap_override->game_id);
+        free(pregap_override);
+        return NULL;
+    }
+    
+    printf("Parsed pregap overrides from CUE file: %d audio tracks\n", pregap_override->num_tracks);
+    for (int i = 0; i < pregap_override->num_tracks; i++) {
+        printf("  Track %d: pregap %02d:%02d:%02d, length %02d:%02d:%02d\n", i+2, 
+               pregap_override->timestamps[i].mm, 
+               pregap_override->timestamps[i].ss, 
+               pregap_override->timestamps[i].ff,
+               pregap_override->track_lengths[i].mm,
+               pregap_override->track_lengths[i].ss,
+               pregap_override->track_lengths[i].ff);
+    }
+    return pregap_override;
 }
 
 // Copy prebaked CUE file to output directory with proper file naming
@@ -1288,11 +1607,28 @@ int decrypt_single_disc(FILE* psar, long long psar_size, long long startdat_offs
 	{
 		printf("Found prebaked CUE file for %s\n", iso_disc_name);
 		printf("Game title from CUE: %s\n\n", game_title);
+		
+		// Parse pregap overrides from the prebaked CUE file
+		if (g_dynamic_pregap_override != NULL)
+		{
+			// Clean up previous dynamic override
+			free((void*)g_dynamic_pregap_override->game_id);
+			free(g_dynamic_pregap_override);
+		}
+		g_dynamic_pregap_override = parse_prebaked_cue_pregaps(iso_disc_name);
 	}
 	else
 	{
 		printf("No prebaked CUE file found for %s, will generate CUE file\n\n", iso_disc_name);
 		strcpy(game_title, "CDROM"); // Default fallback
+		
+		// Clear any existing dynamic pregap override
+		if (g_dynamic_pregap_override != NULL)
+		{
+			free((void*)g_dynamic_pregap_override->game_id);
+			free(g_dynamic_pregap_override);
+			g_dynamic_pregap_override = NULL;
+		}
 	}
 
 	// Seek inside the ISO table to find the special data offset.
@@ -1578,11 +1914,28 @@ int decrypt_multi_disc(FILE *psar, long long psar_size, long long startdat_offse
 			{
 				printf("Found prebaked CUE file for disc %d (%s)\n", i + 1, disc_iso_disc_name);
 				printf("Game title from CUE: %s\n\n", disc_game_title);
+				
+				// Parse pregap overrides from the prebaked CUE file
+				if (g_dynamic_pregap_override != NULL)
+				{
+					// Clean up previous dynamic override
+					free((void*)g_dynamic_pregap_override->game_id);
+					free(g_dynamic_pregap_override);
+				}
+				g_dynamic_pregap_override = parse_prebaked_cue_pregaps(disc_iso_disc_name);
 			}
 			else
 			{
 				printf("No prebaked CUE file found for disc %d (%s), will generate CUE file\n\n", i + 1, disc_iso_disc_name);
 				sprintf(disc_game_title, "CDROM_%d", i + 1); // Default fallback
+				
+				// Clear any existing dynamic pregap override
+				if (g_dynamic_pregap_override != NULL)
+				{
+					free((void*)g_dynamic_pregap_override->game_id);
+					free(g_dynamic_pregap_override);
+					g_dynamic_pregap_override = NULL;
+				}
 			}
 
 			// Build the data track.
@@ -1800,7 +2153,7 @@ int main(int argc, char **argv)
 	// Load MD5 database for verification
 	g_md5_count = load_md5_entries(&g_md5_entries);
 	if (g_md5_count > 0) {
-		printf("MD5 verification database loaded with %d entries\n\n");
+		printf("MD5 verification database loaded with %zu entries\n\n", g_md5_count);
 	} else {
 		printf("Warning: MD5 verification database not available\n\n");
 	}
@@ -1925,6 +2278,13 @@ int main(int argc, char **argv)
 		free(g_md5_entries);
 		g_md5_entries = NULL;
 		g_md5_count = 0;
+	}
+	
+	// Clean up dynamic pregap override
+	if (g_dynamic_pregap_override != NULL) {
+		free((void*)g_dynamic_pregap_override->game_id);
+		free(g_dynamic_pregap_override);
+		g_dynamic_pregap_override = NULL;
 	}
 	
 	return 0;

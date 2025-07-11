@@ -181,3 +181,4 @@ FILE "Super Pang Collection (Japan) (Track 01).bin" BINARY
   TRACK 61 AUDIO
     INDEX 00 45:14:15
     INDEX 01 45:16:15
+REM LEADOUT 48:46:15

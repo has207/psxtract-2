@@ -4,3 +4,4 @@ FILE "Kagero - Kokumeikan Shinshou (Japan) (Demo).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 27:15:31
     INDEX 01 27:17:31
+REM LEADOUT 31:06:52

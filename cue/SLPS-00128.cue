@@ -88,3 +88,4 @@ FILE "Makeruna! Makendou 2 (Japan) (Track 01).bin" BINARY
   TRACK 30 AUDIO
     INDEX 00 47:07:35
     INDEX 01 47:09:35
+REM LEADOUT 50:04:68

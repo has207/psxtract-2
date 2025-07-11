@@ -4,3 +4,4 @@ FILE "Bakumatsu Roman - Gekka no Kenshi (Japan).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 60:38:29
     INDEX 01 60:40:29
+REM LEADOUT 63:40:29

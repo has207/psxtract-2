@@ -4,3 +4,4 @@ FILE "Legend of Dragoon, The (Japan, Asia) (Disc 2).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 54:10:61
     INDEX 01 54:12:61
+REM LEADOUT 57:13:46

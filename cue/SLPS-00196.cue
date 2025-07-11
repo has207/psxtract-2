@@ -7,3 +7,4 @@ FILE "Dai-4-Ji Super Robot Taisen S (Japan).bin" BINARY
   TRACK 03 AUDIO
     INDEX 00 37:25:06
     INDEX 01 40:25:06
+REM LEADOUT 43:23:31

@@ -4,3 +4,4 @@ FILE "Waku Waku Volley (Japan).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 01:46:28
     INDEX 01 01:48:28
+REM LEADOUT 06:38:28

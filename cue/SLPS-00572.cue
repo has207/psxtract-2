@@ -40,3 +40,4 @@ FILE "Rescue 24 Hours (Japan) (Track 01).bin" BINARY
   TRACK 14 AUDIO
     INDEX 00 37:13:66
     INDEX 01 37:15:66
+REM LEADOUT 43:35:42

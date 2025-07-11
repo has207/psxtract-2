@@ -4,3 +4,4 @@ FILE "Biohazard 2 - Dual Shock Ver. (Japan) (Disc 1) (Leon-hen).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 63:05:00
     INDEX 01 63:07:00
+REM LEADOUT 66:37:00

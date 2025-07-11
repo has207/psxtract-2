@@ -4,3 +4,4 @@ FILE "Shinobi no Roku (Japan).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 21:37:71
     INDEX 01 21:39:71
+REM LEADOUT 25:27:28

@@ -124,3 +124,4 @@ FILE "King of Fighters '95, The (Japan) (Track 01).bin" BINARY
   TRACK 42 AUDIO
     INDEX 00 65:25:73
     INDEX 01 65:27:73
+REM LEADOUT 68:27:73

@@ -4,3 +4,4 @@ FILE "MediEvil - Yomigaetta Gallowmere no Yuusha (Japan).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 52:10:31
     INDEX 01 52:12:31
+REM LEADOUT 55:17:32

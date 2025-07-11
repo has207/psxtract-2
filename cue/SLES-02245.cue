@@ -4,3 +4,4 @@ FILE "Missile Command (Europe) (En,It).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 54:43:01
     INDEX 01 54:45:01
+REM LEADOUT 59:19:56

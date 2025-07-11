@@ -22,3 +22,4 @@ FILE "Gunship (Europe) (En,Fr,De,Es,It).bin" BINARY
   TRACK 08 AUDIO
     INDEX 00 56:08:30
     INDEX 01 56:10:30
+REM LEADOUT 56:20:34

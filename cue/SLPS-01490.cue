@@ -10,3 +10,4 @@ FILE "Brave Fencer Musashiden (Japan, Asia).bin" BINARY
   TRACK 04 AUDIO
     INDEX 00 38:26:08
     INDEX 01 38:28:08
+REM LEADOUT 41:34:10

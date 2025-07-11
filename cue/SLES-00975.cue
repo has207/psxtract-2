@@ -4,3 +4,4 @@ FILE "Resident Evil 2 (Italy) (Disc 1).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 59:13:34
     INDEX 01 59:15:34
+REM LEADOUT 62:45:34

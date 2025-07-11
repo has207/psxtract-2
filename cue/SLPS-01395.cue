@@ -40,3 +40,4 @@ FILE "Kitchen Panic (Japan) (Track 01).bin" BINARY
   TRACK 14 AUDIO
     INDEX 00 61:06:72
     INDEX 01 61:08:72
+REM LEADOUT 65:50:07

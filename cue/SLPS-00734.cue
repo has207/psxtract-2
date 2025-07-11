@@ -34,3 +34,4 @@ FILE "Mad Stalker - FullMetalForce (Japan) (Track 01).bin" BINARY
   TRACK 12 AUDIO
     INDEX 00 27:55:07
     INDEX 01 27:57:07
+REM LEADOUT 31:02:64

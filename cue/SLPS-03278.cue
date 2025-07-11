@@ -4,3 +4,4 @@ FILE "Evergreen Avenue (Japan).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 42:23:49
     INDEX 01 42:25:49
+REM LEADOUT 46:59:63

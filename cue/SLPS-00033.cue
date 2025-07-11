@@ -64,3 +64,4 @@ FILE "Boxer's Road (Japan) (Track 01).bin" BINARY
   TRACK 22 AUDIO
     INDEX 00 58:25:06
     INDEX 01 58:27:06
+REM LEADOUT 61:47:07

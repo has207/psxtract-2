@@ -43,3 +43,4 @@ FILE "Centipede (Europe) (Fr,De,It,Nl) (Track 01).bin" BINARY
   TRACK 15 AUDIO
     INDEX 00 66:58:36
     INDEX 01 69:58:36
+REM LEADOUT 70:36:09

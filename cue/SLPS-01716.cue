@@ -13,3 +13,4 @@ FILE "Wizard's Harmony R (Japan).bin" BINARY
   TRACK 05 AUDIO
     INDEX 00 39:06:67
     INDEX 01 39:08:67
+REM LEADOUT 42:16:43

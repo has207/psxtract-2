@@ -40,3 +40,4 @@ FILE "Toushinden (Japan) (Track 01).bin" BINARY
   TRACK 14 AUDIO
     INDEX 00 39:40:00
     INDEX 01 39:42:00
+REM LEADOUT 41:33:25

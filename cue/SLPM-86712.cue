@@ -4,3 +4,4 @@ FILE "Simple 1500 Series Vol. 78 - The Zeroyon (Japan).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 01:07:20
     INDEX 01 01:09:20
+REM LEADOUT 04:27:18

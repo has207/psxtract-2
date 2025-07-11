@@ -34,3 +34,4 @@ FILE "DoDonPachi (Japan) (Rev 1) (Track 01).bin" BINARY
   TRACK 12 AUDIO
     INDEX 00 35:57:24
     INDEX 01 35:59:24
+REM LEADOUT 38:59:24

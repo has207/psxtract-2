@@ -4,3 +4,4 @@ FILE "Prismaticallization (Japan).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 12:02:54
     INDEX 01 12:04:54
+REM LEADOUT 15:14:71

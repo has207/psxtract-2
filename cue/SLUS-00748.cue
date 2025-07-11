@@ -4,3 +4,4 @@ FILE "Resident Evil 2 - Dual Shock Ver. (USA) (Disc 1).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 63:12:22
     INDEX 01 63:14:22
+REM LEADOUT 66:44:22

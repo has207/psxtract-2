@@ -4,3 +4,4 @@ FILE "Resident Evil 2 (France) (Disc 1).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 59:12:57
     INDEX 01 59:14:57
+REM LEADOUT 62:44:57

@@ -25,3 +25,4 @@ FILE "Rapid Racer (Europe) (En,Fr,De,Es,It).bin" BINARY
   TRACK 09 AUDIO
     INDEX 00 50:40:51
     INDEX 01 50:42:51
+REM LEADOUT 51:13:29

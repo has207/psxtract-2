@@ -49,3 +49,4 @@ FILE "Koushien V (Japan) (Track 01).bin" BINARY
   TRACK 17 AUDIO
     INDEX 00 58:11:50
     INDEX 01 58:14:50
+REM LEADOUT 62:46:07

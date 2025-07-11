@@ -19,3 +19,4 @@ FILE "Uki Uki Tsuri Tengoku - Ningyo Densetsu no Nazo (Japan) (Dual Shock Editio
   TRACK 07 AUDIO
     INDEX 00 23:07:40
     INDEX 01 23:09:40
+REM LEADOUT 26:39:40

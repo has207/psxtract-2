@@ -4,3 +4,4 @@ FILE "Street Fighter Alpha 2 (Europe).bin" BINARY
   TRACK 02 MODE2/2352
     INDEX 00 53:51:07
     INDEX 01 53:53:07
+REM LEADOUT 57:56:20

@@ -10,3 +10,4 @@ FILE "Arcade Hits - Frisky Tom (Japan).bin" BINARY
   TRACK 04 AUDIO
     INDEX 00 06:45:30
     INDEX 01 06:47:30
+REM LEADOUT 10:05:44

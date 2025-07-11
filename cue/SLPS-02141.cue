@@ -4,3 +4,4 @@ FILE "Aquanaut no Kyuujitsu 2 (Japan).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 18:11:56
     INDEX 01 18:13:56
+REM LEADOUT 21:43:57

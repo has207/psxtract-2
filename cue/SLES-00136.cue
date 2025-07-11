@@ -34,3 +34,4 @@ FILE "Critical Depth (Europe) (Track 01).bin" BINARY
   TRACK 12 AUDIO
     INDEX 00 67:37:71
     INDEX 01 67:39:71
+REM LEADOUT 70:41:06

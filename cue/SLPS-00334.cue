@@ -34,3 +34,4 @@ FILE "Tsuukai!! Slot Shooting (Japan) (Track 01).bin" BINARY
   TRACK 12 AUDIO
     INDEX 00 21:47:33
     INDEX 01 21:48:33
+REM LEADOUT 24:59:43

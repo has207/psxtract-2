@@ -52,3 +52,4 @@ FILE "Gakkou o Tsukurou!! Let's Make a School!! (Japan) (Track 01).bin" BINARY
   TRACK 18 AUDIO
     INDEX 00 21:39:11
     INDEX 01 21:41:11
+REM LEADOUT 26:41:11

@@ -97,3 +97,4 @@ FILE "Real Bout Fatal Fury (Europe) (Track 01).bin" BINARY
   TRACK 33 AUDIO
     INDEX 00 38:44:36
     INDEX 01 38:46:36
+REM LEADOUT 41:46:36

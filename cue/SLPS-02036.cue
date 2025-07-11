@@ -7,3 +7,4 @@ FILE "Logic Mahjong Souryuu - Yonin Uchi, Sannin Uchi (Japan).bin" BINARY
   TRACK 03 AUDIO
     INDEX 00 05:55:53
     INDEX 01 05:57:53
+REM LEADOUT 11:08:61

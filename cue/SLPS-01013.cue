@@ -4,3 +4,4 @@ FILE "Project Gaiaray (Japan, Asia).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 25:13:24
     INDEX 01 25:15:24
+REM LEADOUT 29:45:45

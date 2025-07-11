@@ -16,3 +16,4 @@ FILE "Dragonbeat - Legend of Pinball (Japan).bin" BINARY
   TRACK 06 AUDIO
     INDEX 00 65:44:69
     INDEX 01 65:46:69
+REM LEADOUT 68:51:10

@@ -4,3 +4,4 @@ FILE "Disney's Atlantis - The Lost Empire (Europe).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 32:19:66
     INDEX 01 32:21:66
+REM LEADOUT 35:21:66

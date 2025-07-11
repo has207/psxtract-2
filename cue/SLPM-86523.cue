@@ -4,3 +4,4 @@ FILE "Zutto Issho - With Me Everytime... (Japan) (Major Wave).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 34:20:47
     INDEX 01 34:22:47
+REM LEADOUT 47:18:35

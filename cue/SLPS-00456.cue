@@ -40,3 +40,4 @@ FILE "Cool Boarders (Japan) (Track 01).bin" BINARY
   TRACK 14 AUDIO
     INDEX 00 27:05:21
     INDEX 01 27:07:21
+REM LEADOUT 30:08:02

@@ -28,3 +28,4 @@ FILE "Namco Museum Vol. 2 (Europe) (Track 01).bin" BINARY
   TRACK 10 AUDIO
     INDEX 00 43:49:05
     INDEX 01 43:51:05
+REM LEADOUT 46:27:31

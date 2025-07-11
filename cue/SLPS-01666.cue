@@ -4,3 +4,4 @@ FILE "Zeus - Carnage Heart Second (Japan).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 36:33:38
     INDEX 01 36:35:38
+REM LEADOUT 40:05:39

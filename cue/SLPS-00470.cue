@@ -4,3 +4,4 @@ FILE "Heroine Dream (Japan) (Shokai Genteiban).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 35:03:23
     INDEX 01 35:05:23
+REM LEADOUT 38:05:23

@@ -13,3 +13,4 @@ FILE "Vehicle Cavalier (Japan).bin" BINARY
   TRACK 05 AUDIO
     INDEX 00 15:54:36
     INDEX 01 15:56:36
+REM LEADOUT 18:55:20

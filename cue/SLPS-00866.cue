@@ -31,3 +31,4 @@ FILE "Bombing Islands, The (Japan) (Track 01).bin" BINARY
   TRACK 11 AUDIO
     INDEX 00 37:08:16
     INDEX 01 37:10:16
+REM LEADOUT 41:37:20

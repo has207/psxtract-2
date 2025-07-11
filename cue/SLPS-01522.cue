@@ -1,3 +1,4 @@
 FILE "Ano Ko Doko no Ko (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
+REM LEADOUT 57:13:26

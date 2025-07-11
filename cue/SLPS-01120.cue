@@ -22,3 +22,4 @@ FILE "A5 - A Ressha de Ikou 5 (Japan, Asia).bin" BINARY
   TRACK 08 AUDIO
     INDEX 00 46:32:27
     INDEX 01 46:34:27
+REM LEADOUT 50:04:28

@@ -64,3 +64,4 @@ FILE "Value 1500 - The Shanghai (Japan) (Track 01).bin" BINARY
   TRACK 22 AUDIO
     INDEX 00 51:22:34
     INDEX 01 51:24:34
+REM LEADOUT 54:24:35

@@ -151,3 +151,4 @@ FILE "Rayman (Europe) (En,Fr,De) (Track 01).bin" BINARY
   TRACK 51 AUDIO
     INDEX 00 65:43:47
     INDEX 01 65:45:47
+REM LEADOUT 66:18:69

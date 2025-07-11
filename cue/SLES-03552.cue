@@ -4,3 +4,4 @@ FILE "Breath of Fire IV (Europe).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 61:48:66
     INDEX 01 61:50:66
+REM LEADOUT 65:20:66

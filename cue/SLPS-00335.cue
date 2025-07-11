@@ -4,3 +4,4 @@ FILE "Dezaemon Plus (Japan).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 38:09:06
     INDEX 01 38:11:06
+REM LEADOUT 41:26:34

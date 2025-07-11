@@ -10,3 +10,4 @@ FILE "Hi-Octane (Europe) (En,Fr,De,Es).bin" BINARY
   TRACK 04 AUDIO
     INDEX 00 22:51:26
     INDEX 01 22:53:26
+REM LEADOUT 32:46:45

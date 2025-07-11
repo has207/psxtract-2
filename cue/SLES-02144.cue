@@ -4,3 +4,4 @@ FILE "Space Invaders (Europe).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 16:07:37
     INDEX 01 16:09:37
+REM LEADOUT 19:12:37

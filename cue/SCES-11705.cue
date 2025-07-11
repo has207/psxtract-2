@@ -4,3 +4,4 @@ FILE "Dragon Valor (Europe) (Disc 2).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 62:09:09
     INDEX 01 62:11:09
+REM LEADOUT 65:57:66

@@ -64,3 +64,4 @@ FILE "Theme Park (Japan) (Track 01).bin" BINARY
   TRACK 22 AUDIO
     INDEX 00 35:16:20
     INDEX 01 35:18:20
+REM LEADOUT 38:11:30

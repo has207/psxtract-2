@@ -85,3 +85,4 @@ FILE "Dead or Alive (Japan, Asia) (Track 01).bin" BINARY
   TRACK 29 AUDIO
     INDEX 00 52:29:48
     INDEX 01 52:31:48
+REM LEADOUT 55:45:57

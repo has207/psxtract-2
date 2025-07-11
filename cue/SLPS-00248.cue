@@ -52,3 +52,4 @@ FILE "Hyper Crazy Climber (Japan) (Track 01).bin" BINARY
   TRACK 18 AUDIO
     INDEX 00 35:18:39
     INDEX 01 35:20:39
+REM LEADOUT 39:31:57

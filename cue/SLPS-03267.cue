@@ -4,3 +4,4 @@ FILE "Hoshi no Mahoroba (Japan).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 62:57:69
     INDEX 01 62:59:69
+REM LEADOUT 65:59:69

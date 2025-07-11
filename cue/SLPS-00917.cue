@@ -4,3 +4,4 @@ FILE "Clock Tower - The First Fear (Japan).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 07:09:50
     INDEX 01 07:11:50
+REM LEADOUT 11:09:23

@@ -4,3 +4,4 @@ FILE "Notam of Wind (Japan, Asia).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 27:26:60
     INDEX 01 27:28:60
+REM LEADOUT 30:58:61

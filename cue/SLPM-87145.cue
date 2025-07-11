@@ -82,3 +82,4 @@ FILE "Arcade Hits - Suiko Enbu - Outlaws of the Lost Dynasty (Japan) (Track 01).
   TRACK 28 AUDIO
     INDEX 00 59:44:05
     INDEX 01 59:46:05
+REM LEADOUT 63:46:05

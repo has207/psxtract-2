@@ -77,12 +77,8 @@ bool calculate_md5(const char* filename, char* md5_string)
 // Load MD5 entries from embedded map
 int load_md5_entries(MD5_ENTRY** entries)
 {
-    printf("Loading MD5 entries from embedded database...\n");
-    
     const auto& md5_map = get_md5_map();
     int count = md5_map.size();
-    
-    printf("Found %d MD5 entries in embedded database\n", count);
     
     // Allocate memory for entries
     *entries = (MD5_ENTRY*)malloc(count * sizeof(MD5_ENTRY));
@@ -106,7 +102,6 @@ int load_md5_entries(MD5_ENTRY** entries)
         i++;
     }
     
-    printf("Successfully loaded %d MD5 entries\n", count);
     return count;
 }
 

@@ -55,3 +55,4 @@ FILE "Bust-A-Move 3 DX (Italy) (Reprint) (Track 01).bin" BINARY
   TRACK 19 AUDIO
     INDEX 00 31:34:59
     INDEX 01 31:36:59
+REM LEADOUT 35:36:60

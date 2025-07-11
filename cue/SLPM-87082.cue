@@ -10,3 +10,4 @@ FILE "Arcade Hits - Moon Cresta (Japan).bin" BINARY
   TRACK 04 AUDIO
     INDEX 00 06:37:18
     INDEX 01 06:39:18
+REM LEADOUT 09:57:32

@@ -4,3 +4,4 @@ FILE "Blaster Master (Japan).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 59:01:40
     INDEX 01 59:03:40
+REM LEADOUT 62:37:40

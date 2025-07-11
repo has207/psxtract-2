@@ -61,3 +61,4 @@ FILE "Destruction Derby (Japan) (Track 01).bin" BINARY
   TRACK 21 AUDIO
     INDEX 00 62:04:54
     INDEX 01 62:06:54
+REM LEADOUT 65:16:71

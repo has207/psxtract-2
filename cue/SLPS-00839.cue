@@ -28,3 +28,4 @@ FILE "Super Black Bass X (Japan) (Track 01).bin" BINARY
   TRACK 10 AUDIO
     INDEX 00 37:59:50
     INDEX 01 38:01:50
+REM LEADOUT 43:01:50

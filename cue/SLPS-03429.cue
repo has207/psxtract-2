@@ -31,3 +31,4 @@ FILE "Yamasa Digi Selection (Japan) (Track 01).bin" BINARY
   TRACK 11 AUDIO
     INDEX 00 19:54:04
     INDEX 01 19:56:04
+REM LEADOUT 23:07:54

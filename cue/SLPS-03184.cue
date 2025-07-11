@@ -7,3 +7,4 @@ FILE "Sentimental Graffiti (Japan).bin" BINARY
   TRACK 03 AUDIO
     INDEX 00 62:20:56
     INDEX 01 62:22:56
+REM LEADOUT 64:25:61

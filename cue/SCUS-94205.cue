@@ -124,3 +124,4 @@ FILE "King of Fighters '95, The (USA) (Track 01).bin" BINARY
   TRACK 42 AUDIO
     INDEX 00 65:18:39
     INDEX 01 65:20:39
+REM LEADOUT 68:20:39

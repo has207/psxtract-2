@@ -22,3 +22,4 @@ FILE "Vib-Ribbon (Europe) (En,Fr,De,Es,It).bin" BINARY
   TRACK 08 AUDIO
     INDEX 00 17:17:14
     INDEX 01 17:20:00
+REM LEADOUT 20:20:66

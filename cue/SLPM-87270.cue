@@ -7,3 +7,4 @@ FILE "Arcade Hits - Wolf Fang - Kuuga 2001 (Japan).bin" BINARY
   TRACK 03 AUDIO
     INDEX 00 44:15:59
     INDEX 01 44:17:59
+REM LEADOUT 46:43:59

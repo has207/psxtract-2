@@ -4,3 +4,4 @@ FILE "Athena - Awakening from the Ordinary Life (Japan) (Disc 1).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 40:01:34
     INDEX 01 40:03:34
+REM LEADOUT 43:03:34

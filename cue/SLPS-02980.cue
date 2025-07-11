@@ -31,3 +31,4 @@ FILE "Yamasa Digi Guide - New Pulsar R (Japan) (Track 01).bin" BINARY
   TRACK 11 AUDIO
     INDEX 00 24:03:09
     INDEX 01 24:05:09
+REM LEADOUT 27:16:59

@@ -16,3 +16,4 @@ FILE "Weltorv Estleia (Japan).bin" BINARY
   TRACK 06 AUDIO
     INDEX 00 26:19:12
     INDEX 01 26:21:12
+REM LEADOUT 29:25:46

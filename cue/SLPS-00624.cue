@@ -85,3 +85,4 @@ FILE "GaiaSeed - Project Seed Trap (Japan) (Track 01).bin" BINARY
   TRACK 29 AUDIO
     INDEX 00 51:36:02
     INDEX 01 51:38:02
+REM LEADOUT 54:43:63

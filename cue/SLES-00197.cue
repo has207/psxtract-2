@@ -4,3 +4,4 @@ FILE "Galaxy Fight (Europe).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 41:05:05
     INDEX 01 41:07:05
+REM LEADOUT 44:07:34

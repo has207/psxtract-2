@@ -4,3 +4,4 @@ FILE "Rayman 2 - The Great Escape (USA) (En,Fr,Es).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 66:06:56
     INDEX 01 66:08:56
+REM LEADOUT 69:12:06

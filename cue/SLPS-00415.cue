@@ -4,3 +4,4 @@ FILE "Street Fighter Zero 2 (Japan).bin" BINARY
   TRACK 02 MODE2/2352
     INDEX 00 54:04:52
     INDEX 01 54:06:52
+REM LEADOUT 58:09:65

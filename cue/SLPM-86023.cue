@@ -6,3 +6,4 @@ FILE "Akumajou Dracula X - Gekka no Yasoukyoku (Japan) (Rev 1).bin" BINARY
     FLAGS DCP
     INDEX 00 51:30:21
     INDEX 01 51:32:21
+REM LEADOUT 55:38:03

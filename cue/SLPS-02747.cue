@@ -52,3 +52,4 @@ FILE "Killer Bass (Japan) (Track 01).bin" BINARY
   TRACK 18 AUDIO
     INDEX 00 58:58:39
     INDEX 01 59:00:39
+REM LEADOUT 62:16:52

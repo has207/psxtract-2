@@ -4,3 +4,4 @@ FILE "Atelier Elie - Elie no Atelier - Salburg no Renkinjutsushi 2 (Japan).bin" 
   TRACK 02 AUDIO
     INDEX 00 58:35:36
     INDEX 01 58:37:36
+REM LEADOUT 63:37:29

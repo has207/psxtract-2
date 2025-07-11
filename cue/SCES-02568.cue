@@ -4,3 +4,4 @@ FILE "Dragon Valor (Spain) (Disc 1).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 55:48:59
     INDEX 01 55:50:59
+REM LEADOUT 59:37:41

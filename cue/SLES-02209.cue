@@ -4,3 +4,4 @@ FILE "Dino Crisis (Germany).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 36:35:58
     INDEX 01 36:37:58
+REM LEADOUT 40:07:58

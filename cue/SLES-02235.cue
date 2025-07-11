@@ -4,3 +4,4 @@ FILE "Fighting Force 2 (Germany).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 35:40:42
     INDEX 01 35:42:42
+REM LEADOUT 38:47:44

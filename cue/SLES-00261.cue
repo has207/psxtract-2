@@ -22,3 +22,4 @@ FILE "Hardcore 4x4 (Europe) (En,Fr,De).bin" BINARY
   TRACK 08 AUDIO
     INDEX 00 33:18:57
     INDEX 01 33:20:57
+REM LEADOUT 37:22:61

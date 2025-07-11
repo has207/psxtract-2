@@ -4,3 +4,4 @@ FILE "SuperLite 1500 Series - Maerchen Adventure - Cotton 100% (Japan).bin" BINA
   TRACK 02 AUDIO
     INDEX 00 19:10:73
     INDEX 01 19:12:73
+REM LEADOUT 22:15:51

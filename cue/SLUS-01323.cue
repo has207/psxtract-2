@@ -1,3 +1,4 @@
 FILE "Armored Core (USA) (Reprint).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
+REM LEADOUT 49:34:62

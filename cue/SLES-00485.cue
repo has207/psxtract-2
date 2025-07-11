@@ -169,3 +169,4 @@ FILE "Tomb Raider (France) (Track 01).bin" BINARY
   TRACK 57 AUDIO
     INDEX 00 54:42:50
     INDEX 01 54:44:50
+REM LEADOUT 58:01:50

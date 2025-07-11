@@ -28,3 +28,4 @@ FILE "Deadheat Road (Japan) (Track 01).bin" BINARY
   TRACK 10 AUDIO
     INDEX 00 22:41:42
     INDEX 01 22:43:42
+REM LEADOUT 28:02:43

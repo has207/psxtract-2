@@ -7,3 +7,4 @@ FILE "Carnage Heart EZ (Easy Zapping) (Japan).bin" BINARY
   TRACK 03 AUDIO
     INDEX 00 08:26:30
     INDEX 01 08:28:30
+REM LEADOUT 11:58:31

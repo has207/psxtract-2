@@ -4,3 +4,4 @@ FILE "Lunatic Dawn - Odyssey (Japan).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 34:23:74
     INDEX 01 34:25:74
+REM LEADOUT 37:56:00

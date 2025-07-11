@@ -4,3 +4,4 @@ FILE "Biohazard 2 (Japan) (Disc 1) (Leon-hen).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 58:24:41
     INDEX 01 58:26:41
+REM LEADOUT 61:56:41

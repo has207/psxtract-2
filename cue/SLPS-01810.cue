@@ -4,3 +4,4 @@ FILE "Dekiru! Game Center (Japan).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 09:42:30
     INDEX 01 09:44:30
+REM LEADOUT 13:49:53

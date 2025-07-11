@@ -19,3 +19,4 @@ FILE "Uki Uki Tsuri Tengoku - Kawa Monogatari (Japan).bin" BINARY
   TRACK 07 AUDIO
     INDEX 00 39:37:53
     INDEX 01 39:39:53
+REM LEADOUT 43:09:54

@@ -55,3 +55,4 @@ FILE "Puzzle Bobble 3DX (Japan) (Track 01).bin" BINARY
   TRACK 19 AUDIO
     INDEX 00 43:25:06
     INDEX 01 43:27:06
+REM LEADOUT 47:27:06

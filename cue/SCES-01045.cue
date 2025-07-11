@@ -49,3 +49,4 @@ FILE "Jet Rider 2 (Europe) (Track 01).bin" BINARY
   TRACK 17 AUDIO
     INDEX 00 54:33:10
     INDEX 01 54:35:10
+REM LEADOUT 57:34:45

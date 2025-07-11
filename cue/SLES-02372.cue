@@ -79,3 +79,4 @@ FILE "Tom Clancy's Rainbow Six (Germany) (Track 01).bin" BINARY
   TRACK 27 AUDIO
     INDEX 00 36:09:15
     INDEX 01 36:11:15
+REM LEADOUT 39:12:15

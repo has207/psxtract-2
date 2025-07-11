@@ -46,3 +46,4 @@ FILE "Simple 1500 Series Vol. 87 - The Kyoutei (Japan) (Track 01).bin" BINARY
   TRACK 16 AUDIO
     INDEX 00 23:20:45
     INDEX 01 23:22:45
+REM LEADOUT 27:22:45

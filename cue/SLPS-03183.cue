@@ -13,3 +13,4 @@ FILE "Sentimental Graffiti - Yakusoku (Japan).bin" BINARY
   TRACK 05 AUDIO
     INDEX 00 38:57:10
     INDEX 01 38:59:10
+REM LEADOUT 42:07:10

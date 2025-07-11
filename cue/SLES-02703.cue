@@ -40,3 +40,4 @@ FILE "Street Skater 2 (Europe) (En,Fr,De) (Track 01).bin" BINARY
   TRACK 14 AUDIO
     INDEX 00 50:27:56
     INDEX 01 50:29:56
+REM LEADOUT 53:29:57

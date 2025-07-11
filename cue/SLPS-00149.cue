@@ -16,3 +16,4 @@ FILE "Puppet Zoo Pilomy (Japan) (En,Ja).bin" BINARY
   TRACK 06 AUDIO
     INDEX 00 52:01:57
     INDEX 01 52:03:57
+REM LEADOUT 56:45:26

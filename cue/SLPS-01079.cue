@@ -70,3 +70,4 @@ FILE "Side Pocket 3 (Japan) (Track 01).bin" BINARY
   TRACK 24 AUDIO
     INDEX 00 47:54:34
     INDEX 01 47:56:34
+REM LEADOUT 53:53:09

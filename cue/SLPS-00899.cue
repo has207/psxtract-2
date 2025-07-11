@@ -4,3 +4,4 @@ FILE "Panzer Bandit (Japan).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 23:45:57
     INDEX 01 23:47:57
+REM LEADOUT 26:53:39

@@ -4,3 +4,4 @@ FILE "Simple 1500 Series Vol. 48 - The Puzzle 2 (Japan).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 10:56:32
     INDEX 01 10:58:32
+REM LEADOUT 11:48:67

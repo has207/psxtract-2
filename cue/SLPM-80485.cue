@@ -4,3 +4,4 @@ FILE "Biohazard 3 - Last Escape (Japan) (Demo).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 06:33:51
     INDEX 01 06:35:51
+REM LEADOUT 10:05:52

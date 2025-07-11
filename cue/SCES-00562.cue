@@ -124,3 +124,4 @@ FILE "King of Fighters '95, The (Europe) (Track 01).bin" BINARY
   TRACK 42 AUDIO
     INDEX 00 65:18:44
     INDEX 01 65:20:44
+REM LEADOUT 68:20:44

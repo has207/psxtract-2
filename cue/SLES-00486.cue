@@ -169,3 +169,4 @@ FILE "Tomb Raider (Germany) (Track 01).bin" BINARY
   TRACK 57 AUDIO
     INDEX 00 54:47:47
     INDEX 01 54:49:47
+REM LEADOUT 58:06:47

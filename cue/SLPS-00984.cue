@@ -10,3 +10,4 @@ FILE "Wizard's Harmony 2 (Japan, Asia).bin" BINARY
   TRACK 04 AUDIO
     INDEX 00 47:18:40
     INDEX 01 47:20:40
+REM LEADOUT 50:30:40

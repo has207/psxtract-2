@@ -154,3 +154,4 @@ FILE "Street Fighter Zero (Japan) (Track 01).bin" BINARY
   TRACK 52 AUDIO
     INDEX 00 62:20:12
     INDEX 01 62:22:12
+REM LEADOUT 65:52:12

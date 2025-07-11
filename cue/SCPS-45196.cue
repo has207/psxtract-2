@@ -6,3 +6,4 @@ FILE "Castlevania - Symphony of the Night (Asia).bin" BINARY
     FLAGS DCP
     INDEX 00 50:53:50
     INDEX 01 50:55:50
+REM LEADOUT 55:06:70

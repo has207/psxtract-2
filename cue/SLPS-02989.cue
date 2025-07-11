@@ -31,3 +31,4 @@ FILE "Yamasa Digi Guide - Hyper Rush (Japan) (Track 01).bin" BINARY
   TRACK 11 AUDIO
     INDEX 00 22:41:61
     INDEX 01 22:43:61
+REM LEADOUT 25:55:36

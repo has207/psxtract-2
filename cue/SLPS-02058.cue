@@ -37,3 +37,4 @@ FILE "Marionette Company (Japan) (Track 01).bin" BINARY
   TRACK 13 AUDIO
     INDEX 00 62:06:60
     INDEX 01 62:08:60
+REM LEADOUT 62:42:46

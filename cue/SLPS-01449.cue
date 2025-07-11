@@ -76,3 +76,4 @@ FILE "Silhouette Mirage - Reprogrammed Hope (Japan) (Track 01).bin" BINARY
   TRACK 26 AUDIO
     INDEX 00 56:44:37
     INDEX 01 56:46:37
+REM LEADOUT 60:51:05

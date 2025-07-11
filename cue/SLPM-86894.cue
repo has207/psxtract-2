@@ -28,3 +28,4 @@ FILE "Jet Copter X (Japan) (Track 01).bin" BINARY
   TRACK 10 AUDIO
     INDEX 00 18:43:18
     INDEX 01 18:45:18
+REM LEADOUT 22:19:18

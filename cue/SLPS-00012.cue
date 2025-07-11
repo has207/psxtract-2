@@ -4,3 +4,4 @@ FILE "Space Griffon VF-9 (Japan) (Rev 1).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 48:12:14
     INDEX 01 48:14:14
+REM LEADOUT 50:34:53

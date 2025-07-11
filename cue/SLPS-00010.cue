@@ -34,3 +34,4 @@ FILE "Falcata - Astran Pardma no Monshou (Japan) (Track 01).bin" BINARY
   TRACK 12 AUDIO
     INDEX 00 44:42:50
     INDEX 01 44:44:50
+REM LEADOUT 47:24:08

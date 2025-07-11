@@ -31,3 +31,4 @@ FILE "Bombing Islands, The (USA) (Track 01).bin" BINARY
   TRACK 11 AUDIO
     INDEX 00 37:12:32
     INDEX 01 37:14:32
+REM LEADOUT 40:27:05

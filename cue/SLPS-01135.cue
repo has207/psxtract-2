@@ -64,3 +64,4 @@ FILE "DamDam Stompland (Japan) (Track 01).bin" BINARY
   TRACK 22 AUDIO
     INDEX 00 53:10:51
     INDEX 01 53:12:51
+REM LEADOUT 56:12:51

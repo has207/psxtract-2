@@ -4,3 +4,4 @@ FILE "Final Fantasy VII International (Japan) (Disc 4) (Perfect Guide).bin" BINA
   TRACK 02 AUDIO
     INDEX 00 54:27:06
     INDEX 01 54:29:06
+REM LEADOUT 58:29:49

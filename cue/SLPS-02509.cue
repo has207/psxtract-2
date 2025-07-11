@@ -16,3 +16,4 @@ FILE "Gyuwambler Jiko Chuushinha - Ippatsu Shoubu! (Japan).bin" BINARY
   TRACK 06 AUDIO
     INDEX 00 04:22:41
     INDEX 01 04:24:41
+REM LEADOUT 07:27:44

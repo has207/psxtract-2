@@ -52,3 +52,4 @@ FILE "Bugriders - The Race of Kings (Europe) (Track 01).bin" BINARY
   TRACK 18 AUDIO
     INDEX 00 68:06:01
     INDEX 01 68:08:01
+REM LEADOUT 69:27:32

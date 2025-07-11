@@ -4,3 +4,4 @@ FILE "Alone in the Dark - The New Nightmare (Spain) (Disc 1).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 56:57:17
     INDEX 01 56:59:17
+REM LEADOUT 60:42:22

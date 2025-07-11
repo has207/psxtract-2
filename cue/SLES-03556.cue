@@ -4,3 +4,4 @@ FILE "Mega Man Legends 2 (Europe).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 51:43:05
     INDEX 01 51:45:05
+REM LEADOUT 55:15:05

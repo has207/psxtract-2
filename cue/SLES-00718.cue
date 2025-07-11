@@ -181,3 +181,4 @@ FILE "Tomb Raider II - Starring Lara Croft (Europe) (EDC) (Track 01).bin" BINARY
   TRACK 61 AUDIO
     INDEX 00 69:50:72
     INDEX 01 69:52:72
+REM LEADOUT 70:10:51

@@ -40,3 +40,4 @@ FILE "Puzzle Bobble 2 (Japan) (Track 01).bin" BINARY
   TRACK 14 AUDIO
     INDEX 00 26:18:03
     INDEX 01 26:20:03
+REM LEADOUT 29:42:16

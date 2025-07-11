@@ -4,3 +4,4 @@ FILE "Chou Aniki - Kyuukyoku Muteki Ginga Saikyou Otoko (Japan).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 34:22:69
     INDEX 01 34:26:50
+REM LEADOUT 69:27:59

@@ -85,3 +85,4 @@ FILE "Dead or Alive (Europe) (Track 01).bin" BINARY
   TRACK 29 AUDIO
     INDEX 00 53:03:28
     INDEX 01 53:05:28
+REM LEADOUT 56:19:37

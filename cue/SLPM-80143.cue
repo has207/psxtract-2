@@ -22,3 +22,4 @@ FILE "Cool Boarders 2 - Killing Session (Japan) (Demo).bin" BINARY
   TRACK 08 AUDIO
     INDEX 00 25:25:70
     INDEX 01 25:27:70
+REM LEADOUT 29:45:68

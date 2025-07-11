@@ -4,3 +4,4 @@ FILE "Super Robot Taisen F (Japan).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 47:38:64
     INDEX 01 47:40:64
+REM LEADOUT 50:40:64

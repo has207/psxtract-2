@@ -4,3 +4,4 @@ FILE "Soviet Strike (Germany).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 58:46:02
     INDEX 01 58:48:02
+REM LEADOUT 63:23:03

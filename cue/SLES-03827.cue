@@ -10,3 +10,4 @@ FILE "Sports Superbike 2 (Europe).bin" BINARY
   TRACK 04 AUDIO
     INDEX 00 16:39:00
     INDEX 01 16:41:00
+REM LEADOUT 19:42:09

@@ -1,3 +1,4 @@
 FILE "Bounty Sword First (Japan) (Major Wave).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
+REM LEADOUT 63:30:05

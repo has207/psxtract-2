@@ -19,3 +19,4 @@ FILE "Uki Uki Tsuri Tengoku - Ningyo Densetsu no Nazo (Japan).bin" BINARY
   TRACK 07 AUDIO
     INDEX 00 23:06:66
     INDEX 01 23:08:66
+REM LEADOUT 26:38:66

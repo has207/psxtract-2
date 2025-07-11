@@ -34,3 +34,4 @@ FILE "Wipeout (Europe) (Track 01).bin" BINARY
   TRACK 12 AUDIO
     INDEX 00 59:36:25
     INDEX 01 59:38:25
+REM LEADOUT 65:53:28

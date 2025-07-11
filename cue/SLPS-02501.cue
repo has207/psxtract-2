@@ -4,3 +4,4 @@ FILE "Robin Lloyd no Bouken (Japan).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 19:31:62
     INDEX 01 19:33:62
+REM LEADOUT 22:59:68

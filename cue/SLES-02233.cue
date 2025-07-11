@@ -4,3 +4,4 @@ FILE "Fighting Force 2 (Europe) (En,Fr).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 43:57:35
     INDEX 01 43:59:35
+REM LEADOUT 47:04:37

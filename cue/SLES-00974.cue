@@ -4,3 +4,4 @@ FILE "Resident Evil 2 (Germany) (Disc 1).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 59:15:18
     INDEX 01 59:17:18
+REM LEADOUT 62:47:18

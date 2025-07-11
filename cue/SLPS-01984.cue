@@ -1,3 +1,4 @@
 FILE "Dosukoi Densetsu (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
+REM LEADOUT 16:49:23

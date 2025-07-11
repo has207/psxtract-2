@@ -28,3 +28,4 @@ FILE "Namco Museum Vol. 1 (Japan) (Track 01).bin" BINARY
   TRACK 10 AUDIO
     INDEX 00 21:34:32
     INDEX 01 21:36:32
+REM LEADOUT 24:56:32

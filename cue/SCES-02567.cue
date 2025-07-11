@@ -4,3 +4,4 @@ FILE "Dragon Valor (Italy) (Disc 1).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 55:49:12
     INDEX 01 55:51:12
+REM LEADOUT 59:37:69

@@ -22,3 +22,4 @@ FILE "Azito (Japan) (Major Wave).bin" BINARY
   TRACK 08 AUDIO
     INDEX 00 30:35:71
     INDEX 01 30:37:71
+REM LEADOUT 34:25:28

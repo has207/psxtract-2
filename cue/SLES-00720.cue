@@ -181,3 +181,4 @@ FILE "Tomb Raider II - Starring Lara Croft (Germany) (Track 01).bin" BINARY
   TRACK 61 AUDIO
     INDEX 00 69:53:65
     INDEX 01 69:55:65
+REM LEADOUT 70:13:44

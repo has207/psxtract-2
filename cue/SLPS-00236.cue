@@ -64,3 +64,4 @@ FILE "Uchuu Goushouden - Bakuretsu Akindo (Japan) (Track 01).bin" BINARY
   TRACK 22 AUDIO
     INDEX 00 38:22:38
     INDEX 01 38:24:38
+REM LEADOUT 42:11:70

@@ -34,3 +34,4 @@ FILE "Yamasa Digi Guide - Faust (Japan) (Track 01).bin" BINARY
   TRACK 12 AUDIO
     INDEX 00 24:35:19
     INDEX 01 24:37:19
+REM LEADOUT 27:48:69

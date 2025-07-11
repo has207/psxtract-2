@@ -4,3 +4,4 @@ FILE "Tomba! 2 - The Evil Swine Return (USA).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 38:46:74
     INDEX 01 38:48:74
+REM LEADOUT 41:25:55

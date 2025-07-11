@@ -4,3 +4,4 @@ FILE "Dragon Valor (France) (Disc 2).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 62:08:51
     INDEX 01 62:10:51
+REM LEADOUT 65:57:33

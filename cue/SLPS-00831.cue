@@ -10,3 +10,4 @@ FILE "Hatsukoi Valentine (Japan).bin" BINARY
   TRACK 04 AUDIO
     INDEX 00 32:43:60
     INDEX 01 32:45:60
+REM LEADOUT 35:45:60

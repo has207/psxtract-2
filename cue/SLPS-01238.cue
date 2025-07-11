@@ -4,3 +4,4 @@ FILE "Zutto Issho - With Me Everytime... (Japan).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 34:15:35
     INDEX 01 34:17:35
+REM LEADOUT 40:19:34

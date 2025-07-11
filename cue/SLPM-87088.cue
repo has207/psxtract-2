@@ -31,3 +31,4 @@ FILE "Simple 1500 Series Vol. 97 - The Squash (Japan) (Track 01).bin" BINARY
   TRACK 11 AUDIO
     INDEX 00 30:11:59
     INDEX 01 30:13:59
+REM LEADOUT 38:13:59

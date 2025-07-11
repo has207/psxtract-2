@@ -4,3 +4,4 @@ FILE "Saikyou Ginsei Mahjong (Japan).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 03:49:56
     INDEX 01 03:51:56
+REM LEADOUT 27:39:62

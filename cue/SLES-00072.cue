@@ -64,3 +64,4 @@ FILE "Theme Park (Europe) (En,Fr,De,Es,Sv) (Track 01).bin" BINARY
   TRACK 22 AUDIO
     INDEX 00 34:51:22
     INDEX 01 34:53:22
+REM LEADOUT 38:13:69

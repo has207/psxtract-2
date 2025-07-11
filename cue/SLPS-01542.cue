@@ -58,3 +58,4 @@ FILE "Goiken Muyou II (Japan) (En,Ja) (Track 01).bin" BINARY
   TRACK 20 AUDIO
     INDEX 00 43:28:30
     INDEX 01 43:30:30
+REM LEADOUT 46:40:40

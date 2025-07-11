@@ -4,3 +4,4 @@ FILE "Super Robot Taisen EX (Japan).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 51:41:59
     INDEX 01 51:43:59
+REM LEADOUT 54:43:59

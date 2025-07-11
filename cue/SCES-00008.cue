@@ -58,3 +58,4 @@ FILE "Destruction Derby (Europe) (Track 01).bin" BINARY
   TRACK 20 AUDIO
     INDEX 00 60:41:71
     INDEX 01 60:43:71
+REM LEADOUT 61:39:39

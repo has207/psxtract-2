@@ -40,3 +40,4 @@ FILE "Cool Boarders (Europe) (Track 01).bin" BINARY
   TRACK 14 AUDIO
     INDEX 00 28:39:65
     INDEX 01 28:41:65
+REM LEADOUT 31:48:50

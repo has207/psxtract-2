@@ -4,3 +4,4 @@ FILE "Soviet Strike (Japan).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 58:44:23
     INDEX 01 58:46:23
+REM LEADOUT 63:21:24

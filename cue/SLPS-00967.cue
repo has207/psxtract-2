@@ -61,3 +61,4 @@ FILE "Cool Boarders 2 - Killing Session (Japan, Asia) (Track 01).bin" BINARY
   TRACK 21 AUDIO
     INDEX 00 69:17:53
     INDEX 01 69:19:53
+REM LEADOUT 69:34:58

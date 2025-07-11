@@ -58,3 +58,4 @@ FILE "Double Dragon (Japan) (Track 01).bin" BINARY
   TRACK 20 AUDIO
     INDEX 00 39:12:45
     INDEX 01 39:14:45
+REM LEADOUT 42:45:17

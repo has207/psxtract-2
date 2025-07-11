@@ -10,3 +10,4 @@ FILE "King of Fighters Kyou, The (Japan) (Demo).bin" BINARY
   TRACK 04 AUDIO
     INDEX 00 67:28:10
     INDEX 01 67:31:10
+REM LEADOUT 69:07:53

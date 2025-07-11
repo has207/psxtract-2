@@ -76,3 +76,4 @@ FILE "Blockids (Japan) (DX Pack) (Track 01).bin" BINARY
   TRACK 26 AUDIO
     INDEX 00 64:14:07
     INDEX 01 64:16:07
+REM LEADOUT 68:01:08

@@ -1,3 +1,4 @@
 FILE "Gunners Heaven (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
+REM LEADOUT 37:37:73

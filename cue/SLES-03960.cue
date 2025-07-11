@@ -28,3 +28,4 @@ FILE "Snowboard Racer (Europe) (Track 01).bin" BINARY
   TRACK 10 AUDIO
     INDEX 00 42:13:02
     INDEX 01 42:15:02
+REM LEADOUT 45:35:02

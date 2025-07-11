@@ -169,3 +169,4 @@ FILE "Tomb Raider (Europe) (EDC) (Track 01).bin" BINARY
   TRACK 57 AUDIO
     INDEX 00 54:33:02
     INDEX 01 54:35:02
+REM LEADOUT 57:52:02

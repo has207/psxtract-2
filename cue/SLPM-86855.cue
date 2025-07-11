@@ -46,3 +46,4 @@ FILE "DonPachi (Japan) (Cyclone's Best) (Track 01).bin" BINARY
   TRACK 16 AUDIO
     INDEX 00 25:00:08
     INDEX 01 25:02:08
+REM LEADOUT 28:02:08

@@ -70,3 +70,4 @@ FILE "Athena no Kateiban - Family Games (Japan) (Track 01).bin" BINARY
   TRACK 24 AUDIO
     INDEX 00 56:01:27
     INDEX 01 56:03:27
+REM LEADOUT 59:16:06

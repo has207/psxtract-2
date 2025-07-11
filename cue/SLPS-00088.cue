@@ -25,3 +25,4 @@ FILE "Ground Stroke - Advanced Tennis Game (Japan).bin" BINARY
   TRACK 09 AUDIO
     INDEX 00 23:40:42
     INDEX 01 23:42:42
+REM LEADOUT 27:20:06

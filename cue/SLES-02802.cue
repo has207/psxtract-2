@@ -4,3 +4,4 @@ FILE "Alone in the Dark - The New Nightmare (France) (Disc 1).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 56:45:05
     INDEX 01 56:47:05
+REM LEADOUT 60:30:10

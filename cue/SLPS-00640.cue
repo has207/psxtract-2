@@ -97,3 +97,4 @@ FILE "Real Bout Garou Densetsu (Japan) (En,Ja) (Track 01).bin" BINARY
   TRACK 33 AUDIO
     INDEX 00 38:43:31
     INDEX 01 38:45:31
+REM LEADOUT 41:45:31

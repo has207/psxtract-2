@@ -4,3 +4,4 @@ FILE "Syndicate Wars (Germany).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 26:43:44
     INDEX 01 26:45:44
+REM LEADOUT 28:15:42

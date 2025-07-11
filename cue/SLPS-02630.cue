@@ -28,3 +28,4 @@ FILE "Simple 1500 Series Vol. 27 - The Snowboard (Japan) (Track 01).bin" BINARY
   TRACK 10 AUDIO
     INDEX 00 37:58:60
     INDEX 01 38:00:60
+REM LEADOUT 41:00:60

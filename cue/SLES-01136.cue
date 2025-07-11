@@ -79,3 +79,4 @@ FILE "Tom Clancy's Rainbow Six (Europe) (En,Fr,It) (Track 01).bin" BINARY
   TRACK 27 AUDIO
     INDEX 00 36:10:49
     INDEX 01 36:12:49
+REM LEADOUT 39:13:49

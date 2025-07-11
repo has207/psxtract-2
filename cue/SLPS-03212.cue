@@ -25,3 +25,4 @@ FILE "Yamasa Digi World - Tetra Master (Japan).bin" BINARY
   TRACK 09 AUDIO
     INDEX 00 26:23:51
     INDEX 01 26:25:51
+REM LEADOUT 29:37:26

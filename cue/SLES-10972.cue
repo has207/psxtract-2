@@ -4,3 +4,4 @@ FILE "Resident Evil 2 (Europe) (Disc 2).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 59:46:17
     INDEX 01 59:48:17
+REM LEADOUT 63:18:17

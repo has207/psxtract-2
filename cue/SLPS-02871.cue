@@ -70,3 +70,4 @@ FILE "Max Surfing 2nd (Japan) (Track 01).bin" BINARY
   TRACK 24 AUDIO
     INDEX 00 52:47:27
     INDEX 01 52:49:27
+REM LEADOUT 56:07:02

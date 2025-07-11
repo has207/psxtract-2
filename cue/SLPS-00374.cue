@@ -175,3 +175,4 @@ FILE "Silhouette Stories (Japan) (Track 01).bin" BINARY
   TRACK 59 AUDIO
     INDEX 00 64:42:13
     INDEX 01 64:44:13
+REM LEADOUT 68:12:33

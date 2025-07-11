@@ -25,3 +25,4 @@ FILE "Magic Carpet (Europe) (En,Fr,De,Es,Sv).bin" BINARY
   TRACK 09 AUDIO
     INDEX 00 43:48:06
     INDEX 01 43:50:06
+REM LEADOUT 46:43:16

@@ -4,3 +4,4 @@ FILE "Alone in the Dark - The New Nightmare (Italy) (Disc 2).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 60:46:10
     INDEX 01 60:48:10
+REM LEADOUT 64:31:15

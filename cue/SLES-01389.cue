@@ -70,3 +70,4 @@ FILE "Bust-A-Move 4 (Europe) (Track 01).bin" BINARY
   TRACK 24 AUDIO
     INDEX 00 43:20:74
     INDEX 01 43:22:74
+REM LEADOUT 46:23:24

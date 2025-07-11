@@ -4,3 +4,4 @@ FILE "Tomba! The Wild Adventures (Japan).bin" BINARY
   TRACK 02 AUDIO
     INDEX 00 38:35:14
     INDEX 01 38:37:14
+REM LEADOUT 41:13:70

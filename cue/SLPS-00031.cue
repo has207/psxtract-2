@@ -70,3 +70,4 @@ FILE "Kyuutenkai (Japan) (Track 01).bin" BINARY
   TRACK 24 AUDIO
     INDEX 00 30:26:74
     INDEX 01 30:28:74
+REM LEADOUT 30:35:00

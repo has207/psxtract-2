@@ -27,18 +27,28 @@ char* exec(const char* cmd) {
     if (!CreatePipe(&hRead, &hWrite, &saAttr, 0))
         return NULL;
 
-    STARTUPINFO si;
+    STARTUPINFOW si;
     PROCESS_INFORMATION pi;
     ZeroMemory(&si, sizeof(si));
     ZeroMemory(&pi, sizeof(pi));
 
-    si.cb = sizeof(STARTUPINFO);
+    si.cb = sizeof(STARTUPINFOW);
     si.hStdError = hWrite;
     si.hStdOutput = hWrite;
     si.dwFlags |= STARTF_USESTDHANDLES;
 
-    // Create the process
-    BOOL bSuccess = CreateProcess(NULL, (LPSTR)cmd, NULL, NULL, TRUE, 0, NULL, NULL, &si, &pi);
+    // Create the process - convert command to wide char for Unicode support
+    int wlen = MultiByteToWideChar(CP_UTF8, 0, cmd, -1, NULL, 0);
+    wchar_t* wcmd = (wchar_t*)malloc(wlen * sizeof(wchar_t));
+    if (!wcmd) {
+        CloseHandle(hWrite);
+        CloseHandle(hRead);
+        return NULL;
+    }
+    MultiByteToWideChar(CP_UTF8, 0, cmd, -1, wcmd, wlen);
+    
+    BOOL bSuccess = CreateProcessW(NULL, wcmd, NULL, NULL, TRUE, 0, NULL, NULL, &si, &pi);
+    free(wcmd);
     if (!bSuccess) {
         CloseHandle(hWrite);
         CloseHandle(hRead);
@@ -736,13 +746,13 @@ int convert_at3_to_wav(int disc_num, int num_tracks)
 			return 1;
 		}
 		sprintf(command, "%s\\at3tool.exe", wdir);
-		if (stat(command, &st) != 0)
+		if (utf8_file_exists(command) != 0)
 		{
 			printf("ERROR: Failed to find at3tool.exe, aborting...\n");
 			return -1;
 		}
 		sprintf(command, "%s\\msvcr71.dll", wdir);
-		if (stat(command, &st) != 0)
+		if (utf8_file_exists(command) != 0)
 		{
 			printf("ERROR: Failed to find msvcr71.dll needed by at3tool.exe, aborting...\n");
 			return -1;

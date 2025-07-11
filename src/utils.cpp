@@ -33,16 +33,38 @@ u64 se64(u64 i)
 
 int get_exe_directory(char* buffer, int buffer_size)
 {
-	if (GetModuleFileName(NULL, buffer, buffer_size) == 0)
+	wchar_t wbuffer[_MAX_PATH];
+	if (GetModuleFileNameW(NULL, wbuffer, _MAX_PATH) == 0)
 	{
 		return -1;
 	}
 	
 	// Find the last backslash in the path, and null-terminate there to remove the executable name
-	char* last_backslash = strrchr(buffer, '\\');
+	wchar_t* last_backslash = wcsrchr(wbuffer, L'\\');
 	if (last_backslash) {
-		*last_backslash = '\0';
+		*last_backslash = L'\0';
+	}
+	
+	// Convert from wide char to multibyte using UTF-8 encoding
+	int result = WideCharToMultiByte(CP_UTF8, 0, wbuffer, -1, buffer, buffer_size, NULL, NULL);
+	if (result == 0) {
+		return -1;
 	}
 	
 	return 0;
+}
+
+int utf8_file_exists(const char* filename)
+{
+	int wlen = MultiByteToWideChar(CP_UTF8, 0, filename, -1, NULL, 0);
+	wchar_t* wfilename = (wchar_t*)malloc(wlen * sizeof(wchar_t));
+	if (!wfilename) {
+		return -1;
+	}
+	MultiByteToWideChar(CP_UTF8, 0, filename, -1, wfilename, wlen);
+	
+	DWORD attrs = GetFileAttributesW(wfilename);
+	free(wfilename);
+	
+	return (attrs != INVALID_FILE_ATTRIBUTES) ? 0 : -1;
 }

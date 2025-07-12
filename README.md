@@ -8,7 +8,7 @@ This tool allows you to decrypt a PSOne Classics EBOOT.PBP on your PC.
 It features a modified version of libkirk's source code to support DES
 encryption/decryption and the AMCTRL functions.
 Also features isofix code for ensuring finalized ISO matches real discs.
-And uses at3tool for ATRAC3 decoding of CDDA audio tracks.
+And uses atrac3 ACM code for ATRAC3 decoding of CDDA audio tracks.
 
 
 Notes
@@ -23,8 +23,7 @@ This flag is kept for backwards compatibility with old psxtract that used
 it to force CDROM creation. Current version always creates a BIN/CUE pair
 but we keep the flag for nostalgia.
 
-at3tool.exe and its accompanying dll are required to be in the same
-directory for ATRAC3 audio decoding of CDDA tracks.
+atrac3 ACM codec must be installe don the system for ATRAC3 audio decoding of CDDA tracks.
 
 You may supply a KEYS.BIN file to the tool, but this is not necessary.
 Using the internal files' hashes, psxtract can calculate the key by itself.

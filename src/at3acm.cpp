@@ -7,14 +7,9 @@
 static BOOL WINAPI findAt3Driver_cb(HACMDRIVERID hadid, DWORD_PTR dwInstance, DWORD fdwSupport) {
     ACMDRIVERDETAILS details;
     details.cbStruct = sizeof(ACMDRIVERDETAILS);
-    if (acmDriverDetails(hadid, &details, 0) != MMSYSERR_NOERROR) {
-        return TRUE;
-    }
-
-    printf("Driver: '%s' ('%s')\n", details.szShortName, details.szLongName);
+    acmDriverDetails(hadid, &details, 0);
 
     if (strcmp(details.szShortName, "ATRAC3") == 0) {
-        printf("Found ATRAC3 driver!\n");
         *(LPHACMDRIVERID)dwInstance = hadid;
         return FALSE;
     }
@@ -23,24 +18,10 @@ static BOOL WINAPI findAt3Driver_cb(HACMDRIVERID hadid, DWORD_PTR dwInstance, DW
 }
 
 void findAt3Driver(LPHACMDRIVERID lpHadid) {
-    *lpHadid = nullptr;
-    
-    // Try different enumeration flags to see if we can find the driver
-    printf("Enumerating drivers with standard flags...\n");
     acmDriverEnum(findAt3Driver_cb, (DWORD_PTR)lpHadid, 0);
-    
-    if (*lpHadid) return;
-    
-    printf("Enumerating drivers with NOLOCAL flag...\n");
-    acmDriverEnum(findAt3Driver_cb, (DWORD_PTR)lpHadid, ACM_DRIVERENUMF_NOLOCAL);
-    
-    if (*lpHadid) return;
-    
-    printf("Enumerating drivers with DISABLED flag...\n");
-    acmDriverEnum(findAt3Driver_cb, (DWORD_PTR)lpHadid, ACM_DRIVERENUMF_DISABLED);
 }
 
-int convertAt3ToWav(const char* input, const char* output) {
+int convertAt3ToWav(const char* input, const char* output, HACMDRIVERID at3hadid) {
     FILE *sfp = fopen(input, "rb");
     if (!sfp) {
         printf("ERROR: Cannot open AT3 input file: %s\n", input);
@@ -97,15 +78,7 @@ int convertAt3ToWav(const char* input, const char* output) {
         return 1;
     }
 
-    // Find ATRAC3 driver
-    HACMDRIVERID at3hadid = nullptr;
-    findAt3Driver(&at3hadid);
-    if (!at3hadid) {
-        printf("ERROR: ATRAC3 codec not installed\n");
-        delete[] bFmt;
-        delete[] bData;
-        return 1;
-    }
+    // Driver is passed as parameter, no need to find it again
 
     WAVEFORMATEX dwfx;
     memset(&dwfx, 0, sizeof(WAVEFORMATEX));

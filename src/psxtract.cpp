@@ -724,6 +724,11 @@ int convert_at3_to_wav(int disc_num, int num_tracks)
 {
 	if (num_tracks > 0)
 		printf("\nAttempting to convert from ATRAC3 to WAV, this may take awhile...\n\n");
+	
+	// Find ATRAC3 driver once for all conversions (we know it's available at this point)
+	HACMDRIVERID at3hadid = nullptr;
+	findAt3Driver(&at3hadid);
+	
 	for (int i = 2; i <= num_tracks + 1; i++)
 	{
 		char at3_filename[0x10];
@@ -739,7 +744,7 @@ int convert_at3_to_wav(int disc_num, int num_tracks)
 		audio_file_name(wav_filename, disc_num, i, (char*)"WAV");
 
 		printf("Converting %s to %s using ATRAC3 ACM...\n", at3_filename, wav_filename);
-		int conversion_result = convertAt3ToWav(at3_filename, wav_filename);
+		int conversion_result = convertAt3ToWav(at3_filename, wav_filename, at3hadid);
 		if (conversion_result != 0)
 		{
 			printf("ERROR: Failed to convert %s using ATRAC3 ACM\n", at3_filename);
@@ -950,7 +955,12 @@ int copy_track_to_iso(FILE *bin_file, char *track_filename, int track_num)
 	FILE* track_file = fopen(track_filename, "rb");
 	if (track_file == NULL)
 	{
-		printf("ERROR: %s cannot be opened\n", track_filename);
+		// Check if this is an audio track BIN file that doesn't exist
+		if (strstr(track_filename, "TRACK") != NULL && strstr(track_filename, ".BIN") != NULL) {
+			printf("\tskipping %s (audio conversion was skipped)\n", track_filename);
+		} else {
+			printf("ERROR: %s cannot be opened\n", track_filename);
+		}
 		return -1;
 	}
 	printf("\tadding %s\n", track_filename);
@@ -1116,21 +1126,34 @@ int extract_and_convert_audio(FILE *psar, FILE *iso_table, int base_audio_offset
 	else if (num_tracks > 0)
 		printf("%d audio tracks extracted to ATRAC3\n", num_tracks);
 
-	if (convert_at3_to_wav(disc_num, num_tracks) < 0)
-	{
-		printf("ATRAC3 to WAV conversion failed!\n\n");
-		return 0;
+	// Check for ATRAC3 driver availability before attempting conversion
+	if (num_tracks > 0) {
+		HACMDRIVERID at3hadid = nullptr;
+		findAt3Driver(&at3hadid);
+		if (!at3hadid) {
+			printf("WARNING: ATRAC3 codec not available - skipping audio conversion\n");
+			printf("Audio tracks remain as ATRAC3 files (*.AT3)\n\n");
+			num_tracks = 0; // Set to 0 so we skip WAV to BIN conversion too
+		} else {
+			if (convert_at3_to_wav(disc_num, num_tracks) < 0)
+			{
+				printf("ATRAC3 to WAV conversion failed!\n\n");
+				return 0;
+			}
+			else
+				printf("%d audio tracks converted to WAV\n", num_tracks);
+		}
 	}
-	else if (num_tracks > 0)
-		printf("%d audio tracks converted to WAV\n", num_tracks);
 
-	if (convert_wav_to_bin(data_gap, disc_num, num_tracks, pregap_override) < 0)
-	{
-		printf("ERROR: WAV to BIN conversion failed!\n\n");
-		return -1;
+	if (num_tracks > 0) {
+		if (convert_wav_to_bin(data_gap, disc_num, num_tracks, pregap_override) < 0)
+		{
+			printf("ERROR: WAV to BIN conversion failed!\n\n");
+			return -1;
+		}
+		else
+			printf("%d audio tracks converted to BIN\n\n", num_tracks);
 	}
-	else if (num_tracks > 0)
-		printf("%d audio tracks converted to BIN\n\n", num_tracks);
 	return num_tracks;
 }
 
@@ -1506,7 +1529,7 @@ int copy_prebaked_cue_file(char* disc_name, char* game_title, char* output_bin_n
     char output_cue_path[256];
     char exe_dir[_MAX_PATH];
     
-    // Get executable directory (same logic as at3tool.exe)
+    // Get executable directory
     if (get_exe_directory(exe_dir, _MAX_PATH) != 0)
     {
         printf("ERROR: Failed to get executable directory\n");
@@ -2177,6 +2200,30 @@ int main(int argc, char **argv)
 			printf("%02X", pgd_key[i]);
 		printf("\n\n");
 	}
+	// Check if TEMP directory already exists from a previous run
+	struct stat temp_stat;
+	if (stat("TEMP", &temp_stat) == 0 && (temp_stat.st_mode & S_IFDIR)) {
+		printf("WARNING: TEMP directory already exists from a previous run.\n");
+		printf("This may contain files that could interfere with the current extraction.\n");
+		printf("Delete TEMP directory and continue? (y/N): ");
+		fflush(stdout);
+		
+		char input[10];
+		if (fgets(input, sizeof(input), stdin) != NULL) {
+			char response = input[0];
+			if (response == 'y' || response == 'Y') {
+				printf("Removing existing TEMP directory...\n");
+				system("rmdir /S /Q TEMP");
+			} else {
+				printf("Extraction cancelled. Please manually remove TEMP directory and try again.\n");
+				return 1;
+			}
+		} else {
+			printf("Extraction cancelled. Please manually remove TEMP directory and try again.\n");
+			return 1;
+		}
+	}
+	
 	// Make a new directory for intermediate data.
 	_mkdir("TEMP");
 	_chdir("TEMP");

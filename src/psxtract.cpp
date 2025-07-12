@@ -4,6 +4,7 @@
 
 #include "psxtract.h"
 #include "md5_data.h"
+#include "at3acm.h"
 
 // Global MD5 database
 MD5_ENTRY* g_md5_entries = NULL;
@@ -737,33 +738,13 @@ int convert_at3_to_wav(int disc_num, int num_tracks)
 		char wav_filename[0x10];
 		audio_file_name(wav_filename, disc_num, i, (char*)"WAV");
 
-		char wdir[_MAX_PATH];
-		char command[_MAX_PATH + 50];
-
-		if (get_exe_directory(wdir, _MAX_PATH) != 0)
+		printf("Converting %s to %s using ATRAC3 ACM...\n", at3_filename, wav_filename);
+		int conversion_result = convertAt3ToWav(at3_filename, wav_filename);
+		if (conversion_result != 0)
 		{
-			printf("ERROR: Failed to obtained current directory\n%lu\n", GetLastError());
-			return 1;
-		}
-		sprintf(command, "%s\\at3tool.exe", wdir);
-		if (utf8_file_exists(command) != 0)
-		{
-			printf("ERROR: Failed to find at3tool.exe, aborting...\n");
+			printf("ERROR: Failed to convert %s using ATRAC3 ACM\n", at3_filename);
 			return -1;
 		}
-		sprintf(command, "%s\\msvcr71.dll", wdir);
-		if (utf8_file_exists(command) != 0)
-		{
-			printf("ERROR: Failed to find msvcr71.dll needed by at3tool.exe, aborting...\n");
-			return -1;
-		}
-		sprintf(command, "cmd /c %s\\at3tool.exe -d \"%s\" \"%s\"", wdir, at3_filename, wav_filename);
-		printf("%s\n", command);
-		char *result = exec(command);
-        if (result) {
-            printf("%s\n", result);
-            free(result);
-        }
 		if (stat(wav_filename, &st) != 0 || st.st_size <= 44)
 		{
 			printf("%s failed to convert, ignoring audio tracks...\n", wav_filename);

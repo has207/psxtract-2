@@ -578,7 +578,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
             }
             
             // Create controls
-            CreateWindow("STATIC", "PSX Extractor v2", WS_VISIBLE | WS_CHILD | SS_CENTER,
+            CreateWindow("STATIC", "PSX Extractor v3", WS_VISIBLE | WS_CHILD | SS_CENTER,
                         10, 10, 560, 25, hWnd, NULL, GetModuleHandle(NULL), NULL);
             
             CreateWindow("STATIC", "PBP File:", WS_VISIBLE | WS_CHILD,

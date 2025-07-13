@@ -39,6 +39,10 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include "crypto.h"
+#include "gui.h"
+
+// Define printf to use GUI-aware version
+#define printf gui_printf
 
 int decrypt_pgd(unsigned char* pgd_data, int pgd_size, int flag, unsigned char* key)
 {

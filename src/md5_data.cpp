@@ -3,11 +3,15 @@
 // http://www.gnu.org/licenses/gpl-3.0.txt
 
 #include "md5_data.h"
+#include "gui.h"
 #include <windows.h>
 #include <wincrypt.h>
 #include <stdio.h>
 #include <string.h>
 #include <malloc.h>
+
+// Define printf to use GUI-aware version
+#define printf gui_printf
 
 // MD5 hash calculation function
 bool calculate_md5(const char* filename, char* md5_string)

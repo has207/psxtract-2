@@ -5,6 +5,10 @@
 #include "psxtract.h"
 #include "md5_data.h"
 #include "at3acm.h"
+#include "gui.h"
+
+// Define printf to use GUI-aware version
+#define printf gui_printf
 
 // Global MD5 database
 MD5_ENTRY* g_md5_entries = NULL;
@@ -966,18 +970,36 @@ int copy_track_to_iso(FILE *bin_file, char *track_filename, int track_num)
 	printf("\tadding %s\n", track_filename);
 	fseek(track_file, 0, SEEK_END);
 	long track_size = ftell(track_file);
-	unsigned char* track_data = (unsigned char*)malloc(track_size);
-	if (track_data == NULL)
+	fseek(track_file, 0, SEEK_SET);
+	
+	// Process file in 1MB chunks to avoid large memory allocations
+	const size_t chunk_size = 1024 * 1024; // 1MB chunks
+	unsigned char* chunk_data = (unsigned char*)malloc(chunk_size);
+	if (chunk_data == NULL)
 	{
-		printf("ERROR: could not allocate memory to read data, aborting...\n");
+		printf("ERROR: could not allocate memory for chunk buffer, aborting...\n");
 		fclose(track_file);
 		return -1;
 	}
-	fseek(track_file, 0, SEEK_SET);
-	fread(track_data, track_size, 1, track_file);
-	fwrite(track_data, track_size, 1, bin_file);
+	
+	long remaining = track_size;
+	while (remaining > 0)
+	{
+		size_t to_read = (remaining > chunk_size) ? chunk_size : remaining;
+		size_t read_bytes = fread(chunk_data, 1, to_read, track_file);
+		if (read_bytes != to_read)
+		{
+			printf("ERROR: failed to read chunk from track file\n");
+			free(chunk_data);
+			fclose(track_file);
+			return -1;
+		}
+		fwrite(chunk_data, 1, read_bytes, bin_file);
+		remaining -= read_bytes;
+	}
+	
 	fclose(track_file);
-	free(track_data);
+	free(chunk_data);
 	return track_size;
 }
 
@@ -2134,7 +2156,13 @@ int decrypt_multi_disc(FILE *psar, long long psar_size, long long startdat_offse
 int main(int argc, char **argv)
 {
 	SetConsoleOutputCP(CP_UTF8);
-	if ((argc <= 1) || (argc > 5))
+	
+	// If no arguments provided, launch GUI
+	if (argc <= 1) {
+		return showGUI();
+	}
+	
+	if (argc > 5)
 	{
 		printf("*****************************************************\n");
 		printf("psxtract - Convert your PSOne Classics to BIN/CUE format.\n");
@@ -2159,7 +2187,30 @@ int main(int argc, char **argv)
 		arg_offset++;
 	}
 
-	FILE* input = fopen(argv[arg_offset + 1], "rb");
+	// Call the main extraction function
+	return psxtract_main(argv[arg_offset + 1], 
+	                     (argc - arg_offset) >= 3 ? argv[arg_offset + 2] : NULL,
+	                     (argc - arg_offset) >= 4 ? argv[arg_offset + 3] : NULL,
+	                     cleanup,
+	                     NULL);
+}
+
+int psxtract_main(const char* pbp_file, const char* document_file, const char* keys_file, bool cleanup, const char* output_dir)
+{
+	// Change to output directory if specified
+	char original_dir[MAX_PATH];
+	if (output_dir && strcmp(output_dir, ".") != 0) {
+		if (_getcwd(original_dir, sizeof(original_dir)) == NULL) {
+			printf("ERROR: Failed to get current directory\n");
+			return 1;
+		}
+		if (_chdir(output_dir) != 0) {
+			printf("ERROR: Failed to change to output directory: %s\n", output_dir);
+			return 1;
+		}
+		printf("Changed to output directory: %s\n", output_dir);
+	}
+	FILE* input = fopen(pbp_file, "rb");
 
 	// Start KIRK.
 	kirk_init();
@@ -2177,9 +2228,9 @@ int main(int argc, char **argv)
 	unsigned char pgd_key[0x10] = {};
 
 	// If a DOCUMENT.DAT was supplied, try to decrypt it.
-	if ((argc - arg_offset) >= 3)
+	if (document_file != NULL)
 	{
-		FILE* document = fopen(argv[arg_offset + 2], "rb");
+		FILE* document = fopen(document_file, "rb");
 		if (document != NULL) {
 			decrypt_document(document);
 			fclose(document);
@@ -2188,9 +2239,9 @@ int main(int argc, char **argv)
 
 	// Use a supplied key when available.
 	// NOTE: KEYS.BIN is not really needed since we can generate a key from the PGD 0x70 MAC hash.
-	if ((argc - arg_offset) >= 4)
+	if (keys_file != NULL)
 	{
-		FILE* keys = fopen(argv[arg_offset + 3], "rb");
+		FILE* keys = fopen(keys_file, "rb");
 		fread(pgd_key, sizeof(pgd_key), 1, keys);
 		fclose(keys);
 
@@ -2205,19 +2256,10 @@ int main(int argc, char **argv)
 	if (stat("TEMP", &temp_stat) == 0 && (temp_stat.st_mode & S_IFDIR)) {
 		printf("WARNING: TEMP directory already exists from a previous run.\n");
 		printf("This may contain files that could interfere with the current extraction.\n");
-		printf("Delete TEMP directory and continue? (y/N): ");
-		fflush(stdout);
 		
-		char input[10];
-		if (fgets(input, sizeof(input), stdin) != NULL) {
-			char response = input[0];
-			if (response == 'y' || response == 'Y') {
-				printf("Removing existing TEMP directory...\n");
-				system("rmdir /S /Q TEMP");
-			} else {
-				printf("Extraction cancelled. Please manually remove TEMP directory and try again.\n");
-				return 1;
-			}
+		if (gui_prompt("TEMP directory already exists from a previous run.\nThis may contain files that could interfere with the current extraction.\n\nDelete TEMP directory and continue?", "TEMP Directory Exists")) {
+			printf("Removing existing TEMP directory...\n");
+			system("rmdir /S /Q TEMP");
 		} else {
 			printf("Extraction cancelled. Please manually remove TEMP directory and try again.\n");
 			return 1;
@@ -2228,7 +2270,7 @@ int main(int argc, char **argv)
 	_mkdir("TEMP");
 	_chdir("TEMP");
 
-	printf("Unpacking PBP %s...\n", argv[arg_offset + 1]);
+	printf("Unpacking PBP %s...\n", pbp_file);
 
 	// Setup a new directory to output the unpacked contents.
 	_mkdir("PBP");
@@ -2237,13 +2279,13 @@ int main(int argc, char **argv)
 	// Unpack the EBOOT.PBP file.
 	if (unpack_pbp(input))
 	{
-		printf("ERROR: Failed to unpack %s!", argv[arg_offset + 1]);
+		printf("ERROR: Failed to unpack %s!", pbp_file);
 		_chdir("..");
 		_rmdir("PBP");
 		return -1;
 	}
 	else
-		printf("Successfully unpacked %s!\n\n", argv[arg_offset + 1]);
+		printf("Successfully unpacked %s!\n\n", pbp_file);
 
 	_chdir("..");
 
@@ -2307,7 +2349,9 @@ int main(int argc, char **argv)
 	if (cleanup)
 	{
 		printf("Cleanup requested, removing TEMP folder\n");
-		printf("[If you see errors above try running without -c to leave TEMP files in place in order to debug.]\n");
+		if (!isGUIMode()) {
+			printf("[If you see errors above try running without -c to leave TEMP files in place in order to debug.]\n");
+		}
 		system("rmdir /S /Q TEMP");
 	}
 	
@@ -2323,6 +2367,13 @@ int main(int argc, char **argv)
 		free((void*)g_dynamic_pregap_override->game_id);
 		free(g_dynamic_pregap_override);
 		g_dynamic_pregap_override = NULL;
+	}
+	
+	// Restore original directory if we changed it
+	if (output_dir && strcmp(output_dir, ".") != 0) {
+		if (_chdir(original_dir) != 0) {
+			printf("Warning: Failed to restore original directory\n");
+		}
 	}
 	
 	return 0;

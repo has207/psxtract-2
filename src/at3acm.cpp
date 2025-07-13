@@ -1,6 +1,10 @@
 #include "at3acm.h"
+#include "gui.h"
 #include <stdio.h>
 #include <string.h>
+
+// Define printf to use GUI-aware version
+#define printf gui_printf
 
 #define WAVE_FORMAT_SONY_SCX 0x0270
 

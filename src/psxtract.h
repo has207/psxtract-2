@@ -14,6 +14,9 @@
 #include "lz.h"
 #include "crypto.h"
 
+// Main extraction function that can be called from GUI or command line
+int psxtract_main(const char* pbp_file, const char* document_file, const char* keys_file, bool cleanup, const char* output_dir);
+
 #define GAP_FRAMES	2 * 75	// 2 seconds
 #define GAP_SIZE	GAP_FRAMES * SECTOR_SIZE  // 2 seconds * 75 frames * 2352 sector size
 #define ISO_BLOCK_SIZE	16 * SECTOR_SIZE

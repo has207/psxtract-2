@@ -1,0 +1,5 @@
+REM MD5 94de7fb58c36e70de87124d471eae1b8
+FILE "Twilight Syndrome - Tansaku-hen (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 60:08:16

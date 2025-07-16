@@ -1,0 +1,8 @@
+REM MD5 3f828cf0c8a235fb9808759902db2e3c
+FILE "Million Classic (Japan) (Disc 1) (Honpen Game Sen'you) (Nescafe-ban).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 38:01:70
+    INDEX 01 38:03:70
+REM LEADOUT 42:05:43

@@ -1,3 +1,4 @@
+REM MD5 05f45b5635e7b5190d63099cedade8c9
 FILE "Championship Bass (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

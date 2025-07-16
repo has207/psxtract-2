@@ -1,0 +1,5 @@
+REM MD5 d87de4eaed7710a10774854e34c2e277
+FILE "Final Fantasy VII International (Japan) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 70:36:41

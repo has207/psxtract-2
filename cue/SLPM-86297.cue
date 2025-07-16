@@ -1,0 +1,5 @@
+REM MD5 e301a58154bce3e8067c7c2a6cdcd574
+FILE "SuperLite 1500 Series - Game de Seishun (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 57:34:22

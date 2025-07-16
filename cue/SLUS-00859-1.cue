@@ -1,0 +1,5 @@
+REM MD5 0705857fc0163fe2131676d2f0d59e83
+FILE "Dukes of Hazzard, The - Racing for Home (Europe) (Beta) (2000-01-06).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 66:40:13

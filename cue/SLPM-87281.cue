@@ -1,0 +1,8 @@
+REM MD5 58b7419aeb6cbcff522c4f282908e6e7
+FILE "SuperLite 1500 Series - Carnage Heart EZ (Easy Zapping) (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 12:43:49
+    INDEX 01 12:45:49
+REM LEADOUT 16:15:50

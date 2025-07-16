@@ -1,0 +1,5 @@
+REM MD5 b6d765899cca2bcb67a1ed79b201b23a
+FILE "Play-Pre Vol. 18 (Japan) (Disc 2) (What's Next).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 56:06:11

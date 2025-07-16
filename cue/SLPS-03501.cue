@@ -1,3 +1,4 @@
+REM MD5 11f98612da7da1d52d360fddc8846cfb
 FILE "Final Fantasy II (Japan) (Premium Package).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

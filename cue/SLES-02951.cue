@@ -1,0 +1,5 @@
+REM MD5 9f236a75a4ccca036ea205d19db82c08
+FILE "Lord of the Jungle (Europe) (En,Fr,De,Nl).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 64:27:17

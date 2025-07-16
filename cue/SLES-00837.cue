@@ -1,0 +1,5 @@
+REM MD5 49d5b3eedb876dee761b4bf849f464e2
+FILE "Pitfall 3D - Beyond the Jungle (Germany).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 38:38:41

@@ -1,3 +1,4 @@
+REM MD5 ab95bfca8a4bb3d90daa6519acf6e944
 FILE "CTR - Crash Team Racing (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

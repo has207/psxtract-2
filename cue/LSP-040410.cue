@@ -1,0 +1,5 @@
+REM MD5 e0953494aade3fa5d3a01088ecbaabe6
+FILE "Timeless Math 4 - Lunar Base (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 31:06:73

@@ -1,3 +1,4 @@
+REM MD5 5d8538afc938e9550218f5a43819102c
 FILE "Roommate - Inoue Ryoko (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

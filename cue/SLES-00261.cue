@@ -1,3 +1,4 @@
+REM MD5 eea2cbd91cbfafed934907bdc32a4afd
 FILE "Hardcore 4x4 (Europe) (En,Fr,De).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

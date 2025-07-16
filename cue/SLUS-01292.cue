@@ -1,4 +1,5 @@
-FILE "Bombing Islands, The (USA) (Track 01).bin" BINARY
+REM MD5 3c778ce7d4148a4861d3e0c4262d83ff
+FILE "Bombing Islands, The (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

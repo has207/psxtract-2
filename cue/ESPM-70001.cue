@@ -1,0 +1,5 @@
+REM MD5 a9602fe84d2d9a707b283ab2afd5da8b
+FILE "Iceman - Digital PlayStage (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 57:55:56

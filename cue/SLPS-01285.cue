@@ -1,0 +1,5 @@
+REM MD5 63fe31be821d6f5438cd4f0bd985792a
+FILE "Mouri Motonari - Chikai no Sanshi (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 37:08:74

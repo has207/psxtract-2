@@ -1,0 +1,5 @@
+REM MD5 cfe5dd1f04fab8b30213de39d55217c8
+FILE "Front Mission 3 (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 12:29:25

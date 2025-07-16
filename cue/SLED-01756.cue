@@ -1,0 +1,14 @@
+REM MD5 5fa088ba65dd39183ea09ae0f11db875
+FILE "Rival Schools + Resident Evil 2 + Bloody Roar + Street Fighter EX Plus Alpha + Mr Domino + Victory Boxing 2 (France).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 55:58:69
+    INDEX 01 56:00:69
+  TRACK 03 AUDIO
+    INDEX 00 56:08:34
+    INDEX 01 56:10:34
+  TRACK 04 AUDIO
+    INDEX 00 56:17:68
+    INDEX 01 56:19:68
+REM LEADOUT 59:25:28

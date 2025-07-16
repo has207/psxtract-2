@@ -1,0 +1,5 @@
+REM MD5 f03798aa93e37ca182634e1def2e7f6e
+FILE "Atari Anniversary Edition Redux (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 59:35:09

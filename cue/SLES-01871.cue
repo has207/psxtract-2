@@ -1,0 +1,5 @@
+REM MD5 9857e55929b89b02b7b7b04c24763aaf
+FILE "Evo's Space Adventures (Europe) (En,Fr,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 45:43:11

@@ -1,0 +1,5 @@
+REM MD5 0aa29df886d9f4f3ec5340bdd3b4f3be
+FILE "'98 Koushien (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 41:55:37

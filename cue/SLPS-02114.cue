@@ -1,0 +1,5 @@
+REM MD5 aa4ac4d4b89be0056a00b4bc51ee3622
+FILE "Pachi-Slot Teiou Mini - Dr. A7 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 03:32:20

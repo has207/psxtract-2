@@ -1,3 +1,4 @@
+REM MD5 09d13abf74a236da634f174cc754f211
 FILE "Jumping Flash! (Japan) (Europe-ban).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,0 +1,5 @@
+REM MD5 572bba0e2f04325cba90a1d8fcbcb72b
+FILE "Boys Be... 2nd Season (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 69:24:63

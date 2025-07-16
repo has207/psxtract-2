@@ -1,0 +1,5 @@
+REM MD5 872e2dd44c0fff66faf2c29be32f3201
+FILE "Gokujou Parodius Da! Deluxe Pack (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 60:56:70

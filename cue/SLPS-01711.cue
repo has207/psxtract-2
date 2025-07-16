@@ -1,0 +1,8 @@
+REM MD5 ef08a1b723b1e01e0b2879cdc28847bc
+FILE "Curiosity Kills the Cat Koukishin wa Neko o Korosu ka (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 59:44:11
+    INDEX 01 59:46:11
+REM LEADOUT 63:02:24

@@ -1,0 +1,8 @@
+REM MD5 edcf8dabc9e81b438c99dc0b1e0acb72
+FILE "Freestyle Motocross - McGrath vs. Pastrana (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 15:37:58
+    INDEX 01 15:39:58
+REM LEADOUT 18:40:08

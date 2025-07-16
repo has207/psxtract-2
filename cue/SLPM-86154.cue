@@ -1,0 +1,5 @@
+REM MD5 a66ece8d2c53c06d976bd47e0b967104
+FILE "J.League Jikkyou Winning Eleven '98-'99 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 56:23:08

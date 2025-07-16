@@ -144,6 +144,7 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
     int overallResult = 0;
     int successCount = 0;
     int failureCount = 0;
+    int skippedCount = 0;
     
     // Parse and process each file
     char* currentPos = g_selectedFiles;
@@ -168,7 +169,7 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
             strcpy(exePath, "psxtract.exe"); // fallback
         }
         
-        sprintf(cmdLine, "\"%s\" %s\"%s\"", exePath, cleanupFlag, currentPos);
+        sprintf(cmdLine, "\"%s\" %s--gui \"%s\"", exePath, cleanupFlag, currentPos);
         
         // Change to output directory for this extraction
         char originalDir[MAX_PATH];
@@ -243,6 +244,10 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
                 successCount++;
                 sprintf(logMsg, "File completed successfully.\n");
                 appendToLog(logMsg);
+            } else if (exitCode == (DWORD)-2 || exitCode == 4294967294U) { // -2 as unsigned (user cancellation)
+                skippedCount++;
+                sprintf(logMsg, "File extraction cancelled by user.\n");
+                appendToLog(logMsg);
             } else {
                 failureCount++;
                 overallResult = exitCode;
@@ -307,7 +312,7 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
                 strcpy(exePath, "psxtract.exe"); // fallback
             }
             
-            sprintf(cmdLine, "\"%s\" %s\"%s\"", exePath, cleanupFlag, fullPath);
+            sprintf(cmdLine, "\"%s\" %s--gui \"%s\"", exePath, cleanupFlag, fullPath);
             
             // Change to output directory for this extraction
             char originalDir[MAX_PATH];
@@ -408,7 +413,7 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
     // Log batch completion summary
     if (showProgressDlg) {
         // Update progress dialog with completion summary
-        sprintf(logMsg, "Complete! %d successful, %d failed", successCount, failureCount);
+        sprintf(logMsg, "Complete! %d successful, %d skipped, %d failed", successCount, skippedCount, failureCount);
         if (g_hProgressText) {
             SetWindowText(g_hProgressText, logMsg);
         }
@@ -426,6 +431,8 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
     sprintf(logMsg, "Total files: %d\n", g_fileCount);
     appendToLog(logMsg);
     sprintf(logMsg, "Successful: %d\n", successCount);
+    appendToLog(logMsg);
+    sprintf(logMsg, "Skipped: %d\n", skippedCount);
     appendToLog(logMsg);
     sprintf(logMsg, "Failed: %d\n", failureCount);
     appendToLog(logMsg);
@@ -834,9 +841,10 @@ void enableExtractButton(bool enabled) {
 
 // GUI-aware prompt function
 bool gui_prompt(const char* message, const char* title) {
-    if (g_guiMode && g_hMainWnd) {
-        // Use MessageBox in GUI mode
-        int result = MessageBox(g_hMainWnd, message, title, MB_YESNO | MB_ICONQUESTION);
+    if (g_guiMode) {
+        // Use MessageBox in GUI mode (use NULL as parent for subprocess)
+        HWND parent = g_hMainWnd ? g_hMainWnd : NULL;
+        int result = MessageBox(parent, message, title, MB_YESNO | MB_ICONQUESTION);
         return (result == IDYES);
     } else {
         // Fall back to console prompt

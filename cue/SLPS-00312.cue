@@ -1,0 +1,5 @@
+REM MD5 a810e0065096c7a491e51e3e41cb6a5f
+FILE "Space Adventure Cobra - The Shooting (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 28:38:32

@@ -1,0 +1,5 @@
+REM MD5 d6d5344e658121ccf52d44b2a2a4ee83
+FILE "Yuusha-ou GaoGaiGar - Blockaded Numbers (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 66:55:73

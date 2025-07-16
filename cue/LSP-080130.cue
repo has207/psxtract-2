@@ -1,0 +1,5 @@
+REM MD5 6d2bcd35baf065a3c6fbef66fc78b97b
+FILE "Faire Games - Language Arts (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 26:59:19

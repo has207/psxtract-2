@@ -1,4 +1,5 @@
-FILE "Tomb Raider II - Starring Lara Croft (Europe) (EDC) (Track 01).bin" BINARY
+REM MD5 a46ee3d6fa3bae2383f2beac45bbe42b
+FILE "Tomb Raider II - Starring Lara Croft (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

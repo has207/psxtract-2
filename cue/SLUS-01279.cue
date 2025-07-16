@@ -1,3 +1,4 @@
+REM MD5 fc8cc9fc5ed761ed5d9cf025df7a6877
 FILE "Dino Crisis 2 (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,0 +1,5 @@
+REM MD5 03a5fcc97b91d3a8c948f5e4e04c3f4b
+FILE "Dracula - Resurreccion (Spain) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 67:38:00

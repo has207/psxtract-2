@@ -1,3 +1,4 @@
+REM MD5 0ca749ec7bc1604136718ca16fa55319
 FILE "Resident Evil 2 - Dual Shock Ver. (USA) (Disc 1).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,0 +1,5 @@
+REM MD5 11c8a3dc8caeebb6d532fbfd6081ab59
+FILE "Tondemo Crisis! (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 30:33:21

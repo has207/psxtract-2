@@ -1,0 +1,5 @@
+REM MD5 b0cf20c523a858dd2d8d5bb2a1404731
+FILE "Disney-Pixar A Bug's Life (USA) (Rerelease).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 68:06:08

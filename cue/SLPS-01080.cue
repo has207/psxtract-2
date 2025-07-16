@@ -1,0 +1,5 @@
+REM MD5 1bc6ee12c28ca9c3c6b3c347446d493d
+FILE "Puyo Puyo Sun - Ketteiban (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 30:02:58

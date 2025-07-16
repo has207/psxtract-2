@@ -1,4 +1,5 @@
-FILE "CyberSled (USA) (Track 01).bin" BINARY
+REM MD5 9d277a2e2f9374b7bac3eaf61f68dedd
+FILE "CyberSled (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

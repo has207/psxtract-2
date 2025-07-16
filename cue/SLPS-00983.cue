@@ -1,3 +1,4 @@
+REM MD5 5fc596cb4378f4a9680b2c11fdd223d4
 FILE "Uki Uki Tsuri Tengoku - Ningyo Densetsu no Nazo (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

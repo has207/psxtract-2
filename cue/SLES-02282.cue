@@ -1,0 +1,8 @@
+REM MD5 fe63365c2e78cbdaa4f944a50f2fcbb9
+FILE "Shadow Man - Rette deine Seele (Germany).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 50:27:37
+    INDEX 01 50:29:37
+REM LEADOUT 53:32:37

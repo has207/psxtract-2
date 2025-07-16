@@ -1,0 +1,5 @@
+REM MD5 e0e8f101f2df354f97f83ad8b851ae43
+FILE "Teitoku no Ketsudan III with Power-Up Kit (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 35:54:53

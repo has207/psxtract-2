@@ -1,0 +1,5 @@
+REM MD5 8e3be93549b74b1a10bbd574bcf3e08f
+FILE "007 - Die Welt Ist Nicht Genug (Germany).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 68:28:33

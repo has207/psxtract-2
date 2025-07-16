@@ -1,0 +1,5 @@
+REM MD5 b5d31ffd0efcfbfb6dd4cc0a4415554a
+FILE "Euro Demo (Future) 94 (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 50:06:20

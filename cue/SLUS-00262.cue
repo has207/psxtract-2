@@ -1,3 +1,4 @@
+REM MD5 ddaab82f42c2e2fc9001af4cb43d71eb
 FILE "Syndicate Wars (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,0 +1,5 @@
+REM MD5 d584ca520481f8705c3b109949be9b59
+FILE "Monsters, Inc. - Monsters Academy (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 69:22:20

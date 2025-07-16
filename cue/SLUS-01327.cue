@@ -1,0 +1,5 @@
+REM MD5 e6222928cbebd799bcf76442f4f1bbe3
+FILE "Army Men - World War - Final Front (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 42:32:43

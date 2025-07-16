@@ -1,3 +1,4 @@
+REM MD5 c3b6811ba9039ea8a76a6a66c4b734e2
 FILE "Epica Stella (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,4 +1,5 @@
-FILE "Bombing Islands, The (Europe) (Track 01).bin" BINARY
+REM MD5 06f5129bae03c48c88a47cef6ca71856
+FILE "Bombing Islands, The (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

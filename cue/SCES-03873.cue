@@ -1,3 +1,4 @@
+REM MD5 e46b548decb554ba594d5501e941f905
 FILE "Disneys Lilo & Stitch - Zoff auf Hawaii (Germany).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

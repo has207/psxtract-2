@@ -1,0 +1,5 @@
+REM MD5 f5224e6e19f88a2b5b9d7a9bd99a950c
+FILE "Groove Jigoku V - SweepStation Version (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 33:22:34

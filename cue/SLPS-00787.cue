@@ -1,0 +1,8 @@
+REM MD5 909b068effac7a0e1d23dd7f3911d3a2
+FILE "Shin Super Robot Taisen - Special Disc (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 63:58:22
+    INDEX 01 64:00:22
+REM LEADOUT 67:00:22

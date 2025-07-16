@@ -1,0 +1,5 @@
+REM MD5 e06358c7b297cdfdcc45e8591086d0e3
+FILE "Kiwame Daidougi - Tsumuya Tsumazaruya (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 04:26:16

@@ -1,0 +1,5 @@
+REM MD5 74ad7f846182ad1c9dead523e1f7645f
+FILE "Radikal Bikers (Europe) (En,Fr,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 23:44:68

@@ -1,3 +1,4 @@
+REM MD5 a1b9a377c82ea52286dd5478adbcebee
 FILE "Astronoka (Japan) (Disc 1).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

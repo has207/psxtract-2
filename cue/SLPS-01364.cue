@@ -1,4 +1,5 @@
-FILE "DoDonPachi (Japan) (Rev 1) (Track 01).bin" BINARY
+REM MD5 3a6a8bcb527cbc3c51092129d18ff7a8
+FILE "DoDonPachi (Japan) (Rev 1).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

@@ -1,3 +1,4 @@
+REM MD5 44de257d38977baeb883b602bf0c64e6
 FILE "Spyro the Dragon (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

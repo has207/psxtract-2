@@ -1,0 +1,5 @@
+REM MD5 91e999283c5349af53a05f5d22d39099
+FILE "Schnappi - Das kleine Krokodil - 3 Fun-Games (Germany).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 04:43:34

@@ -1,0 +1,8 @@
+REM MD5 3fd018f8611cb34e4a3ab703bb33a1f6
+FILE "Tokimeki Memorial 2 Substories - Memories Ringing On (Japan) (Disc 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 62:00:26
+    INDEX 01 62:02:26
+REM LEADOUT 65:02:26

@@ -1,0 +1,5 @@
+REM MD5 ce52b9ec605067981018efdb4cfb0e07
+FILE "LEGO Island 2 - The Brickster's Revenge (Sweden).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 22:31:26

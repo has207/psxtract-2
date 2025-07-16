@@ -1,3 +1,4 @@
+REM MD5 66a63fa142b5bb235df854a0e22af6d0
 FILE "Spectral Tower (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

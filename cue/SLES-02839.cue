@@ -1,0 +1,5 @@
+REM MD5 fce78bb28ef709a4b35eb87650e3fc95
+FILE "Mike Tyson Boxing (Europe) (En,Fr,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 45:04:44

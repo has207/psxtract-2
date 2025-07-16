@@ -1,0 +1,5 @@
+REM MD5 00c1c2d77bd93d02f8324e551a0c26d4
+FILE "World Tour Conductor - Sekai Yume Kikou (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 67:25:08

@@ -1,0 +1,5 @@
+REM MD5 2c5478b4e392c9244677fa1a51a3c0ec
+FILE "Family Connection - A Guide to Lightspan (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 65:48:05

@@ -1,3 +1,4 @@
+REM MD5 d720f8e4d75d49511fbb936c7d5a007c
 FILE "Bushido Blade (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

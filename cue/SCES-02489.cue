@@ -1,0 +1,5 @@
+REM MD5 b52adf7d1bbb3d2417b066b4a08f2a1d
+FILE "Barbie - Super Sport (Germany).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 31:20:70

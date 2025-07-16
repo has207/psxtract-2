@@ -1,0 +1,5 @@
+REM MD5 3346f07e0b6c832b167599b2e1b19adf
+FILE "Lalala PlayStation Trial Disc - 1998 Summer (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 32:02:69

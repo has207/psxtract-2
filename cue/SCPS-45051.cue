@@ -1,0 +1,5 @@
+REM MD5 7570809e304b557dc21dfd804fedec4e
+FILE "PaRappa the Rapper (Asia) (En,Ja,Fr,De,Es,It,Zh).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 68:55:52

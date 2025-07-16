@@ -1,4 +1,5 @@
-FILE "Critical Depth (USA) (Track 01).bin" BINARY
+REM MD5 2f3178232a4a1ee0d9d99534bc825d13
+FILE "Critical Depth (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

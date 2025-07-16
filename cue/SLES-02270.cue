@@ -1,0 +1,5 @@
+REM MD5 09e48f79ee7a322c2827bbfac0badbae
+FILE "Eternal Eyes (Europe) (En,Fr,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 36:16:38

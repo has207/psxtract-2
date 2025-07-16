@@ -1,3 +1,4 @@
+REM MD5 8531bc73ea7cd33a4c8e97bdf139ba9c
 FILE "Vagrant Story (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

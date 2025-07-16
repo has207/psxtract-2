@@ -1,0 +1,8 @@
+REM MD5 2a29c19392f8ba9777fd247c7c9500cc
+FILE "From TV Animation One Piece - Tobidase Kaizokudan! (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 65:26:48
+    INDEX 01 65:28:48
+REM LEADOUT 66:39:21

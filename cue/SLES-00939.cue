@@ -1,0 +1,5 @@
+REM MD5 82da84302dc05143f6a454eca50d7bbc
+FILE "Street Fighter EX Plus Alpha (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 49:53:36

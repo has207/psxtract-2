@@ -1,3 +1,4 @@
+REM MD5 6c816d2e1216c25ab52b5fd33feaf552
 FILE "Simple 1500 Series Vol. 78 - The Zeroyon (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

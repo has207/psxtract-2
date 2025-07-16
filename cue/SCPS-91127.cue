@@ -1,0 +1,5 @@
+REM MD5 8e94a6d2c8d2594a4d070a20aa6e4964
+FILE "Zero Pilot - Gin'yoku no Senshi (Japan) (Rev 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 51:47:53

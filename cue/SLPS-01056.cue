@@ -1,3 +1,4 @@
+REM MD5 c365eaaa25c39719b1c46122dd9ceb8b
 FILE "Spectral Force (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

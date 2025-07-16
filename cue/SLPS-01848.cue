@@ -1,0 +1,5 @@
+REM MD5 5484fb914e61a4c4029769f1daaa210c
+FILE "Pachi Slot Teiou - Big Wave, Pika Gorou, BB Junky 7 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 03:43:06

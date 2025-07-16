@@ -1,3 +1,4 @@
+REM MD5 7d9024f3c69233f97deec3d9725c5644
 FILE "Clock Tower - Ghost Head (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

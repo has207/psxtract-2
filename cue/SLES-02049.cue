@@ -1,0 +1,5 @@
+REM MD5 4174d5e887796ca1696b1f3d80b79ec8
+FILE "Nickelodeon Rugrats - La Busqueda de Reptar (Spain).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 50:20:27

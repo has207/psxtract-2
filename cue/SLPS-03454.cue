@@ -1,0 +1,5 @@
+REM MD5 885253d8a5dbf83ff55d14c4d4c277e8
+FILE "Kowai Shashin - Shinrei Shashin Kitan (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 10:31:03

@@ -1,0 +1,5 @@
+REM MD5 6e08de739c8e5ee48b4b4a0d596a5059
+FILE "Uranai, The - Ren'ai Seiza Uranai (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 08:02:32

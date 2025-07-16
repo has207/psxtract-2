@@ -1,0 +1,5 @@
+REM MD5 8f2e915a3d0edbe4a503d95c2eb107b3
+FILE "Alundra 2 - Une Legende Est Nee (France).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 59:47:40

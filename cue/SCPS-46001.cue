@@ -1,3 +1,4 @@
+REM MD5 924774139bc091b8b7eaff1f64abb414
 FILE "R4 - Ridge Racer Type 4 (Korea).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

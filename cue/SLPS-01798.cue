@@ -1,3 +1,4 @@
+REM MD5 7adde24b05ae254ef51ee2053f0b405a
 FILE "R4 - Ridge Racer Type 4 (Japan) (R4 + JogCon).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

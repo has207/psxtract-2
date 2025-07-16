@@ -1,0 +1,5 @@
+REM MD5 fc3a91a7918af2208ea388ce9ef4bff6
+FILE "Are!Mo KoreMo Momotarou (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 68:32:11

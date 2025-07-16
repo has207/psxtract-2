@@ -9,6 +9,8 @@
 #include <sys/stat.h>
 #include <windows.h>
 #include <cstring>
+#include <ctype.h>
+#include <stdio.h>
 
 #include "cdrom.h"
 #include "lz.h"

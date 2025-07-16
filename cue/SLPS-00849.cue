@@ -1,0 +1,8 @@
+REM MD5 9a888fca64ba197d52335eaef1be01ed
+FILE "Asuka 120% Excellent - Burning Fest. Excellent (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 34:30:09
+    INDEX 01 34:32:09
+REM LEADOUT 37:37:66

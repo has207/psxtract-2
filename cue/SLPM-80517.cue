@@ -1,0 +1,5 @@
+REM MD5 3830ea0fb5f088df67a6f3afbd246931
+FILE "Street Fighter EX2 Plus (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 34:51:06

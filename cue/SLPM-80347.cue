@@ -1,0 +1,5 @@
+REM MD5 fbff0c7d41f9aad585c040e87ae7383f
+FILE "Gensou Suikoden II (Japan) (Demo 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 21:11:12

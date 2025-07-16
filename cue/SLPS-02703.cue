@@ -1,4 +1,5 @@
-FILE "Value 1500 - The Shanghai (Japan) (Track 01).bin" BINARY
+REM MD5 bd58c036d63927cb2c70591780e8c548
+FILE "Value 1500 - The Shanghai (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

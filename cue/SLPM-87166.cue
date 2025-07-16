@@ -1,0 +1,8 @@
+REM MD5 3d8206f48263053c830e3ac37ab513f3
+FILE "Kids Station - Plarail - Tetsudou Monoshiri Hyakka (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 23:38:42
+    INDEX 01 23:40:42
+REM LEADOUT 26:40:45

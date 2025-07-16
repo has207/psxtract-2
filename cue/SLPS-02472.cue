@@ -1,0 +1,5 @@
+REM MD5 340feaafb52dd1d7535354856511ebb6
+FILE "Simple 1500 Series Vol. 22 - The Pro Wrestling (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 12:38:33

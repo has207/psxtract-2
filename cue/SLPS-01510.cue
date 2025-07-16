@@ -1,3 +1,4 @@
+REM MD5 9e9f25551c3cc9b1adc66fd748e020aa
 FILE "Biohazard 2 - Dual Shock Ver. (Japan) (Disc 1) (Leon-hen).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

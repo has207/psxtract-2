@@ -1,0 +1,5 @@
+REM MD5 cd0c2fd025a86f18ae8080cc81d2ebcc
+FILE "Oddworld - Abe's Oddysee (USA) (Rev 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 63:49:23

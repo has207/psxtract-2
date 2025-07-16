@@ -1,0 +1,5 @@
+REM MD5 cca84dbdfa1b260b3af8e49af5bd0de8
+FILE "Bass Landing (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 38:09:04

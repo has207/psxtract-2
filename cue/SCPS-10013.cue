@@ -1,0 +1,5 @@
+REM MD5 4e756d8b7d6f04108bc828ecc2239554
+FILE "Center Shiken Trial - Eigo no Tetsujin (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 32:46:03

@@ -1,3 +1,4 @@
+REM MD5 fbf606dc28ee07459c3271010f1e9022
 FILE "Ehrgeiz - God Bless the Ring (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,3 +1,4 @@
+REM MD5 5d403a8b1d135e316ccd96fbd0273dfd
 FILE "Firemen 2, The - Pete & Danny (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,0 +1,8 @@
+REM MD5 740f67bff580d6742dc17eb235f99adb
+FILE "SuperLite 1500 Series - Kouyasai - A Sherd of Youthful Memories (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 65:35:13
+    INDEX 01 65:37:13
+REM LEADOUT 68:47:13

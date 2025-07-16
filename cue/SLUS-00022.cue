@@ -1,0 +1,5 @@
+REM MD5 29305e38b7cf1876c6c5ea5c9c9c8741
+FILE "Slam 'n Jam '96 featuring Magic & Kareem (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 18:22:03

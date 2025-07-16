@@ -1,0 +1,5 @@
+REM MD5 cbbdaf3992b31ca3850c2c66af2df788
+FILE "Planet of the Apes (Europe) (En,Fr,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 58:05:42

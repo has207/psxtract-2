@@ -1,0 +1,5 @@
+REM MD5 23d483f0546a69ef122c58e7f24d4ca6
+FILE "Densha de Go! Nagoya Tetsudou-hen (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 57:54:46

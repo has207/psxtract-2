@@ -1,3 +1,4 @@
+REM MD5 b60eb18c00a204f84d7caa2523af0d3e
 FILE "Sports Superbike 2 (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

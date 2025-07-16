@@ -1,3 +1,4 @@
+REM MD5 853c43e0133b7ef6d90eca416e5fdb6b
 FILE "Final Fantasy IX (Germany) (Disc 4).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,0 +1,8 @@
+REM MD5 ae893c8948e868b3a0a5350ba044058f
+FILE "Suchie-Pai Adventure - Doki Doki Nightmare (Japan) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 55:38:59
+    INDEX 01 55:40:59
+REM LEADOUT 58:41:60

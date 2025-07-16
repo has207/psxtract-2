@@ -1,0 +1,8 @@
+REM MD5 9a6ae0cf7bc5336fa3697beacc2aebad
+FILE "Nobunaga no Yabou - Reppuuden (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 13:35:45
+    INDEX 01 13:37:45
+REM LEADOUT 17:09:71

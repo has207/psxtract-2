@@ -1,0 +1,5 @@
+REM MD5 f8bae5e4238a2d17fe1d8a36236cb623
+FILE "XS Airboat Racing (Europe) (En,Fr,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 12:14:43

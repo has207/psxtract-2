@@ -1,0 +1,8 @@
+REM MD5 368fcc693cda1aa622741a11ca29090d
+FILE "Youchien Gaiden - Karei naru Casino Club - Double Draw (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 35:56:22
+    INDEX 01 35:58:22
+REM LEADOUT 38:58:24

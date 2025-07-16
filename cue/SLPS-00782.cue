@@ -1,3 +1,4 @@
+REM MD5 c611308367e10b1c5bb2e71d0f0743ef
 FILE "Conveni, The - Ano Machi o Dokusen seyo (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

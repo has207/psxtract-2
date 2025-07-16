@@ -1,0 +1,8 @@
+REM MD5 3e16dd9a01fffc2f7de068ebdfa8c1a2
+FILE "D no Shokutaku - Complete Graphics (Japan) (Disc 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 67:24:42
+    INDEX 01 67:26:42
+REM LEADOUT 70:36:43

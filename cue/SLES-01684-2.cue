@@ -1,0 +1,5 @@
+REM MD5 92f92ee0b2f09a841a9b150ccce75c30
+FILE "Tomb Raider III - Adventures of Lara Croft (Italy).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 66:00:14

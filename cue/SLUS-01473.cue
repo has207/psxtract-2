@@ -1,0 +1,5 @@
+REM MD5 e01bd0f64b9684e69fd59a1321f1dc48
+FILE "Tom Clancy's Rainbow Six - Lone Wolf (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 08:39:54

@@ -1,0 +1,8 @@
+REM MD5 6546e3ae55279d7a33a2832a144d94dd
+FILE "Mobile Suit Gundam - Char's Counter Attack (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 13:02:41
+    INDEX 01 13:04:41
+REM LEADOUT 16:09:41

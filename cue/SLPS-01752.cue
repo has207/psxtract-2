@@ -1,0 +1,5 @@
+REM MD5 1cacb5db433ee580e5af5a3423fa954a
+FILE "Tsuridou - Keiryuu Mizuumi-hen (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 31:30:73

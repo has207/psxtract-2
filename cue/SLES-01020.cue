@@ -1,0 +1,5 @@
+REM MD5 0a854fd7b8937014798af3ab1e80244b
+FILE "Mortal Kombat Mythologies - Sub-Zero (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 50:55:22

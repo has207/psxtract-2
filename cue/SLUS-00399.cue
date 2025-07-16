@@ -1,0 +1,5 @@
+REM MD5 e15b753acd195cf7b15723eb5595562b
+FILE "Arcade's Greatest Hits - The Atari Collection 1 (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 57:11:38

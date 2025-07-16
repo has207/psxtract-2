@@ -1,0 +1,8 @@
+REM MD5 f5f057037f6c83a46be2f0a11f664734
+FILE "Captain Tsubasa - Arata naru Densetsu Joshou (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 29:20:35
+    INDEX 01 29:22:35
+REM LEADOUT 32:22:35

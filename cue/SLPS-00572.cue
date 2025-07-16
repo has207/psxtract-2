@@ -1,4 +1,5 @@
-FILE "Rescue 24 Hours (Japan) (Track 01).bin" BINARY
+REM MD5 2710cef108d0ffea2e2d4f99a4c39f48
+FILE "Rescue 24 Hours (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

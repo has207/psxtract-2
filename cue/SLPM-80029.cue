@@ -1,0 +1,5 @@
+REM MD5 ca691bb8fa624f44dabc70df9b5bab7b
+FILE "King's Field III - Pilot Style (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 12:27:54

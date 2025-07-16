@@ -1,3 +1,4 @@
+REM MD5 b4c854c0cc8ad81331314017f92c6487
 FILE "Crash Bandicoot Racing (Japan, Asia).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

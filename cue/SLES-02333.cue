@@ -1,0 +1,5 @@
+REM MD5 bafbe58b63de3145a9a7202b4e4c352e
+FILE "Ready 2 Rumble Boxing (Europe) (En,Fr,De).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 27:04:72

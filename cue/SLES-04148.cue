@@ -1,0 +1,5 @@
+REM MD5 b3e3f64c7570ae7b6f888ed49acbbdf0
+FILE "Cindy's Caribbean Holiday (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 04:06:03

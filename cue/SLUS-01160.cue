@@ -1,0 +1,5 @@
+REM MD5 c231e49f0941c34b4ee5a1f3b5ce7c2f
+FILE "Transformers - Beast Wars Transmetals (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 44:23:33

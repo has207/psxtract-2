@@ -1,0 +1,5 @@
+REM MD5 70e2b965b293af4845e1c0735f2b0ddf
+FILE "Arc the Lad Collection - Arc the Lad (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 59:18:65

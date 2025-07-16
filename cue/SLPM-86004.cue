@@ -1,0 +1,5 @@
+REM MD5 67f730c9625a4b886b3012218ae22245
+FILE "Bottom of the 9th - Major League Heroes (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 25:24:55

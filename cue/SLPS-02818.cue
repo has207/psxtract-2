@@ -1,0 +1,5 @@
+REM MD5 aa149f07f5ca3644b811f4ebd1449992
+FILE "Blend x Brand - Odekake Gousei RPG (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 17:43:08

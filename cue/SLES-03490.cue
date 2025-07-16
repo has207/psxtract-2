@@ -1,0 +1,8 @@
+REM MD5 6eda27cab9ebc327cc27bead96e377f3
+FILE "Egypt II - La Profezia di Heliopolis (Italy).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 57:49:09
+    INDEX 01 57:51:09
+REM LEADOUT 61:07:25

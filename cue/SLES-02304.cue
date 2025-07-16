@@ -1,0 +1,5 @@
+REM MD5 77a99f9301d00f3efbcfef24ff6c5291
+FILE "Trick'n Snowboarder (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 21:16:04

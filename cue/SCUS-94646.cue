@@ -1,3 +1,4 @@
+REM MD5 b773ddf42fced7bd88b57f7a6c1ed595
 FILE "Disney's Lilo & Stitch (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

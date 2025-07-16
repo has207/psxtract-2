@@ -1,0 +1,5 @@
+REM MD5 d62a4c26b6799b85dd35ea9349267d53
+FILE "EPS Series Vol. 5 - Believer Dreamer - Junko Mizutani (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 46:42:63

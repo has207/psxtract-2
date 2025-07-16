@@ -1,0 +1,5 @@
+REM MD5 aae80e72ed2d98c2827cdfa15ac4a54b
+FILE "Shinri Game 7, The (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 07:50:54

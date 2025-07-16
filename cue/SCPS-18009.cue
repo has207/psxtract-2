@@ -1,0 +1,5 @@
+REM MD5 35f785ac62336f4cb6a7869b069844a9
+FILE "Tomoyasu Hotei - Stolen Song (Japan) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 68:00:73

@@ -1,3 +1,4 @@
+REM MD5 c8bfc4e05d047af0cd8340d0396a1cbf
 FILE "G-Police (France) (Disc 1).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

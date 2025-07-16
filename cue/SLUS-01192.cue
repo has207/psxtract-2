@@ -1,0 +1,5 @@
+REM MD5 08ee967bda1550e0cb7b42c6b7e9ee84
+FILE "Disney-Pixar Buzz Lightyear of Star Command (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 51:34:59

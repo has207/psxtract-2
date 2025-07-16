@@ -1,3 +1,4 @@
+REM MD5 649667995e17543d4ee292ec2523e423
 FILE "Syndicate Wars (Europe) (En,Fr,Es,It,Sv).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

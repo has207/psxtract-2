@@ -1,0 +1,5 @@
+REM MD5 f6f3bf24e8b78d09d994ba9427282aca
+FILE "Guitar Freaks Append 2nd Mix (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 48:15:25

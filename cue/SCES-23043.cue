@@ -1,3 +1,4 @@
+REM MD5 acd73f98c5754bde0e908c35f3d7bffb
 FILE "Legend of Dragoon, The (Europe) (Disc 3).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

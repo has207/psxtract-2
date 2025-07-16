@@ -1,3 +1,4 @@
+REM MD5 52167fe66aa142fa5d018400f933938b
 FILE "Nobunaga Hiroku - Geten no Yume (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

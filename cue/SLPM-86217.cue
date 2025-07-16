@@ -1,0 +1,5 @@
+REM MD5 6e4c22044f09cc0254850d6f5b46d1d7
+FILE "N Gauge Unten Kibun Game - Gatan Goton (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 50:14:62

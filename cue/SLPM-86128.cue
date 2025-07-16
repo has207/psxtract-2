@@ -1,0 +1,5 @@
+REM MD5 10149b542a1ea37a6e86ccfacc1859dd
+FILE "Winning Post 3 - Program '98 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 54:26:50

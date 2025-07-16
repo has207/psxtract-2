@@ -1,0 +1,5 @@
+REM MD5 7d7ceb728f60750b6d523e613969a310
+FILE "Simple 1500 Series Vol. 10 - The Billiard (Japan) (Culture Publishers).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 09:09:57

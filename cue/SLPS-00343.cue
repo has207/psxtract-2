@@ -1,0 +1,5 @@
+REM MD5 80016471667aecb415bf4570fb5e98bd
+FILE "Idol Promotion - Suzuki Yumie (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 60:54:20

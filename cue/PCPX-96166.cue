@@ -1,0 +1,5 @@
+REM MD5 06abe0bfc1b746e62b7fac272c1c099d
+FILE "Saru! Get You! (Japan) (Demo 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 13:29:40

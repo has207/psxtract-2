@@ -1,3 +1,4 @@
+REM MD5 f8d25f23dcf33e3aefb4d0cf15c961ee
 FILE "Reel Fishing II (Europe) (En,De).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

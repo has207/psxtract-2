@@ -1,0 +1,5 @@
+REM MD5 2265bb97f1b62490d812dfeede2347b1
+FILE "Kasei Monogatari (Japan) (Genteiban).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 54:01:41

@@ -1,3 +1,4 @@
+REM MD5 2961dfeb0874e016f9319c7bab736213
 FILE "Ide Yousuke no Mahjong Kyoushitsu (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

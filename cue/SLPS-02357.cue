@@ -1,0 +1,8 @@
+REM MD5 8c17e9aaf37c68ca79cb47e1aa02fcca
+FILE "Parlor! Pro Jr. Vol. 2 - CR Lupin Sansei K (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 02:03:71
+    INDEX 01 02:05:71
+REM LEADOUT 05:06:71

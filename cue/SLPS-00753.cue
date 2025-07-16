@@ -1,0 +1,5 @@
+REM MD5 a8f57f3a6ef2b3cbac44fc82a674c531
+FILE "Refrain Love - Anata ni Aitai (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 69:22:73

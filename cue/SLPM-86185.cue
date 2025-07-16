@@ -1,3 +1,4 @@
+REM MD5 ae46be2dbdb703678489aa44fa20d939
 FILE "Athena - Awakening from the Ordinary Life (Japan) (Disc 1).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,0 +1,5 @@
+REM MD5 09d7ade7a9d5ff64dbe860b98335c0f5
+FILE "Final Fantasy Anthology - Final Fantasy V (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 29:12:29

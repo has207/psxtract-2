@@ -1,3 +1,4 @@
+REM MD5 6a5e9292a4e1f2d1866773e21a6d4921
 FILE "King's Field (Europe) (En,Fr,De).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

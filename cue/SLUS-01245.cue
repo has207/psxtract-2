@@ -1,0 +1,5 @@
+REM MD5 39cbfe433cd0b5f29f69edc33a557cf3
+FILE "Casper - Friends Around the World (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 30:10:27

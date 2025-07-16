@@ -1,0 +1,8 @@
+REM MD5 fc72d081d815ebc9227569b7bd127117
+FILE "Simple 1500 Jitsuyou Series Vol. 18 - Kanji Quiz - Kanji Kentei ni Challenge (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 01:38:02
+    INDEX 01 01:40:02
+REM LEADOUT 05:40:02

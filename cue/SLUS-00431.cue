@@ -1,0 +1,5 @@
+REM MD5 95e42f19cb451bd63c4c9c490917a750
+FILE "Command & Conquer - Red Alert (USA) (Disc 1) (Allies).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 69:29:67

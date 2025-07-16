@@ -1,3 +1,4 @@
+REM MD5 567326f593e510d07baa44c2abea8115
 FILE "Silver Jiken - The Silver (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

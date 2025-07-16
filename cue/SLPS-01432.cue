@@ -1,0 +1,5 @@
+REM MD5 61caf251c1f90439f070c452c6b5137c
+FILE "Tokyo Majin Gakuen - Kenpuuchou (Japan) (Disc 1) (You).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 62:45:35

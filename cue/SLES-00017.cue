@@ -1,0 +1,5 @@
+REM MD5 ef6c99068c17efbf04aa40f150d0f6ad
+FILE "Prince Naseem Boxing (Europe) (En,Fr,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 44:41:51

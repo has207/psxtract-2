@@ -1,0 +1,5 @@
+REM MD5 6c9afa998c27bfdc4d220c4be30ec01f
+FILE "Kids Station - Basic Soft (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 12:42:73

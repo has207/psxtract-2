@@ -1,3 +1,4 @@
+REM MD5 f4f9f28197009141413f8fe7e94bba6e
 FILE "Yamasa Digi World - Tetra Master (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

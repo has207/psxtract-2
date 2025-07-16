@@ -1,4 +1,5 @@
-FILE "Boxer's Road (Japan) (Rev 1) (Track 01).bin" BINARY
+REM MD5 05f5c8a5cbc5259a7f2ba674322e6dd2
+FILE "Boxer's Road (Japan) (Rev 1).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

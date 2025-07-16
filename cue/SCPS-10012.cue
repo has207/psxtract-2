@@ -1,0 +1,5 @@
+REM MD5 9edb0bdd2d489b2268eb1b570c3ea538
+FILE "Hermie Hopperhead - Scrap Panic (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 40:34:38

@@ -1,3 +1,4 @@
+REM MD5 079afa005a6013341eab14e242f927ae
 FILE "Street Fighter Zero 2' (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

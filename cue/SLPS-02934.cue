@@ -1,0 +1,5 @@
+REM MD5 66869810c49a73133786982b9090b953
+FILE "Zen Nihon Pro Wres - Ouja no Tamashii (Japan) (Spike Library).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 47:07:29

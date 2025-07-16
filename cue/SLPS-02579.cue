@@ -1,3 +1,4 @@
+REM MD5 4cd103572024f0c6a62119ea0d3fc998
 FILE "Uki Uki Tsuri Tengoku - Gyoshin Densetsu o Oe (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

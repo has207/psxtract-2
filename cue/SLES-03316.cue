@@ -1,0 +1,5 @@
+REM MD5 e6d6af925399389e630c38df2b5749ed
+FILE "Army Men - Sarge's Heroes 2 (Europe) (En,Fr,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 63:51:30

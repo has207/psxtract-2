@@ -1,0 +1,5 @@
+REM MD5 f015da4f0189560b207a9bb8c71edb0b
+FILE "Remote Control Dandy (Japan) (Demo 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 35:51:14

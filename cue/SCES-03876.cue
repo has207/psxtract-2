@@ -1,3 +1,4 @@
+REM MD5 49776f14f3783ae470287f79c6b119d5
 FILE "Disney's Lilo & Stitch - Heisa op Hawai (Netherlands).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

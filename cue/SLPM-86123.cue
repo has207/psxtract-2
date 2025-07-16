@@ -1,3 +1,4 @@
+REM MD5 24707ecb03bc7b16a6a83fe0a263251c
 FILE "Bishi Bashi Special (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

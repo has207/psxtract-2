@@ -1,3 +1,4 @@
+REM MD5 74819165b155b62f40604c5e15be94f5
 FILE "Simple 1500 Series Vol. 14 - The Block Kuzushi (Japan) (Culture Publishers).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

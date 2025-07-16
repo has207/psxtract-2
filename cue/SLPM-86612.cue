@@ -1,0 +1,8 @@
+REM MD5 1603cca04cfaecd1abfd2d8493e0a456
+FILE "Septentrion - Out of the Blue (Japan) (Major Wave).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 15:26:54
+    INDEX 01 15:28:54
+REM LEADOUT 20:47:16

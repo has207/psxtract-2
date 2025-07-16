@@ -1,0 +1,5 @@
+REM MD5 80d69fe60952c3e69f6f9a3b387249d4
+FILE "Digital Ehon Vol. 2 - Imadoki no Kaguya-hime (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 21:25:35

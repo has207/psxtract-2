@@ -1,0 +1,5 @@
+REM MD5 d056efe5f620e6bf7b509c514d95d396
+FILE "L no Kisetsu - A Piece of Memories (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 36:48:70

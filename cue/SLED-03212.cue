@@ -1,0 +1,5 @@
+REM MD5 53f22cb62fc3ba30d161d1d4b0849147
+FILE "Incredible Crisis (Europe) (En,Fr,De,Es,It) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 33:56:69

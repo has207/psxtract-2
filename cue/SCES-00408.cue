@@ -1,3 +1,4 @@
+REM MD5 5686b21bfc2e91b21dd469c206ad063e
 FILE "Rally Cross (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

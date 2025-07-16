@@ -1,0 +1,5 @@
+REM MD5 d62f5bd72d71f59d7f59b463f697e86f
+FILE "Sesame Street - Elmo's Number Journey (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 55:11:19

@@ -1,0 +1,8 @@
+REM MD5 0b7676d03513d05e23004120e3f13403
+FILE "Kids Station - Hello Kitty no Ouchi e Oide yo! (Japan) (Controller Set).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 22:56:21
+    INDEX 01 22:58:21
+REM LEADOUT 26:00:74

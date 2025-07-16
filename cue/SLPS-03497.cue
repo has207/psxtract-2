@@ -1,0 +1,5 @@
+REM MD5 324b2e43c2081729ff61ad455a8ed54b
+FILE "Oja Majo DoReMi Dokkan! Nijiiro ParaDice (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 55:30:18

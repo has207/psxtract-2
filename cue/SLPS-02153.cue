@@ -1,0 +1,5 @@
+REM MD5 c624890bad11f23f24410845ad291d80
+FILE "Star Wars - Episode I - The Phantom Menace (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 63:47:11

@@ -1,0 +1,5 @@
+REM MD5 bad4bc4bcee44d94a912ccb8681f90ff
+FILE "PlayStation Zone CD Vol. 11 (Germany).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 43:33:34

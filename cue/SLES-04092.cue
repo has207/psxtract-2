@@ -1,0 +1,5 @@
+REM MD5 b09a0f5b4898305c381d0b47b2c1a32b
+FILE "Patriotic Pinball (Europe) (En,Fr,De,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 22:42:11

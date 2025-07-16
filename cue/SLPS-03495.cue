@@ -1,0 +1,5 @@
+REM MD5 6e26cd02c80aeacf1b270619cf90c6ba
+FILE "Kamen Rider Ryuuki (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 16:03:30

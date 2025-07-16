@@ -1,0 +1,8 @@
+REM MD5 471d7b43aadf5fb057342ecc4b091abc
+FILE "Zeus - Carnage Heart Second (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 21:41:38
+    INDEX 01 21:43:38
+REM LEADOUT 25:13:39

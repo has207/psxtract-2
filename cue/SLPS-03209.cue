@@ -1,3 +1,4 @@
+REM MD5 cd802c29c3bfe870c605299de93604b0
 FILE "Yakiniku Action Game - Yakiniku Bugyou (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

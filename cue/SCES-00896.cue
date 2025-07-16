@@ -1,3 +1,4 @@
+REM MD5 6f4e173a326cb17317ab10b14cd33d28
 FILE "Disney's Action Game met Hercules (Netherlands).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

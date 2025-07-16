@@ -1,3 +1,4 @@
+REM MD5 12f3dd7568fd38750cd822a4eddae7a9
 FILE "Dragon Valor (Italy) (Disc 2).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

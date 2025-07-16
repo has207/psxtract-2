@@ -1,0 +1,8 @@
+REM MD5 cff5fc532e09d2d3c89c1719c5ee77a3
+FILE "Demo One (Version 6) (Europe, Australia) (En,Fr,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 42:09:10
+    INDEX 01 42:11:10
+REM LEADOUT 45:12:41

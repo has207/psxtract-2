@@ -1,3 +1,4 @@
+REM MD5 b156ba386436d20fd5ed8d37bab6b624
 FILE "Final Fantasy Tactics (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

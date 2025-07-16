@@ -1,0 +1,5 @@
+REM MD5 60c34efa0df58d87fc82a3bfdbca9c42
+FILE "F1 Championship Season 2000 (Europe) (En,Es,Sv,Fi).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 65:15:04

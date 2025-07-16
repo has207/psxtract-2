@@ -1,0 +1,8 @@
+REM MD5 d3aafa84c379ac5032c47e0fc3dae866
+FILE "Mobile Suit Gundam - Perfect One Year War (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 70:24:35
+    INDEX 01 70:26:35
+REM LEADOUT 70:43:34

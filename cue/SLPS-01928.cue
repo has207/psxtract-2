@@ -1,0 +1,5 @@
+REM MD5 e6d701d9428f0a4eccf11f45b6648c2a
+FILE "Yuukyuu no Eden - The Eternal Eden (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 47:08:05

@@ -1,0 +1,5 @@
+REM MD5 6c05c8e65c3f78b9d625907448898a39
+FILE "Nice Price Series Vol. 07 - World Tournament Bowling (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 06:11:67

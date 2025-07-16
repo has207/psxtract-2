@@ -1,3 +1,4 @@
+REM MD5 7f9e793c575b2b4cfe1541bf5a56cde9
 FILE "Monster Rancher (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

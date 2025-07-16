@@ -1,4 +1,5 @@
-FILE "Killer Bass (Japan) (Track 01).bin" BINARY
+REM MD5 9f48117af5eac6989bc1c3da42c246fd
+FILE "Killer Bass (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

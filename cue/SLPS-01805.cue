@@ -1,0 +1,5 @@
+REM MD5 6459d1413b1dd289631b2b941888b0de
+FILE "Eve - The Lost One (Japan) (Disc 1) (Kyoko Disc).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 55:13:67

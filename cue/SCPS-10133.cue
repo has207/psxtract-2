@@ -1,3 +1,4 @@
+REM MD5 5d0b176facecd1f8d0ad4144fd9a8662
 FILE "Koko Hore! Pukka (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

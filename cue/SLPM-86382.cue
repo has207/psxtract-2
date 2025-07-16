@@ -1,0 +1,5 @@
+REM MD5 c7291bac206e8b5428e737337dbdccf0
+FILE "Daikoukai Jidai IV - Porto Estado (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 41:39:32

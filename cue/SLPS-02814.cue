@@ -1,3 +1,4 @@
+REM MD5 736151400432d57f13e7800463b45acb
 FILE "Ooedo Fuusui Ingaritsu - Hanabi 2 (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

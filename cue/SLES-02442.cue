@@ -1,3 +1,4 @@
+REM MD5 e79ab52a6cdef92526eb7ac05201607a
 FILE "Suikoden II (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

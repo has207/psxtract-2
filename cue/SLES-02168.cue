@@ -1,3 +1,4 @@
+REM MD5 ef9ec430d1179fde528d639279ca8d2a
 FILE "Fear Effect (Germany) (Disc 1).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

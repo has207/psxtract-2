@@ -1,0 +1,5 @@
+REM MD5 23d4b380d1ceb8714492aa039c23127e
+FILE "Pao Leeming Kanshuu - Fuusui Nyuumon (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 41:57:24

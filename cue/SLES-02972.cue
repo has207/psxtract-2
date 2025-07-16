@@ -1,0 +1,5 @@
+REM MD5 3e46f41496f753159de8fb365eecebb4
+FILE "Woody Woodpecker Racing (Europe) (En,Fr,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 12:26:51

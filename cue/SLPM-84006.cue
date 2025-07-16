@@ -1,0 +1,8 @@
+REM MD5 ce44b2acd64bb706eb8c547bb13ea8a8
+FILE "SD Gundam - GGeneration-F (Japan) (Disc 3) (Tokubetsu-ban).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 64:41:26
+    INDEX 01 64:43:26
+REM LEADOUT 67:43:26

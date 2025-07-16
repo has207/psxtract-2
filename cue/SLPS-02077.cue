@@ -1,0 +1,5 @@
+REM MD5 de6d89f577a5da76e64dfafe50dac733
+FILE "JailBreaker (Japan) (Disc 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 60:59:24

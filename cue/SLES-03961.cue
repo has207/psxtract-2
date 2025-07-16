@@ -1,3 +1,4 @@
+REM MD5 84b35fd1ba4a5b568f88ccddd6d15907
 FILE "Super Slammin' Dodgeball (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

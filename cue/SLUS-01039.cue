@@ -1,3 +1,4 @@
+REM MD5 23a74626058ce451bfb304f35de9cdc0
 FILE "Samurai Shodown - Warriors Rage (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

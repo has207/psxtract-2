@@ -1,3 +1,4 @@
+REM MD5 2aa24f537eaa8f5e4235013cf8bce5ee
 FILE "Wild Arms (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

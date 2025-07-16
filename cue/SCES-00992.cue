@@ -1,4 +1,5 @@
-FILE "Cool Boarders 2 (Europe) (Track 01).bin" BINARY
+REM MD5 348c6f325678853cd8ef222feb8eaaaf
+FILE "Cool Boarders 2 (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

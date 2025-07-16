@@ -1,0 +1,5 @@
+REM MD5 efd34f9033087ac1226c50f396d3e820
+FILE "Maria - Kimi-tachi ga Umareta Wake (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 13:01:63

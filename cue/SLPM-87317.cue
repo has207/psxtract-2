@@ -1,3 +1,4 @@
+REM MD5 adb75d81538e6d799c89f0215e49d2c4
 FILE "Front Mission 1st (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,3 +1,4 @@
+REM MD5 879578491cf6def3b6dc349235e03fd5
 FILE "Simple 1500 Series Vol. 60 - The Table Hockey (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

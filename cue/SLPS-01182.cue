@@ -1,0 +1,5 @@
+REM MD5 1ee64b62ac6ce187ec81f6c7b0d7009c
+FILE "Riven - The Sequel to Myst (Japan) (Disc 3).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 63:55:64

@@ -1,0 +1,8 @@
+REM MD5 89ab85ab6d5c8b7cb05b2e3e71a9cc6c
+FILE "Taiyou no Shippo - Wild, Pure, Simple Life (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 05:00:55
+    INDEX 01 05:02:55
+REM LEADOUT 08:48:48

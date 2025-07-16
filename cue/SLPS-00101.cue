@@ -1,0 +1,8 @@
+REM MD5 e025d5c756703c878249020c85fa47d2
+FILE "Universal-ki Kanzen Kaiseki - Pachi-Slot Simulator (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 01:00:41
+    INDEX 01 01:02:41
+REM LEADOUT 06:44:42

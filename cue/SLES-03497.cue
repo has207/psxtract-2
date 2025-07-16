@@ -1,0 +1,5 @@
+REM MD5 5432389b81a60d34931ba33028ce7f25
+FILE "Necronomicon - El Alba de las Tinieblas (Spain) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 66:36:54

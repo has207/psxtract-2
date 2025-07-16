@@ -1,3 +1,4 @@
+REM MD5 a38d9cac0d8a68b6e3723dcdb95d3779
 FILE "Lunatic Dawn III (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

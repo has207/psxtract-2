@@ -1,0 +1,5 @@
+REM MD5 e57d00818175d794fba1a34a7bbda0ab
+FILE "Barbie - Race & Ride (Italy).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 63:34:34

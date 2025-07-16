@@ -1,4 +1,5 @@
-FILE "Centipede (Europe) (Fr,De,It,Nl) (Track 01).bin" BINARY
+REM MD5 eccce479ed9f6d61e5a3814a5523d5d0
+FILE "Centipede (Europe) (Fr,De,It,Nl).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

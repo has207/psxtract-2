@@ -1,0 +1,5 @@
+REM MD5 dcf2737a1ef50635069d7b80c7152366
+FILE "Nice Price Series Vol. 08 - Elemental Pinball (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 06:14:56

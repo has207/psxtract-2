@@ -1,3 +1,4 @@
+REM MD5 a1cf16b83cb39230b800eda2210c6f79
 FILE "Dragon Valor (Japan) (Disc 2).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

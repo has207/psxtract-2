@@ -1,0 +1,5 @@
+REM MD5 bffe114691d236ad6ce55f2475ff8f7d
+FILE "Mars Moose Cosmic Quest 1 - City Sights (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 42:25:36

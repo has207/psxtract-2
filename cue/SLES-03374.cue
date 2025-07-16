@@ -1,0 +1,8 @@
+REM MD5 77d84eef8b6a3aaff4ae820d0ff2e1a0
+FILE "Egypt II - Die Prophezeiung von Helipolis (Germany).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 57:58:32
+    INDEX 01 58:00:32
+REM LEADOUT 61:16:48

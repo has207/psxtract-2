@@ -1,0 +1,5 @@
+REM MD5 6c129b6ae2b75f3b0968407738c2503f
+FILE "Bastard!! Utsuronaru Kamigami no Utsuwa (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 21:23:40

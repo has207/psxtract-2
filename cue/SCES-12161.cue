@@ -1,0 +1,5 @@
+REM MD5 90c1bb54b5823e439d763c100ac7096d
+FILE "Star Ocean - The Second Story (Germany) (Disc 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 68:06:07

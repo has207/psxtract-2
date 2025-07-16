@@ -1,0 +1,8 @@
+REM MD5 9e39f1e060ddeb32beda0bc397cfc8a7
+FILE "MiruMiru PlayStation Vol. 3 (Japan) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 60:12:41
+    INDEX 01 60:14:41
+REM LEADOUT 63:24:58

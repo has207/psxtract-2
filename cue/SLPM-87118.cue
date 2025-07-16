@@ -1,3 +1,4 @@
+REM MD5 7b8edd8554f930c6725ded8f71fed926
 FILE "Arcade Hits - Frisky Tom (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

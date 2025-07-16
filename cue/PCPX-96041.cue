@@ -1,0 +1,5 @@
+REM MD5 6125b9ab942654ff758323af04de33e3
+FILE "AirAssault - The Red Mercury Missions (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 21:00:33

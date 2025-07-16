@@ -1,0 +1,5 @@
+REM MD5 24778826e900b2b9939fec486de6f349
+FILE "Magical Zunou Power!! Party Selection (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 29:08:28

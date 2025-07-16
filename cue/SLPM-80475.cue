@@ -1,0 +1,5 @@
+REM MD5 094c908c662358e8eaf34a7da76f0252
+FILE "Remote Control Dandy - Bangai-hen (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 20:13:65

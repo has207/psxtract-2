@@ -1,0 +1,5 @@
+REM MD5 101d28e830d6dd9d468edea1e0ff529f
+FILE "Sotsugyou III - Wedding Bell (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 41:31:21

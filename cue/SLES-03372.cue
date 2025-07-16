@@ -1,0 +1,8 @@
+REM MD5 14f5cc28ec593539ff3d1fb5e3d9aa9d
+FILE "Egypt II - La Prophetie d'Heliopolis (France).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 57:25:68
+    INDEX 01 57:27:68
+REM LEADOUT 60:44:09

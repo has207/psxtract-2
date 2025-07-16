@@ -1,0 +1,5 @@
+REM MD5 466edef9598d05857e312a06697c13d3
+FILE "Kaibutsu Para-Dice - Monster Paradise (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 52:04:71

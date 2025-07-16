@@ -1,0 +1,5 @@
+REM MD5 6f4dac4533a55b02ab266b75c682dca6
+FILE "Kyaiin no Tanoshi Mail - PS. I Love You (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 35:46:43

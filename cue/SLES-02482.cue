@@ -1,3 +1,4 @@
+REM MD5 f52d1d1c00ef50ca8d8e9c3c96bd207c
 FILE "Missile Command (Europe) (Fr,De).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

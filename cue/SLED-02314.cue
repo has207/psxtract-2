@@ -1,0 +1,5 @@
+REM MD5 cc15d213b9154bfb57aeb4e842b441db
+FILE "Fighting Force 2 (Europe) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 03:56:25

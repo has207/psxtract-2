@@ -1,4 +1,5 @@
-FILE "Destruction Derby (Japan) (Track 01).bin" BINARY
+REM MD5 638578c174c7652257c4cf87ddbeb780
+FILE "Destruction Derby (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

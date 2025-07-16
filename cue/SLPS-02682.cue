@@ -1,0 +1,8 @@
+REM MD5 45dc3e2e6fd7d770a7b375d0217ce137
+FILE "Kizuna toyuu Na no Pendant with Toybox Stories (Japan) (Disc 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 54:18:16
+    INDEX 01 54:20:16
+REM LEADOUT 67:06:20

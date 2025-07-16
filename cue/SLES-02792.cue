@@ -1,3 +1,4 @@
+REM MD5 1fefcbc8612457930fa9e6f421bd8a43
 FILE "Silent Bomber (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

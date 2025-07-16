@@ -1,0 +1,8 @@
+REM MD5 183a9730cea6a0a6f4a1b82106a8f72e
+FILE "Pocket DigimonWorld - Cool & Nature Battle Disc (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 26:26:21
+    INDEX 01 26:28:21
+REM LEADOUT 30:28:64

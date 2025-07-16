@@ -1,3 +1,4 @@
+REM MD5 dd53f1594971a9c7992e1718f04996a5
 FILE "Lunatic Dawn - Odyssey (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

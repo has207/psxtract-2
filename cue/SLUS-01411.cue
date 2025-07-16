@@ -1,0 +1,5 @@
+REM MD5 c20bcde742e15c82d09bda1d6c6d62f2
+FILE "Yu-Gi-Oh! Forbidden Memories (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 48:55:59

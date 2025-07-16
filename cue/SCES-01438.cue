@@ -1,3 +1,4 @@
+REM MD5 8802a4466be7e522db3f6fc3da4830f8
 FILE "Spyro the Dragon (Europe, Australia) (En,Fr,De,Es,It).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

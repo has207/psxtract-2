@@ -1,0 +1,5 @@
+REM MD5 1d7ca72f599bee6a881c9a4c0e99cc0d
+FILE "Grande Fratello - Il Gioco (Italy).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 27:48:26

@@ -1,0 +1,5 @@
+REM MD5 adcb03bc1fc2b10309bbaf8c33441a72
+FILE "Grab des Pharao, Das (Germany).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 60:32:23

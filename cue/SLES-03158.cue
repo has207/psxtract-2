@@ -1,0 +1,5 @@
+REM MD5 d2f3a6931a8aae520ef2374064e6f0d2
+FILE "Louvre - The Final Curse (Europe) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 55:59:62

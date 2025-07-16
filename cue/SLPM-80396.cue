@@ -1,0 +1,5 @@
+REM MD5 209cd93194dd7ead653b6dc4508e2e3c
+FILE "Chouzetsu Daigirin '99-nen Natsu-ban (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 26:34:01

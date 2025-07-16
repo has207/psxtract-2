@@ -1,3 +1,4 @@
+REM MD5 7d03e83ed965cf331e0526b32e10d5d5
 FILE "Blood Omen - Legacy of Kain (France).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

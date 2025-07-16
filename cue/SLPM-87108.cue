@@ -1,0 +1,5 @@
+REM MD5 a8c6a074c547cd608c9601e0efd1d201
+FILE "Mermaid no Kisetsu - Curtain Call (Japan) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 30:06:09

@@ -1,0 +1,5 @@
+REM MD5 9cae8de252ba2fa18ac34ab39043a39b
+FILE "Armored Core (Japan) (Demo 3).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 26:12:19

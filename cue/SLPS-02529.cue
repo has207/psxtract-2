@@ -1,3 +1,4 @@
+REM MD5 d36a2394a7ae33b0ce791e1f934bc5ba
 FILE "Super Robot Taisen EX (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

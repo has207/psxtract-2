@@ -1,0 +1,5 @@
+REM MD5 9ac11d949c6ec8cdc7427d56b4d3bf54
+FILE "Official Fan Book - Circadia - Special CD-ROM (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 47:34:60

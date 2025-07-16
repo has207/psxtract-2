@@ -1,0 +1,5 @@
+REM MD5 d4b6d9ebf961fed21684449d77c0e3fd
+FILE "BursTrick - Wake Boarding!! (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 34:58:70

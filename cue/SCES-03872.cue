@@ -1,3 +1,4 @@
+REM MD5 0b59373743c99b9cd42091e37623fbe5
 FILE "Disney Lilo & Stitch - Ouragan sur Hawai (France).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,3 +1,4 @@
+REM MD5 1c6a1bac5021b4eca020f7d0a950d509
 FILE "Pocket Jiman (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

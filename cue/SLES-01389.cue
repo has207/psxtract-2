@@ -1,4 +1,5 @@
-FILE "Bust-A-Move 4 (Europe) (Track 01).bin" BINARY
+REM MD5 1a5aef5ad476fc93f0533faf20b2e2d7
+FILE "Bust-A-Move 4 (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

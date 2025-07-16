@@ -1,0 +1,6 @@
+REM MD5 be6a99ff311b477f3cc2bb4206754b93
+FILE "Ganbare Goemon - Uchuu Kaizoku Akogingu (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    FLAGS DCP
+    INDEX 01 00:00:00
+REM LEADOUT 56:44:50

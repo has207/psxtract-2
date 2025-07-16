@@ -1,0 +1,5 @@
+REM MD5 39711eacc3651aaa96d0f22d08d9b45f
+FILE "Kyoro-chan no Prikura Daisakusen (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 33:00:50

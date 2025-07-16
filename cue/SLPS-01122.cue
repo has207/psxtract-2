@@ -1,3 +1,4 @@
+REM MD5 85099ed3e9e39714604eb5b2d7d050b6
 FILE "Blue Breaker - Egao no Yakusoku (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

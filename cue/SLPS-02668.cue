@@ -1,0 +1,5 @@
+REM MD5 ccdae1c6b56f036bcdeea6c1ecff8c72
+FILE "Shinri Game 6, The (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 10:03:71

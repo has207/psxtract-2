@@ -1,4 +1,5 @@
-FILE "Wild Arms (Japan) (Rev 1).bin" BINARY
+REM MD5 dd1102f74cdc12216415bb956a22fa23
+FILE "Wild Arms (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
 REM LEADOUT 59:09:63

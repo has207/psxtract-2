@@ -1,0 +1,5 @@
+REM MD5 cb65f553acaafaf35cec7ca891dff516
+FILE "Strider Hiryuu 1 & 2 (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 39:30:34

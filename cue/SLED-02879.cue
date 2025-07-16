@@ -1,0 +1,5 @@
+REM MD5 15eba76ad35d138ea3de64ed49242859
+FILE "Tony Hawk's Pro Skater 2 (Australia) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 06:27:05

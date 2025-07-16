@@ -1,0 +1,5 @@
+REM MD5 de5b6b1475889f50d43ae661acd165fe
+FILE "Dance Dance Revolution - Best Hits (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 34:12:28

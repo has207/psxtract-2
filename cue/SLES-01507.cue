@@ -1,3 +1,4 @@
+REM MD5 1b9af35828d5808b66e0e16d76c5d6df
 FILE "Metal Gear Solid (Germany) (Disc 1).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

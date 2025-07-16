@@ -1,0 +1,5 @@
+REM MD5 b9329fa855abdfd27108dde4ca5bf1a9
+FILE "Retro Force (Europe) (En,Fr,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 33:07:70

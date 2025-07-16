@@ -1,0 +1,5 @@
+REM MD5 dd6edd131d659eccbb4b95926f9c01ac
+FILE "Jarrett & Labonte Stock Car Racing (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 26:51:26

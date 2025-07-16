@@ -1,0 +1,5 @@
+REM MD5 44d59c6783bbca99845b11fa6627d3ff
+FILE "Heart of Darkness (Spain) (Disc 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 69:00:47

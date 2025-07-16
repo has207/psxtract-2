@@ -1,0 +1,5 @@
+REM MD5 3ffdf6fa527ddd53dc8c5789c298db9b
+FILE "Croc 2 (Europe) (En,Fr,De,Es,It,Nl,Sv).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 64:47:45

@@ -1,3 +1,4 @@
+REM MD5 1d324c788659ebdaedb2369029753310
 FILE "Arcade Hits - Moon Cresta (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

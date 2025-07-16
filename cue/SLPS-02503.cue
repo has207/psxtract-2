@@ -1,0 +1,5 @@
+REM MD5 bccece825bcd3933dc2b6886c6ff6bf0
+FILE "Panzer Front (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 19:31:21

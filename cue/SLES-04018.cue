@@ -1,0 +1,5 @@
+REM MD5 7b6c52aeff824b2ea9af5accf61e5eb8
+FILE "Ballerburg (Germany).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 64:54:23

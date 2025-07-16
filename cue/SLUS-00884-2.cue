@@ -1,0 +1,5 @@
+REM MD5 4cfef562e2d4b3d2dfa999b79011bf0e
+FILE "Star Wars - Episode I - The Phantom Menace (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 64:04:25

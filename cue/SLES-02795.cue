@@ -1,0 +1,8 @@
+REM MD5 8f2e4a1fc24643fcecdfdd8f5d9b4646
+FILE "Misadventures of Tron Bonne, The (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 33:03:62
+    INDEX 01 33:05:62
+REM LEADOUT 36:35:62

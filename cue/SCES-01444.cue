@@ -1,0 +1,5 @@
+REM MD5 4500a9688c3c8ca8cc4dc99f01a987c0
+FILE "Jackie Chan Stuntmaster (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 57:53:14

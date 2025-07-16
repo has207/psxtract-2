@@ -1,0 +1,5 @@
+REM MD5 461ac07b02e65e385a56b61212eaa3a8
+FILE "Harukanaru Toki no Naka de - Banjou Yuugi (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 65:02:01

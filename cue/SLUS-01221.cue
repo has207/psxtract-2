@@ -1,0 +1,5 @@
+REM MD5 12119e460462d9e10c024a5b6d8cebc3
+FILE "Detective Barbie - The Mystery Cruise (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 58:26:34

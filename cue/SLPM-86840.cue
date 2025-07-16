@@ -1,0 +1,5 @@
+REM MD5 611a09f14980e0a438dfb7d884040bbe
+FILE "Simple 1500 Series Vol. 66 - The Kaiten - Mawasundaa!! (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 19:21:61

@@ -1,4 +1,5 @@
-FILE "Yamasa Digi Selection (Japan) (DX) (Track 01).bin" BINARY
+REM MD5 6c1e623509b329074336c6be0b3d709b
+FILE "Yamasa Digi Selection (Japan) (DX).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

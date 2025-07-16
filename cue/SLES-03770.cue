@@ -1,0 +1,5 @@
+REM MD5 c2c7a50ddbb6fafe6ceaa028376559b7
+FILE "Scooter Racing (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 12:55:29

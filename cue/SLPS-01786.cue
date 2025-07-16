@@ -1,0 +1,8 @@
+REM MD5 2bb92bdcc726bee2607a3405401acbe5
+FILE "Magical Tetris Challenge featuring Mickey (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 30:06:74
+    INDEX 01 30:08:74
+REM LEADOUT 33:38:74

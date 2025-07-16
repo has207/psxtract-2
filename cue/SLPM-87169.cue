@@ -1,0 +1,5 @@
+REM MD5 54385a931cb61b9dd4761d8bd1e23903
+FILE "Kids Station - Ugoku Tomica Zukan (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 37:53:08

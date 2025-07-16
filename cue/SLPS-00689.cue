@@ -1,3 +1,4 @@
+REM MD5 8996e9ff21c8d1673d7d2c2297904723
 FILE "Yaku Tsuu - Noroi no Game (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

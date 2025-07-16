@@ -1,0 +1,5 @@
+REM MD5 6ca5190310c944060661a2f220593c97
+FILE "Disney-Pixar Bichos - Una Aventura en Miniatura (Spain).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 69:45:08

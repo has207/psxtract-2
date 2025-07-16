@@ -1,0 +1,5 @@
+REM MD5 2112eabfff16eb3d678b327c9eb3e472
+FILE "Kouryuu Sangoku Engi (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 16:38:45

@@ -1,0 +1,5 @@
+REM MD5 ee6aee9b38a2b3662b65b0e66f28b5b0
+FILE "Night Head - The Labyrinth (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 45:00:29

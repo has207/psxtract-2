@@ -1,0 +1,5 @@
+REM MD5 7792813b71dbb9226ee6f7857161ccc4
+FILE "Hugo - Black Diamond Fever (Europe) (Fr,De,Nl).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 54:39:03

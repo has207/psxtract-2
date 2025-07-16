@@ -1,0 +1,5 @@
+REM MD5 fc4d6f98e433b6ae949b7befbbd4cf05
+FILE "Saikyou Ginsei Shougi (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 05:35:33

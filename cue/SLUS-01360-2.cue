@@ -1,0 +1,5 @@
+REM MD5 2e54c9b217874d8219fca6b36165ecbe
+FILE "Final Fantasy Chronicles - Final Fantasy IV (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 36:27:42

@@ -1,0 +1,5 @@
+REM MD5 601b8f5e4eb3a06b312d17932a82e90c
+FILE "Land Before Time, The - Return to the Great Valley (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 30:35:01

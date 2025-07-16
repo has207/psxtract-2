@@ -1,0 +1,5 @@
+REM MD5 cc4467f0432ffc6abc1399fba4b65d1a
+FILE "Saikyou Toudai Shougi (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 32:52:35

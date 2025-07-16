@@ -1,0 +1,5 @@
+REM MD5 674fdd6bb93ba69da80c9ddd876222a9
+FILE "Tomb Raider - The Last Revelation (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 69:42:02

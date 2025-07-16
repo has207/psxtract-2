@@ -1,0 +1,5 @@
+REM MD5 b3e64cc43df907fdc37f9bd7bcd41010
+FILE "Mezase! Senkyuu-ou (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 10:04:60

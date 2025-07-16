@@ -1,0 +1,5 @@
+REM MD5 95dfaa6cdebc849394743db86ee914d9
+FILE "Game of Life, The - DX Jinsei Game (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 37:32:20

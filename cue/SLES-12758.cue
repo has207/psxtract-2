@@ -1,0 +1,5 @@
+REM MD5 9e44b339d76171e6621466bbae6d717c
+FILE "Dracula - Resurrection (France) (Disc 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 70:59:40

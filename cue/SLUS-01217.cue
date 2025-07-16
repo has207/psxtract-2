@@ -1,3 +1,4 @@
+REM MD5 c88da74ef1e75c8c8f9db63dc1c6cbb4
 FILE "RayCrisis - Series Termination (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

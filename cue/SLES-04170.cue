@@ -1,0 +1,5 @@
+REM MD5 d12f8efe93ef270553a86132a614d12f
+FILE "Yetisports World Tour (Europe) (En,Fr,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 11:19:42

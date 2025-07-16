@@ -1,0 +1,8 @@
+REM MD5 04d993152056c94e74facf67ae432c2d
+FILE "Rittai Ninja Katsugeki - Tenchu - Shinobi Gaisen (Japan) (En,Ja,Fr,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 69:54:66
+    INDEX 01 69:56:66
+REM LEADOUT 70:39:13

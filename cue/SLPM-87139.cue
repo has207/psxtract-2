@@ -1,0 +1,5 @@
+REM MD5 70f40a3c8822c874eb4e9e826fd5787f
+FILE "Wizardry Empire II - Oujo no Isan (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 14:57:52

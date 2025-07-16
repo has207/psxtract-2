@@ -1,4 +1,5 @@
-FILE "Match Golf, The (Japan) (Track 01).bin" BINARY
+REM MD5 fdf453852f376d7194b0e91ca2f5763b
+FILE "Match Golf, The (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

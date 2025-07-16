@@ -1,0 +1,5 @@
+REM MD5 810f96315d7eebf532b471596c5c99a3
+FILE "Kuro no Ken - Blade of the Darkness (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 36:35:57

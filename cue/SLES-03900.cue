@@ -1,0 +1,5 @@
+REM MD5 864891330b40a2fd043f2e9b14bb1fe3
+FILE "Digimon Digital Card Battle (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 20:23:28

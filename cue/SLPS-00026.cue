@@ -1,4 +1,5 @@
-FILE "Rayman (Japan) (Track 01).bin" BINARY
+REM MD5 c8440d9517caa7fa68e363a43bd1db32
+FILE "Rayman (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

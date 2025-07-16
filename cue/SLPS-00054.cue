@@ -1,0 +1,5 @@
+REM MD5 b539de2460e01c8437e11ab531c8bd8f
+FILE "Yaoi Jun'ichi Gokuhi Project - UFO o Oe!! (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 62:39:22

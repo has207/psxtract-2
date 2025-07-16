@@ -1,0 +1,5 @@
+REM MD5 550e280dc1cf2805aee9dfcd753c4502
+FILE "Econo Kids - Ta ga Tame ni Kane wa Naru (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 06:59:36

@@ -1,3 +1,4 @@
+REM MD5 e5aeba47e884d7f38ff2cb7f9a27e6d5
 FILE "Shadow Tower (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

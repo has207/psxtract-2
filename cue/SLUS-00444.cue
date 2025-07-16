@@ -1,0 +1,5 @@
+REM MD5 009bfb4043de9f0ceb6367fa20692a45
+FILE "Brahma Force - The Assault on Beltlogger 9 (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 58:18:56

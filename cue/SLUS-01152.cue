@@ -1,0 +1,5 @@
+REM MD5 c1d3ffc8372f4c0b23375c14a29e03b1
+FILE "Disney's 102 Dalmatians - Puppies to the Rescue (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 16:40:06

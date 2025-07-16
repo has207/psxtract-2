@@ -1,0 +1,5 @@
+REM MD5 8d3fc6669fa722737c5599a95ce9fdef
+FILE "Houshin Engi - Aizouban (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 34:19:25

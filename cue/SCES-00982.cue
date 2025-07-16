@@ -1,0 +1,5 @@
+REM MD5 dfc0bff9ba4fe84ff607357462aacd79
+FILE "Baby Universe (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 37:19:35

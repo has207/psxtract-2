@@ -1,0 +1,5 @@
+REM MD5 bdfbb50ba1fd2c701605df6adaeff44c
+FILE "Asonde Kazu Suuji (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 33:39:51

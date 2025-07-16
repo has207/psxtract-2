@@ -1,3 +1,4 @@
+REM MD5 63e774ac891ca718e19a88b42c72de06
 FILE "Tomba! 2 - The Evil Swine Return (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

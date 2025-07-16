@@ -1,0 +1,8 @@
+REM MD5 bbdd2cdbc756513bf3d11e68cb7df4ff
+FILE "Super Robot Taisen F - Kanketsu-hen (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 49:40:00
+    INDEX 01 49:42:00
+REM LEADOUT 52:42:00

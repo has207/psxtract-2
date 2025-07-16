@@ -1,0 +1,5 @@
+REM MD5 805c3fe0afee9a86d20cb209d4f35a37
+FILE "Dirt Champ Motocross No. 1 (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 36:24:62

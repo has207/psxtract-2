@@ -1,0 +1,5 @@
+REM MD5 52368c1ea4c6e03819508fedac6cc670
+FILE "Adidas Power Soccer 98 (France) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 57:22:06

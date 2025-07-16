@@ -1,3 +1,4 @@
+REM MD5 29a659cec825d8e456d3994baa2f5429
 FILE "Spectral Force (Japan) (Shokai Gentei Box).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

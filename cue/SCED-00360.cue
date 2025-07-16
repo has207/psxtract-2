@@ -1,0 +1,11 @@
+REM MD5 2598617bc5b6a453f0c36e8c79eaf040
+FILE "Adidas Power Soccer + Resident Evil + Shellshock + Descent (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 12:30:14
+    INDEX 01 12:32:14
+  TRACK 03 AUDIO
+    INDEX 00 16:34:39
+    INDEX 01 16:36:39
+REM LEADOUT 19:32:43

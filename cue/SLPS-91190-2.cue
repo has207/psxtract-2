@@ -1,0 +1,5 @@
+REM MD5 de9a5e3cd33a7863ca6470014a17c074
+FILE "Dokapon! Ikari no Tekken (Japan) (Rev 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 20:44:52

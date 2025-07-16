@@ -1,0 +1,6 @@
+REM MD5 ce38147d9865d7a211e71e96f8d6ea2d
+FILE "Gensou Suikoden (Japan) (PlayStation the Best).bin" BINARY
+  TRACK 01 MODE2/2352
+    FLAGS DCP
+    INDEX 01 00:00:00
+REM LEADOUT 55:48:34

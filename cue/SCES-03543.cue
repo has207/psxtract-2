@@ -1,0 +1,8 @@
+REM MD5 ae1bec78160c936c3bdc88a532ee49b8
+FILE "Disney Atlantida - O Continente Perdido (Portugal).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 31:49:55
+    INDEX 01 31:51:55
+REM LEADOUT 34:51:55

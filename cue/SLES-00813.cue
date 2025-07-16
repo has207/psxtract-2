@@ -1,0 +1,5 @@
+REM MD5 1b8f946ad71fd370ddf449cf211d3c47
+FILE "Xenocracy - The Ultimate Solar War (Germany).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 65:52:53

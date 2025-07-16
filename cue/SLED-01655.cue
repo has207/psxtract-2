@@ -1,0 +1,11 @@
+REM MD5 4b3267c46005efef48d92967cd2f8d8c
+FILE "Oddworld - Abe's Exoddus + Duke Nukem - Time to Kill + Duke Nukem - 3D (France) (En,Fr).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 26:46:03
+    INDEX 01 26:48:03
+  TRACK 03 AUDIO
+    INDEX 00 28:41:63
+    INDEX 01 28:43:63
+REM LEADOUT 31:44:63

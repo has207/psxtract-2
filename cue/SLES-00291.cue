@@ -1,0 +1,5 @@
+REM MD5 d64fb051443537c7eac357c8c820ca17
+FILE "Dragon Ball Z - Ultimate Battle 22 (France).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 31:54:28

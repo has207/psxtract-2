@@ -1,3 +1,4 @@
+REM MD5 8be97d515553773081ece79ece7c8c42
 FILE "Favorite Dear - Junpaku no Yogensha (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,0 +1,5 @@
+REM MD5 806daaf420a8adb449e5e9b396881dea
+FILE "Byggare Bob - Kan Vi Fixa Det (Sweden).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 15:28:41

@@ -1,0 +1,5 @@
+REM MD5 6f07f0b0eca1f909d57a5fcc972162d8
+FILE "Raven Project, The (Germany) (En,Fr,De) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 49:49:18

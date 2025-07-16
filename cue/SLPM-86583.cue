@@ -1,0 +1,5 @@
+REM MD5 14aab9e031960a2efc08249963e35eea
+FILE "SuperLite 1500 Series - Memories Off (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 64:40:74

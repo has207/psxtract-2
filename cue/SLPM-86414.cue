@@ -1,0 +1,11 @@
+REM MD5 2fe96f9e485a8f7ff217c92dd669a8e8
+FILE "Bishoujo Ren'ai Mahjong Series - Karan Koron Gakuen - Doki Doki-hen (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 07:38:74
+    INDEX 01 07:40:74
+  TRACK 03 AUDIO
+    INDEX 00 08:46:56
+    INDEX 01 08:48:56
+REM LEADOUT 13:11:56

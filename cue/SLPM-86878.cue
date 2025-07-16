@@ -1,0 +1,8 @@
+REM MD5 5d6a47897dc3f90afbe7cb613644a4a8
+FILE "SuperLite Gold Series - Wizardry - New Age of Llylgamyn (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 MODE2/2352
+    INDEX 00 66:29:38
+    INDEX 01 66:31:38
+REM LEADOUT 70:11:72

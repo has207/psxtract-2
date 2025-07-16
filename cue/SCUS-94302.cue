@@ -1,4 +1,5 @@
-FILE "Destruction Derby (USA) (Track 01).bin" BINARY
+REM MD5 a58ffea21cc7b9921dd49266a731d70d
+FILE "Destruction Derby (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

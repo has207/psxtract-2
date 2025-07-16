@@ -1,3 +1,4 @@
+REM MD5 2f5b4e86b7c47e70ba06d5977d981f74
 FILE "Sentimental Graffiti - Yakusoku (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

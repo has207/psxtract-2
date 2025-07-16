@@ -1,3 +1,4 @@
+REM MD5 22ff92e9bdc34087af5e23f61b27ccdd
 FILE "Pocket Fighter (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

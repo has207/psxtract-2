@@ -1,0 +1,5 @@
+REM MD5 8cfae0339c62945c82e06c3d99cead74
+FILE "Tomb Raider - Die Chronik (Germany).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 61:35:67

@@ -1,4 +1,5 @@
-FILE "Block Kuzushi (Japan) (Track 01).bin" BINARY
+REM MD5 086414e46f1e9da04859828668c1bf57
+FILE "Block Kuzushi (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

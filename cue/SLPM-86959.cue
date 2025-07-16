@@ -1,3 +1,4 @@
+REM MD5 c1ff9d715b0d22d3f1ef7d90d8ee2966
 FILE "Rockman X6 (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

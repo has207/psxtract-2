@@ -1,0 +1,5 @@
+REM MD5 94e3a1d2fd086a694f619f20449fbc33
+FILE "BFS - Blue Forest Story - Kaze no Fuuin (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 40:40:33

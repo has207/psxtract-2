@@ -1,4 +1,5 @@
-FILE "Max Surfing 2nd (Japan) (Track 01).bin" BINARY
+REM MD5 fd1d53b958951982f29e3030d6f83ddc
+FILE "Max Surfing 2nd (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

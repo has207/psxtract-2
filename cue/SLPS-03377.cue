@@ -1,0 +1,5 @@
+REM MD5 ceb5a39fc4e18334648c24060de8e043
+FILE "Family Shougi - Super Strong (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 03:34:52

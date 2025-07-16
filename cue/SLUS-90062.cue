@@ -1,0 +1,5 @@
+REM MD5 794c18d04a31d1e7c5b39bbe4d088afa
+FILE "Metal Gear Solid - VR Missions (USA) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 11:42:39

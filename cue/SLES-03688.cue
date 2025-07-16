@@ -1,0 +1,5 @@
+REM MD5 995d0b662d844df38a7bc7fff8289ea0
+FILE "Largo Winch - Commando SAR (Europe) (En,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 25:34:61

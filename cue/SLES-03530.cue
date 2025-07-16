@@ -1,0 +1,5 @@
+REM MD5 c04def633121b8e01a2ee791034f286c
+FILE "Lucky Luke - Western Fever (Europe) (En,Fr,De,Es,It,Nl).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 56:28:03

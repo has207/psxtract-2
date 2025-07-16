@@ -1,0 +1,5 @@
+REM MD5 f908a45d7423ee15816a5ff2fee8b453
+FILE "Die Hard Trilogy 2 - Viva Las Vegas (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 69:20:57

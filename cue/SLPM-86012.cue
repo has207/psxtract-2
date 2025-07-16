@@ -1,0 +1,5 @@
+REM MD5 2d4f6a0b3fd3270c6bfe594b685199fd
+FILE "Breeding Stud - Bokujou de Aimashou (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 49:22:09

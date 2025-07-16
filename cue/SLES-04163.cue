@@ -1,0 +1,6 @@
+REM MD5 9cdceb1ee8e0748835b41c66af5565f1
+FILE "Dancing Stage Fusion (Europe) (En,Fr,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    FLAGS DCP
+    INDEX 01 00:00:00
+REM LEADOUT 23:26:36

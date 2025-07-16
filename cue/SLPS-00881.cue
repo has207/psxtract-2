@@ -1,0 +1,8 @@
+REM MD5 6a8ccb0a7e89954f41eb0252dcdbacac
+FILE "Shuukan Pro Wres Kanshuu - Pro Wres Sengokuden (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 19:37:25
+    INDEX 01 19:39:25
+REM LEADOUT 22:49:26

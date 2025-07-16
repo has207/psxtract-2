@@ -1,3 +1,4 @@
+REM MD5 3ecf73c44ce8fc15cfe649095fcd6543
 FILE "Pop'n Pop (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

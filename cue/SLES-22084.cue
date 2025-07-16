@@ -1,3 +1,4 @@
+REM MD5 5471aefbfd034f8114d274372d10fcba
 FILE "Final Fantasy VIII (Spain) (Disc 3).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

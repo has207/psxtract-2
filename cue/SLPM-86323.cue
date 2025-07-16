@@ -1,0 +1,5 @@
+REM MD5 6592f93e55c978a3fd2edb56480ae8f8
+FILE "Jet de Go! Let's Go by Airliner (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 69:59:21

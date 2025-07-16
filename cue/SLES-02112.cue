@@ -1,0 +1,5 @@
+REM MD5 fcc77e0ad9503bea45baf1caf27b20c8
+FILE "SaGa Frontier 2 (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 67:33:21

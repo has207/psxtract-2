@@ -1,3 +1,4 @@
+REM MD5 da5bcfd138c1bf618f24892aeb1bd7cd
 FILE "Digital Glider Airman (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

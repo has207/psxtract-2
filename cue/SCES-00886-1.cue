@@ -1,0 +1,5 @@
+REM MD5 a8fa4ac7c1bb585da7bc5bc975ae8c57
+FILE "Point Blank (Europe) (En,Fr,De) (Rev 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 28:46:22

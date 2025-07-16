@@ -1,0 +1,5 @@
+REM MD5 79f85155dd87c28d254f943347da5107
+FILE "TechnoMage - De Terugkeer der Eeuwigheid (Netherlands).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 67:30:26

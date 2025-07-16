@@ -1,0 +1,5 @@
+REM MD5 4eb8057d59bcb782e9201cda5df63dab
+FILE "Tech PlayStation Vol. 1 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 48:54:66

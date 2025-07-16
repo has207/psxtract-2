@@ -1,3 +1,4 @@
+REM MD5 29686e2e099189fd400b3ca9f3dc60c3
 FILE "Bounty Sword - Double Edge (Japan) (Major Wave).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

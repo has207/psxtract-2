@@ -1,3 +1,4 @@
+REM MD5 7776a8dbe5727de1cf55e700f994ba91
 FILE "Simple 1500 Series Vol. 41 - The Reversi 2 (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

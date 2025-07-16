@@ -1,0 +1,5 @@
+REM MD5 84a724ceac1742e53db79ea19a74f82d
+FILE "Suikoden - Tenmei no Chikai (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 23:07:58

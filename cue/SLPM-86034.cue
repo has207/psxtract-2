@@ -1,3 +1,4 @@
+REM MD5 13eb6f04e1f515cc104ab8db75efb190
 FILE "Poitters' Point (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

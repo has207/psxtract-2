@@ -1,3 +1,4 @@
+REM MD5 c314350fdf2b51b3598acc15d89cd788
 FILE "Bishi Bashi Special (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

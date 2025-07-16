@@ -1,0 +1,8 @@
+REM MD5 56cb9b9afb32ba60681c723cb2905461
+FILE "Maboroshi Tsukiyo - Tsukiyono Kitan (Japan) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 49:35:11
+    INDEX 01 49:37:11
+REM LEADOUT 53:10:23

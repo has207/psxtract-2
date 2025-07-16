@@ -1,4 +1,5 @@
-FILE "Hana to Ryuu - Hanafuda, Mahjong (Japan) (Major Wave) (Track 01).bin" BINARY
+REM MD5 53d10e9b3932fd9ae4319b31e2b7e002
+FILE "Hana to Ryuu - Hanafuda, Mahjong (Japan) (Major Wave).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

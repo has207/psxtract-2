@@ -1,0 +1,5 @@
+REM MD5 9e3ea685378fd585f110b8f44345ed47
+FILE "Haunted Junction - Seitokai Badge o Oe! (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 19:29:03

@@ -1,3 +1,4 @@
+REM MD5 091e015370bbb8c17adcb8c3dd84390d
 FILE "Armored Core (Europe) (En,Fr,De,Es,It).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

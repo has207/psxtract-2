@@ -1,0 +1,8 @@
+REM MD5 a372e414c0097fad45b7db23f89d9b07
+FILE "Kaette Kita Pachio-kun - Dream Collection (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 00:42:61
+    INDEX 01 00:44:61
+REM LEADOUT 04:26:58

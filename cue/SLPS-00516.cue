@@ -1,0 +1,5 @@
+REM MD5 c549476f1acf61eb75e448dadad242d2
+FILE "Shock Wave - Operation JumpGate (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 27:38:45

@@ -1,0 +1,5 @@
+REM MD5 45c2db8594c2b618b04aca3c50c19ccc
+FILE "International Soccer - Excite Stage 2000 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 56:15:21

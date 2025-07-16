@@ -1,0 +1,5 @@
+REM MD5 417d2e329d8e41d0c4ef034f5d6518f6
+FILE "Prisoner of Ice - Jashin Kourin (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 55:00:42

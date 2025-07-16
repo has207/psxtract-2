@@ -1,0 +1,5 @@
+REM MD5 58e2ee5a78c3e7b13cbe3c77a782efb3
+FILE "Dancing Stage - Disney Mix (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 23:45:28

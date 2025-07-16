@@ -1,3 +1,4 @@
+REM MD5 afdd354ae72a7d01618ead500aef97cd
 FILE "Chocobo Stallion (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

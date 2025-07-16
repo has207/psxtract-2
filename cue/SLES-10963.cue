@@ -1,0 +1,5 @@
+REM MD5 51599dd272a01d460ace02f9d04f2478
+FILE "Riven - The Sequel to Myst (Europe) (Disc 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 69:05:31

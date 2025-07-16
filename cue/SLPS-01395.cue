@@ -1,4 +1,5 @@
-FILE "Kitchen Panic (Japan) (Track 01).bin" BINARY
+REM MD5 e0267a0776278c0f142c0d2bf0ee37c6
+FILE "Kitchen Panic (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

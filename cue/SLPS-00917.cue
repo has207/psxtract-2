@@ -1,3 +1,4 @@
+REM MD5 6968ba39636641c4d8895335a13f7e98
 FILE "Clock Tower - The First Fear (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

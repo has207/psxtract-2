@@ -1,0 +1,5 @@
+REM MD5 f946c1cc767ad1c00dff9253b184fd19
+FILE "Dracula 2 - El Ultimo Santuario (Spain) (Disc 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 53:28:18

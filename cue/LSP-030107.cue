@@ -1,0 +1,5 @@
+REM MD5 96fcfda874a52f8f76929ea1df2dd8f4
+FILE "Str.at.e.s. 7 - Riddle Roundup! (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 69:02:33

@@ -1,3 +1,4 @@
+REM MD5 980eaef02b5d8476964d9d37ffaa01cc
 FILE "Silent Hill (Europe) (En,Fr,De,Es,It).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

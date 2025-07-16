@@ -1,4 +1,5 @@
-FILE "Jet Rider 2 (Europe) (Track 01).bin" BINARY
+REM MD5 1a966eb00481dc483255bc038d815709
+FILE "Jet Rider 2 (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

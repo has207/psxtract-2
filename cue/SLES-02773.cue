@@ -1,0 +1,5 @@
+REM MD5 4ed924045fffd1783843d1002a74ee1d
+FILE "BattleTanx - Global Assault (Europe) (En,Fr,De).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 59:27:37

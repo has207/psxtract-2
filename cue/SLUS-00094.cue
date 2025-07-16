@@ -1,0 +1,5 @@
+REM MD5 aad4cc314502df0346aa406be3e1369f
+FILE "Starwinder - The Ultimate Space Race (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 70:36:21

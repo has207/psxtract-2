@@ -1,3 +1,4 @@
+REM MD5 82cdb35aceed9c3a7b255e8b999b1536
 FILE "Motor Toon Grand Prix (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

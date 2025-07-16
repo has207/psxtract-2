@@ -1,0 +1,5 @@
+REM MD5 6bfb2f6ff582bb87b44561dba3a4dee0
+FILE "De Sang Froid (France) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 51:21:59

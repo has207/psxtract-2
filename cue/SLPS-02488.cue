@@ -1,0 +1,5 @@
+REM MD5 f075c2addb8071e1debe4f29eb8a5dc6
+FILE "Morita Kazurou no Chess (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 05:32:74

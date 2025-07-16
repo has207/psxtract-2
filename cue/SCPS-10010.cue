@@ -1,0 +1,5 @@
+REM MD5 188d3ee5a2a2242a719f290ea595e5ec
+FILE "Wizardry VII - Guardia no Houju (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 30:39:39

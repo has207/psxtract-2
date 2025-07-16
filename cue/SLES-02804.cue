@@ -1,3 +1,4 @@
+REM MD5 f5521d412e370353b111215935a1880a
 FILE "Alone in the Dark - The New Nightmare (Spain) (Disc 1).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,0 +1,5 @@
+REM MD5 35b5b6271adb578140202bf9ce43e5dd
+FILE "Star Wars - Episodio I - La Amenaza Fantasma (Spain).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 63:14:36

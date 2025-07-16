@@ -1,0 +1,5 @@
+REM MD5 5fd34371d6f9703ad89cf1d8a7c34ae1
+FILE "Imadoki no Vampire - Bloody Bride (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 70:44:48

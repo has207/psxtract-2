@@ -1,0 +1,5 @@
+REM MD5 ec2a4890d2c8f0b2cc4d033fa8735971
+FILE "Command & Conquer (Europe) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 05:33:71

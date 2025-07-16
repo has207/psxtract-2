@@ -1,0 +1,5 @@
+REM MD5 85f910cdb70f57bb7353317b0824586c
+FILE "Goo-Cho de Park - Theme Park Monogatari (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 23:29:68

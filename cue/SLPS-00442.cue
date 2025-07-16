@@ -1,4 +1,5 @@
-FILE "Nyan to Wonderful (Japan) (Track 01).bin" BINARY
+REM MD5 6953684d9b2c3f109713d805ee9fc8db
+FILE "Nyan to Wonderful (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

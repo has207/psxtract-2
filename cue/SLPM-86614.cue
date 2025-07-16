@@ -1,3 +1,4 @@
+REM MD5 3985b8b4ed84a0bacc8c54272c80994c
 FILE "Bounty Sword First (Japan) (Major Wave).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

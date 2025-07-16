@@ -1,3 +1,4 @@
+REM MD5 f37ba139e928d5e5efe60e47ee66fbf3
 FILE "Wai Wai Kusa Yakyuu (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

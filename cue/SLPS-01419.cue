@@ -1,0 +1,5 @@
+REM MD5 643a63726c851749ea6408f9f64af848
+FILE "Formation Soccer '98 - Ganbare Nippon in France (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 31:08:74

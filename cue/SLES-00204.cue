@@ -1,0 +1,6 @@
+REM MD5 dc077aa7a11e0b36c3cb434d64c9eae4
+FILE "Vandal Hearts (Europe) (En,Fr,De).bin" BINARY
+  TRACK 01 MODE2/2352
+    FLAGS DCP
+    INDEX 01 00:00:00
+REM LEADOUT 62:13:28

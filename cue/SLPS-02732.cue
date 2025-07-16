@@ -1,0 +1,5 @@
+REM MD5 eb6a94d268f6a9b5a5fb22f60b107c7c
+FILE "Parlor Station (Japan) (Reprint).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 04:41:62

@@ -1,0 +1,5 @@
+REM MD5 c7dcbc224536987cd7092b85b73ec66b
+FILE "Mission - Impossible (Europe) (En,Fr,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 65:55:02

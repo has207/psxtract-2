@@ -1,3 +1,4 @@
+REM MD5 3a0508266284c0e28a69dfd9c30bf982
 FILE "Pro Mahjong Kiwame - Tengensen-hen (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

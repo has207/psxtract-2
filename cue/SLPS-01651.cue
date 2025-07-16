@@ -1,0 +1,5 @@
+REM MD5 7745e2fc24be10e49cb0333b637f1016
+FILE "Todd McFarlane's Spawn - The Ultimate (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 40:12:50

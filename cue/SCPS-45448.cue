@@ -1,0 +1,5 @@
+REM MD5 826a66fb8e10bccf43ad69edb1d7988b
+FILE "Chrono Cross (Japan, Asia) (Disc 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 70:09:60

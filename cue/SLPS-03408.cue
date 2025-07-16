@@ -1,0 +1,8 @@
+REM MD5 09a3d0dfeaea6f8db58606877b6eb66c
+FILE "From TV Animation One Piece - Grand Battle! 2 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 68:47:54
+    INDEX 01 68:49:54
+REM LEADOUT 69:19:17

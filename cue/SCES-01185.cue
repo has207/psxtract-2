@@ -1,3 +1,4 @@
+REM MD5 de799d0cf163773ab3d84587df899280
 FILE "Klonoa - Door to Phantomile (France).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,0 +1,5 @@
+REM MD5 f0efe1a833da43b0c9be3a6e7c8c1e30
+FILE "Sister Princess (Japan) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 63:34:61

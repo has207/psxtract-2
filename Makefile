@@ -2,6 +2,7 @@
 
 CC = i686-w64-mingw32-gcc
 CXX = i686-w64-mingw32-g++
+WINDRES = i686-w64-mingw32-windres
 TARGET = psxtract.exe
 
 CXXFLAGS = -std=c++11 -O2 -Wall -D_CRT_SECURE_NO_WARNINGS
@@ -13,13 +14,14 @@ SRCDIR = src
 OBJDIR = obj
 
 # Source files
-CPP_SOURCES = $(SRCDIR)/psxtract.cpp $(SRCDIR)/crypto.cpp $(SRCDIR)/cdrom.cpp $(SRCDIR)/lz.cpp $(SRCDIR)/utils.cpp $(SRCDIR)/md5_data.cpp $(SRCDIR)/at3acm.cpp $(SRCDIR)/gui.cpp
+CPP_SOURCES = $(SRCDIR)/psxtract.cpp $(SRCDIR)/crypto.cpp $(SRCDIR)/cdrom.cpp $(SRCDIR)/lz.cpp $(SRCDIR)/utils.cpp $(SRCDIR)/md5_verify.cpp $(SRCDIR)/at3acm.cpp $(SRCDIR)/gui.cpp $(SRCDIR)/cue_resources.cpp
 C_SOURCES = $(SRCDIR)/libkirk/AES.c $(SRCDIR)/libkirk/amctrl.c $(SRCDIR)/libkirk/bn.c $(SRCDIR)/libkirk/DES.c $(SRCDIR)/libkirk/ec.c $(SRCDIR)/libkirk/kirk_engine.c $(SRCDIR)/libkirk/SHA1.c
 
 # Object files
 CPP_OBJECTS = $(CPP_SOURCES:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
 C_OBJECTS = $(C_SOURCES:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
-OBJECTS = $(CPP_OBJECTS) $(C_OBJECTS)
+RESOURCE_OBJECTS = $(OBJDIR)/psxtract_resources.o
+OBJECTS = $(CPP_OBJECTS) $(C_OBJECTS) $(RESOURCE_OBJECTS)
 
 # Create obj directory structure
 OBJDIRS = $(OBJDIR) $(OBJDIR)/libkirk
@@ -42,6 +44,10 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 # Compile C files
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
+
+# Compile resources
+$(OBJDIR)/psxtract_resources.o: src/psxtract.rc
+	$(WINDRES) $< -o $@
 
 clean:
 	rm -rf $(OBJDIR) $(TARGET)

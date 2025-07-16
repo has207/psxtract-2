@@ -1,0 +1,5 @@
+REM MD5 c292613ab14f92d9b321b3d41d7d0a06
+FILE "Evil Dead - Hail to the King (Europe) (Disc 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 59:56:04

@@ -1,0 +1,5 @@
+REM MD5 999382e2cbe9f1f513a44f849c3a3904
+FILE "Chakushin Melody da mon Volume. 2 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 04:39:05

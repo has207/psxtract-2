@@ -1,4 +1,5 @@
-FILE "Silhouette Mirage - Reprogrammed Hope (Japan) (Track 01).bin" BINARY
+REM MD5 2f653254f3f76ca690afce02076f1901
+FILE "Silhouette Mirage - Reprogrammed Hope (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

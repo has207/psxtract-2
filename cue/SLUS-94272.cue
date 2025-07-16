@@ -1,0 +1,5 @@
+REM MD5 f1bdda9ce3a2dc58a8cc95fd0f36dbe3
+FILE "Running Wild (USA) (Beta) (1998-07-28).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 06:05:50

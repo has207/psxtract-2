@@ -1,3 +1,4 @@
+REM MD5 fc09bee149721b0db35c3fcba6596f72
 FILE "Wild Arms (Germany).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

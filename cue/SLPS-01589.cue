@@ -1,0 +1,5 @@
+REM MD5 8fb4194266881a7b711b1481ff79be62
+FILE "Ren'ai Kouza - Real Age - The Art of Eguchi Hisashi (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 04:27:50

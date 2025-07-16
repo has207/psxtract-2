@@ -1,0 +1,5 @@
+REM MD5 fdebb61aa6a2200dbf1e96bfe9ca0f8f
+FILE "Abe '99 (Japan) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 58:07:17

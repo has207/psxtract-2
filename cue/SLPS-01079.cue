@@ -1,4 +1,5 @@
-FILE "Side Pocket 3 (Japan) (Track 01).bin" BINARY
+REM MD5 0993d351e68d51b05ad21c3f5ca92236
+FILE "Side Pocket 3 (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

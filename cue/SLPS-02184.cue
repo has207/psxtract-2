@@ -1,0 +1,5 @@
+REM MD5 60d7a1e0e6435bc1bd97765648c0ec51
+FILE "Tokyo Wakusei Planetokio (Japan) (Disc 3).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 65:42:13

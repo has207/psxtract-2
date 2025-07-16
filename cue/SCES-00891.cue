@@ -1,3 +1,4 @@
+REM MD5 1722a7ac7480b4f7e76b309714d097f7
 FILE "Disney's Action Game featuring Hercules (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

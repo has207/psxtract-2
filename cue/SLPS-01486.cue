@@ -1,3 +1,4 @@
+REM MD5 9cf1fbc934eacae77afcaa1f2d779bf7
 FILE "Carom Shot 2 (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

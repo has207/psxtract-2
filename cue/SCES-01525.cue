@@ -1,0 +1,5 @@
+REM MD5 6391720ae9043e8f76aa711223a63df1
+FILE "Disney-Pixar Een Luizenleven (Netherlands).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 69:44:72

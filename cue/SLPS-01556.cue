@@ -1,3 +1,4 @@
+REM MD5 f548d21571db8ff1afde3fbe8c469310
 FILE "LSD - Dream Emulator (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,0 +1,5 @@
+REM MD5 943a3e9414063fbd4de01e89c7e2ccb6
+FILE "Dukes of Hazzard II, The - Daisy Dukes It Out (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 66:07:57

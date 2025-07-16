@@ -1,0 +1,5 @@
+REM MD5 76c5fc3426db399b11ee5840ef44fba9
+FILE "Heart of Darkness (France) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 54:30:47

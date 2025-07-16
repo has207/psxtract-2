@@ -1,3 +1,4 @@
+REM MD5 ac9c59fe232cc21d3ef1aa30c4b57adf
 FILE "Guilty Gear (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

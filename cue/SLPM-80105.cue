@@ -1,0 +1,5 @@
+REM MD5 c9515f1626d9b5507436b085dedfe875
+FILE "Iwatobi Penguin Rocky x Hopper (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 35:56:45

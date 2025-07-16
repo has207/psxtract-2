@@ -1,0 +1,5 @@
+REM MD5 8c49c2631029b2cab7d91fe75550c623
+FILE "DigimonWorld - Digital Card Arena (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 26:21:46

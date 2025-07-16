@@ -1,0 +1,11 @@
+REM MD5 ce4c41163ef0f7389f2eef8b0f45cdf0
+FILE "Bishoujo Ren'ai Mahjong Series - Karan Koron Gakuen - Munekyun-hen (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 06:20:00
+    INDEX 01 06:22:00
+  TRACK 03 AUDIO
+    INDEX 00 07:27:57
+    INDEX 01 07:29:57
+REM LEADOUT 11:52:57

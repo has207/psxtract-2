@@ -1,3 +1,4 @@
+REM MD5 e0ceba6e448677f3d938b1dd176be3af
 FILE "Bomberman - Party Edition (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

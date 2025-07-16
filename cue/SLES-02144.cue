@@ -1,3 +1,4 @@
+REM MD5 7c4bc5fc1e9e34ff28f294f3634c93db
 FILE "Space Invaders (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

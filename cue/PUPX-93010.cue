@@ -1,0 +1,5 @@
+REM MD5 224a4f3973e165b2ff6762a1ef6e4ef1
+FILE "Analog Controller Service Disc (Revised) (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 01:34:20

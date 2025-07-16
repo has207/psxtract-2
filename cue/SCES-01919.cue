@@ -1,0 +1,5 @@
+REM MD5 52b47613456d7ad1d7ad6c25957a8aa9
+FILE "G-Police - Weapons of Justice (Spain).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 69:40:41

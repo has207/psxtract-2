@@ -1,3 +1,4 @@
+REM MD5 06b46d8ef354b0988aace95ed9c6c036
 FILE "Soviet Strike (Germany).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

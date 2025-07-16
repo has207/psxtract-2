@@ -1,0 +1,5 @@
+REM MD5 c63b16854ac2e75486025f5897ebff2e
+FILE "Shin Megami Tensei If... (Japan) (Anniversary Pack).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 24:13:46

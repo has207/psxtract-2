@@ -1,0 +1,5 @@
+REM MD5 170a20d9ea2cb82d7561835ccad0985f
+FILE "Inuyasha - Sengoku Otogi Gassen (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 63:03:54

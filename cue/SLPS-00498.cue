@@ -1,3 +1,4 @@
+REM MD5 78d101cad59d01cef2666c7afeec988c
 FILE "Harmful Park (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

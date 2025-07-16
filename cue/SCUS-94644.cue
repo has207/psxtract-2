@@ -1,0 +1,5 @@
+REM MD5 2dd6fde88806e16528ec7693f9081d84
+FILE "Who Wants to Be a Millionaire - 3rd Edition (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 44:21:45

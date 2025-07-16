@@ -1,4 +1,5 @@
-FILE "GaiaSeed - Project Seed Trap (Japan) (Track 01).bin" BINARY
+REM MD5 18ee89c0cf38c642fbba699925b3f63a
+FILE "GaiaSeed - Project Seed Trap (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

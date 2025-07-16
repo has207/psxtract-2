@@ -1,0 +1,5 @@
+REM MD5 b93bff79db3866d6dd8a3cfda5b89552
+FILE "Official U.S. PlayStation Magazine Demo Disc 06 (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 28:08:31

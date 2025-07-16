@@ -1,0 +1,5 @@
+REM MD5 b21ebb1a1dab64365121aaa7c023076b
+FILE "Deco Pre 97-98 - Data East Taikenban Special (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 41:15:70

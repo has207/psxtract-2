@@ -1,0 +1,5 @@
+REM MD5 23d38e7b19a8adb8e25adf0a884f4dd0
+FILE "Chi Vuol Essere Miliardario (Italy).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 30:38:45

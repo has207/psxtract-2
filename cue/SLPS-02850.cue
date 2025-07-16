@@ -1,0 +1,5 @@
+REM MD5 ef823ae0b66d785151e5cf0edbdbb508
+FILE "Twilight Syndrome - Saikai (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 65:00:35

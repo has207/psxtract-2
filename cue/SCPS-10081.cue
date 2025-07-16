@@ -1,3 +1,4 @@
+REM MD5 a87688912c931ddc1d15021dfbc4d5b3
 FILE "MediEvil - Yomigaetta Gallowmere no Yuusha (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

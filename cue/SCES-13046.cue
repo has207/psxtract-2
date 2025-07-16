@@ -1,3 +1,4 @@
+REM MD5 b7523a2b33066d10fa4659bd1f91f9c3
 FILE "Legend of Dragoon, The (Italy) (Disc 2).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

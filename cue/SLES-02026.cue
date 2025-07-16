@@ -1,3 +1,4 @@
+REM MD5 340c7d2c145f1f4b52b79299b47dcdb7
 FILE "Legacy of Kain - Soul Reaver (Spain).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

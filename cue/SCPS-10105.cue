@@ -1,3 +1,4 @@
+REM MD5 e69e9013df15e4b9625dfca32af2c070
 FILE "Brightis (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

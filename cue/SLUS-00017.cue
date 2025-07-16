@@ -1,4 +1,5 @@
-FILE "Theme Park (USA) (Track 01).bin" BINARY
+REM MD5 74aefa66d0a05c0db61d9ab7e380d598
+FILE "Theme Park (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

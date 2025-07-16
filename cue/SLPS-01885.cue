@@ -1,0 +1,5 @@
+REM MD5 232bbc79ebca9be817b93ef5da405e0f
+FILE "Kosodate Quiz Motto My Angel (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 26:10:59

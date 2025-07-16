@@ -1,3 +1,4 @@
+REM MD5 6dbb08bcc1f40ae130c8705e4919541b
 FILE "Fatal Fury - Wild Ambition (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

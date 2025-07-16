@@ -1,0 +1,5 @@
+REM MD5 ead21d69f7d7d149afaf604ec4d72010
+FILE "Army Men - Sarge's Heroes (Italy).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 66:14:34

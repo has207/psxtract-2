@@ -1,4 +1,5 @@
-FILE "Meru Purana (Japan) (Track 01).bin" BINARY
+REM MD5 b3e22bd9bfee00b0a8cea26de193a2a2
+FILE "Meru Purana (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

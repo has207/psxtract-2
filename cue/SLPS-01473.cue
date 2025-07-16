@@ -1,0 +1,5 @@
+REM MD5 abea978bc772bdda4b58b67ae0270031
+FILE "Sentimental Journey (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 31:59:17

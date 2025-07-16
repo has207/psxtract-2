@@ -1,0 +1,5 @@
+REM MD5 21365cbaa1da0361196593e5d84015c4
+FILE "Thrasher - Skate and Destroy (Europe) (En,Fr,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 34:27:13

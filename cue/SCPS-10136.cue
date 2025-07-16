@@ -1,0 +1,5 @@
+REM MD5 66709f78abfdc5a4cc40a8a47c274441
+FILE "Koukidou Gensou - Gunparade March (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 41:36:33

@@ -1,0 +1,8 @@
+REM MD5 d04bc13900fa4d857d5e45e5643eeb04
+FILE "PlayStation Comic - Space Adventure Cobra - Galaxy Nights (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 53:46:31
+    INDEX 01 53:48:31
+REM LEADOUT 57:48:74

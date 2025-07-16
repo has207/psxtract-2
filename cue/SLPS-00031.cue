@@ -1,4 +1,5 @@
-FILE "Kyuutenkai (Japan) (Track 01).bin" BINARY
+REM MD5 f6630fb9e61255436ccce2b584d30602
+FILE "Kyuutenkai (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

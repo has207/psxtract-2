@@ -1,3 +1,4 @@
+REM MD5 2df93ab014c756e31366af9f4ef75836
 FILE "Blaster Master (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

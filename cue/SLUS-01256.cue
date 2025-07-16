@@ -1,0 +1,5 @@
+REM MD5 5e7c5e3736740101f90a135e4720d7f6
+FILE "Arc the Lad Collection - The Making of Arc the Lad (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 58:52:45

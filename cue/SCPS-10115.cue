@@ -1,0 +1,5 @@
+REM MD5 46950238c9f6bc3e42f0ba9b3d4707a7
+FILE "Alundra 2 - Mashinka no Nazo (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 60:10:49

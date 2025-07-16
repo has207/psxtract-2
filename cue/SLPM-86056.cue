@@ -1,0 +1,6 @@
+REM MD5 1ecf5fdeadc062b2c4d781240b159811
+FILE "Hyper Olympic in Nagano (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    FLAGS DCP
+    INDEX 01 00:00:00
+REM LEADOUT 37:45:39

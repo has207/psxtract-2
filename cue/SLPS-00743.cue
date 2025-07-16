@@ -1,0 +1,5 @@
+REM MD5 dedff5de123e8648fc2017d2b16bb95c
+FILE "Kain the Vampire (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 66:41:17

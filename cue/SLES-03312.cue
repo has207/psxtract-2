@@ -1,0 +1,5 @@
+REM MD5 a1ba1000c43f78ee602806ae5e0f241a
+FILE "Disney-Pixar Les Aventures de Buzz L'Eclair (France).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 52:12:59

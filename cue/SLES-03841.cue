@@ -1,0 +1,5 @@
+REM MD5 37de6fb3a1aa01dde58ba6126b53677a
+FILE "Digimon Rumble Arena (Europe) (En,Fr,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 25:21:74

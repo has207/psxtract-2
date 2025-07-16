@@ -1,3 +1,4 @@
+REM MD5 e98f18b3c0d7a839f2d3139f6f777260
 FILE "Fighting Force 2 (Europe) (Es,It).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

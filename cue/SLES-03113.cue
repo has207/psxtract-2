@@ -1,0 +1,5 @@
+REM MD5 8730f66cb1893603f28e68520f16dac0
+FILE "Casper - Friends Around the World (Europe) (En,Fr,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 64:31:24

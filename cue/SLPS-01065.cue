@@ -1,4 +1,5 @@
-FILE "Puzzle Bobble 3DX (Japan) (Track 01).bin" BINARY
+REM MD5 19bf29dc181ffaad66d81660d5b8e990
+FILE "Puzzle Bobble 3DX (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

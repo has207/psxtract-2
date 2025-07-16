@@ -1,0 +1,5 @@
+REM MD5 689c9aec5f0cb710fcdc4d7428efacd6
+FILE "GunBullet (Japan) (GunBullet + GunCon).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 28:08:66

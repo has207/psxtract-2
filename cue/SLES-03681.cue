@@ -1,0 +1,5 @@
+REM MD5 3ad0e884fed2feedc2da65cde0ff6257
+FILE "V.I.P. (Europe) (En,Fr,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 59:53:21

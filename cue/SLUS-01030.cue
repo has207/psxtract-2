@@ -1,3 +1,4 @@
+REM MD5 4d5774c4baa65d6eaf281db59ee8e945
 FILE "Armored Core - Master of Arena (USA) (Disc 1).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

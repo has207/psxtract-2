@@ -1,0 +1,5 @@
+REM MD5 1579d715cc1ece3ce1f575a9d24877d1
+FILE "Disney's De Kleine Zeemeermin II (Netherlands).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 52:03:03

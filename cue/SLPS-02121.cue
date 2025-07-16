@@ -1,0 +1,5 @@
+REM MD5 44651d49a270591a4a6c054a4771d0a2
+FILE "PlayStadium 4 - Fumetsu no Dai League Ball (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 37:00:50

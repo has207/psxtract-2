@@ -1,0 +1,5 @@
+REM MD5 3c782f34a00e179b0fc3c593b42ca7d3
+FILE "Simple 1500 Series - Hello Kitty Vol. 04 - Trump (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 07:31:00

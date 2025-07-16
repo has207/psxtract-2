@@ -1,3 +1,4 @@
+REM MD5 45067ccb018611f231c3bcdfb2cff56a
 FILE "King of Fighters Kyou, The (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

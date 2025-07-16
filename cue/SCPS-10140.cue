@@ -1,3 +1,4 @@
+REM MD5 8a7d45c1b3165666def0dfc51111bc40
 FILE "Crash Bandicoot Carnival (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

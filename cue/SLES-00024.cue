@@ -1,4 +1,5 @@
-FILE "Tomb Raider (Europe) (EDC) (Track 01).bin" BINARY
+REM MD5 a13daf80d1194779b0ce299886938b5d
+FILE "Tomb Raider (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

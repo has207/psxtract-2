@@ -1,0 +1,5 @@
+REM MD5 d0fbabf6bfa62fcc9c01f7d9e45fb8e7
+FILE "Legend of Legaia (USA) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 12:29:67

@@ -1,3 +1,4 @@
+REM MD5 cd8a09f394b7818ee3d6cf3e3f8aa3ee
 FILE "Final Fantasy IX (Spain) (Disc 2).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

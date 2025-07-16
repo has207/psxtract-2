@@ -1,0 +1,5 @@
+REM MD5 8d7ed70b84d1a39952d913caa3412a5f
+FILE "Martian Gothic - Unification (Europe) (En,Fr,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 62:24:60

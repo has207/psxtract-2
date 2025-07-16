@@ -1,0 +1,5 @@
+REM MD5 16860985746a3bf7393fae2ac7b63db0
+FILE "Yarudora Series Vol. 3 - Sampaguita (Japan) (Disc 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 70:56:42

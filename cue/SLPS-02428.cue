@@ -1,0 +1,5 @@
+REM MD5 36f1b69aa95fd94025c0754f13a38c9c
+FILE "Disc Derby - Meiba o Tsukurou!! (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 37:51:39

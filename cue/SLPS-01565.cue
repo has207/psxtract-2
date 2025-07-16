@@ -1,3 +1,4 @@
+REM MD5 ead6624445a065f1453af27761a5ee19
 FILE "Kaze no Oka Kouen Nite (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

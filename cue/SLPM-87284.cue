@@ -1,3 +1,4 @@
+REM MD5 a352d9e9e3703536b2c955d1ef199bfe
 FILE "Azito (Japan) (Major Wave).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

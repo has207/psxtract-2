@@ -1,0 +1,5 @@
+REM MD5 40a7c57691e721a8484f00950a5ce677
+FILE "Pachitte Chonmage - Ouendan & C. C. Girls (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 68:43:35

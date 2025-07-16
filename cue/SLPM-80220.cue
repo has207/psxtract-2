@@ -1,0 +1,5 @@
+REM MD5 d850401a4e86e8be0036f9c2d92ec667
+FILE "Toshiba Emi Egg & Zutto Issho Demo Disc (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 47:22:29

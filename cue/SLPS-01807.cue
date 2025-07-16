@@ -1,0 +1,5 @@
+REM MD5 8620895a8ecdb49efbe8232da9cb4c80
+FILE "Eve - The Lost One (Japan) (Disc 3) (Lost One Disc).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 24:50:20

@@ -1,0 +1,5 @@
+REM MD5 198813a523d5faacac8065518f964b4b
+FILE "Disney's Goofy's Fun House (Germany).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 63:51:53

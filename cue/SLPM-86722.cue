@@ -1,0 +1,5 @@
+REM MD5 509670103d7ae4b030075a8f16c57ac9
+FILE "UFC - Ultimate Fighting Championship (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 55:40:31

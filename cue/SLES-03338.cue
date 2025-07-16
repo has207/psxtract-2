@@ -1,0 +1,5 @@
+REM MD5 8a209a39514c43c8469a6bf5f70a4d1d
+FILE "BursTrick - Wake Boarding!! (Europe) (En,Fr,De).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 35:25:37

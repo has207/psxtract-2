@@ -1,0 +1,5 @@
+REM MD5 5ffba2f07531b599b88f5be74360ad42
+FILE "WWF WrestleMania - The Arcade Game (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 12:46:24

@@ -1,0 +1,5 @@
+REM MD5 49844cde89048df435e975304fba14f3
+FILE "Gensou Maden Saiyuuki - Haruka naru Nishi e (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 56:59:67

@@ -1,0 +1,5 @@
+REM MD5 93184a12d40fb9a3c233f3ac76983436
+FILE "Mars Moose Adventure - WalkAbout 3 - World Sports Day (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 25:09:72

@@ -1,0 +1,5 @@
+REM MD5 ee7cdf90fc63506e019fdcd74788d6c3
+FILE "J. B. Harold - Blue Chicago Blues (Japan) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 68:36:56

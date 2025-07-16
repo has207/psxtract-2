@@ -1,0 +1,5 @@
+REM MD5 4e487c1fa9f4e2b886ff24c0ab977606
+FILE "Densha de Go! Professional Shiyou (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 70:45:44

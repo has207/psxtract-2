@@ -1,0 +1,5 @@
+REM MD5 793a4187c8e52ebebc286b326c92af63
+FILE "Derby Stallion Magazine Furoku CD-ROM Vol. 10 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 12:20:00

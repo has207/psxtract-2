@@ -1,0 +1,5 @@
+REM MD5 f78574ff6e65c47988579e9b79807bc3
+FILE "19-ji 03-pun - Ueno-hatsu Yakou Ressha (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 15:28:73

@@ -1,0 +1,5 @@
+REM MD5 9e62459cfd90d84355449c36fb40f411
+FILE "Jigsaw Island - Japan Graffiti (Japan) (Major Wave).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 46:41:02

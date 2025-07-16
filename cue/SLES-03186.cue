@@ -1,0 +1,5 @@
+REM MD5 9a063c5209c87e2a1c0fe349259801b4
+FILE "Oro e Gloria - La Strada per El Dorado (Italy).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 50:47:29

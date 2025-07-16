@@ -1,0 +1,5 @@
+REM MD5 3d25acd7ef0b04ed3a4cf76211d3494c
+FILE "Doukyuusei 2 (Japan) (Extra Box).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 62:42:21

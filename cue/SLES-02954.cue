@@ -1,0 +1,5 @@
+REM MD5 9e4a56df4138fd18886702cd60bc990e
+FILE "Moses - Prince of Egypt (Europe) (En,Fr,De,Nl).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 49:12:58

@@ -1,0 +1,5 @@
+REM MD5 52b56b5824fcae6a9056bc1283ddcc68
+FILE "Dracula - Resurrection (Germany) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 67:38:04

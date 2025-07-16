@@ -1,0 +1,5 @@
+REM MD5 4953c8d5c3a5d43a65020c0420892a3c
+FILE "Wing Commander IV - The Price of Freedom (USA) (Disc 3).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 69:53:54

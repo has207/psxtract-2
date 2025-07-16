@@ -1,0 +1,5 @@
+REM MD5 b02b7a862a530bdb437c34f98790ac0b
+FILE "SuperLite 1500 Series - The Game Maker (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 38:26:43

@@ -1,0 +1,5 @@
+REM MD5 8ea48e0efa7e2a2dd823e2bd51e80224
+FILE "Legend of Heroes IV, The - Akai Shizuku (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 49:18:26

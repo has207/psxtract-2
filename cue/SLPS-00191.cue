@@ -1,4 +1,5 @@
-FILE "Double Dragon (Japan) (Track 01).bin" BINARY
+REM MD5 99902924cecc984c4d628d3bca0d2723
+FILE "Double Dragon (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

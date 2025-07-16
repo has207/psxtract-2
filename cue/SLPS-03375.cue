@@ -1,0 +1,5 @@
+REM MD5 bc94670a38507e8b1e0b9b0a0d2582ed
+FILE "Tales of Fandom Vol. 1 - Cless Version (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 65:48:44

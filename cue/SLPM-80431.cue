@@ -1,0 +1,5 @@
+REM MD5 304c983d9be4660b856583b6056c8d8d
+FILE "Herohero-kun to Ralph no Daibouken (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 06:18:06

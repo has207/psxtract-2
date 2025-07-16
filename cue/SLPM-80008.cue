@@ -1,3 +1,4 @@
+REM MD5 ebffd31028adaa5931c40bfc497ba098
 FILE "Zero Divide (Japan) (Demo).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

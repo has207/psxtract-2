@@ -1,3 +1,4 @@
+REM MD5 6b0e7ececa92577ba2d775f7727c4adc
 FILE "MediEvil (Spain).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

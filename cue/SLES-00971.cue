@@ -1,3 +1,4 @@
+REM MD5 675e817db53efbec7b34070e6e9134dd
 FILE "Resident Evil - Director's Cut (Germany).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

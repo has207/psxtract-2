@@ -1,0 +1,5 @@
+REM MD5 e09e4c1ae0eb4df225dfdaea6a15c819
+FILE "Legend of Legaia (Italy).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 47:22:69

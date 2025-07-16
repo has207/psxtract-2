@@ -1,0 +1,6 @@
+REM MD5 bcfa947ac9f90045e9f2e29535a73ddf
+FILE "Oha Suta Dance Dance Revolution (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    FLAGS DCP
+    INDEX 01 00:00:00
+REM LEADOUT 34:56:40

@@ -1,0 +1,5 @@
+REM MD5 3b1ec1faf97bc3e274f9a4ad6f59bddc
+FILE "Men in Black - The Game (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 46:24:74

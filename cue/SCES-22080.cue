@@ -1,3 +1,4 @@
+REM MD5 dabd250d44fcde80777f27f9be8aab79
 FILE "Final Fantasy VIII (Europe, Australia) (Disc 3).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

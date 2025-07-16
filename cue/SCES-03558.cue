@@ -1,0 +1,5 @@
+REM MD5 cd6564d90a4af2d0252790cb2f7cbf35
+FILE "Adibou et l'Ombre Verte (France).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 53:12:40

@@ -1,3 +1,4 @@
+REM MD5 a3e3b19618ae05f35060e3297568fe7a
 FILE "Dekiru! Game Center (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,0 +1,5 @@
+REM MD5 79ab5a1be0c11d8aca1ae0d262762e42
+FILE "Klaymen Series (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 62:31:02

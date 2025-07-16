@@ -1,0 +1,5 @@
+REM MD5 6d5d8aa37e7f803b7402589c7b21ef50
+FILE "Beatmania Append 4thMix - The Beat Goes On (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 30:05:51

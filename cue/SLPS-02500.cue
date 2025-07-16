@@ -1,0 +1,5 @@
+REM MD5 59b09f4d5eaae68d97505eb71c9c76bf
+FILE "Nainai no Meitantei (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 27:28:21

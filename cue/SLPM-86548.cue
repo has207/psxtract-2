@@ -1,3 +1,4 @@
+REM MD5 816d73ea55b656b14cafb5a21e1f725b
 FILE "Winning Lure (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

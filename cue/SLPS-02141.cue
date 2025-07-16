@@ -1,3 +1,4 @@
+REM MD5 caf87b12ed8641f365e1ad18a9c04c40
 FILE "Aquanaut no Kyuujitsu 2 (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

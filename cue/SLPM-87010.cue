@@ -1,0 +1,8 @@
+REM MD5 b8e769efe66532d6a069c9c366b7a17a
+FILE "SuperLite Gold Series - Minna no Shougi - Joukyuu-hen (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 04:51:20
+    INDEX 01 04:53:20
+REM LEADOUT 09:38:47

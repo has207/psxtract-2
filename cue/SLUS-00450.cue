@@ -1,0 +1,5 @@
+REM MD5 184028bc0b9c7d39577d21569a466206
+FILE "Arcade's Greatest Hits - The Midway Collection 2 (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 58:19:26

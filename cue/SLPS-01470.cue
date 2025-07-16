@@ -1,0 +1,5 @@
+REM MD5 8c39da7bc75cbdef116114ed6eb2123d
+FILE "Godzilla - Trading Battle (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 27:39:60

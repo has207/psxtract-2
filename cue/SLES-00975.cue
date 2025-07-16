@@ -1,3 +1,4 @@
+REM MD5 8e433e7e12f7a0df9cfbccd3b5534150
 FILE "Resident Evil 2 (Italy) (Disc 1).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

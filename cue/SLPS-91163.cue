@@ -1,0 +1,8 @@
+REM MD5 fedc0be3f58836adc0604514440927a0
+FILE "Namco Museum Encore (Japan) (Shokai Gentei Special Box) (Rev 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 66:10:24
+    INDEX 01 66:12:24
+REM LEADOUT 69:15:25

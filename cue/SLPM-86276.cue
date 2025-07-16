@@ -1,0 +1,5 @@
+REM MD5 2fdbc9f2f9d9fbb65c4a99ba53e89563
+FILE "SuperLite 1500 Series - Pangaea (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 13:20:46

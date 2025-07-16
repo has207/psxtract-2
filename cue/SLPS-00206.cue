@@ -1,4 +1,5 @@
-FILE "Blockids (Japan) (DX Pack) (Track 01).bin" BINARY
+REM MD5 619b2f3b857525b7b10767b45e6ccf37
+FILE "Blockids (Japan) (DX Pack).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

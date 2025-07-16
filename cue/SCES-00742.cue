@@ -1,3 +1,4 @@
+REM MD5 aba450a4fcc2fc6430ce3785feb85caf
 FILE "RayStorm (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

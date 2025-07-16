@@ -1,4 +1,5 @@
-FILE "Arcade Hits - Suiko Enbu - Outlaws of the Lost Dynasty (Japan) (Track 01).bin" BINARY
+REM MD5 4c0c98519299c9de5d35bc1007b76be2
+FILE "Arcade Hits - Suiko Enbu - Outlaws of the Lost Dynasty (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

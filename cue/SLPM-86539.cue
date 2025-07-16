@@ -1,0 +1,5 @@
+REM MD5 8fca8d9a2f2e0820c76b4824cf23fa0e
+FILE "Bishi Bashi Special 3 - Step Champ (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 09:59:60

@@ -1,0 +1,5 @@
+REM MD5 4ea5b7f69febf2e396d2d7e07e97ac32
+FILE "Nice Cats (Europe) (En,Fr,De,Nl).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 41:39:65

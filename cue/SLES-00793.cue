@@ -1,0 +1,8 @@
+REM MD5 7aab77b0d4ea0487fe653b77f371b5fa
+FILE "Discworld II - Missing Presumed...! (Europe) (En,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 66:39:48
+    INDEX 01 66:41:48
+REM LEADOUT 69:51:65

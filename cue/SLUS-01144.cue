@@ -1,0 +1,5 @@
+REM MD5 03fd0dc4af76689e571eeac73721602c
+FILE "Bugs Bunny & Taz - Time Busters (USA) (En,Fr,Es).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 64:03:70

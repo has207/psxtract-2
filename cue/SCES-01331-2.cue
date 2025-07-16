@@ -1,0 +1,5 @@
+REM MD5 5cbbd8800409d992ce4b6d0df4bd7fab
+FILE "Tombi! (Europe) (En,Es,Pt,Sv,Da).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 46:30:64

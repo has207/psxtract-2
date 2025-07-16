@@ -1,0 +1,5 @@
+REM MD5 cf7a2a6dd804533f96bd23630952624b
+FILE "Pandora Max Series Vol. 6 - Oni Zero - Fukkatsu (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 56:19:40

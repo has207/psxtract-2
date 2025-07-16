@@ -1,0 +1,5 @@
+REM MD5 23e4998e5ff7474eef88e7dfc08adada
+FILE "Alone in the Dark 2 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 67:34:73

@@ -1,0 +1,8 @@
+REM MD5 3d7ae83df14be37031266bc0d829f81a
+FILE "Kimi no Kimochi, Boku no Kokoro - I've Possessed Your Body! (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 64:11:06
+    INDEX 01 64:13:06
+REM LEADOUT 67:23:23

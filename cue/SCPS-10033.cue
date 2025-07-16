@@ -1,0 +1,5 @@
+REM MD5 f7661122fc28b49f6ec5b00ecb34d571
+FILE "Ganbare Morikawa-kun 2-gou (Japan) (Genteiban).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 42:43:23

@@ -1,0 +1,5 @@
+REM MD5 795e6b20d2b28c4e3a7c2aadf9be94a4
+FILE "Momotarou Dentetsu 7 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 43:19:71

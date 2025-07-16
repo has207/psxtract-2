@@ -1,0 +1,8 @@
+REM MD5 a92db77fd41d5d211ee88f862e5ea9f7
+FILE "Starlight Scramble - Ren'ai Kouhosei (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 45:57:22
+    INDEX 01 45:59:22
+REM LEADOUT 49:06:62

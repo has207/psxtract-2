@@ -1,3 +1,4 @@
+REM MD5 5e9dfa4534b18f00f7fcc4df4cdf0906
 FILE "Championship Bass (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

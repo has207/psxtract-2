@@ -1,0 +1,5 @@
+REM MD5 2ab3d2e963be97c0aa92c07b31e9e488
+FILE "Seireki 1999 - Pharaoh no Fukkatsu (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 30:35:60

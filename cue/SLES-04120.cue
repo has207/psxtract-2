@@ -1,0 +1,5 @@
+REM MD5 d88114fb476c25b2e3bffa4485f3bcef
+FILE "XS Junior League Soccer (Europe) (En,Fr,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 21:01:18

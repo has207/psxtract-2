@@ -1,0 +1,5 @@
+REM MD5 d0dce65c264b907f55309e7090550a56
+FILE "Doko made mo Aoku... (Japan) (Shokai Genteiban).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 70:01:52

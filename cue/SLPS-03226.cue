@@ -1,0 +1,5 @@
+REM MD5 c52ec97a022e89d9ca77a83e34e3f074
+FILE "Super Price Series - Billiards (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 03:20:63

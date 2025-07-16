@@ -1,0 +1,5 @@
+REM MD5 fbf5458ab4940b0c2237842c8193ce0f
+FILE "Famitsu Wave Soukan-gou Vol. 2 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 55:58:68

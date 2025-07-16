@@ -1,0 +1,5 @@
+REM MD5 dbe8caa0cc783a35b9e0887fa587ea34
+FILE "Gundress Data-shuu (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 09:23:34

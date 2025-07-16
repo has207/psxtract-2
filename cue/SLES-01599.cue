@@ -1,0 +1,5 @@
+REM MD5 f16ee99a7ea84075c12081dac3970d8e
+FILE "Egypt 1156 A.C. - L'Enigma della Tomba Reale (Italy).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 61:01:60

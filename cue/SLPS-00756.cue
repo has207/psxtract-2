@@ -1,0 +1,5 @@
+REM MD5 c86a623eb06372ecddcb65afdf05813c
+FILE "Doki Doki Pretty League (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 48:13:66

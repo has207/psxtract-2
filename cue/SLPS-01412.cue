@@ -1,0 +1,8 @@
+REM MD5 6b0f7d8bf932b225eb625d0014b60d16
+FILE "Eberouge Special - Koi to Mahou no Gakuen Seikatsu (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 46:16:16
+    INDEX 01 46:18:16
+REM LEADOUT 51:19:58

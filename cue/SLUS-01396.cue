@@ -1,0 +1,5 @@
+REM MD5 1a36778dcf170df745aaf82d665c0ba4
+FILE "Scooby-Doo and the Cyber Chase (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 17:49:26

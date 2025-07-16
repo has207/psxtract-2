@@ -1,0 +1,5 @@
+REM MD5 3780030ae92d0f906705be52e5a1b693
+FILE "Arcade's Greatest Hits - The Atari Collection 2 (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 45:50:70

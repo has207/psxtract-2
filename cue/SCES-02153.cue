@@ -1,0 +1,5 @@
+REM MD5 dd1bb661890be25cadf856f1b0dcb636
+FILE "A Sangre Fria (Spain) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 51:25:48

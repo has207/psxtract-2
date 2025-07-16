@@ -1,0 +1,8 @@
+REM MD5 68eed8e0cc011cdd6f6b48fe1a457d18
+FILE "Matsumoto Reiji 999 - Story of Galaxy Express 999 (Japan) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 67:18:42
+    INDEX 01 67:20:42
+REM LEADOUT 70:20:42

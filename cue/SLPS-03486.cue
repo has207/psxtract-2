@@ -1,0 +1,5 @@
+REM MD5 be21ff2ed8db5c9ea414c02f55bef372
+FILE "Memorial Series - Sunsoft Vol. 6 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 04:57:64

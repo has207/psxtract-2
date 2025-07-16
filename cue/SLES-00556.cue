@@ -1,4 +1,5 @@
-FILE "Motorhead (Europe) (Track 01).bin" BINARY
+REM MD5 b5a5923621e98f198fe9b20b95a35f25
+FILE "Motorhead (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

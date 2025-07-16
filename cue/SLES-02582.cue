@@ -1,0 +1,5 @@
+REM MD5 4e9b1eacf877ec9e53bc0b672070f9bc
+FILE "Crusaders of Might and Magic (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 62:59:10

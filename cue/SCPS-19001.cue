@@ -1,0 +1,8 @@
+REM MD5 5e765ea6c518d1a83bb33468e9061864
+FILE "PlayStation Comic - Space Adventure Cobra - The Psychogun Vol. 1 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 27:05:42
+    INDEX 01 27:07:42
+REM LEADOUT 31:08:10

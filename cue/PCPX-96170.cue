@@ -1,0 +1,11 @@
+REM MD5 f9e0c1b00d3fe9b4861d9b61b8e3ce6c
+FILE "Hyper PlayStation Re-mix 1999 No. 9 (Japan) (Disc 2) (Sony Computer Entertainment Special).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 57:47:30
+    INDEX 01 57:50:30
+  TRACK 03 AUDIO
+    INDEX 00 57:55:05
+    INDEX 01 57:58:05
+REM LEADOUT 61:29:70

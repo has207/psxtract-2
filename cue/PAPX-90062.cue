@@ -1,0 +1,5 @@
+REM MD5 e788597005aa52ade0cf7447bd629010
+FILE "Play! '98 Fuyu Taikenban (Japan) (Green Disc).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 55:54:40

@@ -1,0 +1,5 @@
+REM MD5 5f7bfe12b2543ae079061ba227f04c02
+FILE "Glay - Complete Works (Japan) (Disc 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 64:58:55

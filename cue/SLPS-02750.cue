@@ -1,3 +1,4 @@
+REM MD5 4eaf601c0a09d2fd323822c8f2063383
 FILE "Chiisana Oukoku Erutoria (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

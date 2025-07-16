@@ -1,0 +1,5 @@
+REM MD5 ddb7a6e3d9f9dda0e5295576e7d95d8b
+FILE "Dragon Ball Z - Ultimate Battle 22 (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 31:42:21

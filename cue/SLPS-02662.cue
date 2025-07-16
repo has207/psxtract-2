@@ -1,3 +1,4 @@
+REM MD5 092b9fd61216ba7659076554b71d2991
 FILE "Brigandine - Grand Edition (Japan) (Disc 2).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

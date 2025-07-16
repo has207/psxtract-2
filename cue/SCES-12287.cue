@@ -1,3 +1,4 @@
+REM MD5 b95f555ddb57978a8b048c0541b61c2c
 FILE "Syphon Filter 2 (Germany) (Disc 2).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

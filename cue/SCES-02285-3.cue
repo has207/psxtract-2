@@ -1,0 +1,5 @@
+REM MD5 c81d5edaa0aba403e2d7f193d7b9a668
+FILE "Syphon Filter 2 (Europe, Australia) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 69:13:70

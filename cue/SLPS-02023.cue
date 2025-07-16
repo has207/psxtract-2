@@ -1,3 +1,4 @@
+REM MD5 94fbab7da641359cdc8566f58369c797
 FILE "Aquanaut no Kyuujitsu - Memories of Summer 1996 (Japan) (Artdink Best Choice).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

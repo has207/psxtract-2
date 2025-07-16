@@ -1,3 +1,4 @@
+REM MD5 d7aaa19ba72cb6cd7a719743c63c8e0e
 FILE "Dragon Valor (Spain) (Disc 2).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

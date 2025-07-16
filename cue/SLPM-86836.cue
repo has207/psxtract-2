@@ -1,0 +1,5 @@
+REM MD5 c73e08737dcf65b101bdf32e0e1b5b8f
+FILE "Shanghai - Shouryuu Sairin (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 17:31:49

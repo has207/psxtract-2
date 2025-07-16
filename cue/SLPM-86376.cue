@@ -1,0 +1,8 @@
+REM MD5 52ceb9e8d82cf8a2926c31f4e13a382b
+FILE "Nobunaga no Yabou - Shouseiroku (Japan) (Rev 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 55:31:54
+    INDEX 01 55:33:54
+REM LEADOUT 59:06:05

@@ -1,3 +1,4 @@
+REM MD5 0b387bdb27bd19f917c1bcbc66b23ade
 FILE "Theme Hospital (Europe) (En,Fr,De,Es,It,Sv).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,3 +1,4 @@
+REM MD5 e3187c3f053ebc4f63f1587637ed5b29
 FILE "Dragonbeat - Legend of Pinball (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

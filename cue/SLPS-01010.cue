@@ -1,0 +1,5 @@
+REM MD5 3fd85b2406a5f51dfc0974b8c2ce43f1
+FILE "Kaze no Klonoa - Door to Phantomile (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 69:34:52

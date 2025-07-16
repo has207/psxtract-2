@@ -1,0 +1,8 @@
+REM MD5 726d356a2096b82200fb3bab6a0e52d8
+FILE "Hissatsu Pachinko Station - Toyomaru Special (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 04:07:23
+    INDEX 01 04:09:23
+REM LEADOUT 06:49:61

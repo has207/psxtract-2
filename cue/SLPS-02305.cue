@@ -1,0 +1,8 @@
+REM MD5 7ed67c85b60e212607f891d1e8b175d6
+FILE "Hikari no Shima - Seven Lithographs in Shining Island (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 66:00:37
+    INDEX 01 66:02:37
+REM LEADOUT 69:02:40

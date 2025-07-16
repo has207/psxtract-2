@@ -1,0 +1,5 @@
+REM MD5 6793743bc98f9602b2c743cd8cfd192b
+FILE "Tony Hawk's Skateboarding (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 62:26:25

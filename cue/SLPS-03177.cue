@@ -1,0 +1,5 @@
+REM MD5 e9f64a96497c3ca6db81eea06500e3e0
+FILE "Yutona Eiyuu Senki - TearRingSaga (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 56:07:49

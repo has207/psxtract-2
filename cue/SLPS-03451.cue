@@ -1,0 +1,5 @@
+REM MD5 1d405ce5d5c4bdc5d4f599a47f356ccf
+FILE "Kyoutei Wars Makuru 6 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 45:35:33

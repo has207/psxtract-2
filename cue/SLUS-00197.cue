@@ -1,4 +1,5 @@
-FILE "Street Fighter Alpha - Warriors' Dreams (USA) (Track 01).bin" BINARY
+REM MD5 6b81a4710e0390ee962ba73dcc16031f
+FILE "Street Fighter Alpha - Warriors' Dreams (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

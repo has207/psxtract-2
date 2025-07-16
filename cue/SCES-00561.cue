@@ -1,4 +1,5 @@
-FILE "Real Bout Fatal Fury (Europe) (Track 01).bin" BINARY
+REM MD5 61a7abe38bf45991564abba47be3c85d
+FILE "Real Bout Fatal Fury (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

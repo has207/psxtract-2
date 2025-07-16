@@ -1,0 +1,5 @@
+REM MD5 260160818aef559e54e971c40d9b8687
+FILE "Liquid Books Adventure 1 - Lety's Favorite Stories (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 25:55:14

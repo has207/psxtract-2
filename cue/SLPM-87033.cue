@@ -1,0 +1,5 @@
+REM MD5 9690ce3b0d77b8ee0ab9ff1e4ab6564e
+FILE "Jikkyou Powerful Pro Yakyuu 2002 - Haru (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 22:04:18

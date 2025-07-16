@@ -1,0 +1,5 @@
+REM MD5 ddde8a64fe1d2c39784943a41d206040
+FILE "Keiba Saishou no Housoku '96 Vol. 2 - GI-Road (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 38:39:11

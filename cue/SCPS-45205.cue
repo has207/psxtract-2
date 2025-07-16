@@ -1,0 +1,6 @@
+REM MD5 57f61e8df52185f9a55030f7e746420c
+FILE "Konami Antiques - MSX Collection Vol. 3 (Japan, Asia).bin" BINARY
+  TRACK 01 MODE2/2352
+    FLAGS DCP
+    INDEX 01 00:00:00
+REM LEADOUT 13:53:60

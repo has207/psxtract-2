@@ -1,0 +1,5 @@
+REM MD5 af9dc6da3dccd156ce0cd8aac0b9a07b
+FILE "CyberTiger (Europe) (En,Fr,De,Es,Sv).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 36:10:45

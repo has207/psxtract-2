@@ -1,0 +1,5 @@
+REM MD5 929fb2bbce1014d9cb0494d34d4eb68b
+FILE "Top Gun - Fire at Will! (Europe) (En,Fr,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 64:22:28

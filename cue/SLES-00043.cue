@@ -1,4 +1,5 @@
-FILE "Super Pang Collection (Europe) (Track 01).bin" BINARY
+REM MD5 f7e7e7db671c5d26edc37716464d4400
+FILE "Super Pang Collection (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

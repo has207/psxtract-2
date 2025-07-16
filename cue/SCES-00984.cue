@@ -1,0 +1,5 @@
+REM MD5 5dbd4cf6211dac803b13d3e2ac3abf38
+FILE "Gran Turismo (Europe) (En,Fr,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 65:12:70

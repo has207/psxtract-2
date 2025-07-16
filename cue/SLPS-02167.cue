@@ -1,0 +1,5 @@
+REM MD5 7f57d3c2b5b9fc25f0783115da106903
+FILE "Echo Night 2 - Nemuri no Shihaisha (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 32:59:59

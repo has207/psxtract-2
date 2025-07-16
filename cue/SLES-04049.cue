@@ -1,0 +1,5 @@
+REM MD5 a2814f2feec9b716c5ae6ca08ea8eb99
+FILE "King of Bowling 3 (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 03:12:20

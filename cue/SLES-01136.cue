@@ -1,4 +1,5 @@
-FILE "Tom Clancy's Rainbow Six (Europe) (En,Fr,It) (Track 01).bin" BINARY
+REM MD5 58138e00f9d53129e01af83e521cd298
+FILE "Tom Clancy's Rainbow Six (Europe) (En,Fr,It).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

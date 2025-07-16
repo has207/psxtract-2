@@ -1,0 +1,8 @@
+REM MD5 a163bc68faae40ba0249ac4ff30f4715
+FILE "Kotobuki Grand Prix - Mezase! Genchari King (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 07:52:71
+    INDEX 01 07:54:71
+REM LEADOUT 12:54:72

@@ -1,0 +1,5 @@
+REM MD5 0e676b325fb431e8f029df4d3c0b6f74
+FILE "Who Wants to Be a Millionaire - Junior (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 28:24:02

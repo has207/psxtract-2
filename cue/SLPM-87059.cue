@@ -1,0 +1,5 @@
+REM MD5 1ed159ea8291af58adb6c8fb5213e51c
+FILE "Hikaru no Go - Heian Gensou Ibunroku (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 48:36:44

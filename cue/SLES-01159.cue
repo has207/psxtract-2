@@ -1,0 +1,5 @@
+REM MD5 cfba4db46b5a18eb226409ae74ad6cc0
+FILE "Warhammer - Dark Omen (Europe) (En,Fr,De).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 67:34:06

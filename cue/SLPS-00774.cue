@@ -1,0 +1,5 @@
+REM MD5 095014ec7068e58ab85ef0a987018c6c
+FILE "Game Nihonshi - Kakumeiji Oda Nobunaga (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 61:44:22

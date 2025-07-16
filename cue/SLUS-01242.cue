@@ -1,0 +1,5 @@
+REM MD5 614ffcc6b5a614f4203b6fbafeb9545d
+FILE "Disney's Donald Duck - Goin' Quackers (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 29:04:70

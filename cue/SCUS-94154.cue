@@ -1,3 +1,4 @@
+REM MD5 3c31b5e038f025098a2fdfa70c8213f2
 FILE "Crash Bandicoot 2 - Cortex Strikes Back (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

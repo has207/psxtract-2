@@ -1,0 +1,5 @@
+REM MD5 af3f34c5c74c3db52edec887239372ae
+FILE "R (Japan) (Disc 1) (Shokai Genteiban).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 53:58:60

@@ -1,0 +1,5 @@
+REM MD5 bde112cbd2d551f8f812f06202a68a1b
+FILE "Worms Armageddon (Europe) (Fr,Nl,Sv,No,Da).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 52:14:11

@@ -1,3 +1,4 @@
+REM MD5 b0e6559c00e2510c3d72045bbfae0e14
 FILE "Fade to Black (USA) (En,Fr,De,Es,It).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,0 +1,5 @@
+REM MD5 db7cd4d445e19b8df5d5287c58343c1c
+FILE "Kaikan Phrase - Datenshi Kourin (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 58:30:38

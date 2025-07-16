@@ -1,3 +1,4 @@
+REM MD5 31d5066b122de92b8abb9dfa54c1fa59
 FILE "Disney's Hercules Action Game (USA) (Rerelease).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

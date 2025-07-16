@@ -1,0 +1,5 @@
+REM MD5 78b4f0f9a6c5dbc0963a87ad571ae3ab
+FILE "TechnoMage - Return of Eternity (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 64:28:00

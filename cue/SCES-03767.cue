@@ -1,0 +1,5 @@
+REM MD5 3893d53b4ce8eea303c2600e05996633
+FILE "Disney-Pixar Monstruos, S.A. - Isla de los Sustos (Spain).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 69:32:17

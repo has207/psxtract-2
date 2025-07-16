@@ -1,0 +1,5 @@
+REM MD5 2b0f9f56b65d245fdb94c38724e61908
+FILE "Meitantei Conan - Trick Trick Vol. 1 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 16:05:26

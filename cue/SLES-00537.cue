@@ -1,4 +1,5 @@
-FILE "Re-Loaded (Europe) (En,Fr,De) (Track 01).bin" BINARY
+REM MD5 d8a330b124a3ad186328c32002754b91
+FILE "Re-Loaded (Europe) (En,Fr,De).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

@@ -1,0 +1,5 @@
+REM MD5 64afa9fa8f7beb899167a1016df6cc2c
+FILE "Heart of Darkness (Europe) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 29:30:52

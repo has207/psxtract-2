@@ -1,0 +1,5 @@
+REM MD5 e004ade7038418517b8a7e44d30a4ff3
+FILE "Disneys Kejserens Nye Flip (Denmark).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 58:15:01

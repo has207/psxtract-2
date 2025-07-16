@@ -1,0 +1,5 @@
+REM MD5 2af5e0427a462ee2778899ee6c29bb3d
+FILE "Soukou Kihei Votoms - Woodo Kummen (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 29:42:41

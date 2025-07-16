@@ -1,0 +1,5 @@
+REM MD5 633bc4ad9a0fff69415967d56c4571bc
+FILE "Barbie - Sports Extreme (France).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 30:42:50

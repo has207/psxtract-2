@@ -1,0 +1,5 @@
+REM MD5 455d8997a36ea016ef1d1eb2ad2422f2
+FILE "Discworld II - Mortellement Votre (France).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 70:40:59

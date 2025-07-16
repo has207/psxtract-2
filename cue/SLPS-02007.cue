@@ -1,0 +1,5 @@
+REM MD5 d41ee1457a600845a12a729cdffdbaaa
+FILE "Macross VF-X2 & Patlabor - The Game (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 16:00:27

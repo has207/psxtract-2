@@ -1,0 +1,5 @@
+REM MD5 4ebd49e860d4984c4a62a1c763d855ce
+FILE "Keiba Saishou no Housoku '99 Shuutou (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 65:15:55

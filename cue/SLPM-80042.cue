@@ -1,0 +1,5 @@
+REM MD5 a810a3267248dcb73b6e9b9d3d00c0d9
+FILE "Twilight Syndrome (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 43:56:62

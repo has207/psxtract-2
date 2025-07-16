@@ -1,3 +1,4 @@
+REM MD5 d2d9ac7e455da938d9be26b2efe051b3
 FILE "Depth (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

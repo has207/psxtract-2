@@ -1,0 +1,5 @@
+REM MD5 8887c54db8f288a09b6b81f84186f1a3
+FILE "Star Wars - Episode I - Jedi Power Battles (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 41:59:03

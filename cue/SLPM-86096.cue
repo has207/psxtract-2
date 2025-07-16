@@ -1,0 +1,5 @@
+REM MD5 63686359b5f873ad6ae178a6eea77e92
+FILE "Yu-Gi-Oh! Monster Capsule Breed & Battle (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 16:12:17

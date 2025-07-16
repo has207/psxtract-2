@@ -1,0 +1,5 @@
+REM MD5 e72f3a7cc88eca43fe810974ed2007c8
+FILE "3D-Kaleidoscope - Baby Universe (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 37:30:29

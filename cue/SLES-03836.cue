@@ -1,0 +1,5 @@
+REM MD5 4b49155fa6fde19b0fb534ff127d661a
+FILE "Hugo - The Evil Mirror (Europe) (En,Da,Pl).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 64:16:46

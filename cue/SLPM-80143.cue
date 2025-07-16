@@ -1,3 +1,4 @@
+REM MD5 fd42c7dcec5ddafb8bce2756b7686055
 FILE "Cool Boarders 2 - Killing Session (Japan) (Demo).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

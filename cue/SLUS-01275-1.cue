@@ -1,0 +1,5 @@
+REM MD5 74d55be5e2a322a0124efff6fd1f86f2
+FILE "Fear Effect 2 - Retro Helix (USA) (Disc 2) (Rev 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 65:41:13

@@ -1,4 +1,5 @@
-FILE "Tomb Raider II - Starring Lara Croft (Germany) (Track 01).bin" BINARY
+REM MD5 99315d43d74e7807e9b1552809e010c8
+FILE "Tomb Raider II - Starring Lara Croft (Germany).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

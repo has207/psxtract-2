@@ -1,0 +1,5 @@
+REM MD5 2d41e536e73f4167da2b80ce4e1abe4f
+FILE "K-1 World Grand Prix 2001 - Kaimakuban (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 40:07:43

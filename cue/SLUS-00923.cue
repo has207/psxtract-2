@@ -1,4 +1,5 @@
-FILE "Resident Evil 3 - Nemesis (USA, Canada).bin" BINARY
+REM MD5 03ccf2f717dad9168640f518dd4e3e80
+FILE "Resident Evil 3 - Nemesis (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
 REM LEADOUT 68:13:68

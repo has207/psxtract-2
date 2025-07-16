@@ -1,3 +1,4 @@
+REM MD5 cb961dd0ad34e784a60def0f82e4efbe
 FILE "Miracle Space Race (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

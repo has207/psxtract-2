@@ -1,0 +1,5 @@
+REM MD5 85e2afa3022be5ae7dcaf6cc03470262
+FILE "Louvre - La Maldicion Final (Spain) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 56:03:12

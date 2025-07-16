@@ -1,3 +1,4 @@
+REM MD5 f05c65012852c4fc789f8ee7f2fe2f1e
 FILE "Heroine Dream 2 (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

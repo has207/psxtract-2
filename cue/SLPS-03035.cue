@@ -1,0 +1,5 @@
+REM MD5 d81774fe92c4d26a1958d729ff0743d2
+FILE "Simple 1500 Series Vol. 46 - The Mahjong Ochigee - Raku Jongg (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 23:02:55

@@ -1,0 +1,6 @@
+REM MD5 b79565163fc0952b48e3fff946878fd3
+FILE "Kids Station - Barbapapa (Japan) (Controller Set).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 00 00:00:00
+    INDEX 01 08:00:10
+REM LEADOUT 08:00:11

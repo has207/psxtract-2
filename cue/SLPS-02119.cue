@@ -1,3 +1,4 @@
+REM MD5 a2000dea8d52fc0fe65a6e02dfefc4cd
 FILE "Acid (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

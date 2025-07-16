@@ -1,0 +1,8 @@
+REM MD5 e13cc6c71aaa0f7c2f0fa0cf68366965
+FILE "SuperLite Gold Series - Minna no Othello (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 02:28:74
+    INDEX 01 02:30:74
+REM LEADOUT 05:25:11

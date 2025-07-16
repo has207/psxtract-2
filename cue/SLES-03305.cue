@@ -1,0 +1,5 @@
+REM MD5 ceb64d5d1a6123754e0f909782584cf7
+FILE "LEGO Isola 2 - La Rivincita del Briccone (Italy).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 23:06:10

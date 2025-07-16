@@ -1,4 +1,5 @@
-FILE "Mad Stalker - FullMetalForce (Japan) (Track 01).bin" BINARY
+REM MD5 44a6bf007752178d39e708f34432e37a
+FILE "Mad Stalker - FullMetalForce (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

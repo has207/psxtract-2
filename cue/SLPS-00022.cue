@@ -1,3 +1,4 @@
+REM MD5 b30bef69cfe225e96746c6c903986a96
 FILE "Starblade Alpha (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

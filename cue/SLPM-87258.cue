@@ -1,0 +1,5 @@
+REM MD5 4b00c6b400f5d276c721d83b55b23b4c
+FILE "Rockman 3 - Dr. Wily no Saigo! (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 46:10:05

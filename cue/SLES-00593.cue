@@ -1,0 +1,5 @@
+REM MD5 65f3854a7310812b4fab2fa45afaeb56
+FILE "Croc - Legend of the Gobbos (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 66:01:50

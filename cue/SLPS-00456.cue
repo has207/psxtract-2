@@ -1,4 +1,5 @@
-FILE "Cool Boarders (Japan) (Track 01).bin" BINARY
+REM MD5 a66c04082b21acb2e6bd8699799337f5
+FILE "Cool Boarders (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

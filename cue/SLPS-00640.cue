@@ -1,4 +1,5 @@
-FILE "Real Bout Garou Densetsu (Japan) (En,Ja) (Track 01).bin" BINARY
+REM MD5 406fab9523c5b1025da64012fdae03c4
+FILE "Real Bout Garou Densetsu (Japan) (En,Ja).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

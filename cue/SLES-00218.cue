@@ -1,3 +1,4 @@
+REM MD5 0b2076c28aef258bea37a04a24e06fd6
 FILE "Myst (Europe) (En,Fr,De,Es,It).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

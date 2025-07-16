@@ -1,3 +1,4 @@
+REM MD5 8301784761f831c664a562681690ff92
 FILE "Salaryman Champ - Tatakau Salaryman (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

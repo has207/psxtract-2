@@ -1,0 +1,5 @@
+REM MD5 f60ab5de55f1ac61509d60a107529a8b
+FILE "WarCraft II - The Dark Saga (Europe) (En,Fr,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 68:27:34

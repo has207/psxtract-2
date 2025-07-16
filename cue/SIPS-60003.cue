@@ -1,4 +1,5 @@
-FILE "Wipeout (Japan) (Track 01).bin" BINARY
+REM MD5 88aab500992f94f3d4070a0c88772f26
+FILE "Wipeout (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

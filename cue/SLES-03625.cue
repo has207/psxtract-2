@@ -1,0 +1,5 @@
+REM MD5 431fd3ac9480ada40da8b306fcba501a
+FILE "Spider-Man 2 - Enter - Electro (Germany).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 67:26:68

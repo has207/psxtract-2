@@ -1,3 +1,4 @@
+REM MD5 bbddf2958dc1208004ea97172227dd70
 FILE "Front Mission 3 (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

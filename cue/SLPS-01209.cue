@@ -1,0 +1,5 @@
+REM MD5 9d33dde972def91e305b0d69dd232253
+FILE "Blaze & Blade - Eternal Quest (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 61:47:00

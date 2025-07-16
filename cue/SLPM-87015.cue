@@ -1,0 +1,5 @@
+REM MD5 ea80d6b79881d0f012dfa907ad6b1a47
+FILE "Mini-Moni. Dice de Pyon! (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 12:44:01

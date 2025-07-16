@@ -1,0 +1,5 @@
+REM MD5 72b49df20402cc44a8a084f647dbd39b
+FILE "Gadget - Past as Future (Japan) (Disc 3).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 42:54:17

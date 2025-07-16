@@ -1,3 +1,4 @@
+REM MD5 cf830386e93d4e1a8d17e716d75b6070
 FILE "Wizard's Harmony R (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

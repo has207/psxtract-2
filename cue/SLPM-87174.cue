@@ -1,0 +1,5 @@
+REM MD5 273bc518591ebb7ed4b62840a86ad630
+FILE "Kaette Kita Cyborg Kuro-chan (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 08:10:62

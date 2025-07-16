@@ -1,0 +1,5 @@
+REM MD5 9f071acbe0109044cf217c779ce10756
+FILE "Jade Cocoon - Story of the Tamamayu (France).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 63:36:26

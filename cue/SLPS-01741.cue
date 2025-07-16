@@ -1,0 +1,5 @@
+REM MD5 618d5a3170954165ee15ed5af7e03010
+FILE "Hissatsu Pachinko Station 3 - Genshijin ga Ippai (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 09:05:53

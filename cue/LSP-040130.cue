@@ -1,0 +1,5 @@
+REM MD5 a1c8d63be712d6e0844bfa8bc7f3968a
+FILE "Timeless Math 2 - Maya, Observatory (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 45:41:65

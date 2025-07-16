@@ -1,4 +1,5 @@
-FILE "Arc the Lad II (Japan) (Rev 1).bin" BINARY
+REM MD5 5aa6f83d2c2b3be7eb14c2c9fbf2a9e3
+FILE "Arc the Lad II (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
 REM LEADOUT 69:50:12

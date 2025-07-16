@@ -1,0 +1,5 @@
+REM MD5 fd663e55283b083cd70e6ac746ed7a82
+FILE "Comic Bom Bom - DigimonWorld Premium Disc (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 36:01:22

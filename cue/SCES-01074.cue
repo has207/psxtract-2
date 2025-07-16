@@ -1,0 +1,5 @@
+REM MD5 38ec8b4b0fc43edb4e57db9723a5cd55
+FILE "Ghost in the Shell (France).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 61:59:09

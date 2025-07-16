@@ -1,0 +1,5 @@
+REM MD5 7e77a2bca7c99afc7cd5f9b4a79dad00
+FILE "Demo One (Version 7) (Europe) (En,Fr,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 62:55:31

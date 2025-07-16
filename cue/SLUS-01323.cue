@@ -1,3 +1,4 @@
+REM MD5 34a3f5ea63ac6a6e9753e5fd38425d7e
 FILE "Armored Core (USA) (Reprint).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

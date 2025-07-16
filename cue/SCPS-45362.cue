@@ -1,0 +1,8 @@
+REM MD5 21cee333f51b2705aa29eb4d97d3e0cc
+FILE "Mobile Suit Gundam - Char's Counterattack (Asia).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 64:44:12
+    INDEX 01 64:46:12
+REM LEADOUT 67:51:12

@@ -1,0 +1,5 @@
+REM MD5 edb0ef0d7a04f303c9993db08d2e0c4a
+FILE "OverBlood 2 - The East Edge File (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 08:15:48

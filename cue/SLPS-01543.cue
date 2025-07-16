@@ -1,3 +1,4 @@
+REM MD5 e78f926ca39bbd7be4bb524f6e25b7e8
 FILE "Neko Zamurai (Japan) (Disc 1).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

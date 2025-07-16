@@ -1,0 +1,5 @@
+REM MD5 6b050044b59c3adafbd1f431638aac34
+FILE "Junior Sports Fussball (Germany).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 65:14:06

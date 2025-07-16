@@ -1,4 +1,5 @@
-FILE "Bugriders - The Race of Kings (Europe) (Track 01).bin" BINARY
+REM MD5 d04acfb6d95bc2ae5955e76aa0c0af23
+FILE "Bugriders - The Race of Kings (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

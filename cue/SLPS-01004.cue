@@ -1,0 +1,5 @@
+REM MD5 2c1098e123b56274b79caf31091c85c2
+FILE "B Senjou no Alice - Alice on Borderlines (Japan) (Disc 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 66:04:70

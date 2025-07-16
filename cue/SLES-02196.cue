@@ -1,0 +1,5 @@
+REM MD5 2c4993e19df093005c2b570d2a1b43d7
+FILE "World Championship Snooker (Europe) (En,Fr,De).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 34:17:11

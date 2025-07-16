@@ -1,0 +1,5 @@
+REM MD5 6de9cc987b6eba64adc5b578b5b8144c
+FILE "Duke Nukem - Land of the Babes (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 66:52:41

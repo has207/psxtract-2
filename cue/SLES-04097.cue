@@ -1,0 +1,6 @@
+REM MD5 ccc18ff524bf19ff2e8bb27f824063cb
+FILE "Dancing Stage Fever (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    FLAGS DCP
+    INDEX 01 00:00:00
+REM LEADOUT 20:39:20

@@ -1,0 +1,8 @@
+REM MD5 6f7070ba26a0aeb0a022c666403171bc
+FILE "Aoki Ookami to Shiroki Mejika - Genchou Hishi (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 07:19:05
+    INDEX 01 07:21:05
+REM LEADOUT 10:53:31

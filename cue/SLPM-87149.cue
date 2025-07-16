@@ -1,0 +1,5 @@
+REM MD5 0ac7ed6393b6b28f80ee2428ccab8ed1
+FILE "Martialbeat 2 (Japan) (Disc 2) (Disc-F).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 62:32:25

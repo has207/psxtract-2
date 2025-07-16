@@ -1,0 +1,5 @@
+REM MD5 8358a0625898faf3f5d17238d60d7454
+FILE "Pandora Max Series Vol. 2 - Shisha no Yobu Yakata (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 33:45:29

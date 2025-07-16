@@ -1,4 +1,5 @@
-FILE "Deadheat Road (Japan) (Track 01).bin" BINARY
+REM MD5 e8f930dd000494b5b8554cfdd4260a37
+FILE "Deadheat Road (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

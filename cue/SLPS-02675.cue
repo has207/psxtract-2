@@ -1,0 +1,5 @@
+REM MD5 f3ebc99bdb6556f45e957af34efeaaf9
+FILE "FIFA 2000 - Europe League Soccer (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 36:23:50

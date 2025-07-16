@@ -1,0 +1,5 @@
+REM MD5 b9ef47514a560d6f9fd3090a702ff165
+FILE "Kenki Ippatsu! Crane Master ni Narou! (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 32:37:08

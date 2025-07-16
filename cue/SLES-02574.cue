@@ -1,0 +1,8 @@
+REM MD5 4fa62d50aea77204cdc3cdb8336624fe
+FILE "Mobil 1 Rally Championship (Europe) (En,Fr,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 46:46:09
+    INDEX 01 46:48:09
+REM LEADOUT 53:32:15

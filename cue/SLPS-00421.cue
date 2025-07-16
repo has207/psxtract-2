@@ -1,0 +1,5 @@
+REM MD5 c9cad025535ac175d2bf290cd6536d9d
+FILE "Gekka no Kishi - Ouryuu-sen (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 11:00:40

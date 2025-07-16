@@ -1,0 +1,5 @@
+REM MD5 88f5b24dcb9e9f97fef202c8a5c5a7fc
+FILE "Str.at.e.s. 1 - Match-A-Batch (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 70:51:31

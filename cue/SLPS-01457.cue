@@ -1,0 +1,5 @@
+REM MD5 09007d33a09e9fa9acd06c0b3c8af90a
+FILE "Elf o Karu Monotachi II (Japan) (Disc 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 69:32:06

@@ -1,0 +1,5 @@
+REM MD5 cbc0db328ac7deacd31c0e3b23ac4321
+FILE "Disney Pippo Giochi Pazzi (Italy).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 67:57:48

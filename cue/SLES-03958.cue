@@ -1,0 +1,5 @@
+REM MD5 d3a0ea2dab3f7f4d1ac80ba0b24936d9
+FILE "All Star Boxing (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 14:34:30

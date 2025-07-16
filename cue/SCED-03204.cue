@@ -1,0 +1,5 @@
+REM MD5 ca162f68b0f2e1ed00a7a95643edc50e
+FILE "This Is Football 2 (Italy) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 05:10:61

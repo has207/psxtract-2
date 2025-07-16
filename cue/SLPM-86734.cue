@@ -1,0 +1,5 @@
+REM MD5 2510449aadfb4d039e3a9bd03233943e
+FILE "Tenkuu no Restaurant - Hello! Project Ver. (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 39:47:53

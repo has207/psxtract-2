@@ -1,0 +1,5 @@
+REM MD5 ffdae5014086f43b38f92bc95c0836b5
+FILE "Disneys Tigerdyrets honningjagt (Denmark).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 34:20:62

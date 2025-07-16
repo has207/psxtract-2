@@ -1,0 +1,5 @@
+REM MD5 a848b1ddef560e4d0f7102796c067415
+FILE "Sanyo Pachinko Paradise 3 - Wan Wan Daikoushin (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 13:16:45

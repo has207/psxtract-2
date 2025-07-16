@@ -1,0 +1,5 @@
+REM MD5 3abb4f8f1ce240a346abea45d1594d45
+FILE "Monaco Grand Prix Racing Simulation 2 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 65:01:04

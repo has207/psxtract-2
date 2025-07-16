@@ -1,0 +1,5 @@
+REM MD5 dbecd4d94219f0b21f6c01157b65902b
+FILE "Saban's Power Rangers - Lightspeed Rescue (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 21:01:57

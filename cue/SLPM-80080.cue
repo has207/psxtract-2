@@ -1,0 +1,5 @@
+REM MD5 e2ddbafbc0b1b23a25067c0014816f36
+FILE "Kowloon's Gate (Japan) (Special Disc).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 43:51:53

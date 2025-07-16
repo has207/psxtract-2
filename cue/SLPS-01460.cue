@@ -1,0 +1,5 @@
+REM MD5 61ecde9adcd340843de929d21e4afb6d
+FILE "Yuuwaku Office Ren'aika (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 57:42:20

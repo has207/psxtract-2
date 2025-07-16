@@ -1,0 +1,5 @@
+REM MD5 ff536c3ce64d3895f48595a32341b4e8
+FILE "Stray Sheep - The Adventure of Poe & Merry (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 43:20:15

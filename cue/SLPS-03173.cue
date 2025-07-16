@@ -1,0 +1,5 @@
+REM MD5 586ec9ecb9c85f5e9a12a68d619a7c41
+FILE "Kids Station - Yancharu Moncha (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 10:31:32

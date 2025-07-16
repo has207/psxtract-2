@@ -1,0 +1,5 @@
+REM MD5 2dbcfb32b5639a5eb680115e99b45fa8
+FILE "Legacy of Kain - Soul Reaver (Europe) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 09:31:29

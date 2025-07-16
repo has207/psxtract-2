@@ -1,0 +1,5 @@
+REM MD5 c278c8c8e169e9d1161f5127d9b564af
+FILE "Pachi Slot Teiou W - Arabesque R, Hot Rod Queen (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 03:29:32

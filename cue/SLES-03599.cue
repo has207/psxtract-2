@@ -1,0 +1,5 @@
+REM MD5 4bcaea89e0c8a91d03cb3665c826db92
+FILE "Victory Boxing Contender (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 12:38:51

@@ -1,0 +1,5 @@
+REM MD5 fb67ee55b9216988a8784e79aad19340
+FILE "Sword of Camelot, The (Europe) (En,Fr,De,Nl).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 48:18:68

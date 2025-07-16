@@ -1,0 +1,5 @@
+REM MD5 7a98c2edc1e4c7eae266bd5b71bd90a8
+FILE "Yuugen Gaisha Chikyuu Boueitai (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 45:27:46

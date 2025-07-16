@@ -1,3 +1,4 @@
+REM MD5 6c9f68eb9088fed7f9015d21f562d79f
 FILE "Rayman 2 - The Great Escape (Europe) (Fr,De).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

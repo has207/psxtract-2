@@ -1,3 +1,4 @@
+REM MD5 9ae727ed4084c15ca4710ae0eff8bd0b
 FILE "Resident Evil 2 (France) (Disc 1).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

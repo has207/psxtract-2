@@ -1,4 +1,5 @@
-FILE "Simple 1500 Series Vol. 18 - The Bowling (Japan) (Track 01).bin" BINARY
+REM MD5 d4e4f2b839f7649ce1a89001f283c7f3
+FILE "Simple 1500 Series Vol. 18 - The Bowling (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

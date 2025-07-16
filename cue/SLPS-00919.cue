@@ -1,3 +1,4 @@
+REM MD5 f0dd89d9424140e271fd3ca4e50892da
 FILE "Carnage Heart EZ (Easy Zapping) (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

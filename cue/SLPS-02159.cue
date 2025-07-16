@@ -1,0 +1,5 @@
+REM MD5 8ea8c64a283b89d43422e5349a8cf1a1
+FILE "Meisha Retsuden - Greatest 70's (Japan) (Rev 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 59:20:52

@@ -1,0 +1,5 @@
+REM MD5 24874ed38c0a64b325e4aad19fe245f3
+FILE "Tokoro-san no Daifugou (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 11:05:23

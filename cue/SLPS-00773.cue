@@ -1,0 +1,5 @@
+REM MD5 14054b7f6393f6d11b53cd760e8b104f
+FILE "Dark Hunter Jou - Ijigen Gakuen (Japan) (En,Ja).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 63:26:42

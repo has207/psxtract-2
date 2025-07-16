@@ -1,0 +1,8 @@
+REM MD5 248fb396a70a1505c9cc3bbe59c7d322
+FILE "Floating Runner - 7-tsu no Suishou no Monogatari (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 00:59:00
+    INDEX 01 01:58:00
+REM LEADOUT 55:09:69

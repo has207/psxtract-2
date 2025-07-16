@@ -1,0 +1,5 @@
+REM MD5 1e50b7d0db4ecdffdf6a47ac9d64f85c
+FILE "007 - The World Is Not Enough (USA) (Beta) (2000-08-26).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 70:53:21

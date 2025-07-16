@@ -1,3 +1,4 @@
+REM MD5 f139c76f0a19dabd060069258a59313c
 FILE "Armored Core (Japan) (Demo 1).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

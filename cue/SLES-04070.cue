@@ -1,0 +1,5 @@
+REM MD5 0d9a7c38d6065ff4143a53df130b1e9f
+FILE "Winky the Little Bear (Europe) (En,Fr,De).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 55:59:14

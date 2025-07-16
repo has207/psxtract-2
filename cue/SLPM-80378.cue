@@ -1,0 +1,5 @@
+REM MD5 f81ef692023a48658fda456854aab5d6
+FILE "Derby Stallion Magazine Furoku CD-ROM Soushuu-hen (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 12:29:20

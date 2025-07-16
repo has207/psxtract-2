@@ -1,0 +1,5 @@
+REM MD5 2bcd246215906d810bd58617548ac9e5
+FILE "SuperLite 1500 Series - Asuka 120% Final - Burning Fest. Final (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 27:30:18

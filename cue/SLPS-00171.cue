@@ -1,3 +1,4 @@
+REM MD5 d6b0b2cb521d8cf18489beecf6aa108f
 FILE "Hi-Octane (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

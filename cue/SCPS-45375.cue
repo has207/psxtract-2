@@ -1,0 +1,5 @@
+REM MD5 cd2a9d4a92c8cea33b434fd41bbf002c
+FILE "Final Fantasy VIII (Japan, Asia) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 69:13:44

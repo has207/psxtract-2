@@ -1,0 +1,6 @@
+REM MD5 9a061ab222e7739b9f691f0184e43e37
+FILE "Vandal Hearts - Ushinawareta Kodai Bunmei (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    FLAGS DCP
+    INDEX 01 00:00:00
+REM LEADOUT 63:04:60

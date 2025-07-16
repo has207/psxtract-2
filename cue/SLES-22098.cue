@@ -1,0 +1,8 @@
+REM MD5 f5307ea59f9cf22437bf794a87946550
+FILE "Capcom Generations (Germany) (Disc 3) (The First Generation).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 46:32:51
+    INDEX 01 46:34:51
+REM LEADOUT 49:37:52

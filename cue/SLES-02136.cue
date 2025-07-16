@@ -1,3 +1,4 @@
+REM MD5 a62f45442640158001fc9ba98859ccc4
 FILE "Metal Gear Solid - Special Missions (Europe) (En,Fr,De,Es,It).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

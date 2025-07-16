@@ -1,0 +1,5 @@
+REM MD5 cfaa5801590ed95224829089df1575b0
+FILE "Gourmet Action Game - Manpuku!! Nabe Kazoku (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 07:25:70

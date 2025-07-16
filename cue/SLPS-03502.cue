@@ -1,3 +1,4 @@
+REM MD5 1ae5cf2d9d5258bf89c125e1d5438adf
 FILE "Final Fantasy II (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

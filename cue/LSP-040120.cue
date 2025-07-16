@@ -1,0 +1,5 @@
+REM MD5 cdb247edb626254d9145b45343823dc3
+FILE "Timeless Math 3 - Maya, King Jaguar's Village (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 60:04:74

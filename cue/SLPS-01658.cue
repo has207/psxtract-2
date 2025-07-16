@@ -1,0 +1,5 @@
+REM MD5 5949e99764b4a5b35fe057204420f001
+FILE "Zen Super Robot Taisen Denshi Daihyakka (Japan) (Disc 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 36:28:48

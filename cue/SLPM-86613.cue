@@ -1,3 +1,4 @@
+REM MD5 22c68504df9e83b048bb7a2e7607444e
 FILE "Arcade Hits - Raiden (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

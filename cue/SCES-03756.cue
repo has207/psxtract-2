@@ -1,0 +1,5 @@
+REM MD5 f6860d8b16dc275e42d148dc7d0bbbe2
+FILE "Jim Henson's The Hoobs (France).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 36:21:18

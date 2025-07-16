@@ -1,3 +1,4 @@
+REM MD5 a146f070877e561c3079eafdd35ddb36
 FILE "Vagrant Story (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,3 +1,4 @@
+REM MD5 2789797bc896afd489aecea106aa6563
 FILE "Peter Pan in Disney's Return to Never Land (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

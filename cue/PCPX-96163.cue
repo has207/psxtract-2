@@ -1,0 +1,5 @@
+REM MD5 b11b98d7f9469304c2a65cfe3b92541e
+FILE "Book of Watermarks, The (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 13:42:29

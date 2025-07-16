@@ -1,0 +1,5 @@
+REM MD5 2837fef2a7bf5fc8396ae4466c2670a4
+FILE "Inuyasha (Japan) (Shokai Seisanban).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 63:50:62

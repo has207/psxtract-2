@@ -1,3 +1,4 @@
+REM MD5 f275efeb0b76c0452556ffa581e23476
 FILE "Puyo Puyoon - Car-kun to Issho (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

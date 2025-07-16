@@ -1,0 +1,5 @@
+REM MD5 6e1d51deaab76e18d8f9fb1238dfbd8f
+FILE "Dracula - The Last Sanctuary (USA) (Disc 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 52:16:01

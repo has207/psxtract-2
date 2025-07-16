@@ -1,0 +1,5 @@
+REM MD5 16a1d68e4572bda9674a9d794e9d5132
+FILE "Disney Presents Tigger's Honey Hunt (USA) (Rerelease).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 36:16:57

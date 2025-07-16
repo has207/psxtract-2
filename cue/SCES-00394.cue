@@ -1,3 +1,4 @@
+REM MD5 10883ac19bc5dbaa69f722f52e70d70e
 FILE "Rapid Racer (Europe) (En,Fr,De,Es,It).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

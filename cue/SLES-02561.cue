@@ -1,3 +1,4 @@
+REM MD5 3bc2ff70178fe04a8e24dd23b4de7946
 FILE "Parasite Eve II (Spain) (Disc 1).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

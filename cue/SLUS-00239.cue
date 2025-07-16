@@ -1,0 +1,5 @@
+REM MD5 4046cc634ae774e8cf39e658dcd2c78e
+FILE "Alone in the Dark - One-Eyed Jack's Revenge (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 67:35:03

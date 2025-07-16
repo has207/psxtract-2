@@ -1,0 +1,5 @@
+REM MD5 08c7073dce65f4bd557b7ac5113badd2
+FILE "Fuujin Ryouiki Eretzvaju (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 10:41:49

@@ -1,3 +1,4 @@
+REM MD5 85074c7be640792f8ac52e1b0f421e25
 FILE "Fear Effect (France) (Disc 4).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

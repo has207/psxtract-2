@@ -1,0 +1,5 @@
+REM MD5 53052b49fc06c5f1c8d8992638a97757
+FILE "Suna no Embrace - Edin no Sato no Navel (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 30:14:16

@@ -1,0 +1,5 @@
+REM MD5 eb6d273b298ed3ffa15ed42d1014e286
+FILE "Legaia Densetsu (Japan) (Demo 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 18:43:25

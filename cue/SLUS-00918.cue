@@ -1,0 +1,8 @@
+REM MD5 f416026ef97ce727350c95992950bab8
+FILE "Romance of the Three Kingdoms VI - Awakening of the Dragon (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 18:21:74
+    INDEX 01 18:23:74
+REM LEADOUT 21:56:26

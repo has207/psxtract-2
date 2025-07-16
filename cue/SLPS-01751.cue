@@ -1,3 +1,4 @@
+REM MD5 e8d6f9fce4d5c488c4a87f9853744686
 FILE "Atelier Elie - Elie no Atelier - Salburg no Renkinjutsushi 2 (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

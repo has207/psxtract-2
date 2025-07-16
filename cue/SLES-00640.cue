@@ -1,0 +1,5 @@
+REM MD5 f0e17294d6fcc0d7ee43f8969ef5ac10
+FILE "Star Wars - Dark Forces (Italy).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 52:18:25

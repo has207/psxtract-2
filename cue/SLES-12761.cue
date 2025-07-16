@@ -1,0 +1,5 @@
+REM MD5 9e2d5f789bcac23c0d6b48243f569bb7
+FILE "Dracula - La Risurrezione (Italy) (Disc 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 70:58:46

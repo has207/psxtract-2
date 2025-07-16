@@ -1,0 +1,5 @@
+REM MD5 8b50e58a2531a75db92ae37e519e5331
+FILE "Nickelodeon Rugrats - Search for Reptar (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 57:29:31

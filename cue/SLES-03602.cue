@@ -1,0 +1,5 @@
+REM MD5 faba33280612f7b779dcb6b345c0872b
+FILE "Hidden & Dangerous (Europe) (En,Fr,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 12:00:60

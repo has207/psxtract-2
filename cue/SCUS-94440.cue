@@ -1,0 +1,5 @@
+REM MD5 e9c1b3b2af111d1f1f5b8a482a3eff47
+FILE "PlayStation Underground 3.1 (USA) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 52:55:27

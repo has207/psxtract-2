@@ -1,3 +1,4 @@
+REM MD5 af606522204dd4c31abef288cb05d74f
 FILE "Slam Dragon (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

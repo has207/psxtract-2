@@ -1,0 +1,5 @@
+REM MD5 259802e85fb1fe3b5f39c78033c7efd0
+FILE "Cardcaptor Sakura - Clow Card Magic (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 58:23:04

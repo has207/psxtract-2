@@ -1,0 +1,11 @@
+REM MD5 4924fe778722d4f5391bcccb6b85ca8a
+FILE "Bishoujo Ren'ai Mahjong Series - Karan Koron Gakuen - Pure Love-hen (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 05:07:62
+    INDEX 01 05:09:62
+  TRACK 03 AUDIO
+    INDEX 00 06:15:44
+    INDEX 01 06:17:44
+REM LEADOUT 10:40:44

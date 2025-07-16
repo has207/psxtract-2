@@ -1,0 +1,5 @@
+REM MD5 931e97fb23ccedb0504ed3283b33b950
+FILE "Nice Price Series Vol. 10 - Igo o Utou! (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 05:15:57

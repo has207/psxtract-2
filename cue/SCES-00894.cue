@@ -1,3 +1,4 @@
+REM MD5 d442e0ed9b5668cf33de265872f22f78
 FILE "Disney Action Game Disney Presenta Hercules (Italy).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

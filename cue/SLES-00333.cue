@@ -1,0 +1,5 @@
+REM MD5 28cbfd5ea4181529acd6550dfc6d0782
+FILE "International Track & Field (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 27:01:69

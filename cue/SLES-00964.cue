@@ -1,0 +1,5 @@
+REM MD5 b320579fd71fdbafd69d908791b5aa54
+FILE "Dragon Ball - Final Bout (France).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 15:12:04

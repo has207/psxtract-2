@@ -1,0 +1,8 @@
+REM MD5 fc061e0d8738e668fae809da7e6b30ec
+FILE "Senkai Taisen - TV Animation Senkaiden Houshin Engi yori (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 67:07:73
+    INDEX 01 67:09:73
+REM LEADOUT 70:27:71

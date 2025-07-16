@@ -1,0 +1,5 @@
+REM MD5 72e83bd2414d561a9bb066d9cbcce03f
+FILE "Adidas Power Soccer 98 (Europe) (En,Fr,De,Es,It,Nl).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 69:14:16

@@ -1,0 +1,8 @@
+REM MD5 57ad1f677e3b0aec4175b21ea710c00f
+FILE "Gunbare! Game Tengoku - The Game Paradise 2 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 60:17:71
+    INDEX 01 60:19:71
+REM LEADOUT 61:09:38

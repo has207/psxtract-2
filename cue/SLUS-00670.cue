@@ -1,3 +1,4 @@
+REM MD5 91badb09339ee7e3b6d235609e8da1be
 FILE "Armored Core - Project Phantasma (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,4 +1,5 @@
-FILE "Blockids (Japan) (Track 01).bin" BINARY
+REM MD5 57a1ab2ea29eb237de0732c2af1e9a1a
+FILE "Blockids (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

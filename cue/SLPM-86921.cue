@@ -1,0 +1,5 @@
+REM MD5 76974bfcc24c6d2a81ffd9dd5673fb24
+FILE "SuperLite Gold Series - Minna no Igo (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 37:39:30

@@ -1,3 +1,4 @@
+REM MD5 8d747c9d31560b29a1bbd8945f78e2fa
 FILE "Galaxy Fight (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

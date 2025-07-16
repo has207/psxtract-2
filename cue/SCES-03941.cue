@@ -1,0 +1,5 @@
+REM MD5 9d6ff1e4d30a6f14bc2dac6c2a1fb7e3
+FILE "Disney El Planeta del Tesoro (Spain).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 43:03:14

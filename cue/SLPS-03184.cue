@@ -1,3 +1,4 @@
+REM MD5 a8c6201018477ea1eb9ac5e9a42dbc2f
 FILE "Sentimental Graffiti (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -3,16 +3,125 @@
 // http://www.gnu.org/licenses/gpl-3.0.txt
 
 #include "psxtract.h"
-#include "md5_data.h"
+#include "md5_verify.h"
 #include "at3acm.h"
 #include "gui.h"
+#include "cue_resources.h"
 
 // Define printf to use GUI-aware version
 #define printf gui_printf
 
-// Global MD5 database
-MD5_ENTRY* g_md5_entries = NULL;
-int g_md5_count = 0;
+
+// Helper function to check if output files exist and prompt for overwrite
+static bool check_output_files_overwrite(const char* game_title, bool use_prebaked_cue) {
+    char cue_path[512];
+    char bin_path[512];
+    
+    sprintf(cue_path, "../%s.cue", game_title);
+    sprintf(bin_path, "../%s.bin", game_title);
+    
+    // Check if either file exists
+    FILE* test_cue = fopen(cue_path, "r");
+    FILE* test_bin = fopen(bin_path, "r");
+    
+    bool cue_exists = (test_cue != NULL);
+    bool bin_exists = (test_bin != NULL);
+    
+    if (test_cue) fclose(test_cue);
+    if (test_bin) fclose(test_bin);
+    
+    if (!cue_exists && !bin_exists) {
+        return true; // No files exist, proceed
+    }
+    
+    // Files exist, prompt for action
+    printf("\nOutput files already exist:\n");
+    if (cue_exists) printf("  %s\n", cue_path);
+    if (bin_exists) printf("  %s\n", bin_path);
+    
+    printf("DEBUG: isGUIMode() = %s\n", isGUIMode() ? "true" : "false");
+    
+    if (isGUIMode()) {
+        printf("DEBUG: Using GUI prompt\n");
+        // For GUI mode, use GUI prompt
+        char message[1024];
+        sprintf(message, "Output files already exist:\n");
+        if (cue_exists) {
+            strcat(message, "  ");
+            strcat(message, cue_path);
+            strcat(message, "\n");
+        }
+        if (bin_exists) {
+            strcat(message, "  ");
+            strcat(message, bin_path);
+            strcat(message, "\n");
+        }
+        strcat(message, "\nOverwrite existing files?");
+        
+        printf("DEBUG: About to call gui_prompt\n");
+        if (gui_prompt(message, "Output Files Exist")) {
+            printf("User chose to overwrite existing files.\n");
+            return true; // Overwrite
+        } else {
+            printf("User cancelled operation.\n");
+            return false; // Cancel
+        }
+    } else {
+        printf("DEBUG: Using console prompt\n");
+        // For console mode, ask user for action
+        char input[10];
+        printf("Do you want to overwrite existing files? (y/N): ");
+        if (fgets(input, sizeof(input), stdin) != NULL) {
+            char response = input[0];
+            if (response == 'y' || response == 'Y') {
+                printf("Overwriting existing files.\n");
+                return true; // Overwrite
+            }
+        }
+        printf("Operation cancelled.\n");
+        return false; // Cancel
+    }
+}
+
+// Helper function to read lines from string buffer (replaces fgets for embedded CUE files)
+static char* get_next_line(char** data_ptr, char* line_buffer, size_t buffer_size) {
+    if (!data_ptr || !*data_ptr || !**data_ptr) {
+        return NULL;
+    }
+    
+    char* start = *data_ptr;
+    char* end = strchr(start, '\n');
+    
+    if (end) {
+        size_t line_len = end - start;
+        if (line_len >= buffer_size) {
+            line_len = buffer_size - 1;
+        }
+        
+        strncpy(line_buffer, start, line_len);
+        line_buffer[line_len] = '\0';
+        
+        // Remove carriage return if present
+        if (line_len > 0 && line_buffer[line_len - 1] == '\r') {
+            line_buffer[line_len - 1] = '\0';
+        }
+        
+        *data_ptr = end + 1;
+        return line_buffer;
+    } else {
+        // Last line without newline
+        size_t line_len = strlen(start);
+        if (line_len >= buffer_size) {
+            line_len = buffer_size - 1;
+        }
+        
+        strncpy(line_buffer, start, line_len);
+        line_buffer[line_len] = '\0';
+        
+        *data_ptr = start + strlen(start); // Point to end
+        return line_buffer;
+    }
+}
 
 // Dynamic pregap override storage
 static PREGAP_OVERRIDE* g_dynamic_pregap_override = NULL;
@@ -1232,19 +1341,9 @@ bool check_prebaked_cue_file(char* disc_name, char* game_title)
     // Convert disc name to CUE format
     convert_disc_name_to_cue_format(disc_name, cue_name);
     
-    // Build the path to the CUE file relative to executable directory
-    sprintf(cue_file_path, "%s\\cue\\%s.cue", exe_dir, cue_name);
-    
-    // Check if file exists
-    struct stat st;
-    if (stat(cue_file_path, &st) != 0)
-    {
-        return false;
-    }
-    
-    // Read the CUE file and extract the title
-    FILE* cue_file = fopen(cue_file_path, "r");
-    if (cue_file == NULL)
+    // Load CUE file from embedded resources
+    char* cue_data = load_cue_resource(cue_name);
+    if (cue_data == NULL)
     {
         return false;
     }
@@ -1252,31 +1351,56 @@ bool check_prebaked_cue_file(char* disc_name, char* game_title)
     char line[512];
     game_title[0] = '\0';
     
-    // Read the first line to get the FILE entry
-    if (fgets(line, sizeof(line), cue_file) != NULL)
+    // Parse lines from memory to find the FILE entry (skip REM comments)
+    char* current_pos = cue_data;
+    char* line_end;
+    
+    while ((line_end = strchr(current_pos, '\n')) != NULL)
     {
-        // Parse the FILE line: FILE "Game Title.bin" BINARY
-        char* start = strchr(line, '"');
-        if (start != NULL)
+        size_t line_len = line_end - current_pos;
+        if (line_len < sizeof(line))
         {
-            start++; // Skip the opening quote
-            char* end = strchr(start, '"');
-            if (end != NULL)
+            strncpy(line, current_pos, line_len);
+            line[line_len] = '\0';
+            
+            // Skip REM comments and empty lines
+            char* trimmed = line;
+            while (*trimmed == ' ' || *trimmed == '\t') trimmed++; // Skip whitespace
+            
+            if (strncmp(trimmed, "FILE", 4) == 0)
             {
-                *end = '\0'; // Null terminate
-                strcpy(game_title, start);
-                
-                // Remove the .bin extension from the title
-                char* bin_ext = strstr(game_title, ".bin");
-                if (bin_ext != NULL)
+                // Parse the FILE line: FILE "Game Title.bin" BINARY
+                char* start = strchr(line, '"');
+                if (start != NULL)
                 {
-                    *bin_ext = '\0';
+                    start++; // Skip the opening quote
+                    char* end = strchr(start, '"');
+                    if (end != NULL)
+                    {
+                        *end = '\0'; // Null terminate
+                        strcpy(game_title, start);
+                        
+                        // Remove the .bin extension from the title
+                        char* bin_ext = strstr(game_title, ".bin");
+                        if (bin_ext != NULL)
+                        {
+                            *bin_ext = '\0';
+                        }
+                        
+                        // Found the FILE line, break out of loop
+                        free_cue_resource(cue_data);
+                        return true;
+                    }
                 }
+                break; // Found FILE line, stop searching
             }
         }
+        
+        // Move to next line
+        current_pos = line_end + 1;
     }
     
-    fclose(cue_file);
+    free_cue_resource(cue_data);
     return strlen(game_title) > 0;
 }
 
@@ -1284,7 +1408,6 @@ bool check_prebaked_cue_file(char* disc_name, char* game_title)
 PREGAP_OVERRIDE* parse_prebaked_cue_pregaps(char* disc_name)
 {
     char cue_name[0x20];
-    char cue_file_path[256];
     char exe_dir[_MAX_PATH];
     
     // Get executable directory
@@ -1296,12 +1419,9 @@ PREGAP_OVERRIDE* parse_prebaked_cue_pregaps(char* disc_name)
     // Convert disc name to CUE format
     convert_disc_name_to_cue_format(disc_name, cue_name);
     
-    // Build the path to the CUE file
-    sprintf(cue_file_path, "%s\\cue\\%s.cue", exe_dir, cue_name);
-    
-    // Open the CUE file
-    FILE* cue_file = fopen(cue_file_path, "r");
-    if (cue_file == NULL)
+    // Load CUE file from embedded resources
+    char* cue_data = load_cue_resource(cue_name);
+    if (cue_data == NULL)
     {
         return NULL;
     }
@@ -1310,7 +1430,7 @@ PREGAP_OVERRIDE* parse_prebaked_cue_pregaps(char* disc_name)
     PREGAP_OVERRIDE* pregap_override = (PREGAP_OVERRIDE*)malloc(sizeof(PREGAP_OVERRIDE));
     if (pregap_override == NULL)
     {
-        fclose(cue_file);
+        free_cue_resource(cue_data);
         return NULL;
     }
     
@@ -1326,8 +1446,11 @@ PREGAP_OVERRIDE* parse_prebaked_cue_pregaps(char* disc_name)
     int num_track_starts = 0;
     int leadout_frames = -1;  // Store LEADOUT position if found
     
+    // Create a working pointer for parsing the CUE data
+    char* cue_ptr = cue_data;
+    
     // First pass: collect all track start times (INDEX 00 and INDEX 01) and LEADOUT
-    while (fgets(line, sizeof(line), cue_file) != NULL)
+    while (get_next_line(&cue_ptr, line, sizeof(line)) != NULL)
     {
         // Look for REM LEADOUT entry
         if (strncmp(line, "REM LEADOUT ", 12) == 0)
@@ -1348,7 +1471,7 @@ PREGAP_OVERRIDE* parse_prebaked_cue_pregaps(char* disc_name)
                 int index00_frames = -1, index01_frames = -1;
                 
                 // Look for INDEX 00 and INDEX 01 for all tracks
-                while (fgets(line, sizeof(line), cue_file) != NULL)
+                while (get_next_line(&cue_ptr, line, sizeof(line)) != NULL)
                 {
                     if (strncmp(line, "    INDEX 00 ", 13) == 0)
                     {
@@ -1369,8 +1492,9 @@ PREGAP_OVERRIDE* parse_prebaked_cue_pregaps(char* disc_name)
                     }
                     else if (strncmp(line, "  TRACK ", 8) == 0)
                     {
-                        // Hit another track, put the line back
-                        fseek(cue_file, -strlen(line), SEEK_CUR);
+                        // Hit another track, we need to process this line in the main loop
+                        // Since we can't "put back" with string parsing, we'll handle this differently
+                        // Just break and the main loop will process this line
                         break;
                     }
                 }
@@ -1387,11 +1511,11 @@ PREGAP_OVERRIDE* parse_prebaked_cue_pregaps(char* disc_name)
         }
     }
     
-    // Reset file pointer for second pass
-    fseek(cue_file, 0, SEEK_SET);
+    // Reset data pointer for second pass
+    cue_ptr = cue_data;
     
     // Second pass: collect pregap info for audio tracks
-    while (fgets(line, sizeof(line), cue_file) != NULL)
+    while (get_next_line(&cue_ptr, line, sizeof(line)) != NULL)
     {
         if (strncmp(line, "  TRACK ", 8) == 0)
         {
@@ -1405,7 +1529,7 @@ PREGAP_OVERRIDE* parse_prebaked_cue_pregaps(char* disc_name)
                     int index00_mm = -1, index00_ss = -1, index00_ff = -1;
                     int index01_mm = -1, index01_ss = -1, index01_ff = -1;
                     
-                    while (fgets(line, sizeof(line), cue_file) != NULL)
+                    while (get_next_line(&cue_ptr, line, sizeof(line)) != NULL)
                     {
                         if (strncmp(line, "    INDEX 00 ", 13) == 0)
                         {
@@ -1418,8 +1542,10 @@ PREGAP_OVERRIDE* parse_prebaked_cue_pregaps(char* disc_name)
                         }
                         else if (strncmp(line, "  TRACK ", 8) == 0)
                         {
-                            // Hit another track, put the line back and use default
-                            fseek(cue_file, -strlen(line), SEEK_CUR);
+                            // Hit another track, adjust pointer back to reprocess this line
+                            cue_ptr -= strlen(line);
+                            if (cue_ptr > cue_data && *(cue_ptr-1) == '\n') cue_ptr--;
+                            if (cue_ptr > cue_data && *(cue_ptr-1) == '\r') cue_ptr--;
                             break;
                         }
                     }
@@ -1520,7 +1646,7 @@ PREGAP_OVERRIDE* parse_prebaked_cue_pregaps(char* disc_name)
         }
     }
     
-    fclose(cue_file);
+    free_cue_resource(cue_data);
     
     if (pregap_override->num_tracks == 0)
     {
@@ -1561,15 +1687,14 @@ int copy_prebaked_cue_file(char* disc_name, char* game_title, char* output_bin_n
     // Convert disc name to CUE format
     convert_disc_name_to_cue_format(disc_name, cue_name);
     
-    // Build paths relative to executable directory
-    sprintf(cue_file_path, "%s\\cue\\%s.cue", exe_dir, cue_name);
+    // Build output path
     sprintf(output_cue_path, "../%s.cue", game_title);
     
-    // Open source CUE file
-    FILE* source_cue = fopen(cue_file_path, "r");
-    if (source_cue == NULL)
+    // Load CUE file from embedded resources
+    char* cue_data = load_cue_resource(cue_name);
+    if (cue_data == NULL)
     {
-        printf("ERROR: Could not open source CUE file %s\n", cue_file_path);
+        printf("ERROR: Could not load embedded CUE file for %s\n", cue_name);
         return -1;
     }
     
@@ -1578,16 +1703,27 @@ int copy_prebaked_cue_file(char* disc_name, char* game_title, char* output_bin_n
     if (dest_cue == NULL)
     {
         printf("ERROR: Could not create output CUE file %s\n", output_cue_path);
-        fclose(source_cue);
+        free_cue_resource(cue_data);
         return -1;
     }
     
-    // Copy the CUE file, but replace the BIN filename with our output name
+    // Copy the CUE file, but replace the BIN filename with our output name and filter out REM lines
     char line[512];
-    while (fgets(line, sizeof(line), source_cue) != NULL)
+    char* cue_ptr = cue_data;
+    while (get_next_line(&cue_ptr, line, sizeof(line)) != NULL)
     {
+        // Skip REM comments (including REM MD5 and REM LEADOUT lines)
+        char* trimmed = line;
+        while (*trimmed == ' ' || *trimmed == '\t') trimmed++; // Skip leading whitespace
+        
+        if (strncmp(trimmed, "REM ", 4) == 0)
+        {
+            // Skip REM lines completely
+            continue;
+        }
+        
         // Check if this is the FILE line
-        if (strncmp(line, "FILE ", 5) == 0)
+        if (strncmp(trimmed, "FILE ", 5) == 0)
         {
             // Replace with our BIN filename (lowercase .bin extension)
             fprintf(dest_cue, "FILE \"%s.bin\" BINARY\n", output_bin_name);
@@ -1595,11 +1731,11 @@ int copy_prebaked_cue_file(char* disc_name, char* game_title, char* output_bin_n
         else
         {
             // Copy the line as-is
-            fputs(line, dest_cue);
+            fprintf(dest_cue, "%s\n", line);
         }
     }
     
-    fclose(source_cue);
+    free_cue_resource(cue_data);
     fclose(dest_cue);
     
     printf("Copied prebaked CUE file to %s\n", output_cue_path);
@@ -1665,6 +1801,13 @@ int decrypt_single_disc(FILE* psar, long long psar_size, long long startdat_offs
 			free(g_dynamic_pregap_override);
 			g_dynamic_pregap_override = NULL;
 		}
+	}
+	
+	// Check if output files already exist and prompt for overwrite
+	if (!check_output_files_overwrite(game_title, use_prebaked_cue)) {
+		printf("Operation cancelled by user.\n");
+		fclose(iso_table);
+		return -2;
 	}
 
 	// Seek inside the ISO table to find the special data offset.
@@ -1819,12 +1962,10 @@ int decrypt_single_disc(FILE* psar, long long psar_size, long long startdat_offs
 			return -1;
 		}
 		
-		// MD5 verification before the success message
-		if (g_md5_entries != NULL && g_md5_count > 0) {
-			printf("\n=== MD5 VERIFICATION ===\n");
-			verify_data_track_md5(data_bin_fixed, iso_disc_name, g_md5_entries, g_md5_count);
-			printf("========================\n\n");
-		}
+		// MD5 verification using prebaked CUE
+		printf("\n=== MD5 VERIFICATION ===\n");
+		verify_data_track_md5_cue(data_bin_fixed, iso_disc_name);
+		printf("========================\n\n");
 		
 		printf("Disc successfully converted using prebaked CUE file!\n");
 	}
@@ -1838,12 +1979,10 @@ int decrypt_single_disc(FILE* psar, long long psar_size, long long startdat_offs
 			return -1;
 		}
 		
-		// MD5 verification before the success message
-		if (g_md5_entries != NULL && g_md5_count > 0) {
-			printf("\n=== MD5 VERIFICATION ===\n");
-			verify_data_track_md5(data_bin_fixed, iso_disc_name, g_md5_entries, g_md5_count);
-			printf("========================\n\n");
-		}
+		// MD5 verification using prebaked CUE
+		printf("\n=== MD5 VERIFICATION ===\n");
+		verify_data_track_md5_cue(data_bin_fixed, iso_disc_name);
+		printf("========================\n\n");
 		
 		printf("Disc successfully converted to BIN/CUE format!\n");
 	}
@@ -1973,6 +2112,18 @@ int decrypt_multi_disc(FILE *psar, long long psar_size, long long startdat_offse
 					g_dynamic_pregap_override = NULL;
 				}
 			}
+			
+			// Declare variables that may be used after goto
+			char data_x_bin[0x10];
+			char data_x_bin_fixed[256];
+			int data_gap;
+			
+			// Check if output files already exist and prompt for overwrite
+			if (!check_output_files_overwrite(disc_game_title, use_prebaked_cue)) {
+				printf("Operation cancelled by user for disc %d.\n", i + 1);
+				fclose(iso_table);
+				goto next_disc;
+			}
 
 			// Build the data track.
 			printf("Building data track for disc %d...\n", i + 1);
@@ -1982,13 +2133,11 @@ int decrypt_multi_disc(FILE *psar, long long psar_size, long long startdat_offse
 				printf("Data track successfully reconstructed for disc %d!\n", i + 1);
 			printf("\n");
 
-			char data_x_bin[0x10];
 			sprintf(data_x_bin, "DATA_%d.BIN", i + 1);
-			char data_x_bin_fixed[256];
 			memset(data_x_bin_fixed, 0, 256);
 			strcat(data_x_bin_fixed, data_x_bin);
 			strcat(data_x_bin_fixed, ".ISO");
-			int data_gap = fix_iso(iso_table, data_x_bin, data_x_bin_fixed);
+			data_gap = fix_iso(iso_table, data_x_bin, data_x_bin_fixed);
 			if (data_gap < 0)
 			{
 				printf("ERROR: unable to fix data track\n");
@@ -2119,34 +2268,32 @@ int decrypt_multi_disc(FILE *psar, long long psar_size, long long startdat_offse
 		}
 	}
 
-	// MD5 verification before the success message
-	if (g_md5_entries != NULL && g_md5_count > 0) {
-		printf("\n=== MD5 VERIFICATION ===\n");
-		// Verify each disc's data track
-		for (int i = 0; i < MAX_DISCS; i++) {
-			if (disc_offset[i] > 0) {
-				// Re-open the ISO header to get the disc serial
-				char iso_header_filename[0x14];
-				sprintf(iso_header_filename, "ISO_HEADER_%d.BIN", i + 1);
-				FILE* iso_table = fopen(iso_header_filename, "rb");
-				if (iso_table != NULL) {
-					// Read the disc serial
-					char disc_serial[0x10];
-					memset(disc_serial, 0, 0x10);
-					fseek(iso_table, 1, SEEK_SET);
-					fread(disc_serial, 0x0F, 1, iso_table);
-					fclose(iso_table);
-					
-					// Verify the data track
-					char data_track_file[256];
-					sprintf(data_track_file, "DATA_%d.BIN.ISO", i + 1);
-					verify_data_track_md5(data_track_file, disc_serial, g_md5_entries, g_md5_count);
-					printf("\n"); // Add spacing between disc verifications
-				}
+	// MD5 verification using prebaked CUE files
+	printf("\n=== MD5 VERIFICATION ===\n");
+	// Verify each disc's data track
+	for (int i = 0; i < MAX_DISCS; i++) {
+		if (disc_offset[i] > 0) {
+			// Re-open the ISO header to get the disc serial
+			char iso_header_filename[0x14];
+			sprintf(iso_header_filename, "ISO_HEADER_%d.BIN", i + 1);
+			FILE* iso_table = fopen(iso_header_filename, "rb");
+			if (iso_table != NULL) {
+				// Read the disc serial
+				char disc_serial[0x10];
+				memset(disc_serial, 0, 0x10);
+				fseek(iso_table, 1, SEEK_SET);
+				fread(disc_serial, 0x0F, 1, iso_table);
+				fclose(iso_table);
+				
+				// Verify the data track
+				char data_track_file[256];
+				sprintf(data_track_file, "DATA_%d.BIN.ISO", i + 1);
+				verify_data_track_md5_cue(data_track_file, disc_serial);
+				printf("\n"); // Add spacing between disc verifications
 			}
 		}
-		printf("========================\n\n");
 	}
+	printf("========================\n\n");
 	
 	printf("Successfully reconstructed %d discs!\n", disc_count);
 	fclose(iso_map);
@@ -2181,10 +2328,22 @@ int main(int argc, char **argv)
 
 	// Check if we want to clean up temp files before exiting.
 	bool cleanup = false;
-	if (!strcmp(argv[1], "-c"))
-	{
-		cleanup = true;
-		arg_offset++;
+	
+	// Parse command line arguments
+	for (int i = 1; i < argc; i++) {
+		printf("DEBUG: Processing argument %d: '%s'\n", i, argv[i]);
+		if (!strcmp(argv[i], "-c")) {
+			cleanup = true;
+			arg_offset++;
+			printf("DEBUG: Found -c flag, cleanup enabled\n");
+		} else if (!strcmp(argv[i], "--gui")) {
+			setGUIMode(true);
+			arg_offset++;
+			printf("DEBUG: Found --gui flag, GUI mode enabled\n");
+		} else {
+			printf("DEBUG: Non-flag argument, stopping parsing\n");
+			break; // Stop at first non-flag argument
+		}
 	}
 
 	// Call the main extraction function
@@ -2215,13 +2374,6 @@ int psxtract_main(const char* pbp_file, const char* document_file, const char* k
 	// Start KIRK.
 	kirk_init();
 	
-	// Load MD5 database for verification
-	g_md5_count = load_md5_entries(&g_md5_entries);
-	if (g_md5_count > 0) {
-		printf("MD5 verification database loaded with %zu entries\n\n", g_md5_count);
-	} else {
-		printf("Warning: MD5 verification database not available\n\n");
-	}
 
 
 	// Set an empty PGD key.
@@ -2254,15 +2406,21 @@ int psxtract_main(const char* pbp_file, const char* document_file, const char* k
 	// Check if TEMP directory already exists from a previous run
 	struct stat temp_stat;
 	if (stat("TEMP", &temp_stat) == 0 && (temp_stat.st_mode & S_IFDIR)) {
-		printf("WARNING: TEMP directory already exists from a previous run.\n");
-		printf("This may contain files that could interfere with the current extraction.\n");
-		
-		if (gui_prompt("TEMP directory already exists from a previous run.\nThis may contain files that could interfere with the current extraction.\n\nDelete TEMP directory and continue?", "TEMP Directory Exists")) {
-			printf("Removing existing TEMP directory...\n");
+		if (cleanup) {
+			// In cleanup mode, automatically remove TEMP directory
+			printf("TEMP directory exists from previous run. Removing automatically (cleanup mode)...\n");
 			system("rmdir /S /Q TEMP");
 		} else {
-			printf("Extraction cancelled. Please manually remove TEMP directory and try again.\n");
-			return 1;
+			printf("WARNING: TEMP directory already exists from a previous run.\n");
+			printf("This may contain files that could interfere with the current extraction.\n");
+			
+			if (gui_prompt("TEMP directory already exists from a previous run.\nThis may contain files that could interfere with the current extraction.\n\nDelete TEMP directory and continue?", "TEMP Directory Exists")) {
+				printf("Removing existing TEMP directory...\n");
+				system("rmdir /S /Q TEMP");
+			} else {
+				printf("Extraction cancelled. Please manually remove TEMP directory and try again.\n");
+				return 1;
+			}
 		}
 	}
 	
@@ -2334,10 +2492,32 @@ int psxtract_main(const char* pbp_file, const char* document_file, const char* k
 	const unsigned long startdat_offset = extract_startdat(psar, isMultidisc);
 
 	// Decrypt the disc(s).
+	int decrypt_result;
 	if (isMultidisc)
-		decrypt_multi_disc(psar, psar_size, startdat_offset, pgd_key);
+		decrypt_result = decrypt_multi_disc(psar, psar_size, startdat_offset, pgd_key);
 	else
-		decrypt_single_disc(psar, psar_size, startdat_offset, pgd_key);
+		decrypt_result = decrypt_single_disc(psar, psar_size, startdat_offset, pgd_key);
+	
+	if (decrypt_result < 0) {
+		fclose(psar);
+		fclose(input);
+		
+		// Clean up dynamic pregap override
+		if (g_dynamic_pregap_override != NULL) {
+			free((void*)g_dynamic_pregap_override->game_id);
+			free(g_dynamic_pregap_override);
+			g_dynamic_pregap_override = NULL;
+		}
+		
+		// Restore original directory if we changed it
+		if (output_dir && strcmp(output_dir, ".") != 0) {
+			if (_chdir(original_dir) != 0) {
+				printf("Warning: Failed to restore original directory\n");
+			}
+		}
+		
+		return decrypt_result;
+	}
 
 	// Change the directory back.
 	_chdir("..");
@@ -2355,12 +2535,6 @@ int psxtract_main(const char* pbp_file, const char* document_file, const char* k
 		system("rmdir /S /Q TEMP");
 	}
 	
-	// Clean up MD5 database
-	if (g_md5_entries != NULL) {
-		free(g_md5_entries);
-		g_md5_entries = NULL;
-		g_md5_count = 0;
-	}
 	
 	// Clean up dynamic pregap override
 	if (g_dynamic_pregap_override != NULL) {

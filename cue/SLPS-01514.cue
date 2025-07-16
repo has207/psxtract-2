@@ -1,0 +1,5 @@
+REM MD5 1d6c3e41115b34d4dad184704f01867c
+FILE "Dragon Seeds - Saishuu Shinka Keitai (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 24:21:21

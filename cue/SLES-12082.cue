@@ -1,3 +1,4 @@
+REM MD5 6a8bf29ba19153e9b7e3e3582810cf4f
 FILE "Final Fantasy VIII (Germany) (Disc 2).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

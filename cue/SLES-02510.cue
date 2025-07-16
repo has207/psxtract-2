@@ -1,0 +1,5 @@
+REM MD5 99b3bb2a9e768a39db89752cc27f7d10
+FILE "Sesame Street - Elmo's Letter Adventure (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 55:05:43

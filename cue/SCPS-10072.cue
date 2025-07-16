@@ -1,0 +1,5 @@
+REM MD5 a8d9ea2e4b1d5e72ba2ed0f3b8d4c5df
+FILE "Wonder Trek (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 29:39:19

@@ -1,0 +1,8 @@
+REM MD5 422c3bba919513fe3fafbebbbe1d7ff3
+FILE "Rising Zan - The Samurai Gunman (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 67:12:03
+    INDEX 01 67:14:03
+REM LEADOUT 70:32:04

@@ -1,0 +1,5 @@
+REM MD5 bccec23d8ae7e0acb0b50e7cec2042ca
+FILE "Over Drivin' III - Hot Pursuit (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 49:44:55

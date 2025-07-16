@@ -1,4 +1,5 @@
-FILE "Simple 1500 Series Vol. 97 - The Squash (Japan) (Track 01).bin" BINARY
+REM MD5 3a6382622f5e7895c7524308f93348a8
+FILE "Simple 1500 Series Vol. 97 - The Squash (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

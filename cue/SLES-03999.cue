@@ -1,0 +1,5 @@
+REM MD5 5f4d913ba6ebbce7cda90ac6eb98452d
+FILE "M&M's - Shell Shocked (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 41:30:43

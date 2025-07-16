@@ -1,0 +1,11 @@
+REM MD5 aba457666efd8fe66b60e31165d1f0c4
+FILE "Command & Conquer - Alarmstufe Rot & Bloody Roar (Germany) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 08:46:66
+    INDEX 01 08:48:66
+  TRACK 03 AUDIO
+    INDEX 00 09:31:59
+    INDEX 01 09:33:59
+REM LEADOUT 13:19:27

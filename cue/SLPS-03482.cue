@@ -1,3 +1,4 @@
+REM MD5 a42c72d7fb1fb14f6c39bf0e3dfac200
 FILE "Saikyou Ginsei Chess (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

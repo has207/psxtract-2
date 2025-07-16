@@ -1,3 +1,4 @@
+REM MD5 59e8eb95e20c5d65dd1158d5a43c850c
 FILE "Shin Megami Tensei (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

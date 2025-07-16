@@ -1,0 +1,5 @@
+REM MD5 e8b17be63c8ccef75dbddf2115131228
+FILE "Bloody Roar - Hyper Beast Duel (Europe) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 06:27:01

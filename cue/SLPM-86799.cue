@@ -1,0 +1,8 @@
+REM MD5 d1bbd9a0bef59b9d43e64f02612ab024
+FILE "SuperLite Gold Series - Minna no Mahjong (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 27:36:01
+    INDEX 01 27:38:01
+REM LEADOUT 32:23:29

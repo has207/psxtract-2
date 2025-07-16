@@ -1,0 +1,5 @@
+REM MD5 b8d830cca71496efef75ab7343470bc4
+FILE "Wizardry - Llylgamyn Saga (Japan) (En,Ja).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 35:51:33

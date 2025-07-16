@@ -1,0 +1,5 @@
+REM MD5 229628af174c756e2d72875347ae6cd1
+FILE "Kyousouba Ikusei Simulation - Derby Stallion (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 38:21:09

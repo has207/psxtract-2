@@ -1,0 +1,5 @@
+REM MD5 d252dbb8c7eebbf35539f4a09371291a
+FILE "WTC - World Touring Car Championship (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 26:36:23

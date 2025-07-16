@@ -1,0 +1,5 @@
+REM MD5 6e9224fd721c3c9734f7bf34f16c5046
+FILE "Dukes of Hazzard, The - Racing for Home (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 66:40:16

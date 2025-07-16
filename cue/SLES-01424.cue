@@ -1,0 +1,5 @@
+REM MD5 175a50eefd228aecaa8f2c7a8c330dd3
+FILE "Global Domination (Italy).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 55:04:36

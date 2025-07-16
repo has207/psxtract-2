@@ -1,0 +1,5 @@
+REM MD5 835a0390f345a37a8226e696db994b86
+FILE "Harry Potter and the Chamber of Secrets (USA) (En,Fr,Es).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 66:44:49

@@ -1,0 +1,8 @@
+REM MD5 0ff796834fbbc5622fb4def2cf744d7a
+FILE "Alnam no Kiba - Juuzoku Juuni Shinto Densetsu (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 38:50:32
+    INDEX 01 38:52:32
+REM LEADOUT 43:03:49

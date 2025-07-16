@@ -1,0 +1,5 @@
+REM MD5 0f8c29c4e8bfb790b1ecb3edbee4fe87
+FILE "Disruptor (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 60:17:15

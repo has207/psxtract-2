@@ -1,0 +1,5 @@
+REM MD5 93653eb589658a67899394ad52acc3cb
+FILE "Animetic Story Game 1 - Cardcaptor Sakura (Japan) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 45:04:68

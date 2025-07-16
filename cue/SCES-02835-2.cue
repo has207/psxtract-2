@@ -1,0 +1,5 @@
+REM MD5 ee95814fe276c76477d29b3217e0cc0b
+FILE "Spyro - Year of the Dragon (Europe) (En,Fr,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 70:37:05

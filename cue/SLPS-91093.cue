@@ -1,3 +1,4 @@
+REM MD5 92651d64029523e2922c5380612464bd
 FILE "Rockman - Battle & Chase (Japan) (PlayStation the Best for Family).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

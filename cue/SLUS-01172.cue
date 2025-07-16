@@ -1,0 +1,5 @@
+REM MD5 c8cd4f236c9a6d6acee5a418282dea4b
+FILE "Frogger 2 - Swampy's Revenge (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 35:05:07

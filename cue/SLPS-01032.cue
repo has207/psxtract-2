@@ -1,0 +1,5 @@
+REM MD5 3942b35973cea3bb26e3260aaeb3ad7c
+FILE "Keiba Saishou no Housoku '97 Vol. II - To Hit (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 37:51:22

@@ -1,0 +1,5 @@
+REM MD5 a0bfc7e7eff07082f37e3ae00bf58f63
+FILE "Tiger Woods 99 USA Tour Golf (Australia).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 35:33:23

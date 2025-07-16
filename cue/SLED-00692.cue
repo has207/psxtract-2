@@ -1,0 +1,5 @@
+REM MD5 1b6b796473c27a83be54ed58cef6e0f1
+FILE "Monster Trucks (Europe) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 04:05:63

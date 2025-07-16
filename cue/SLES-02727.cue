@@ -1,0 +1,5 @@
+REM MD5 1a1e4020ce299935d34b7b38f4f89150
+FILE "Victory Boxing Challenger (Europe) (En,Fr,De,Es).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 21:31:32

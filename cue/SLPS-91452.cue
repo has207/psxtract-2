@@ -1,0 +1,5 @@
+REM MD5 3af10a8ef6b75ac9f2c941cd7de52514
+FILE "Tenkuu no Restaurant (Japan) (Rev 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 19:28:56

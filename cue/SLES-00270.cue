@@ -1,0 +1,8 @@
+REM MD5 fa1bcf0222b56b49b364d36236abb8e6
+FILE "Adidas Power Soccer International '97 (Europe) (En,Fr,De,Es,It,Nl).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 46:11:03
+    INDEX 01 46:13:03
+REM LEADOUT 51:04:06

@@ -1,3 +1,4 @@
+REM MD5 c2af7873e5026d7dcce3f148acc70e6d
 FILE "Final Fantasy VI (Europe, Australia).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

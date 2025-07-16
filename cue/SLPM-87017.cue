@@ -1,3 +1,4 @@
+REM MD5 600e4eb2cf8499ac24f647c6af180fb6
 FILE "Simple 1500 Series Vol. 86 - The Onigokko (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,0 +1,5 @@
+REM MD5 1924ddcd16a053f6c5378b41dd4b3574
+FILE "Necronomicon - L'Aube des Tenebres (France) (Disc 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 67:47:46

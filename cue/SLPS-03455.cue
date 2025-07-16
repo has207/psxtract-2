@@ -1,0 +1,5 @@
+REM MD5 94cca66cb2044b618e6c1e0d002a6efd
+FILE "Pachi-Slot Teiou - Dateline Pegasus (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 07:05:02

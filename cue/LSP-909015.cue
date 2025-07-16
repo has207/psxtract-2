@@ -1,0 +1,5 @@
+REM MD5 3090c3a3777c19ac328eeaec672cb84e
+FILE "Unknown Variable 1 - Masque Manor (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 38:23:46

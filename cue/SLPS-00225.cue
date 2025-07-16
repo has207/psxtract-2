@@ -1,0 +1,5 @@
+REM MD5 aeeb404e3d7f4c5f2dc0dee60e8956de
+FILE "DeathMask (Japan) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 58:53:17

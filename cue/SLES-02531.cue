@@ -1,3 +1,4 @@
+REM MD5 b2a725f85ae5fe9568063a66fdc7d078
 FILE "Resident Evil 3 - Nemesis (Germany).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,0 +1,5 @@
+REM MD5 ebbbda7c63e0f18173f35cf1bcf6d13f
+FILE "Mezase! Meimon Yakyuubu (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 17:58:15

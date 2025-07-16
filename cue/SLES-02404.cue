@@ -1,0 +1,5 @@
+REM MD5 05126e7f27325348a68b9ded5e40e9ba
+FILE "International Cricket Captain 2000 (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 15:50:11

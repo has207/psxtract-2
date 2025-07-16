@@ -1,0 +1,8 @@
+REM MD5 65bda8b484df58fd01c5be511c083c15
+FILE "Slot! Pro 2 - Bakuretsu Oozumou Aka & Murasaki (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 01:20:49
+    INDEX 01 01:22:49
+REM LEADOUT 04:23:49

@@ -1,0 +1,5 @@
+REM MD5 78513e7e165ffd3c6070c0c80dd98f03
+FILE "Heiwa Pachinko Graffiti Vol. 2 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 08:44:47

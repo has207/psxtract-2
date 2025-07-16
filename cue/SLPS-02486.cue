@@ -1,0 +1,5 @@
+REM MD5 a960ce45a6dfda1c35dd32f1367de302
+FILE "Morita Kazurou no Hanafuda (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 05:30:69

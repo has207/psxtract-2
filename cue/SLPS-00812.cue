@@ -1,3 +1,4 @@
+REM MD5 d7123ec566ee9d54ef2ebba6cf32971c
 FILE "Fade to Black (Japan) (En,Ja).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

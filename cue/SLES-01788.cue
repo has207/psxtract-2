@@ -1,0 +1,5 @@
+REM MD5 fe8a063a846f1b7d4cc1609e79420820
+FILE "Need for Speed - Road Challenge (Europe) (En,Sv).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 69:16:20

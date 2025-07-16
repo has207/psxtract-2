@@ -1,0 +1,5 @@
+REM MD5 cf9111022a05259583ecb474e14d5e0f
+FILE "Wizardry Empire - Inishie no Oujo (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 07:49:69

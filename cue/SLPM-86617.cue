@@ -1,0 +1,5 @@
+REM MD5 fe97878cf67d12ae7250c03382f80439
+FILE "Champion Wrestler - Jikkyou Live (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 30:01:28

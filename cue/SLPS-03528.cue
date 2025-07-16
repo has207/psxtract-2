@@ -1,0 +1,5 @@
+REM MD5 b174dac26ff734e902cf6708692dc648
+FILE "Toko Toko Trouble - Chikyuu Itadaki! (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 05:35:23

@@ -1,0 +1,5 @@
+REM MD5 772ba5afcdd15258e5b981ddacc470c2
+FILE "Mahou Shoujo Fancy CoCo (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 48:30:26

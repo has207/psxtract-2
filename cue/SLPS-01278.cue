@@ -1,0 +1,5 @@
+REM MD5 243f34b8a5ab6fe4d93058dbc22db3b6
+FILE "Tensen Nyannyan Gekijouban (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 29:16:71

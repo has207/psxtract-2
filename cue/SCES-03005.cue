@@ -1,0 +1,5 @@
+REM MD5 8a3d1270766a27520c3f35e8b05afb38
+FILE "Disneys Aladdin - Nasiras Rache (Germany).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 59:06:57

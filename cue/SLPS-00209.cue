@@ -1,4 +1,5 @@
-FILE "Namco Museum Vol. 2 (Japan) (Gentei Box) (Track 01).bin" BINARY
+REM MD5 be0f1aa468bb2c70ba24f7d1568992ca
+FILE "Namco Museum Vol. 2 (Japan) (Gentei Box).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

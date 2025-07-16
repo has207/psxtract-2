@@ -1,0 +1,5 @@
+REM MD5 2be246a368da32e674e4ffc1476abb27
+FILE "Oro y Gloria - La Ruta hacia El Dorado (Spain).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 50:45:36

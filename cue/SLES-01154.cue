@@ -1,0 +1,5 @@
+REM MD5 2471ef7d099a12e6704b57f2241f114a
+FILE "Need for Speed III - Hot Pursuit (Europe) (En,Fr,De,Es,It,Sv).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 49:55:66

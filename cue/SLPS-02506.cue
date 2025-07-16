@@ -1,0 +1,5 @@
+REM MD5 87e2cb69570f628c636bce966ee08697
+FILE "DigimonWorld - Digital Card Battle (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 35:45:71

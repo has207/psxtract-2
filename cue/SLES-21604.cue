@@ -1,0 +1,5 @@
+REM MD5 2344a487c2b895b9e586f72290c06664
+FILE "Atlantis - Segreti d'un Mondo Perduto (Italy) (Disc 3).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 67:11:69

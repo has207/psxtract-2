@@ -1,0 +1,5 @@
+REM MD5 1abff6c4c3bac8f027ece8d46eb74f4b
+FILE "Xena - Warrior Princess (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 30:31:43

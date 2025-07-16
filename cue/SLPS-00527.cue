@@ -1,0 +1,5 @@
+REM MD5 4a688424362e6c1750b70ab2396eebcc
+FILE "Choujin Gakuen - Gowcaizer (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 26:04:18

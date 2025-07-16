@@ -1,0 +1,5 @@
+REM MD5 0beeaa32c899fb3012faa5f9a73fc6f4
+FILE "Bounty Sword First (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 50:00:43

@@ -1,4 +1,5 @@
-FILE "Tomb Raider (France) (Track 01).bin" BINARY
+REM MD5 7deb8eefd8d3458974417feede93fd19
+FILE "Tomb Raider (France).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

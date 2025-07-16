@@ -1,0 +1,5 @@
+REM MD5 03c1268bf11f5b70f155c36d0e24a5c8
+FILE "Digital Ehon Vol. 3 - Imadoki no Saru Kani (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 21:19:34

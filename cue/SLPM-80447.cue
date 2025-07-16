@@ -1,0 +1,5 @@
+REM MD5 eb596cb7af7f3b1f0575e0154ba8c866
+FILE "Spriggan - Lunar Verse (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 10:10:19

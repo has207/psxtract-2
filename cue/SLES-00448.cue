@@ -1,0 +1,8 @@
+REM MD5 771c0769fcac4e77e9a355135dc8fb4a
+FILE "Bubble Bobble also featuring Rainbow Islands (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 05:57:64
+    INDEX 01 05:59:64
+REM LEADOUT 09:00:14

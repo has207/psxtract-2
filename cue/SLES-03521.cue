@@ -1,0 +1,5 @@
+REM MD5 5363b1add2b43665d79382599b4356d7
+FILE "Men in Black - The Series - Crashdown (Germany).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 61:16:17

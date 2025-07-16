@@ -1,0 +1,5 @@
+REM MD5 ff4dd8fae7c0afc9ce910066b4c584b0
+FILE "Slot! Pro 4 - Tairyou Special (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 05:14:69

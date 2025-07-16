@@ -1,3 +1,4 @@
+REM MD5 b5e49fec6ad798e593613159853cb091
 FILE "SuperLite 1500 Series - Maerchen Adventure - Cotton 100% (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,0 +1,5 @@
+REM MD5 7117b2f6365abea75987131afd6ca1e7
+FILE "PlayStation Underground Volume 2 Issue 4 (USA) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 67:52:57

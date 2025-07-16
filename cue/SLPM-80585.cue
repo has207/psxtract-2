@@ -1,0 +1,5 @@
+REM MD5 222371c394e89dc87c73c965d00c9fca
+FILE "Mobile Police Patlabor - Game Edition (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 09:20:35

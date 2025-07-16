@@ -1,3 +1,4 @@
+REM MD5 26623a86d38776f8cde3e3ff5c668099
 FILE "Namco Museum Encore (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

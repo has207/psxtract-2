@@ -1,0 +1,11 @@
+REM MD5 edc7628d650f9b137a5cbda2935c00ce
+FILE "Roswell Conspiracies - Aliens, Myths & Legends (Europe) (En,Fr,De).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 07:08:21
+    INDEX 01 07:10:21
+  TRACK 03 AUDIO
+    INDEX 00 07:51:12
+    INDEX 01 07:53:12
+REM LEADOUT 66:15:12

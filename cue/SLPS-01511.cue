@@ -1,3 +1,4 @@
+REM MD5 fa64e4d801398e40d6c0d3b201d7e64b
 FILE "Biohazard 2 - Dual Shock Ver. (Japan) (Disc 2) (Claire-hen).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

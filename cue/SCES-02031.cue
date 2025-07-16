@@ -1,0 +1,5 @@
+REM MD5 fbd7811190099e8293f3e28dcbc77677
+FILE "Ape Escape - La Invasion de los Monos (Spain).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 40:22:34

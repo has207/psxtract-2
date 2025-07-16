@@ -1,0 +1,5 @@
+REM MD5 6438300c03bde5e6df046b50d0b85464
+FILE "SuperLite 3in1 Series - Arcade Classic-shuu (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 13:17:63

@@ -1,0 +1,8 @@
+REM MD5 0c77e4360b931dba18c7f08600a79136
+FILE "Tokyo Mew Mew - Toujou Shin Mew Mew! Minna Issho ni Gohoushi Suru Nyan (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 55:44:46
+    INDEX 01 55:46:46
+REM LEADOUT 58:49:09

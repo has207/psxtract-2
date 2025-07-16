@@ -1,0 +1,5 @@
+REM MD5 24c2f5a5e43e4bc4c41081f5ef4dc818
+FILE "Ace Combat 3 - Electrosphere (Europe) (En,Fr,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 44:30:05

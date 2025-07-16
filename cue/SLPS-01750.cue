@@ -1,3 +1,4 @@
+REM MD5 c20ff94773fe35d4886ed06ea3082d03
 FILE "Ehrgeiz - God Bless the Ring (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

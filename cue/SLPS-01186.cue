@@ -1,0 +1,8 @@
+REM MD5 4b087391a7aa83eff4fd0dc8936f5882
+FILE "Kenshou Akou Jiken - Chuushingura - Rekishi Adventure (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 41:07:69
+    INDEX 01 41:09:69
+REM LEADOUT 44:32:48

@@ -1,0 +1,8 @@
+REM MD5 aab72171b9ba0e99875c53f725ec5238
+FILE "Nobunaga no Yabou - Reppuuden with Power-Up Kit (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 15:03:31
+    INDEX 01 15:05:31
+REM LEADOUT 18:37:57

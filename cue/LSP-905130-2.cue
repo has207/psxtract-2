@@ -1,0 +1,5 @@
+REM MD5 94eaaf75b2f0304fc776cbc6becaca91
+FILE "KazMania 2 - Chaos in KazMania (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 41:13:54

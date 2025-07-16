@@ -1,0 +1,5 @@
+REM MD5 846011577afbc5d66deb2f0e73bc6639
+FILE "Shanghai - Banri no Choujou (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 26:49:24

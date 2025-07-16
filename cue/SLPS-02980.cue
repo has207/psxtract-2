@@ -1,4 +1,5 @@
-FILE "Yamasa Digi Guide - New Pulsar R (Japan) (Track 01).bin" BINARY
+REM MD5 0d93a48ae8cf2af07f4dd3a69e8fa135
+FILE "Yamasa Digi Guide - New Pulsar R (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

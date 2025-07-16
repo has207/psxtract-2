@@ -1,0 +1,5 @@
+REM MD5 e3d2d960fcbcf36816fdde9c7bc00853
+FILE "Fushigi na Data Disc 2 (Japan, Asia).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 60:50:35

@@ -1,3 +1,4 @@
+REM MD5 f064a3cccce3d7fe8a1163bc58e8fbf4
 FILE "Super Robot Taisen F (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

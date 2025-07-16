@@ -1,0 +1,5 @@
+REM MD5 f26909c8df260c02befd886d786430a4
+FILE "Jade Cocoon - La Leyenda de Tamamayu (Spain).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 59:26:49

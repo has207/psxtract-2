@@ -1,3 +1,4 @@
+REM MD5 85cc12975681807274a748d53c3e83ae
 FILE "Biohazard 2 (Japan) (Disc 2) (Claire-hen).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

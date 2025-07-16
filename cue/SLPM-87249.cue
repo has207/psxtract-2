@@ -1,0 +1,5 @@
+REM MD5 b567c6ecdc2e3eb95a8dc3a473a3027f
+FILE "Rockman 2 - Dr. Wily no Nazo (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 38:06:39

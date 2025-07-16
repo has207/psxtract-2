@@ -1,0 +1,5 @@
+REM MD5 618503035eba943fe514575dccccbcca
+FILE "Rescue Shot (Europe) (En,Fr,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 54:38:16

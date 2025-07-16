@@ -1,0 +1,5 @@
+REM MD5 f984fe45d4acad02d5efac2452362e6e
+FILE "SuperLite 1500 Series - NumCro (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 03:16:72

@@ -1,3 +1,4 @@
+REM MD5 3db9b7c337db291984ccf74c2664b4f3
 FILE "Velldeselba Senki - Tsubasa no Kunshou (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

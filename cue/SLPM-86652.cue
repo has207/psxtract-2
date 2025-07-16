@@ -1,0 +1,5 @@
+REM MD5 2215822deead8ff7cbb00301e296cb55
+FILE "Love Hina - Ai wa Kotoba no Naka ni (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 39:30:22

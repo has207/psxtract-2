@@ -1,0 +1,5 @@
+REM MD5 9af16cfdf494afb2535f0edc88adb9f5
+FILE "Momotarou Densetsu (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 13:36:45

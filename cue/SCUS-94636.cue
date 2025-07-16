@@ -1,4 +1,5 @@
-FILE "Disney's Atlantis - The Lost Empire (USA, Canada).bin" BINARY
+REM MD5 b1cd0969672d9dfb76fde591f71d3e06
+FILE "Disney's Atlantis - The Lost Empire (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

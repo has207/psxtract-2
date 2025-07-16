@@ -1,3 +1,4 @@
+REM MD5 4ba2fed7ef86246b8d0cfaea3f6c1f49
 FILE "Final Fantasy IV (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

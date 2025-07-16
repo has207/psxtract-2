@@ -1,3 +1,4 @@
+REM MD5 6b09202b594238bbd8b07dbd45fe30a8
 FILE "Syphon Filter (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

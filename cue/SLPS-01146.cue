@@ -1,3 +1,4 @@
+REM MD5 f3135c5d6194c3654c4541a30305e2a0
 FILE "Conveni 2, The - Zenkoku Chain Tenkai da! (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,3 +1,4 @@
+REM MD5 e08b3a0d9694decd3ef9bc41c212bf1b
 FILE "Fear Effect (USA) (Disc 1).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

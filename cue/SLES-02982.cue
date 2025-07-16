@@ -1,0 +1,5 @@
+REM MD5 63945df6d2e120997964137a943f52c6
+FILE "Petit Dinosaure, Le - Retour vers la Grande Vallee (France).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 30:33:47

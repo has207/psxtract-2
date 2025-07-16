@@ -1,3 +1,4 @@
+REM MD5 2baad0dd26cbb5fe58ed0134af4d16d3
 FILE "Biohazard 3 - Last Escape (Japan) (Demo).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,3 +1,4 @@
+REM MD5 e7ae43a76da7c3b42968cf26760a8018
 FILE "Final Fantasy VII (Japan) (Disc 3).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

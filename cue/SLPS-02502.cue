@@ -1,0 +1,5 @@
+REM MD5 9442c56ff112ee391d83a10f33367ae8
+FILE "Michinoku Hitou Koi Monogatari Kai (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 23:56:40

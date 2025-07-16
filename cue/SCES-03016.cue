@@ -1,0 +1,5 @@
+REM MD5 0acf5bb73ab47d53ee451f8ef48c5b68
+FILE "Disney Le Follie dell'Imperatore (Italy).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 62:29:09

@@ -1,0 +1,8 @@
+REM MD5 d2882e2ab38fe96240bd90fb656a9051
+FILE "Mahjong Uranai Fortuna - Tsuki no Megami-tachi (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 45:04:19
+    INDEX 01 45:06:19
+REM LEADOUT 48:06:21

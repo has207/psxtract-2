@@ -1,0 +1,5 @@
+REM MD5 b07b53e8241504830fce07a34d870a00
+FILE "Soukou Kihei Votoms - Lightning Slash (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 12:49:64

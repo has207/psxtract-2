@@ -1,0 +1,5 @@
+REM MD5 7489c02da13be2fffc3202869c90bbf7
+FILE "Shachou Eiyuuden (Japan) (Ja,Zh).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 63:17:28

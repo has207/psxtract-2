@@ -1,0 +1,5 @@
+REM MD5 5d1738d9b304af00a439c09201f56928
+FILE "Fire Panic - Mack no Rescue Daisakusen (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 12:15:24

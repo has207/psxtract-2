@@ -1,0 +1,8 @@
+REM MD5 3d03022c69b864a0763925e7574bab5e
+FILE "Super Adventure Rockman (Japan) (Disc 2) (Episode 2 Shitou! Wily Numbers).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 53:20:10
+    INDEX 01 53:22:10
+REM LEADOUT 57:30:53

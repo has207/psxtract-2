@@ -1,3 +1,4 @@
+REM MD5 4fadda295414286f27cc67c66d9b202b
 FILE "Parasite Eve II (France) (Disc 2).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,0 +1,5 @@
+REM MD5 17caf5adaf94ac8960bf7b5a4024f3d5
+FILE "Noel - Not Digital (Japan) (Disc 1) (Rev 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 68:31:20

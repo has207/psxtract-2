@@ -1,3 +1,4 @@
+REM MD5 346a9ef3b8579c29d981bbfbb1eed2c9
 FILE "Tenshi Doumei (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

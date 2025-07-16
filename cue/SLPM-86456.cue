@@ -1,0 +1,5 @@
+REM MD5 bfc9d0c855d10ac3592ae2c7dccfcb93
+FILE "Metal Slug X - Super Vehicle-001 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 31:56:65

@@ -1,3 +1,4 @@
+REM MD5 d7cb2dacea71a3c151684ceecc7c7326
 FILE "Twisted Metal (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

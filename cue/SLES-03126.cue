@@ -1,0 +1,5 @@
+REM MD5 7b2f4d540f018869a3f737c07691fc5d
+FILE "Medal of Honor - Underground (Germany).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 70:49:46

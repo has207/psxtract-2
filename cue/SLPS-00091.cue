@@ -1,4 +1,5 @@
-FILE "Exector (Japan) (Track 01).bin" BINARY
+REM MD5 7e6c7f831a8531b3d00b77c4eb0f87e3
+FILE "Exector (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

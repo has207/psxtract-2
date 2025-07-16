@@ -1,3 +1,4 @@
+REM MD5 edf450753614a14d23ca5d13f116fbd9
 FILE "Hatsukoi Valentine (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

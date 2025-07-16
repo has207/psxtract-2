@@ -1,0 +1,5 @@
+REM MD5 4355f6a0159663c8601ab3e95879f446
+FILE "Walt Disneys Jungelboken - Groove Party (Norway).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 70:48:22

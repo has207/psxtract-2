@@ -1,3 +1,4 @@
+REM MD5 bfe9de682f985076dc5409ecabb7e51d
 FILE "Jumping Flash! (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

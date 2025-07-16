@@ -1,4 +1,5 @@
-FILE "Centipede (USA) (Track 01).bin" BINARY
+REM MD5 4998c8f6f54ea1ec0d4e6b5b1e9265df
+FILE "Centipede (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

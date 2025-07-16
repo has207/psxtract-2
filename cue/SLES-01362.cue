@@ -1,0 +1,5 @@
+REM MD5 1ee0a37cf090bb7b4d3d6734fb6a73f0
+FILE "Le Mans 24 Hours (Europe) (En,Fr,De,Es,It,Pt).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 65:17:54

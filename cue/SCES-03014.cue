@@ -1,0 +1,5 @@
+REM MD5 d940fec51d3b67993d32c5f89ed3017b
+FILE "Disney Kuzco - L'Empereur Megalo (France).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 63:44:27

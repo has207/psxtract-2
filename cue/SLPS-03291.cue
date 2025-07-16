@@ -1,0 +1,8 @@
+REM MD5 bd3fe0a71cf6996dd83d614341e44e3c
+FILE "Memories Off 2nd (Japan) (Disc 3) (Making Disc) (Shokai Genteiban).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 66:28:06
+    INDEX 01 66:30:06
+REM LEADOUT 69:08:12

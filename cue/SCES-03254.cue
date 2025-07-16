@@ -1,0 +1,5 @@
+REM MD5 85e68b416206b1531d1a94885f9441bd
+FILE "Liberogrande International (Europe) (En,Fr,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 23:25:56

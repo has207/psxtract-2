@@ -1,0 +1,5 @@
+REM MD5 1b433723ee855cfd7e9248128a3d58b1
+FILE "Gekitotsu Toma L'Arc - Tomarunner vs L'Arc-en-Ciel (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 42:00:27

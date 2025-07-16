@@ -1,0 +1,5 @@
+REM MD5 7a5d51cc7adffa6b7ac05a0ba73fe9e2
+FILE "Kekkon - Marriage (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 59:49:54

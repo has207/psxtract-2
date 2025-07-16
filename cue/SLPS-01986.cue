@@ -1,0 +1,11 @@
+REM MD5 1c3dedb2d2aa71e08d0fc4c33e8e7bc6
+FILE "0 kara no Shougi - Shougi Youchien Ayumi-gumi (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 02:07:70
+    INDEX 01 02:09:70
+  TRACK 03 AUDIO
+    INDEX 00 67:23:50
+    INDEX 01 67:25:50
+REM LEADOUT 70:30:53

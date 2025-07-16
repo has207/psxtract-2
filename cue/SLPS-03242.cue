@@ -1,0 +1,5 @@
+REM MD5 d1759357a151c863a960ee34dfa6ecf2
+FILE "Toyomaru Club Vol. 1 - CR Nanasy (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 04:10:07

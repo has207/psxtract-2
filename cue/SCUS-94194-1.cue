@@ -1,0 +1,5 @@
+REM MD5 a8ce602f3a846adbbfae7770cd33afab
+FILE "Gran Turismo (USA) (Rev 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 65:32:27

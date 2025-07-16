@@ -1,0 +1,5 @@
+REM MD5 118de80cfc0ba82c0657ae14d99c2d8d
+FILE "Ao no 6-gou - Antarctica (Japan) (Disc 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 57:37:04

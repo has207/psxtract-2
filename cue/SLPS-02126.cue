@@ -1,3 +1,4 @@
+REM MD5 832a1e6c2b5b5da3185ef0381b919310
 FILE "Twins Story - Kimi ni Tsutaetakute... (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

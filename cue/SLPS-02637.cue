@@ -1,0 +1,5 @@
+REM MD5 35f8f896a3ae6dd0c88d3cad89100023
+FILE "Pandora Max Series Vol. 3 - Rubbish Blazon (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 49:01:16

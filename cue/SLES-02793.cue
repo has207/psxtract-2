@@ -1,3 +1,4 @@
+REM MD5 bce6f18bf2eb0f0543ca4c5b0d69493f
 FILE "Crisis Beat (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

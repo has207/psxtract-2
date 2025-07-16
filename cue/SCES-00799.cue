@@ -1,0 +1,11 @@
+REM MD5 5c2ae92931c56b20dcad93d980629124
+FILE "Boucliers de Quetzalcoatl, Les - Les Chevaliers de Baphomet II (France).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 55:46:61
+    INDEX 01 55:48:61
+  TRACK 03 AUDIO
+    INDEX 00 58:26:66
+    INDEX 01 58:28:66
+REM LEADOUT 61:46:22

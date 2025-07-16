@@ -1,3 +1,4 @@
+REM MD5 285a97a2ef185396e36f4c85c590e5fd
 FILE "Fear Effect 2 - Retro Helix (Europe) (En,Fr,De) (Disc 2).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

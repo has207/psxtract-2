@@ -1,0 +1,5 @@
+REM MD5 1a6837fd7fe3d7c67598b640c9e02a07
+FILE "LEGO Eiland 2 - De Wraak van Dondersteen (Netherlands).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 23:02:51

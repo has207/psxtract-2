@@ -1,0 +1,5 @@
+REM MD5 ff4dcd287586b7a5fa4093d2189b4cd1
+FILE "Kaishin!! Derby Analyst (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 04:46:10

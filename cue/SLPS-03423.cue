@@ -1,0 +1,5 @@
+REM MD5 746d2426587a5a68ec7a1e71677dd32c
+FILE "Pachi-Slot Teiou - Naniwa Sakura Fubuki (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 07:00:11

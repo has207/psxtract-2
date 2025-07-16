@@ -1,0 +1,5 @@
+REM MD5 4d704a6db1fd5612e9e906529a4484a9
+FILE "Stakes Winner 2 - Saikyouba Densetsu (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 29:58:28

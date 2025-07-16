@@ -1,0 +1,5 @@
+REM MD5 cdfd0831cc50e22701823e48cbb57ef6
+FILE "Le Concert - ff - Fortissimo (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 52:04:01

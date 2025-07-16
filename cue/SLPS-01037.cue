@@ -1,0 +1,5 @@
+REM MD5 453739a573e561f0bb8223553d6703d3
+FILE "World Neverland - The Olerud Kingdom Stories (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 17:05:50

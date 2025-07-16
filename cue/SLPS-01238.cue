@@ -1,3 +1,4 @@
+REM MD5 9deeba6c9945e52ac40f36384c848ac3
 FILE "Zutto Issho - With Me Everytime... (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

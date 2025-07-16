@@ -1,0 +1,5 @@
+REM MD5 e2175ad66586e550c048b8e6aad04c8b
+FILE "Football Manager Campionato 2001 (Italy).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 56:27:16

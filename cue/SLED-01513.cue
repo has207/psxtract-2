@@ -1,0 +1,6 @@
+REM MD5 592707549df7b56fb67d1e1f0b38b09e
+FILE "International Superstar Soccer Pro '98 (France) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    FLAGS DCP
+    INDEX 01 00:00:00
+REM LEADOUT 06:14:31

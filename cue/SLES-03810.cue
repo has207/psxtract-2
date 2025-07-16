@@ -1,0 +1,5 @@
+REM MD5 3f94f4c9ed7ff4acf92fa830dbdf8c7e
+FILE "US Racer (Europe) (En,Fr,De,Nl).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 34:16:37

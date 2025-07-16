@@ -1,0 +1,5 @@
+REM MD5 11cf2d8ea14547c89631f192a6387ee6
+FILE "Kids Station - Hello Kitty no Oshaberi Town (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 12:25:33

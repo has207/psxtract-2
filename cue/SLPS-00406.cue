@@ -1,3 +1,4 @@
+REM MD5 c51b552cc132d7e472fcf156dec4345a
 FILE "Aquanaut no Kyuujitsu - Memories of Summer 1996 (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,0 +1,5 @@
+REM MD5 81eaab3247ca047e761d1eaf40a64fb5
+FILE "Wild Arms - 2nd Ignition (Japan) (Disc 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 53:26:29

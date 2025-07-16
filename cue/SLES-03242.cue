@@ -1,0 +1,5 @@
+REM MD5 d73df9c091570a1489648bd63db43276
+FILE "TechnoMage - En Quete de L'Eternite (France).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 64:12:74

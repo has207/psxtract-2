@@ -1,0 +1,5 @@
+REM MD5 7db84f922d186f3effbf78fa1ba23178
+FILE "Army Men - Air Attack 2 (France).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 69:47:39

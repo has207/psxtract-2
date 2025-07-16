@@ -1,3 +1,4 @@
+REM MD5 1b54c8d987cbf12ac359f619299dd986
 FILE "Bokujou Monogatari - Harvest Moon for Girl (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

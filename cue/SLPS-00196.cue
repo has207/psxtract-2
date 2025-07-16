@@ -1,3 +1,4 @@
+REM MD5 19cfa8cf70853d8a6ab0ef2786ac0828
 FILE "Dai-4-Ji Super Robot Taisen S (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

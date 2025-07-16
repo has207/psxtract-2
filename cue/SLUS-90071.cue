@@ -1,0 +1,5 @@
+REM MD5 2ca6085fd8bbfbddb396a352fae4a7d3
+FILE "Monster Rancher 2 (USA) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 42:38:21

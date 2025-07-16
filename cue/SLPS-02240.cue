@@ -1,0 +1,5 @@
+REM MD5 d5921a6a0d9fab01fda240756ec6a184
+FILE "Maria 2 - Jutai Kokuchi no Nazo (Japan) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 51:34:51

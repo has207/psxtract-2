@@ -1,0 +1,5 @@
+REM MD5 18a5565ddb3594e007a83d5ada20af3d
+FILE "Kids Station - Kamen Rider Heroes (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 27:23:33

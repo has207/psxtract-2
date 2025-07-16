@@ -1,0 +1,5 @@
+REM MD5 e1f17844c05a1695dd024e27e2a19294
+FILE "Yamifuku Natsu - Teito Monogatari Futatabi (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 46:00:08

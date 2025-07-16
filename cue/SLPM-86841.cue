@@ -1,3 +1,4 @@
+REM MD5 2c3f884af5c02dd9c9e5ddaf05bbf006
 FILE "Simple 1500 Series Vol. 64 - The Kick Boxing (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

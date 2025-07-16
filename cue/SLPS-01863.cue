@@ -1,0 +1,8 @@
+REM MD5 00208fc1319de95e23f2d0232b959a50
+FILE "Akagawa Jirou - Majo-tachi no Nemuri - Fukkatsusai (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 16:55:11
+    INDEX 01 16:57:11
+REM LEADOUT 19:57:11

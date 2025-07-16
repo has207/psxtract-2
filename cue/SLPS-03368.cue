@@ -1,0 +1,5 @@
+REM MD5 fd665946ffa86385ea37ec2f1d42b958
+FILE "Nice Price Series Vol. 04 - Billiard King (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 06:10:28

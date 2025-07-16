@@ -1,0 +1,5 @@
+REM MD5 38c90dbe4a8c94aa6ace4d8e4bbf2349
+FILE "This Is Football 2 (Belgium).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 61:16:01

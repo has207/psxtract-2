@@ -1,3 +1,4 @@
+REM MD5 7bbe7164deabb5b88dcaca4bf7bf79e1
 FILE "Parasite Eve II (USA, Canada) (Disc 2).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

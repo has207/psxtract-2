@@ -1,0 +1,5 @@
+REM MD5 89c3c5cc3b353d72b025e001d5661a1e
+FILE "Shaman King - Spirit of Shamans (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 57:35:42

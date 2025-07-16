@@ -1,3 +1,4 @@
+REM MD5 a25a51f497d45f41755d6849da262c19
 FILE "Future Cop - L.A.P.D. (Europe) (En,Fr).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

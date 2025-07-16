@@ -1,0 +1,8 @@
+REM MD5 aca7ee5f1fad33c31f7f46628bb1f222
+FILE "Pocket DigimonWorld - Wind Battle Disc (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 22:32:01
+    INDEX 01 22:34:01
+REM LEADOUT 26:34:44

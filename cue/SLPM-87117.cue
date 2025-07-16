@@ -1,3 +1,4 @@
+REM MD5 55f0a06016bee58d638a44e778ff0776
 FILE "AI Mahjong Selection (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

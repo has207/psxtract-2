@@ -1,0 +1,5 @@
+REM MD5 b89505e5a08bd58f7098b23a26c40056
+FILE "Kagayaku Kisetsu e (Japan) (Disc 1) (Shokai Genteiban).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 69:05:71

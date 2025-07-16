@@ -1,0 +1,5 @@
+REM MD5 ca31960756eb3616e00d99bd25f7cce8
+FILE "Yarudora Series Vol. 1 - Double Cast (Japan) (Demo 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 15:01:32

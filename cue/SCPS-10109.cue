@@ -1,0 +1,5 @@
+REM MD5 59eb3da9595ee1e4b1dc4915826b6522
+FILE "Chase the Express (Japan, Asia) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 61:52:21

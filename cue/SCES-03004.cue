@@ -1,0 +1,5 @@
+REM MD5 14d20501127112fc62d8511052ec42ca
+FILE "Disney Aladdin - La Revanche de Nasira (France).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 59:10:03

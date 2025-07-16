@@ -1,4 +1,5 @@
-FILE "Biohazard 3 - Last Escape (Japan) (Rev 1).bin" BINARY
+REM MD5 bb5bf5613176e37bbbb6c2449e2a5c8f
+FILE "Biohazard 3 - Last Escape (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
-REM LEADOUT 68:13:13
+REM LEADOUT 68:03:52

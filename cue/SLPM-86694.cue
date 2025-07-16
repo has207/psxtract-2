@@ -1,0 +1,5 @@
+REM MD5 71eb08c0e791a8928cd9bd1fff91f129
+FILE "Jikkyou Powerful Pro Yakyuu 2000 - Ketteiban (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 21:14:02

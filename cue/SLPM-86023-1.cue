@@ -1,0 +1,10 @@
+REM MD5 d67e37895ea7fa8c60fc4d7e0ef70536
+FILE "Akumajou Dracula X - Gekka no Yasoukyoku (Japan) (Rev 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    FLAGS DCP
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    FLAGS DCP
+    INDEX 00 51:30:21
+    INDEX 01 51:32:21
+REM LEADOUT 55:38:03

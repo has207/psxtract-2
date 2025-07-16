@@ -1,0 +1,5 @@
+REM MD5 f9c6d5fec0ceba64dfdaec4de5197d80
+FILE "Parlor! Pro 2 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 12:10:63

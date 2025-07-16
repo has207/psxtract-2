@@ -1,0 +1,5 @@
+REM MD5 4de4d79eeb2628216d69ca7164eb203c
+FILE "Ultraman - Fighting Evolution (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 44:17:65

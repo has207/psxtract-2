@@ -1,0 +1,5 @@
+REM MD5 1055ed92544901b8b93876d3fd4f8b69
+FILE "Mini Yonku Bakusou Kyoudai Let's & Go!! WGP Hyper Heat (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 43:31:17

@@ -1,0 +1,5 @@
+REM MD5 661498fdd55d6d1fa775c68f036838e7
+FILE "Tenchu 2 - Birth of the Stealth Assassins (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 70:10:56

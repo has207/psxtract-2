@@ -1,4 +1,5 @@
-FILE "Tsuukai!! Slot Shooting (Japan) (Track 01).bin" BINARY
+REM MD5 25e40a4ec85b06195d90bd6ddf198841
+FILE "Tsuukai!! Slot Shooting (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

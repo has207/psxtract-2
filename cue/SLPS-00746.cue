@@ -1,0 +1,5 @@
+REM MD5 e7d7447dbc7d002079e77e8b5d9a5a3b
+FILE "Out Live - Be Eliminate Yesterday (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 66:04:68

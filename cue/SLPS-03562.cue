@@ -1,0 +1,5 @@
+REM MD5 2218eeb60a7c6d8707df3d5eb5c04a38
+FILE "Jaleco Collection Vol. 1 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 03:32:35

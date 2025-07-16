@@ -1,0 +1,5 @@
+REM MD5 c7e89bdeae47788e15a74e2631d36432
+FILE "Nickelodeon Rugrats in Paris - The Movie (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 11:48:20

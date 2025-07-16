@@ -1,0 +1,5 @@
+REM MD5 74a72e9f01ea1d2972fe0e9f3d072725
+FILE "Nice Price Series Vol. 09 - Paradise Casino (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 06:27:21

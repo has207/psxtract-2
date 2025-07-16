@@ -1,0 +1,5 @@
+REM MD5 d4595c7a1e85ae229cdc87a04f87ee4e
+FILE "Castlevania Chronicles (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 49:54:74

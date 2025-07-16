@@ -1,0 +1,5 @@
+REM MD5 2cdc5a0f8245d3d0ed79adb8405cc145
+FILE "Densha Daisuki - Plarail ga Ippai (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 22:03:41

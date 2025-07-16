@@ -1,0 +1,5 @@
+REM MD5 2656addffd6f58d37adb4fef6f89972b
+FILE "Hexamoon Guardians (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 20:48:45

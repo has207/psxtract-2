@@ -1,0 +1,8 @@
+REM MD5 cd07cc5ab1feeeae1bb7db56eee7fa34
+FILE "Akagawa Jirou - Yasoukyoku 2 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 46:47:14
+    INDEX 01 46:49:14
+REM LEADOUT 49:59:14

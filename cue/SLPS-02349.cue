@@ -1,0 +1,5 @@
+REM MD5 9053017c464d1c85c75ee2ba08ab77b4
+FILE "Wizardry - New Age of Llylgamyn (Japan) (En,Ja).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 66:30:59

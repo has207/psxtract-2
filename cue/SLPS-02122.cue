@@ -1,3 +1,4 @@
+REM MD5 b2ec110f4f3a5554650a88fbae73d6b9
 FILE "Paca Paca Passion (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

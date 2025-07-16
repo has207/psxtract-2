@@ -1,3 +1,4 @@
+REM MD5 aad8c523462127ff751c8f30b868141b
 FILE "Adventure of Little Ralph, The (Japan) (Rev 1).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

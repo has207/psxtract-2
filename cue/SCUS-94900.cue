@@ -1,3 +1,4 @@
+REM MD5 b4aeaf0c0bb2f2000f31d12e7b59f8f9
 FILE "Crash Bandicoot (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

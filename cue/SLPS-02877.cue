@@ -1,3 +1,4 @@
+REM MD5 2ff1d6156af7b38df8f887193c69002a
 FILE "Shinobi no Roku (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

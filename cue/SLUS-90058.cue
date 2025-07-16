@@ -1,0 +1,5 @@
+REM MD5 5fea60480d640c5055ac9b93dc4b050d
+FILE "Bugs Bunny - Lost in Time (USA) (En,Fr,Es) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 09:10:02

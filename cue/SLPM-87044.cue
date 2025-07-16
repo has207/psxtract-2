@@ -1,4 +1,5 @@
-FILE "Simple 1500 Series Vol. 90 - The Sensha (Japan) (Track 01).bin" BINARY
+REM MD5 f60763475a57319d4eff44d08c8a46db
+FILE "Simple 1500 Series Vol. 90 - The Sensha (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

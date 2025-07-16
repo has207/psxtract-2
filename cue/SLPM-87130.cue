@@ -1,0 +1,5 @@
+REM MD5 dce0d521d51187a424285e70b8552bd9
+FILE "Bakuten Shoot Beyblade 2002 - Bey Battle Tournament 2 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 25:46:38

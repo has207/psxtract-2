@@ -1,3 +1,4 @@
+REM MD5 e5fe9f77dc64fd3ee303c85c7d4929b4
 FILE "Silent Bomber (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

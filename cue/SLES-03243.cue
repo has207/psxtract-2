@@ -1,0 +1,5 @@
+REM MD5 a65bdba63e8a30943912ddae2cf934d2
+FILE "TechnoMage - Ritorno all'Eternita (Italy).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 63:30:65

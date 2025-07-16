@@ -1,0 +1,5 @@
+REM MD5 def0321c36a8876e3a2ca7f983d33ac3
+FILE "Calcolo! Ochimono Shooting (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 05:45:53

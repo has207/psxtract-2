@@ -1,0 +1,5 @@
+REM MD5 6e1e6c91d85cff1d8005131f3bf343d6
+FILE "World Destruction League - Thunder Tanks (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 46:26:51

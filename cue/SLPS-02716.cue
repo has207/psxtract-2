@@ -1,0 +1,5 @@
+REM MD5 4110c65a41b96d8dfeec3f4f06194c13
+FILE "Sound Qube (Japan) (Best of the Best).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 03:20:49

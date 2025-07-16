@@ -1,3 +1,4 @@
+REM MD5 86138cefb0451bdcae993b59979edb63
 FILE "Fuuraiki (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

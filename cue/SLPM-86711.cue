@@ -1,0 +1,5 @@
+REM MD5 07de93b648370dbebbc0e3dc0e310002
+FILE "SuperLite 1500 Series - Flamberge no Seirei (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 23:29:01

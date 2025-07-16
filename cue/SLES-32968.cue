@@ -1,3 +1,4 @@
+REM MD5 8081b2b8b8e4ba0fc496c146a4b53f12
 FILE "Final Fantasy IX (Italy) (Disc 4).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

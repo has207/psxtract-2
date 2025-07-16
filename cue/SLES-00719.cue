@@ -1,4 +1,5 @@
-FILE "Tomb Raider II - Starring Lara Croft (France) (Track 01).bin" BINARY
+REM MD5 647db6af27e23e02fd8b556dca963bce
+FILE "Tomb Raider II - Starring Lara Croft (France).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

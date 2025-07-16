@@ -1,3 +1,4 @@
+REM MD5 fa1232cb0078928397fb1608d6feb192
 FILE "Street Fighter Alpha 2 (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

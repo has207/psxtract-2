@@ -1,3 +1,4 @@
+REM MD5 1a7bbb9e039c55320e857b380e719bef
 FILE "Dezaemon Kids! (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

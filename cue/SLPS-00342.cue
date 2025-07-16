@@ -1,4 +1,5 @@
-FILE "Expert (Japan) (Track 01).bin" BINARY
+REM MD5 06eb25570489879890bf4a61bc91fa1a
+FILE "Expert (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

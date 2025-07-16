@@ -1,0 +1,5 @@
+REM MD5 49639c693c281b84e1a8e3aa730b6199
+FILE "Sentou Kokka - Air Land Battle (Japan) (Rev 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 25:22:01

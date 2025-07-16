@@ -1,0 +1,5 @@
+REM MD5 f4e286b8a7924026b46fbe8696ad83fb
+FILE "Sengoku Cyber - Fujimaru Jigokuhen (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 52:28:30

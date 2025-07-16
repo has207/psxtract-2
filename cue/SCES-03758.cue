@@ -1,0 +1,5 @@
+REM MD5 498bffbe6d3b7901e5ef2dac2d0bdcc7
+FILE "Jim Henson's The Hoobs (Spain).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 36:53:03

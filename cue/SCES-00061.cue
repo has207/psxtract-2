@@ -1,3 +1,4 @@
+REM MD5 f5ae4a8dc696a33264a7770be69c64e4
 FILE "Twisted Metal (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

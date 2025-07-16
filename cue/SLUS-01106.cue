@@ -1,0 +1,5 @@
+REM MD5 b83e9a7525a4bc0a1c4e1c4976ca1393
+FILE "Walt Disney World Quest - Magical Racing Tour (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 32:58:60

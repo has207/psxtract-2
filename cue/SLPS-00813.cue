@@ -1,0 +1,5 @@
+REM MD5 658c0126861dbf9cb77e9e5bbf563e44
+FILE "Daibouken Deluxe - Haruka naru Umi (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 15:02:71

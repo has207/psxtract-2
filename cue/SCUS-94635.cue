@@ -1,0 +1,5 @@
+REM MD5 6918aee51d9fa2d646dc40aff1877cf0
+FILE "Disney-Pixar Monsters, Inc. - Scream Team (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 69:46:35

@@ -1,0 +1,5 @@
+REM MD5 0e70d77dae4444409328d2a0c1a689b3
+FILE "Matsukata Hiroki no World Fishing (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 65:45:08

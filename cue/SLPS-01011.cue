@@ -1,3 +1,4 @@
+REM MD5 240ee3f65af0f5a73268acf25d28c0f5
 FILE "Cyberbots - Fullmetal Madness (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

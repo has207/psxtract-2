@@ -1,0 +1,5 @@
+REM MD5 7d4e5e7bfd472811c0d82fdf128a9d31
+FILE "London Seirei Tanteidan (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 25:51:53

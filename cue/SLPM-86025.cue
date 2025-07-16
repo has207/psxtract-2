@@ -1,0 +1,5 @@
+REM MD5 5c4cc88ae45969745a87f9b3b94b45a2
+FILE "Lethal Enforcers Deluxe Pack (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 41:23:20

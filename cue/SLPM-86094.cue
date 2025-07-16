@@ -1,0 +1,5 @@
+REM MD5 4c4cd049b68f43132337e8c4c4a394e9
+FILE "Tokimeki no Houkago - Ne Quiz Shiyo (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 70:50:55

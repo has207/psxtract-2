@@ -1,0 +1,5 @@
+REM MD5 3a1e902a30ca4b3ac84c810468a5a702
+FILE "Final Fantasy VIII (Japan) (Square's Preview Extra) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 14:52:46

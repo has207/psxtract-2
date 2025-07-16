@@ -1,0 +1,11 @@
+REM MD5 a550ed0833c7b54a50a4373f9e3cf6ed
+FILE "Gran Turismo 2 - Music at the Speed of Sound - The Album (USA) (Bonus PlayStation Disc).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 42:38:22
+    INDEX 01 42:40:22
+  TRACK 03 AUDIO
+    INDEX 00 47:58:36
+    INDEX 01 48:00:36
+REM LEADOUT 48:06:32

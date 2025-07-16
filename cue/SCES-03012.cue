@@ -1,0 +1,5 @@
+REM MD5 78f150d6ea03b9ed841d969145ecfc3b
+FILE "Disney's Keizer Kuzco (Netherlands).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 63:31:04

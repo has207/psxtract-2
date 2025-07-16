@@ -1,0 +1,5 @@
+REM MD5 d53b245a3638341779578dee5a73e335
+FILE "Klonoa Beach Volley - Saikyou Team Kettei-sen! (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 62:30:32

@@ -1,0 +1,6 @@
+REM MD5 abcb4c90c080746f9bdab34ec57c75fe
+FILE "Tokimeki Memorial 2 (Japan) (Disc 4) (Limited Box).bin" BINARY
+  TRACK 01 MODE2/2352
+    FLAGS DCP
+    INDEX 01 00:00:00
+REM LEADOUT 70:22:23

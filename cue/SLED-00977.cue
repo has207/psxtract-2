@@ -1,0 +1,5 @@
+REM MD5 b688231f0eeeb21c735d52ae2c912e93
+FILE "Resident Evil 2 (Europe) (Preview).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 16:07:02

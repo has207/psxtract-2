@@ -1,0 +1,5 @@
+REM MD5 19ba9571945bed29514e1ef75be55fb3
+FILE "Gran Turismo 2 (Japan) (Disc 2) (Gran Turismo) (Rev 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 65:57:18

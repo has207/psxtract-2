@@ -1,3 +1,4 @@
+REM MD5 2a5a1f3d82d3ccbdedc13fe2a03764ff
 FILE "Tall - Twins Tower (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

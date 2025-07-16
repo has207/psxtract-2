@@ -1,0 +1,5 @@
+REM MD5 d374acf1078efdb8ef63bbd657a8a4e6
+FILE "Global Domination (France).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 55:15:29

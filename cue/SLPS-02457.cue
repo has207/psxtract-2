@@ -1,0 +1,5 @@
+REM MD5 a20660ecafaae1f3e36e856a7c9704c8
+FILE "Battle Bonby 2 - Sukkiri Momoaji (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 03:47:52

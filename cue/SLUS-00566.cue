@@ -1,0 +1,5 @@
+REM MD5 5edfad94f9f1263b5903d1b1e779cac4
+FILE "Ian Livingstone's Deathtrap Dungeon (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 39:30:62

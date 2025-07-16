@@ -1,0 +1,8 @@
+REM MD5 665ef140753fcba2d7f583cbed10dfd7
+FILE "Koukaku Kidoutai - Ghost in the Shell (Japan) (Demo 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 05:07:39
+    INDEX 01 05:09:39
+REM LEADOUT 08:09:39

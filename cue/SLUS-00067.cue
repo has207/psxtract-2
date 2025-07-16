@@ -1,3 +1,4 @@
+REM MD5 acbb3a2e4a8f865f363dc06df147afa2
 FILE "Castlevania - Symphony of the Night (USA).bin" BINARY
   TRACK 01 MODE2/2352
     FLAGS DCP

@@ -1,3 +1,4 @@
+REM MD5 d6e9b3d173f7d9450af6478ab00793a6
 FILE "Dragon Valor (Europe) (Disc 1).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

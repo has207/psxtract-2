@@ -1,3 +1,4 @@
+REM MD5 97ccce6268734b3fab069f8facb1bf00
 FILE "Metal Gear Solid (Italy) (Disc 1).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

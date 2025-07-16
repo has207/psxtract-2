@@ -1,0 +1,8 @@
+REM MD5 4ddd6e496c19ab5fc7505913b35cb440
+FILE "Ten made Jack - Odoroki Mamenoki Daitoubou!! (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 40:27:66
+    INDEX 01 40:29:66
+REM LEADOUT 43:32:56

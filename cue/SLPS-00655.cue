@@ -1,0 +1,5 @@
+REM MD5 bc95e7748036b9b911a53d2ac403a652
+FILE "Shin SD Sengokuden - Kidou Musha Taisen (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 65:27:21

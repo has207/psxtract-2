@@ -1,0 +1,8 @@
+REM MD5 5b386ce7329fa9fb2178cb5c6491eb0a
+FILE "From TV Animation One Piece - Oceans of Dreams! (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 59:36:02
+    INDEX 01 59:38:02
+REM LEADOUT 62:43:28

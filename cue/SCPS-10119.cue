@@ -1,3 +1,4 @@
+REM MD5 31f634333b27e3923f7e29af3481102b
 FILE "Legend of Dragoon, The (Japan, Asia) (Disc 1).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,4 +1,5 @@
-FILE "Geom Cube (Japan) (Track 01).bin" BINARY
+REM MD5 e06e116adb439dc36b372275f09c9d07
+FILE "Geom Cube (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

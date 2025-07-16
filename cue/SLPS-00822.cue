@@ -1,3 +1,4 @@
+REM MD5 93f39d5ede4405193f14fe0667a65d4f
 FILE "Fighters' Impact (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

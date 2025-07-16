@@ -1,0 +1,5 @@
+REM MD5 d70607741300d9f84efaa69f83c67cfc
+FILE "Kiwame Daidougi (Japan) (Major Wave).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 04:41:51

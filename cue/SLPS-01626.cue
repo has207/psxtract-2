@@ -1,0 +1,5 @@
+REM MD5 2add4219bcb04c1356d067b0d33411e2
+FILE "Himitsu Sentai Metamor V Deluxe (Japan) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 50:53:46

@@ -1,3 +1,4 @@
+REM MD5 ff2f8e3d5ceefe0f0b3214f961cb99b1
 FILE "Pro Wrestling Sengokuden 2 - Kakutou Emaki (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

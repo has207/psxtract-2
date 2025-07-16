@@ -1,0 +1,5 @@
+REM MD5 04d993d83b75d18cdd8b2cc8fe058ef0
+FILE "Disney's Winnie the Pooh - Kindergarten (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 25:34:45

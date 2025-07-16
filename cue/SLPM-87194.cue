@@ -1,0 +1,5 @@
+REM MD5 905f92203421c302d36f0b2aea27881f
+FILE "SuperLite 1500 Series - Prismaticallization (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 17:30:67

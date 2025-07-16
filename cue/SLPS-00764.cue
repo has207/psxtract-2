@@ -1,3 +1,4 @@
+REM MD5 591716b9ce750975c89d2129dc8f5f18
 FILE "Rockman - Battle & Chase (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,0 +1,8 @@
+REM MD5 ec48b52c90e0e8ddddc8d4529504a13e
+FILE "King of Fighters '98, The - Dream Match Never Ends (Japan) (Rev 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 23:05:46
+    INDEX 01 23:07:46
+REM LEADOUT 26:07:46

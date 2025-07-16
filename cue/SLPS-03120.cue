@@ -1,4 +1,5 @@
-FILE "Yamasa Digi Guide - Faust (Japan) (Track 01).bin" BINARY
+REM MD5 084d46329d81be4f7ca8efbd6292c270
+FILE "Yamasa Digi Guide - Faust (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

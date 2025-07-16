@@ -1,0 +1,5 @@
+REM MD5 4b49ca3506bab52989bb9844abc1c348
+FILE "Gold and Glory - The Road to El Dorado (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 59:48:45

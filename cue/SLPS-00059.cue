@@ -1,0 +1,5 @@
+REM MD5 9df1dc22a23abd4f32c694c1efe6bcc1
+FILE "Taikyoku Shougi - Kiwame (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 01:45:27

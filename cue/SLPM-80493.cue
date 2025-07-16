@@ -1,0 +1,5 @@
+REM MD5 056da2fda6f95ff3eb17cd207e5f5606
+FILE "Jojo no Kimyou na Bouken (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 63:07:36

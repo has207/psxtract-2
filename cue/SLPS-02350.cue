@@ -1,3 +1,4 @@
+REM MD5 77dbaa6f6a5179f98c4a975dda01dd57
 FILE "Tomba! The Wild Adventures (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

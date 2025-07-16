@@ -1,0 +1,5 @@
+REM MD5 dacbceb9b50807dc12b29ee5f4f9ceeb
+FILE "Worms World Party (USA) (En,Fr,De,Es,It,Nl,Sv,Da).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 48:40:20

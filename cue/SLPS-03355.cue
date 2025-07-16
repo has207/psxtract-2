@@ -1,0 +1,5 @@
+REM MD5 4d4af4ccc60d699616a905a1b7c0ba2f
+FILE "Harry Potter to Kenja no Ishi (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 44:05:15

@@ -1,3 +1,4 @@
+REM MD5 36788e4234f249624c949b5c1a5c481d
 FILE "Motor Toon Grand Prix 2 (Japan) (Disc 2) (Taisen Sen'you Disc).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

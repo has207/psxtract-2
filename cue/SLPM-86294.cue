@@ -1,0 +1,5 @@
+REM MD5 f5fd4dcddeec58e45de264d124fdf66c
+FILE "Pop'n Music 2 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 30:16:69

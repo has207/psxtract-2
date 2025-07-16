@@ -1,3 +1,4 @@
+REM MD5 be327c09f169ea5eedff5b2d3d2b3c29
 FILE "Vehicle Cavalier (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

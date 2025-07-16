@@ -1,0 +1,5 @@
+REM MD5 a0b04f031afdd7959692aa925eafeafd
+FILE "Cross Tantei Monogatari (Japan) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 42:31:29

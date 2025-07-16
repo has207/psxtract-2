@@ -1,3 +1,4 @@
+REM MD5 2f3eea4dcca2a9fee10fd87bb8b32d13
 FILE "Grandia (France) (Disc 2).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

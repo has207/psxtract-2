@@ -1,0 +1,5 @@
+REM MD5 662d9fa14133bae277d65eb4576ae7bd
+FILE "J.League Virtual Stadium '96 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 48:24:64

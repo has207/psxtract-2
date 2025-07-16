@@ -1,0 +1,5 @@
+REM MD5 08031d3b308e7551dca872aa5ed60933
+FILE "Tonde! Tonde! Diet - Stepper Action Game (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 06:57:70

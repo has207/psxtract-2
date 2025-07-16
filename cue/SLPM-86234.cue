@@ -1,0 +1,5 @@
+REM MD5 7a2c8be7835c2e9297f762e3a2bae132
+FILE "Soeldnerschild Special (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 23:46:48

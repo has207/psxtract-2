@@ -1,0 +1,5 @@
+REM MD5 b9e830beb1135518e0bcd6d07eaf0f49
+FILE "Side by Side Special (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 11:51:37

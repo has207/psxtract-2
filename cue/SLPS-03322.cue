@@ -1,0 +1,5 @@
+REM MD5 3b2be89afe75bd9fde5b1aa5969b5be6
+FILE "Kids Station - LEGO no Sekai (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 43:18:32

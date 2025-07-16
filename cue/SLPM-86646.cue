@@ -1,3 +1,4 @@
+REM MD5 862bffc62f93a75f070e7729c639469c
 FILE "Blue Breaker - Egao no Yakusoku (Japan) (Major Wave).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

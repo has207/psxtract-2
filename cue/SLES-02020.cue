@@ -1,4 +1,5 @@
-FILE "Pong (Europe) (En,Fr,De,Es,It,Nl) (Track 01).bin" BINARY
+REM MD5 c8cba76dd5de65808b90492324b93e41
+FILE "Pong (Europe) (En,Fr,De,Es,It,Nl).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

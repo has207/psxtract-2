@@ -1,0 +1,5 @@
+REM MD5 50fd818c46416ede43b3ef22e2c60a8f
+FILE "Dragon Ball - Final Bout (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 14:06:04

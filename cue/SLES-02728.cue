@@ -1,0 +1,5 @@
+REM MD5 fbfba4aabc6c2c68c9bb1379eb115eed
+FILE "Submarine Commander (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 22:05:05

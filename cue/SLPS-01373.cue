@@ -1,3 +1,4 @@
+REM MD5 f6f66df781acd8c69a16458bd625fd90
 FILE "Ganso Family Mahjong (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

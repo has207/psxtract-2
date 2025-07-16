@@ -1,0 +1,5 @@
+REM MD5 3a5b90b9e8323c66ed598cc14c37ebd2
+FILE "Mr. Prospector - Horiate-kun (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 11:19:23

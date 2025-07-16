@@ -1,0 +1,5 @@
+REM MD5 01361195e587546aff4303df8a8444cd
+FILE "Monster Collection - Kamen no Madoushi (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 14:17:64

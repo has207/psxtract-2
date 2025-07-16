@@ -1,3 +1,4 @@
+REM MD5 9c4f733493ca9041c1562866ae5a14e0
 FILE "Simple 1500 Series Vol. 49 - The Casino (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

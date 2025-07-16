@@ -1,0 +1,5 @@
+REM MD5 a10d173c60b1e9a49e211497a30d8f62
+FILE "Duke Nukem - Time to Kill (Europe) (Rerelease).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 41:15:61

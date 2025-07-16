@@ -1,0 +1,5 @@
+REM MD5 99d75bf4a4b0028bc9e920fe13ffc045
+FILE "Disney El Emperador y sus Locuras (Spain).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 63:04:29

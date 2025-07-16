@@ -1,0 +1,5 @@
+REM MD5 4ceca9bb5f0d007913d0043dd7627949
+FILE "Rampage - Through Time (Europe) (En,Fr,De).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 45:53:46

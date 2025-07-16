@@ -1,0 +1,5 @@
+REM MD5 c0ae397bde65ee17dcab12d7aa0a96c5
+FILE "Sonic Wings Special (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 19:45:24

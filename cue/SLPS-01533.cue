@@ -1,0 +1,5 @@
+REM MD5 603d64b183c45b5797d494833e2ed7e7
+FILE "Jikuu Tantei DD 2 - Hangyaku no Apsalar (Japan) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 54:10:11

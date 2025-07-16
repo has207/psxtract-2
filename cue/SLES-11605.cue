@@ -1,0 +1,5 @@
+REM MD5 56e8540c52de4b81f784a05b64f11ca4
+FILE "Atlantis - The Lost Tales (Europe) (En,Es,Nl,Sv) (Disc 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 59:12:40

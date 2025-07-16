@@ -1,0 +1,5 @@
+REM MD5 198808ce03f373be3d968c6391fb5f06
+FILE "CT Special Forces - Back to Hell (Europe) (En,Fr,De,Es,It,Nl).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 48:34:06

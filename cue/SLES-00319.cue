@@ -1,0 +1,5 @@
+REM MD5 bd844c5e48afb0fe3783bc9d371d2a09
+FILE "Player Manager (Europe) (En,Fr,De,Es,It,Sv,No).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 16:03:13

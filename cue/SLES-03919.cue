@@ -1,0 +1,5 @@
+REM MD5 2ff3af4aac2848b4a80acc0e0831bcfc
+FILE "Delta Force Urban Warfare (Germany).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 25:56:69

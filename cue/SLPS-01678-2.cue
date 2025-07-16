@@ -1,0 +1,5 @@
+REM MD5 8aa74f75a68cface7c2fbdccc8c82c83
+FILE "Tenka Touitsu (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 20:36:50

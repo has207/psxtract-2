@@ -1,0 +1,5 @@
+REM MD5 8f34bf60204a16b9bcd105865a5ecb7a
+FILE "Art Camion - Geijutsuden (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 68:09:73

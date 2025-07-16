@@ -1,0 +1,5 @@
+REM MD5 3dcb18fe585db3a77577e023caf2034c
+FILE "Moonlight Syndrome (Japan) (Disc 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 68:05:53

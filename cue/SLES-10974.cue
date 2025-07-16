@@ -1,3 +1,4 @@
+REM MD5 ace6123b49f7e34070f83a450e283a0e
 FILE "Resident Evil 2 (Germany) (Disc 2).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

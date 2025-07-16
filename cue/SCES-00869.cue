@@ -1,3 +1,4 @@
+REM MD5 2778db3d15f62ec879afada71c619b7b
 FILE "Final Fantasy VII (Germany) (Disc 1).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

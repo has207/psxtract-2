@@ -1,0 +1,5 @@
+REM MD5 6dd17c089a678f4c429046c113b8fcb2
+FILE "Shisenfuu Gekikara Mahjong (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 20:10:72

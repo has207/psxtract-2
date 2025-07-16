@@ -1,0 +1,5 @@
+REM MD5 7741b7ee5dcc1dd780289d7bc21f6e8f
+FILE "Crusader - No Remorse (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 66:19:71

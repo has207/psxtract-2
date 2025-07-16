@@ -1,0 +1,5 @@
+REM MD5 b9a1211fed03e822a11948ef86a8e11d
+FILE "Lunar 2 - Eternal Blue (Japan) (Disc 3).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 70:11:00

@@ -1,0 +1,5 @@
+REM MD5 d20f64416ee17cbea963359b8920327f
+FILE "Jimmy White's 2 - Cueball (Europe) (En,Fr,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 22:43:49

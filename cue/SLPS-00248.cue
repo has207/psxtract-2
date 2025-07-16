@@ -1,4 +1,5 @@
-FILE "Hyper Crazy Climber (Japan) (Track 01).bin" BINARY
+REM MD5 1ee17d7c28bfd4f0906316f7f33965a7
+FILE "Hyper Crazy Climber (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

@@ -1,0 +1,5 @@
+REM MD5 68ae2f653752ffdd7b7ddd97b78019be
+FILE "Parlor! Pro Jr. Vol. 5 - CR Fruit World X (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 04:03:63

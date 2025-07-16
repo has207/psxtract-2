@@ -1,3 +1,4 @@
+REM MD5 980fd7bc769278f6ced5f009358a3880
 FILE "Disneys Lilo & Stitch - Hula Baluba! (Norway).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

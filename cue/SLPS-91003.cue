@@ -1,4 +1,5 @@
-FILE "King's Field II (Japan) (PlayStation the Best) (Rev 1).bin" BINARY
+REM MD5 e13f6cd452e989761d5f364dd39f160d
+FILE "King's Field II (Japan) (PlayStation the Best).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
-REM LEADOUT 11:51:25
+REM LEADOUT 11:51:27

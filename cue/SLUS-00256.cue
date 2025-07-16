@@ -1,0 +1,8 @@
+REM MD5 d4eec42a7ae0d21d55a29245ad023f3a
+FILE "Saban's Power Rangers Zeo - Full Tilt Battle Pinball (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 26:28:09
+    INDEX 01 26:30:09
+REM LEADOUT 30:00:13

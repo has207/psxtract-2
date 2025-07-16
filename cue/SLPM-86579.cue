@@ -1,0 +1,5 @@
+REM MD5 b697e55fcc4ba2efb5cf9c03a1c3cb8b
+FILE "SuperLite 1500 Series - Ring of Sias (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 51:50:58

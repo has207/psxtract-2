@@ -1,0 +1,5 @@
+REM MD5 c2b117afef10bd226911a592e27d67aa
+FILE "Mortal Kombat - Special Forces (Europe) (En,Fr,De).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 30:09:51

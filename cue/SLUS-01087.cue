@@ -1,0 +1,5 @@
+REM MD5 56fc491dd5eafcf84c7bf0f65c4e03f0
+FILE "Resident Evil - Survivor (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 40:13:33

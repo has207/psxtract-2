@@ -1,0 +1,5 @@
+REM MD5 fb2ef05fcaedaec84e2ea5bba7ce5729
+FILE "Blazing Dragons (Germany).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 37:32:19

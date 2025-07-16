@@ -1,0 +1,5 @@
+REM MD5 e10d094c505c3339bd91c829d9282f95
+FILE "Disneys Skattkammarplaneten (Sweden).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 42:56:57

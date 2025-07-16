@@ -1,4 +1,5 @@
-FILE "DamDam Stompland (Japan) (Track 01).bin" BINARY
+REM MD5 5fa1f2d39b1c8e76c867fa57d26097da
+FILE "DamDam Stompland (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

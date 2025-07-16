@@ -1,0 +1,5 @@
+REM MD5 9908abfd3ab621db0aa338d27132bca6
+FILE "Simple 1500 Series Vol. 68 - The RC Car - RC de Go! (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 32:41:30

@@ -1,0 +1,5 @@
+REM MD5 f1289e78bb4bc5a35eb892b93c9e07e7
+FILE "Simple 1500 Series Vol. 8 - The Solitaire (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 17:20:05

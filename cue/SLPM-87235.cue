@@ -1,0 +1,5 @@
+REM MD5 43ce5bd852a6744a68ab445e24d6e098
+FILE "Croket! Kindan no Kinka Box! (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 10:35:50

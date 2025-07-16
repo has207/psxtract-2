@@ -1,0 +1,5 @@
+REM MD5 3f32c7f596462079d1451ae8abc170f9
+FILE "Livro da Selva, O - Uma Festa Divertida (Portugal).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 70:43:73

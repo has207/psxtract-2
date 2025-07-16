@@ -1,3 +1,4 @@
+REM MD5 e271ee223eda1c8bcf12e8a9873ec3dc
 FILE "Dino Crisis (Spain).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,0 +1,5 @@
+REM MD5 4f70f627b996a5c35012cf501bdbe482
+FILE "Pocke-Kano - Houjouin Shizuka (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 45:47:20

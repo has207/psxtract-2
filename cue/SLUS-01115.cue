@@ -1,3 +1,4 @@
+REM MD5 424f9fbda58e95f597e39b4bdde239b1
 FILE "Harvest Moon - Back to Nature (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,3 +1,4 @@
+REM MD5 9c578f8dfeb0bb785319e4211fea170a
 FILE "Puzzle Mania (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

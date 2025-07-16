@@ -1,0 +1,5 @@
+REM MD5 7286b630f00effb014ec24f19401eecd
+FILE "Valkyrie Profile (Japan) (Disc 2) (Deluxe Pack).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 69:19:12

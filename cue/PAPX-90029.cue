@@ -1,0 +1,5 @@
+REM MD5 fba5852be5de781710caec6962b78d16
+FILE "Rittai Ninja Katsugeki - Tenchu (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 40:59:05

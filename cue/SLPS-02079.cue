@@ -1,0 +1,5 @@
+REM MD5 c1bd3dafacbabda08fc095be5a22755b
+FILE "Cadillac (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 04:46:72

@@ -1,0 +1,5 @@
+REM MD5 45b47a2a50531d9736b46ca2881ca01f
+FILE "Resident Evil (Europe, Australia) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 06:28:38

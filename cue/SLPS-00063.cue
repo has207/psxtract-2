@@ -1,0 +1,5 @@
+REM MD5 86831f4bb070ac198323c6cc376edc6a
+FILE "Keiba Saishou no Housoku '95 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 41:04:63

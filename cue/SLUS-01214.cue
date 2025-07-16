@@ -1,3 +1,4 @@
+REM MD5 c09c5b2234744cf96837ca8b659b219b
 FILE "Disney-Pixar Toy Story Racer (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

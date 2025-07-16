@@ -1,0 +1,5 @@
+REM MD5 6eaf8bc75b820854b3db6ebef2b4c816
+FILE "Dirt Jockey - Heavy Equipment Operator (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 36:24:02

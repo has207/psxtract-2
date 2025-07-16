@@ -1,3 +1,4 @@
+REM MD5 f2d656da5cae78f0ad29e5e496ba69a8
 FILE "Puppet Zoo Pilomy (Japan) (En,Ja).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

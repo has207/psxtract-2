@@ -1,3 +1,4 @@
+REM MD5 6ead4413185c769a5d90c9d0a288c316
 FILE "Final Fantasy Origins - Final Fantasy (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

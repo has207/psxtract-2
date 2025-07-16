@@ -1,3 +1,4 @@
+REM MD5 58461d8ea573b990c7bbcc32d0feb8a8
 FILE "Final Fantasy VIII (USA) (Disc 3).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

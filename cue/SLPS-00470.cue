@@ -1,3 +1,4 @@
+REM MD5 e3b50bf7d40f5454f829407998491fa3
 FILE "Heroine Dream (Japan) (Shokai Genteiban).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

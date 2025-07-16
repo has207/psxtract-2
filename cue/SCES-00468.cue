@@ -1,0 +1,5 @@
+REM MD5 7d98b2bdd4058b6f18f22683689080e6
+FILE "Broken Sword - The Shadow of the Templars (Italy).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 50:42:07

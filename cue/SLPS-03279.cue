@@ -1,0 +1,8 @@
+REM MD5 b8adc517723fbdc5dd0019f26fd5adaa
+FILE "Minna no Shiiku Kyoushitsu - Kuwagata-hen (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 02:22:26
+    INDEX 01 02:24:26
+REM LEADOUT 06:24:26

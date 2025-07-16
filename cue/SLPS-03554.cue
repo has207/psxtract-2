@@ -1,3 +1,4 @@
+REM MD5 a28c06ce1082c028c6794e603c4434ad
 FILE "Minna Atsumare! Igo Kyoushitsu (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

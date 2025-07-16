@@ -1,3 +1,4 @@
+REM MD5 e0dfda3066e96cec77fa09d4e04144d4
 FILE "Resident Evil 2 (Europe) (Disc 1).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

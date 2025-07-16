@@ -1,4 +1,5 @@
-FILE "Fighting Force (Europe) (En,Fr,De) (Track 01).bin" BINARY
+REM MD5 00dcdbac56bba53f2a5c898b07785408
+FILE "Fighting Force (Europe) (En,Fr,De).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

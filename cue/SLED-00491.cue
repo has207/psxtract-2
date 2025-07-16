@@ -1,0 +1,8 @@
+REM MD5 f0a201a6cfa3f1f2dc7643cdbea2b9a0
+FILE "Formula One (Europe) (En,Fr,De,Es,It) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 12:33:69
+    INDEX 01 12:35:69
+REM LEADOUT 16:35:69

@@ -1,0 +1,8 @@
+REM MD5 992c41d391cce23b66f466f8975557b9
+FILE "Alnam no Tsubasa - Shoujin no Sora no Kanata e (Japan) (Disc 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 46:12:29
+    INDEX 01 46:14:29
+REM LEADOUT 49:20:30

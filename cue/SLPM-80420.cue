@@ -1,0 +1,8 @@
+REM MD5 8f9cbf9efdaed28d52d17be9132a3b21
+FILE "Kouyasai - A Sherd of Youthful Memories (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 01:10:66
+    INDEX 01 01:12:66
+REM LEADOUT 05:43:26

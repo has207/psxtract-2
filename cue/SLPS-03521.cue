@@ -1,0 +1,5 @@
+REM MD5 a1b438c763c543c906f57d290759b391
+FILE "Sister Princess 2 (Japan) (Disc 1) (Shokai Genteiban).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 69:58:48

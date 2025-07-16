@@ -1,0 +1,5 @@
+REM MD5 a25c64a7bc826e085471f31e1b9e8b0f
+FILE "Star Wars - Episode I - La Menace Fantome (France).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 63:37:72

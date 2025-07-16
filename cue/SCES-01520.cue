@@ -1,0 +1,5 @@
+REM MD5 241b3c53b5f618be3e1994adecfd46d0
+FILE "Disney-Pixar A Bug's Life (France).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 70:12:31

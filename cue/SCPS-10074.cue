@@ -1,3 +1,4 @@
+REM MD5 2a68c9af8c6b9d58e7a9a0cb00298b56
 FILE "Ore no Shikabane o Koete Yuke (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

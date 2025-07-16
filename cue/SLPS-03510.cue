@@ -1,0 +1,8 @@
+REM MD5 c102986f515735f9fc7ab52cfc69c678
+FILE "Adlib Ouji - ...to Fuyukai na Nakama-tachi! (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 04:27:36
+    INDEX 01 04:29:36
+REM LEADOUT 07:30:38

@@ -1,0 +1,5 @@
+REM MD5 5cf5f5e4e574c825670221b18f45eb36
+FILE "Star Wars - Episode I - Die dunkle Bedrohung (Germany).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 64:40:48

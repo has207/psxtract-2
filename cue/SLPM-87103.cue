@@ -1,0 +1,5 @@
+REM MD5 f8372b5347a1c6ccc024cb5562d5e11e
+FILE "Digital Ehon Vol. 1 - Imadoki no Momotarou (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 21:20:70

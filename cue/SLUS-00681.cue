@@ -1,0 +1,5 @@
+REM MD5 742089ecce542ff076d862694e150370
+FILE "Rival Schools - United by Fate (USA) (Disc 1) (Arcade Disc).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 68:33:41

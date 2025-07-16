@@ -1,3 +1,4 @@
+REM MD5 110ece1c6b0fdcd443df340fa7db30f4
 FILE "Xenogears (USA) (Disc 1).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

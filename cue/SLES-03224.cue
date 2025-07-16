@@ -1,3 +1,4 @@
+REM MD5 4faadc0681c1956ae380852f99d04bcc
 FILE "Dino Crisis 2 (Italy).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

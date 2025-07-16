@@ -1,3 +1,4 @@
+REM MD5 816a41623a171a7e48eda5ce2c45a844
 FILE "Disney Jeu d'Action Disney Presente Hercule (France).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

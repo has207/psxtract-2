@@ -1,0 +1,5 @@
+REM MD5 b5779da816fa7dfe524117f00b7648e0
+FILE "Ginga Ojousama Densetsu Yuna - Final Edition (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 57:40:38

@@ -1,3 +1,4 @@
+REM MD5 9584e38d789cf787a6a976b3b72a2013
 FILE "Biohazard 2 (Japan) (Disc 1) (Leon-hen).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

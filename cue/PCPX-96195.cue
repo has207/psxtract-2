@@ -1,0 +1,5 @@
+REM MD5 526e1d6d3320d55458ca9993ba0ebfad
+FILE "PoPoLoCrois Monogatari II (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 20:24:36

@@ -1,0 +1,5 @@
+REM MD5 6821a1f0d4aae2fbd8f9ef01ea9aa9ae
+FILE "Mr. Driller G (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 60:41:67

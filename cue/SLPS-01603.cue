@@ -1,0 +1,5 @@
+REM MD5 2a59774e899bd46596a0cbc4a8d39763
+FILE "Serial Experiments Lain (Japan) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 55:06:23

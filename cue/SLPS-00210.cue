@@ -1,4 +1,5 @@
-FILE "Namco Museum Vol. 2 (Japan) (Track 01).bin" BINARY
+REM MD5 9a38a50285200ad8ea109354385d49ae
+FILE "Namco Museum Vol. 2 (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

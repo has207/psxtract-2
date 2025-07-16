@@ -1,0 +1,5 @@
+REM MD5 1fc43e118bbc68e18427245994da7bc7
+FILE "Cross Tantei Monogatari 1 - Zenpen (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 54:19:36

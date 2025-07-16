@@ -1,0 +1,5 @@
+REM MD5 2e7c8da8bd54868415d5e0572eb3d304
+FILE "Harry Potter to Himitsu no Heya (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 53:54:11

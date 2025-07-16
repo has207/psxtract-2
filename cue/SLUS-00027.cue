@@ -1,3 +1,4 @@
+REM MD5 9515b7c88e003088cdfd818daf9231fc
 FILE "Blood Omen - Legacy of Kain (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

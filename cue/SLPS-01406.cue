@@ -1,0 +1,5 @@
+REM MD5 add77926ba75bec1e0651bd870ca729d
+FILE "Thunder Force V - Perfect System (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 70:55:10

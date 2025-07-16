@@ -1,3 +1,4 @@
+REM MD5 a46755808ac224818d35d0fbdefce4d5
 FILE "Namco Anthology 1 (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

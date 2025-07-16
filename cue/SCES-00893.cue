@@ -1,3 +1,4 @@
+REM MD5 ec808ac8484dbc50e56866c1fdff3132
 FILE "Disneys Hercules Action-Spiel (Germany).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

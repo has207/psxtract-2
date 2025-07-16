@@ -1,0 +1,5 @@
+REM MD5 5706c5e94df903406154917d047ca382
+FILE "Rittai Ninja Katsugeki - Tenchu - Shinobi Hyakusen (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 65:25:62

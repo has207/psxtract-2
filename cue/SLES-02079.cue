@@ -1,0 +1,5 @@
+REM MD5 ffde76a33f2fd621deb2e51d9bb6d0fa
+FILE "Chocobo Racing (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 33:50:52

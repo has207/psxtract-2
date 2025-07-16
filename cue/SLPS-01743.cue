@@ -1,0 +1,5 @@
+REM MD5 6b79698df9c2a36bc4f9a87d1cf28fcc
+FILE "True Love Story 2 (Japan) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 64:35:64

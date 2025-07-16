@@ -1,3 +1,4 @@
+REM MD5 8ef8ee38b5a1e85b46cbf2f704d9f463
 FILE "Doki Doki Poyatchio!! (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

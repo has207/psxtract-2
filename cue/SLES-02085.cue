@@ -1,0 +1,5 @@
+REM MD5 812d72aa7f1ee2ab0cfae954e1407343
+FILE "Fisherman's Bait - Bass Challenge (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 09:10:31

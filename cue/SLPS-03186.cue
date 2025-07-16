@@ -1,0 +1,8 @@
+REM MD5 7def2be2a83996471ef9d2dc70de5518
+FILE "Minna no Kanji Kyoushitsu - Chousen! Kanji Kentei (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 00:58:43
+    INDEX 01 01:00:43
+REM LEADOUT 05:00:43

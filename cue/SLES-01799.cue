@@ -1,0 +1,5 @@
+REM MD5 85b39ecdb878efc5dcf726d225180be6
+FILE "Guardian's Crusade (France).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 41:20:56

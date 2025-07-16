@@ -1,3 +1,4 @@
+REM MD5 39248ce56d2a82f41af4aade0c309504
 FILE "Disney's Action Spel med Herkules (Sweden).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

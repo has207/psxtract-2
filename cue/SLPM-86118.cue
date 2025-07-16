@@ -1,3 +1,4 @@
+REM MD5 78241d3dfde39a00663e26980e387798
 FILE "Bakumatsu Roman - Gekka no Kenshi (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

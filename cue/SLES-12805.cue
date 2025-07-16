@@ -1,3 +1,4 @@
+REM MD5 42fcc1ad8c45579284d42cb7eb31cd37
 FILE "Alone in the Dark - The New Nightmare (Italy) (Disc 2).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

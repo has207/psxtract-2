@@ -1,0 +1,5 @@
+REM MD5 7fdee4655a0a37629e9393785072cb9c
+FILE "Grind Session (Europe, Australia) (En,Fr,De,Es,It,Nl,Pt).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 65:35:35

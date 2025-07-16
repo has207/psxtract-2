@@ -1,3 +1,4 @@
+REM MD5 5dd1e0df1877a640c7e32e8ce49fb014
 FILE "Xenogears (Japan) (Disc 2).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

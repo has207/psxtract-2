@@ -1,0 +1,5 @@
+REM MD5 e6879b4f703704de97f1f55f7af09569
+FILE "Bust A Move (Japan) (Disc 2) (Premium CD-ROM) (Genteiban).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 28:03:41

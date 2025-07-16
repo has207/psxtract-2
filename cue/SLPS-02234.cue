@@ -1,0 +1,5 @@
+REM MD5 86550f10d6a4a380fcbaf7fc7bbb0edd
+FILE "Submarine Hunter Shachi (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 22:13:33

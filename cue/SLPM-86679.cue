@@ -1,0 +1,8 @@
+REM MD5 d3f2e9677a98dcdbbdab69c28a7f24a0
+FILE "Maestromusic, The - Encore Disc (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 11:31:49
+    INDEX 01 11:33:49
+REM LEADOUT 17:27:11

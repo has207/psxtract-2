@@ -1,3 +1,4 @@
+REM MD5 fe9e8f759504754d3aba267694822306
 FILE "Arcade Hits - Sonic Wings Special (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

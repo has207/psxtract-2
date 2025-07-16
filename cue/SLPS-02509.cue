@@ -1,3 +1,4 @@
+REM MD5 9ee860583622be00da7177e65c0f7e69
 FILE "Gyuwambler Jiko Chuushinha - Ippatsu Shoubu! (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,0 +1,5 @@
+REM MD5 3f60d2cec1fed1bf739b8e38aca576a7
+FILE "Hello Kitty - Cube Frenzy (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 23:15:36

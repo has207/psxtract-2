@@ -1,0 +1,5 @@
+REM MD5 a4028675a789d0012a7ebf50f243baf1
+FILE "Kakuge Yarou - Fighting Game Creator (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 22:52:05

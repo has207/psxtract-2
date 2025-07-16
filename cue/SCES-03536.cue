@@ -1,0 +1,8 @@
+REM MD5 be15bf72bde84e443c0fa9a1927bc830
+FILE "Disneyn Atlantis - Kadonnut Kaupunki (Finland).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 31:51:54
+    INDEX 01 31:53:54
+REM LEADOUT 34:53:54

@@ -1,0 +1,5 @@
+REM MD5 14c7b174c388f9519c04bfc10f1c4545
+FILE "Disney's The Emperor's New Groove (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 57:47:30

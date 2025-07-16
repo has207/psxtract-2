@@ -1,0 +1,5 @@
+REM MD5 4fbaea4200717c193a7934cfd8a73f68
+FILE "Harvest Moon - Back to Nature (Europe) (En,De) (Rev 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 25:33:20

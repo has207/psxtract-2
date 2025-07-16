@@ -1,3 +1,4 @@
+REM MD5 5c07199863f701838f9723536d44b922
 FILE "Armored Core - Master of Arena (Japan) (Disc 1).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

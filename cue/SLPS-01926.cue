@@ -1,0 +1,5 @@
+REM MD5 6e255aadffc52cb804e634dc1c998b78
+FILE "Chiisana Kyojin Microman (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 57:27:28

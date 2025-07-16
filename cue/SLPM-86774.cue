@@ -1,0 +1,5 @@
+REM MD5 ad7c68d71479ca78749af3623afcdce4
+FILE "Ganbare Goemon - Ooedo Daikaiten (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 61:39:57

@@ -1,0 +1,5 @@
+REM MD5 af63e2a8db88d6b412ee6b4edf9dc5f5
+FILE "Pokeler DX - Pink (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 04:01:37

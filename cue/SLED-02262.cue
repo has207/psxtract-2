@@ -1,0 +1,5 @@
+REM MD5 a5abe42904d72c7b5543ededb5d4f1cd
+FILE "Final Fantasy VIII (Spain) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 17:58:06

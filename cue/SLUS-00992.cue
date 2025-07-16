@@ -1,3 +1,4 @@
+REM MD5 97ce8032fd1015a19bbba02f15feba38
 FILE "Missile Command (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

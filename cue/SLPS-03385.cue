@@ -1,0 +1,5 @@
+REM MD5 2ca206576b21f903f6cfc40cfd92058b
+FILE "Super Price Series - Reversi (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 03:15:15

@@ -1,0 +1,5 @@
+REM MD5 1db1527c5d2518e5e1e4c1786bc7551d
+FILE "Puuha Pete - Korjataanko (Finland).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 15:32:01

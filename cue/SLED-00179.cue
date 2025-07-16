@@ -1,0 +1,5 @@
+REM MD5 ad1bd8c56b50a200d289dd0ed8f32e74
+FILE "Adidas Power Soccer 2 (Europe) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 04:33:42

@@ -1,0 +1,6 @@
+REM MD5 51f5fb6e350c1986a454e199fc0b1bf5
+FILE "Tokimeki Memorial 2 (Japan) (Disc 3) (Rev 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    FLAGS DCP
+    INDEX 01 00:00:00
+REM LEADOUT 70:39:67

@@ -1,4 +1,5 @@
-FILE "Yamasa Digi Guide - Hyper Rush (Japan) (Track 01).bin" BINARY
+REM MD5 8fa74e3be09d5609d85b283f61944aaf
+FILE "Yamasa Digi Guide - Hyper Rush (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

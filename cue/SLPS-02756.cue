@@ -1,0 +1,5 @@
+REM MD5 cb9646f4a7dc0faf89681d37503383df
+FILE "Simple 1500 Series Vol. 30 - The Basket - 1 on 1 Plus (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 11:12:55

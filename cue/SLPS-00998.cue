@@ -1,3 +1,4 @@
+REM MD5 afaa1f4917de167bd8f3d8e0b4d93a0f
 FILE "Bio Hazard - Director's Cut (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

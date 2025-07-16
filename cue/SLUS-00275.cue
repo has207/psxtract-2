@@ -1,3 +1,4 @@
+REM MD5 8cbb8b65ee99c7c8caff4c1d32f73a7c
 FILE "Theme Hospital (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

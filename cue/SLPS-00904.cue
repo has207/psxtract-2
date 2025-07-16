@@ -1,0 +1,5 @@
+REM MD5 3f70f5ae0c80f135981b52c0726b9882
+FILE "Elf o Karu Monotachi - Hanafuda-hen (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 16:50:58

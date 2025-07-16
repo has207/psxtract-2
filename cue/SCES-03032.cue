@@ -1,0 +1,5 @@
+REM MD5 7b0e4ab59ebfcc625780cd34b57b61f7
+FILE "Disney's The Little Mermaid II (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 52:33:15

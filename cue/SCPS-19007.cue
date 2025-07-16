@@ -1,0 +1,5 @@
+REM MD5 c6a6141b2c0c281cf9cb926b0809c876
+FILE "PlayStation Comic - Buzzer Beater - Kouhen (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 26:20:12

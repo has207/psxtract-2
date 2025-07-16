@@ -1,0 +1,5 @@
+REM MD5 993b2d054b36bdfae190a8afaaf3ff6b
+FILE "Croc Adventure (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 08:09:04

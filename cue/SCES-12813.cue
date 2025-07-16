@@ -1,0 +1,5 @@
+REM MD5 5cabfdb0101a36a23ad0c94aff1d7283
+FILE "Chase the Express (France) (Disc 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 63:50:72

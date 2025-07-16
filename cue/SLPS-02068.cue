@@ -1,0 +1,5 @@
+REM MD5 4901eaa4c1bd11b995fb36eb82a5b143
+FILE "SuperLite 1500 Series - Oekaki Puzzle (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 05:12:02

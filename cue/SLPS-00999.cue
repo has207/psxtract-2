@@ -1,3 +1,4 @@
+REM MD5 d24c7c21e9e98c55afa8fbe757741ffb
 FILE "Biohazard 2 (Japan) (Trial Edition).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,4 +1,5 @@
-FILE "Wai Wai Bowling (Japan) (Track 01).bin" BINARY
+REM MD5 4f3f9c5ea62b1f6a5e05a9f3e8d3f2ff
+FILE "Wai Wai Bowling (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

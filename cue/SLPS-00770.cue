@@ -1,3 +1,4 @@
+REM MD5 dfca4b82f4a85dc8ad5933892155fd95
 FILE "Final Fantasy Tactics (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

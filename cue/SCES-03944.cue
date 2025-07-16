@@ -1,0 +1,5 @@
+REM MD5 2efae2b2df62487802b895085e2fd8cd
+FILE "Disneys Skatteplaneten (Denmark).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 42:56:26

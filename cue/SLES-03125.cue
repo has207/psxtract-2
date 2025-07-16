@@ -1,0 +1,5 @@
+REM MD5 1302d4a0ab2acc72d38ef3d406b9c841
+FILE "Medal of Honor - Resistance (France).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 70:52:38

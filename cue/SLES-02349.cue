@@ -1,0 +1,5 @@
+REM MD5 08407456ada211b531d2207bb2f5a8f4
+FILE "Amerzone - El Legado del Explorador (Spain) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 64:38:12

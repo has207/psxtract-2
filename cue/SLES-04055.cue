@@ -1,0 +1,8 @@
+REM MD5 68fc2dca1f4d7659f0327e0f1402eeb5
+FILE "Land Before Time, The - Big Water Adventure (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 25:59:26
+    INDEX 01 26:01:26
+REM LEADOUT 40:26:09

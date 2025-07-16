@@ -1,0 +1,5 @@
+REM MD5 c832a4a5e3b45572558b6ae73ebbf979
+FILE "Super Price Series - Paipai (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 03:18:31

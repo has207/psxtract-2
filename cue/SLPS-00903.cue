@@ -1,0 +1,5 @@
+REM MD5 ff51a727c2179b8cbc03d060d1ab5054
+FILE "Ongaku Tkool - Kanadeeru 2 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 15:00:20

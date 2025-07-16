@@ -1,4 +1,5 @@
-FILE "Bust-A-Move 3 DX (Italy) (Reprint) (Track 01).bin" BINARY
+REM MD5 6173a080093ede98a2657052fa376e8a
+FILE "Bust-A-Move 3 DX (Italy) (Reprint).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

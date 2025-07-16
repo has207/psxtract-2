@@ -1,3 +1,4 @@
+REM MD5 5ec5bcd55a7cb448b8bf5e7f24854d7d
 FILE "Arcade Hits - Wolf Fang - Kuuga 2001 (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

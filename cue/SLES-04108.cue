@@ -1,0 +1,5 @@
+REM MD5 39205ca9d0e6c4f900541fe080d4e2c3
+FILE "Adiboo & Paziral's Secret (Europe) (En,Fr,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 61:13:51

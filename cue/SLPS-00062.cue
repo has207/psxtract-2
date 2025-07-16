@@ -1,0 +1,5 @@
+REM MD5 90e939ccc37f7ece0a7a2c24db7447bd
+FILE "Hyper Formation Soccer (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 35:34:52

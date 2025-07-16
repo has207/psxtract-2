@@ -1,4 +1,5 @@
-FILE "Simple 1500 Series Vol. 27 - The Snowboard (Japan) (Track 01).bin" BINARY
+REM MD5 3964c277e463766cbd52e56ca5c1d904
+FILE "Simple 1500 Series Vol. 27 - The Snowboard (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

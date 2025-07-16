@@ -1,4 +1,5 @@
-FILE "Falcata - Astran Pardma no Monshou (Japan) (Track 01).bin" BINARY
+REM MD5 2a87bd6e006be2f9b1ba65a4cb839dcf
+FILE "Falcata - Astran Pardma no Monshou (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

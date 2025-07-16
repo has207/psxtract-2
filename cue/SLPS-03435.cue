@@ -1,0 +1,5 @@
+REM MD5 cbbd9c3c36cd62842e451bf56357dbf5
+FILE "Yakitori Musume - Sugoude Hanjouki (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 27:55:34

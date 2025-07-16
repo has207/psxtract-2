@@ -1,3 +1,4 @@
+REM MD5 ee7b4c4c74f73475e0b64d27e1088e10
 FILE "Nekketsu Oyako (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

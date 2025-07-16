@@ -1,0 +1,5 @@
+REM MD5 c71e4b79b1fddc24c17b31d9270f0454
+FILE "Tokimeki Memorial 2 - Taisen Puzzledama (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 55:20:37

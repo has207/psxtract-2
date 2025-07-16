@@ -1,0 +1,8 @@
+REM MD5 b28a3f250ecb7f17edd8c8aea0a4e111
+FILE "My Dream - On Air ga Matenakute (Japan) (Disc 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 58:50:71
+    INDEX 01 58:52:71
+REM LEADOUT 62:11:08

@@ -1,0 +1,5 @@
+REM MD5 6df391bc070dd614672a7b390e4e06a9
+FILE "Heiwa Parlor! Pro - Tsunatori Special (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 04:16:02

@@ -1,4 +1,5 @@
-FILE "Arcade Hits - Magical Drop (Japan) (Track 01).bin" BINARY
+REM MD5 b2815630cc1fa70026b4341f6cbc3f62
+FILE "Arcade Hits - Magical Drop (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

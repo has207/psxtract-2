@@ -1,0 +1,5 @@
+REM MD5 bc71926ac237b914d3d2b9ea83d5ceec
+FILE "Nishijin Pachinko Tengoku EX (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 09:18:21

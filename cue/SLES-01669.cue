@@ -1,0 +1,5 @@
+REM MD5 080ba1658010e3789bc45265c143345b
+FILE "Nickelodeon Les Razmoket - A la Recherche de Reptar (France).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 51:26:55

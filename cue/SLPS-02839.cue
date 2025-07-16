@@ -1,0 +1,11 @@
+REM MD5 186c16ef5d1717abc69edeef6f260ec3
+FILE "Simple 1500 Jitsuyou Series Vol. 04 - Ryouri - Teiban Ryouri Recipe-shuu (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 59:26:35
+    INDEX 01 59:28:35
+  TRACK 03 AUDIO
+    INDEX 00 60:47:53
+    INDEX 01 60:49:53
+REM LEADOUT 63:59:53

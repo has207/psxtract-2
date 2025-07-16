@@ -1,3 +1,4 @@
+REM MD5 46b0db812d12ec4e867ef2d54cf7fc5a
 FILE "Alone in the Dark - The New Nightmare (USA) (Disc 1).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

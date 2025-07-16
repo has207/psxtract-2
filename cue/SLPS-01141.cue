@@ -1,0 +1,8 @@
+REM MD5 074a3ece05a82f4fafa0c3d9a80539d8
+FILE "Rockman Dash - Hagane no Boukenshin (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 43:27:28
+    INDEX 01 43:29:28
+REM LEADOUT 46:59:28

@@ -1,0 +1,5 @@
+REM MD5 e7487b5223f49140abbb20e4f5cdd1e2
+FILE "Chou Jiryoku Senshi Microman - Generation 2000 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 63:16:10

@@ -1,0 +1,5 @@
+REM MD5 bc4184dcd6a75cd67e8ee5fe0cb1bc22
+FILE "Hyper Olympic in Atlanta (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 27:01:69

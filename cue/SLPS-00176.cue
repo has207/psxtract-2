@@ -1,4 +1,5 @@
-FILE "Street Fighter Zero (Japan) (Track 01).bin" BINARY
+REM MD5 eb562c91c5c65cff2ee504c275b9049b
+FILE "Street Fighter Zero (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

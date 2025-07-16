@@ -1,3 +1,4 @@
+REM MD5 4788e8be48b758fe0f5b30913f0b03ad
 FILE "Robbit mon Dieu (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

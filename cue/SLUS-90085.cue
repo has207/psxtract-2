@@ -1,0 +1,5 @@
+REM MD5 d08ed84d97e41733a82a2ecaa3d4bfb8
+FILE "Tyco R-C - Assault with a Battery (USA) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 01:08:74

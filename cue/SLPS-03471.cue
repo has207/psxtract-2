@@ -1,0 +1,8 @@
+REM MD5 0f6c76a6ed60550308d3db168c04dac6
+FILE "Simple Character 2000 Series Vol. 12 - Kidou Butouden G Gundam - The Battle (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 19:04:41
+    INDEX 01 19:06:41
+REM LEADOUT 22:36:41

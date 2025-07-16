@@ -1,0 +1,8 @@
+REM MD5 407b1fd7c215d6b3adb14984c983b813
+FILE "Michelin Rally Masters - Race of Champions (Europe) (Fr,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 67:12:64
+    INDEX 01 67:14:64
+REM LEADOUT 70:17:65

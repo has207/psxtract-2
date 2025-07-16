@@ -1,0 +1,5 @@
+REM MD5 85f878cdfdede12b21e1c6012847cc14
+FILE "City of Lost Children, The (USA) (En,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 30:55:22

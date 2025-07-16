@@ -1,0 +1,5 @@
+REM MD5 03b571fdf6b88acd9de2a16abb945c2d
+FILE "Saishuu Densha (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 59:34:60

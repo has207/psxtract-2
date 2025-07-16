@@ -1,0 +1,5 @@
+REM MD5 10934aba0f340fc13608e7a1a4d15b4a
+FILE "Calamity 2 - People and Traditions (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 32:02:03

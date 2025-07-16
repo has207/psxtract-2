@@ -1,0 +1,5 @@
+REM MD5 62cabfd06357ec9914f75d2246a53c30
+FILE "Jissen Pachi-Slot Hisshouhou! Disc Up (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 10:51:08

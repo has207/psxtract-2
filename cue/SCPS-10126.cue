@@ -1,3 +1,4 @@
+REM MD5 131e6cbda2a6a2805ac96aa5589cf6b6
 FILE "Addie no Okurimono - To Moze from Addie (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

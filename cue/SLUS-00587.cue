@@ -1,0 +1,5 @@
+REM MD5 fe8032c5a238968e3fd66d008f85a247
+FILE "Wreckin Crew - Drive Dangerously (USA) (En,Es).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 32:26:66

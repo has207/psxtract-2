@@ -1,0 +1,5 @@
+REM MD5 2773d51b1f1df1de1a61cc1cfb2fafe1
+FILE "Danger Girl (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 64:28:20

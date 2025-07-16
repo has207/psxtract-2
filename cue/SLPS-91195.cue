@@ -1,0 +1,5 @@
+REM MD5 fd17af0a4045938739f1cba116e9bc00
+FILE "Gunbarl (Japan) (PlayStation the Best).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 45:23:32

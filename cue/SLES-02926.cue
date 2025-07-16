@@ -1,0 +1,11 @@
+REM MD5 690ca66d4efc164f0f56878edd48fc65
+FILE "Tiny Toon Adventures - Toonenstein - Le Chateau hante (France).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 61:22:16
+    INDEX 01 61:24:16
+  TRACK 03 AUDIO
+    INDEX 00 62:52:64
+    INDEX 01 62:54:64
+REM LEADOUT 66:23:60

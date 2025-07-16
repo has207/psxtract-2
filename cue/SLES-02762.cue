@@ -1,0 +1,5 @@
+REM MD5 a93b09580d18ff4ce985102fb9b9c988
+FILE "Dracula - A Ressurreicao (Portugal) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 67:34:72

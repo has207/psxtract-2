@@ -1,3 +1,4 @@
+REM MD5 ec4646998b8bb4ead6037763decbcd5c
 FILE "Dice de Chocobo (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

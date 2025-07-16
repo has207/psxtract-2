@@ -1,0 +1,5 @@
+REM MD5 111e0d9a6cf3890dec10ee7fc926c7ee
+FILE "Pop'n Music - Disney Tunes (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 18:49:17

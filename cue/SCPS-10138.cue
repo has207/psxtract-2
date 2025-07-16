@@ -1,3 +1,4 @@
+REM MD5 ea74175cdd49ccfb1fa44a38fef2f1d7
 FILE "Bealphareth (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

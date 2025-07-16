@@ -1,0 +1,5 @@
+REM MD5 11c52ee05c0148a1762ae76cd0b6e7b9
+FILE "Ile LEGO 2, L' - La Revanche de Cassbrik (France).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 22:02:34

@@ -1,0 +1,5 @@
+REM MD5 0a7226786fdab07c5f29a8c365b118cd
+FILE "Blue's Clues - Blue's Big Musical (Australia).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 70:56:67

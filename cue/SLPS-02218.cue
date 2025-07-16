@@ -1,3 +1,4 @@
+REM MD5 06dd181acaf475ce7b600ed26396bfc3
 FILE "Pocket Tuner (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

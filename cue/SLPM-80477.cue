@@ -1,0 +1,5 @@
+REM MD5 a9dfc5eef822afd60984ab4582570dec
+FILE "Culdcept - Cepter's Guild Vol. 2 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 40:39:03

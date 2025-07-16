@@ -1,0 +1,5 @@
+REM MD5 c3acff98a4af5f8abc46d425f3d4232f
+FILE "Hydro Thunder (Europe) (En,Fr).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 13:22:17

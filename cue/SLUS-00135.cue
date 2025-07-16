@@ -1,0 +1,5 @@
+REM MD5 c799858563e26fd341d095897fef4f85
+FILE "Wing Commander III - Heart of the Tiger (USA) (Disc 3).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 69:21:56

@@ -1,3 +1,4 @@
+REM MD5 e15773bd163762d727a19ea615208993
 FILE "Mega Man - Battle & Chase (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

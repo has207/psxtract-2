@@ -1,0 +1,8 @@
+REM MD5 3ea9cdc41092da937107a76442bdda25
+FILE "Albaria no Otome - Uruwashi no Seikishitachi (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 67:49:45
+    INDEX 01 67:51:45
+REM LEADOUT 70:03:01

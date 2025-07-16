@@ -1,0 +1,5 @@
+REM MD5 21cc10dae00709e5feb26b55292122d6
+FILE "Rikujou Boueitai Mao-chan (Japan) (DX Pack).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 18:57:39

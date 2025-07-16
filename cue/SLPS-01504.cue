@@ -1,0 +1,5 @@
+REM MD5 de6feadba2077bd49aa3e730a889c45c
+FILE "Dezaemon Plus Select 100 (Japan) (Rev 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 14:21:69

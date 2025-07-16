@@ -1,3 +1,4 @@
+REM MD5 501c9348d17560cd63baa592bb8f5ad3
 FILE "Dino Crisis 2 (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,0 +1,5 @@
+REM MD5 cf7e08e6a4bb7874ec50f5bc62eaf19e
+FILE "Herc's Adventures (Italy).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 33:39:21

@@ -1,0 +1,5 @@
+REM MD5 88c94a5e217f67aaafc9bf7016dfc871
+FILE "G-Police - Weapons of Justice (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 66:16:13

@@ -1,0 +1,5 @@
+REM MD5 efe4fab4581367c674b220f9043bf7c0
+FILE "Ultimate Fighting Championship (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 51:39:58

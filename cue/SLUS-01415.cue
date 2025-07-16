@@ -1,0 +1,5 @@
+REM MD5 93013f503df634f8a0bc7714e9e17a1f
+FILE "Harry Potter and the Sorcerer's Stone (USA) (En,Fr,Es).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 56:55:21

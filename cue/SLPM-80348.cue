@@ -1,0 +1,5 @@
+REM MD5 8f9aeeda410bec69d56ce8a51a0f445a
+FILE "Dance! Dance! Dance! (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 44:40:67

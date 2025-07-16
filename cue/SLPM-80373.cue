@@ -1,0 +1,5 @@
+REM MD5 795b0afc6e1946dd3b19446f81b5750e
+FILE "Bloody Roar 2 - Bringer of the New Age (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 40:12:61

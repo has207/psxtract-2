@@ -1,3 +1,4 @@
+REM MD5 f739e9bb23f9eb92e1cc93b4ff7e8cc8
 FILE "G-Police (Japan) (Disc 2).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,0 +1,8 @@
+REM MD5 bde83237aa95cf5b4313e301e3b65ce8
+FILE "Marie no Atelier - Salburg no Renkinjutsushi (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 33:43:16
+    INDEX 01 33:45:16
+REM LEADOUT 39:04:63

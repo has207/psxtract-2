@@ -1,3 +1,4 @@
+REM MD5 66a4d82b89005a249d66498e5776c7d5
 FILE "Mikagura Shoujo Tanteidan (Japan) (Disc 1) (Honpen Disc Ichi).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

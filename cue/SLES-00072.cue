@@ -1,4 +1,5 @@
-FILE "Theme Park (Europe) (En,Fr,De,Es,Sv) (Track 01).bin" BINARY
+REM MD5 e4a99027bc139093a8442ea979a7b968
+FILE "Theme Park (Europe) (En,Fr,De,Es,Sv).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

@@ -1,3 +1,4 @@
+REM MD5 4b5823a2ec2adc5d1ec547719c17f3e7
 FILE "Bounty Sword - Double Edge (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

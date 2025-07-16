@@ -1,0 +1,5 @@
+REM MD5 d451a697f3744894a4baa6a7df51b837
+FILE "Lake Masters Pro - Nihon Juudan Kuromasu Kikou (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 46:45:46

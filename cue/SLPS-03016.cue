@@ -1,3 +1,4 @@
+REM MD5 e8e64430cc528b3027d0b22223e27e5e
 FILE "Tantei Jinguuji Saburou - Mikan no Report (Japan) (Fukyuuban).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

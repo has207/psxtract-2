@@ -1,4 +1,5 @@
-FILE "Rayman (Europe) (En,Fr,De) (Track 01).bin" BINARY
+REM MD5 3345f302a620094d5ec9fe4f408299d4
+FILE "Rayman (Europe) (En,Fr,De).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

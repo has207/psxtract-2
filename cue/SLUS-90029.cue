@@ -1,0 +1,5 @@
+REM MD5 7784420377c5a7018b2b5d8d9ee7b56c
+FILE "Squaresoft on PlayStation 1998 Collector's CD Vol. 2 (USA) (Final Fantasy VIII Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 14:41:46

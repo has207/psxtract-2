@@ -1,3 +1,4 @@
+REM MD5 d04b2d03fdb7f5c0e5f64e867155e041
 FILE "Final Fantasy (Japan) (Premium Package).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

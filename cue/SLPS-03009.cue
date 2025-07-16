@@ -1,3 +1,4 @@
+REM MD5 8cc00ccd142a1cc4ee5a2e2421a06650
 FILE "Simple 1500 Series Vol. 43 - The Hanafuda 2 (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

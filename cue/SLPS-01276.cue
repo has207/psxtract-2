@@ -1,0 +1,5 @@
+REM MD5 7d1bd05373b43f2e6c46d0a5facb583b
+FILE "Misa no Mahou Monogatari (Japan) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 62:28:09

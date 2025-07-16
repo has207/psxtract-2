@@ -1,3 +1,4 @@
+REM MD5 bfb43b43146997518fbe9c24f5adf4be
 FILE "Marl Jong!! (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

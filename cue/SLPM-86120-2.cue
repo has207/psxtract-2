@@ -1,0 +1,5 @@
+REM MD5 52c3a2ace7c7277c2823d89e1d27baac
+FILE "Itadaki Street - Gorgeous King (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 06:14:38

@@ -1,0 +1,8 @@
+REM MD5 c8eb9c28ccccfdb058c77b6ad7a257cf
+FILE "Princess Maker - Pocket Daisakusen (Japan) (Best Wing 2800).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 18:42:28
+    INDEX 01 18:44:28
+REM LEADOUT 25:12:64

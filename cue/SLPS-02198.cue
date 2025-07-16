@@ -1,0 +1,5 @@
+REM MD5 16cf939cda14086740bb433dedd09665
+FILE "Mezase! Skymark - Challenge Airline Pilot (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 20:38:11

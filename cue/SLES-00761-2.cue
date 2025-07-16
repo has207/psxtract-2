@@ -1,0 +1,5 @@
+REM MD5 4b136fdfcee40342a2239e86212a8cad
+FILE "Viva Football (Europe) (En,Fr,De,Es,It,Pt) (Rev 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 58:05:23

@@ -1,0 +1,5 @@
+REM MD5 476d5aa5ffbe4287b9f14b1849451502
+FILE "Dungeon Creator (Japan) (Disc 2) (Memory Bank Disc).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 03:54:14

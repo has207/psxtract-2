@@ -1,0 +1,5 @@
+REM MD5 e139effdcecbf71d087c36ea7772a78d
+FILE "Geki-Oh - Shienryuu (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 65:53:13

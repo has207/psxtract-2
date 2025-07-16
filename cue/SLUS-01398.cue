@@ -1,0 +1,5 @@
+REM MD5 481774c2122e4a51b65c0a94f472ab4f
+FILE "Gunfighter - The Legend of Jesse James (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 18:00:33

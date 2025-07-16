@@ -1,0 +1,5 @@
+REM MD5 e845323156b730b7c0b158897799f473
+FILE "Necronomicon - The Dawning of Darkness (Europe) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 66:25:36

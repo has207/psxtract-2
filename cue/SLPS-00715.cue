@@ -1,0 +1,5 @@
+REM MD5 a70ef9c6e135803f0eefe59174dbb7e8
+FILE "Zen Nihon GT Senshuken Max Rev. (Japan) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 48:45:70

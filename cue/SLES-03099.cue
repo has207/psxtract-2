@@ -1,0 +1,5 @@
+REM MD5 b1c2a041addc2c4880761e7f09164fb0
+FILE "Disney Pato Donald - Cuac Attack (Spain).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 61:52:04

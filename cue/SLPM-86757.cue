@@ -1,0 +1,5 @@
+REM MD5 26dfd84a3714945afb7670876d6f1fa0
+FILE "Little Lovers - She So Game (Japan) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 57:00:22

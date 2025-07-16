@@ -1,0 +1,5 @@
+REM MD5 fca954c6620948fcf2c2cfe94c7d42c3
+FILE "Simple 1500 Series Vol. 58 - The Sumou (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 12:05:51

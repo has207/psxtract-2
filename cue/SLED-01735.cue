@@ -1,0 +1,5 @@
+REM MD5 3494eda57e8dd9ded618fea8cb19438e
+FILE "Silent Hill (Europe) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 10:17:72

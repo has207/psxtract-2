@@ -1,0 +1,5 @@
+REM MD5 1a9674e63789b6fc3fa7e4e3a69bdc46
+FILE "Tomb Raider IV - The Last Revelation (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 70:43:38

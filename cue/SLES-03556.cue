@@ -1,3 +1,4 @@
+REM MD5 aa59b0481fae568a4e970b146e1e1422
 FILE "Mega Man Legends 2 (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

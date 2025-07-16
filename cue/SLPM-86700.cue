@@ -1,0 +1,5 @@
+REM MD5 3a1aa8a473486a3b3296c61b7cf27713
+FILE "Simple 1500 Series Vol. 51 - The Jigsaw Puzzle (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 39:42:52

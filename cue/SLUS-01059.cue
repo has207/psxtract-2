@@ -1,0 +1,5 @@
+REM MD5 ce6c6a8a1015e031fae6a9af11087c0a
+FILE "Marvel vs. Capcom - Clash of Super Heroes (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 40:27:38

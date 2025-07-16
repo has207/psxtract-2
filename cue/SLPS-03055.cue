@@ -1,0 +1,5 @@
+REM MD5 25f5075054e23e3b3fbefe80220ff731
+FILE "Baseball - Pro-nami Kusayakyuu! (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 05:16:04

@@ -1,0 +1,5 @@
+REM MD5 6baeb9e43dff1cccfe9f94bcdd8f4dc5
+FILE "Kuro no Juusan (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 40:32:29

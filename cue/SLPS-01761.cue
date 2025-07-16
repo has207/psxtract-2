@@ -1,0 +1,5 @@
+REM MD5 893a15f7a65d8c50b826fc2044f9df07
+FILE "Nishijin Pachinko Tengoku Vol. 3 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 28:40:67

@@ -1,0 +1,5 @@
+REM MD5 7807952ed6556a9539ab8b511c3da60d
+FILE "Terry Pratchett's Discworld (Europe) (En,Fr,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 50:54:70

@@ -1,0 +1,5 @@
+REM MD5 376aa4a7511f093955ca77f3a0c34736
+FILE "Honkakuha Yonin Uchi - Mahjong Club (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 03:39:63

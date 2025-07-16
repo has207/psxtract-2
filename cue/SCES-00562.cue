@@ -1,4 +1,5 @@
-FILE "King of Fighters '95, The (Europe) (Track 01).bin" BINARY
+REM MD5 6660066953e40d63441ca0a124faaba7
+FILE "King of Fighters '95, The (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

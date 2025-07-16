@@ -1,0 +1,5 @@
+REM MD5 5c1e6bb20aad5e46766ce49ba8f096c5
+FILE "Sakamoto Ryouma - Ishin Kaikoku (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 10:57:44

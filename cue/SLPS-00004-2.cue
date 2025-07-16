@@ -1,0 +1,5 @@
+REM MD5 eeb933aee1ac7fd314d9881ec8c07351
+FILE "A Ressha de Ikou 4 - Evolution (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 02:39:35

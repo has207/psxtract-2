@@ -1,0 +1,8 @@
+REM MD5 91be846b04bebbd170db9f4406bcad00
+FILE "Super Hero Sakusen - Diedal no Yabou (Japan) (Genteiban).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 62:43:59
+    INDEX 01 62:45:59
+REM LEADOUT 65:44:09

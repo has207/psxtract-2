@@ -1,0 +1,5 @@
+REM MD5 2ed6e9ba7702fc698809257dfeef839e
+FILE "Golgo 13 Vol. 2 - Mienai Guntai (Japan) (En,Ja).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 20:53:63

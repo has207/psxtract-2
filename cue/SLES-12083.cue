@@ -1,3 +1,4 @@
+REM MD5 4fe1291a03c07bdd406cdf7f2f6c6c87
 FILE "Final Fantasy VIII (Italy) (Disc 2).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

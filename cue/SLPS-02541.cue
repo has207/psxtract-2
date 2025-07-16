@@ -1,0 +1,8 @@
+REM MD5 09eaefb2cd9662cc063baaf671601f58
+FILE "Heiwa Parlor! Pro - Lupin Sansei Special (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 02:07:54
+    INDEX 01 02:09:54
+REM LEADOUT 05:10:54

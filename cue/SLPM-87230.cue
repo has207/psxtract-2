@@ -1,3 +1,4 @@
+REM MD5 5a90c2a434f89683b51fdaea1eb9b736
 FILE "Wai Wai Kart (Japan) (Major Wave).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

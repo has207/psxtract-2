@@ -1,0 +1,5 @@
+REM MD5 da0ee8e1dbdf6a1473208c2c62f76b44
+FILE "Peter Jacobsen's Golden Tee Golf (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 24:33:74

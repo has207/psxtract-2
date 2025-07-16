@@ -1,0 +1,5 @@
+REM MD5 9e933530649893b78994ccb38e2e6a17
+FILE "Disney-Pixar Monsters, Inc. - Scare Island (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 69:44:02

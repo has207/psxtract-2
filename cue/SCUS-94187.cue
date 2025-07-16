@@ -1,0 +1,5 @@
+REM MD5 cddb9470fc7f5f9ac43a3434a2e81dde
+FILE "Porsche Challenge (USA) (En,Fr,Es).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 52:40:61

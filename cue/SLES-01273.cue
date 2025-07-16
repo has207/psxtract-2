@@ -1,0 +1,5 @@
+REM MD5 cb35249701a3d8d99e513e76249a5d75
+FILE "Legend of Foresia - La Contree Interdite (France).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 69:57:72

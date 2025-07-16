@@ -1,0 +1,5 @@
+REM MD5 a8a9fc9339c24ece73faeb8693ac5854
+FILE "Marvel Super Heroes (Europe) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 44:33:14

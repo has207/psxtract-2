@@ -1,0 +1,5 @@
+REM MD5 8e97a575a9d503758a838d966ea2390e
+FILE "Uchuu no Rendezvous - Rama (Japan) (Disc 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 67:53:05

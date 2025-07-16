@@ -1,0 +1,5 @@
+REM MD5 da71ebeeb417b6fbe486b212ac8c4f04
+FILE "Crime Crackers 2 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 67:42:23

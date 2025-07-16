@@ -1,0 +1,5 @@
+REM MD5 b80017d9fe72b909291a9fc562f79be8
+FILE "Eurasia Express Satsujin Jiken (Japan) (Disc 4).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 67:55:54

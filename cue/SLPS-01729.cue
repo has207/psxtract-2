@@ -1,3 +1,4 @@
+REM MD5 31ff4b269ec79d26e49617f4ba0b7272
 FILE "Tamamayu Monogatari (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

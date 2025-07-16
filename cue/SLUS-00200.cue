@@ -1,4 +1,5 @@
-FILE "Extreme Pinball (USA) (Track 01).bin" BINARY
+REM MD5 161ec9a7c2d0df7e0470a618306fc405
+FILE "Extreme Pinball (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

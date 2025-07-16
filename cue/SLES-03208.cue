@@ -1,4 +1,5 @@
-FILE "Gubble (Europe) (Track 01).bin" BINARY
+REM MD5 7315b2c152c0681d716c3b4130e42bd3
+FILE "Gubble (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

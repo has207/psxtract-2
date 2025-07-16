@@ -1,0 +1,5 @@
+REM MD5 077e8ed9c621cec0c4aa9982c3f09ba5
+FILE "Duke Nukem - Total Meltdown (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 53:19:59

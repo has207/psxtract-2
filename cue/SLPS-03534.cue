@@ -1,0 +1,5 @@
+REM MD5 553ee98224fa57b3e245863f3d6df6cf
+FILE "Oujisama Lv1.5 - Oujisama no Tamago (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 50:26:64

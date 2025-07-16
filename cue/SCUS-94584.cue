@@ -1,4 +1,5 @@
-FILE "Legend of Dragoon, The (USA, Canada) (Disc 2).bin" BINARY
+REM MD5 29972b15701425ae7a36b1cef5c818ef
+FILE "Legend of Dragoon, The (USA) (Disc 2).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
 REM LEADOUT 54:25:27

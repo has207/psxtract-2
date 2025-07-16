@@ -1,0 +1,5 @@
+REM MD5 8fcbdeb16de13f9644dec6c17a94cd3f
+FILE "Digimon Rumble Arena (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 25:12:47

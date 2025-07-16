@@ -1,0 +1,5 @@
+REM MD5 05d12afd3f2bb2a670acc60261314beb
+FILE "Pandemonium! (Europe) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 08:33:28

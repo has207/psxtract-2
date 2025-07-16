@@ -1,0 +1,8 @@
+REM MD5 beb64c92b52bbec262b4bb9b793c057e
+FILE "Aubirdforce (Japan) (Shokai Genteiban).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 19:48:24
+    INDEX 01 19:50:24
+REM LEADOUT 22:53:24

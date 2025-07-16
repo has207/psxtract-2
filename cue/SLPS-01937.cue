@@ -1,0 +1,5 @@
+REM MD5 93816941dfae5338e76c24393ba19d45
+FILE "Enomoto Kanako no Boke Shindan Game (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 57:43:37

@@ -1,0 +1,5 @@
+REM MD5 93005cca7730b49565d9a9996637b7f6
+FILE "Moritaka Chisato - Safari Tokyo (Japan) (Disc 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 59:04:01

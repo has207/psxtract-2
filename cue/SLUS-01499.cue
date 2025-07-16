@@ -1,4 +1,5 @@
-FILE "Turnabout (USA) (Track 01).bin" BINARY
+REM MD5 9c410bb83b779fedff9f0535218b1c2a
+FILE "Turnabout (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

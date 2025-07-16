@@ -1,0 +1,5 @@
+REM MD5 b1d86dbc0f32af2d075d1d7de75a4a93
+FILE "Spectral Tower II (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 29:52:46

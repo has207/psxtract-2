@@ -1,0 +1,5 @@
+REM MD5 b4f08711acb60a77abbcb7632015ce8f
+FILE "Road Rash - Jailbreak (Europe) (En,Fr,De).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 55:53:22

@@ -1,0 +1,5 @@
+REM MD5 21c73d5cd1d344632292bcef2ea19ef4
+FILE "Play de Oboeru Eijukugo Deruderu 750 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 14:39:62

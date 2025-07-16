@@ -1,0 +1,5 @@
+REM MD5 ba4c8f54f3dee9bdb1fd92eb8a6fbb09
+FILE "Power Stakes (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 51:01:16

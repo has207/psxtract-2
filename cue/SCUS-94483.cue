@@ -1,0 +1,5 @@
+REM MD5 50be4df3281ef7f6a7c641e2a112ef33
+FILE "PlayStation Demo Disc - Shock Your System! (USA) (SCUS-94483).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 53:11:59

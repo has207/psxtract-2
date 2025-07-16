@@ -1,0 +1,5 @@
+REM MD5 2a38434904d1c2402f0749acec21435d
+FILE "Crash Bandicoot 2 - Cortex no Gyakushuu! (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 26:56:16

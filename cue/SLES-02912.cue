@@ -1,0 +1,5 @@
+REM MD5 b3e42d672ac2145b90bcab814e6e952e
+FILE "Nickelodeon Rugrats - Studio Tour (Italy).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 47:06:18

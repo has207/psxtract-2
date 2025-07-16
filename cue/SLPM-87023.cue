@@ -1,0 +1,8 @@
+REM MD5 c7b78a91403a7a33201ede28411c225e
+FILE "Simple 1500 Series Vol. 88 - The Gal Mahjong - Love Songs - Idol wa High Rate (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 22:58:70
+    INDEX 01 23:00:70
+REM LEADOUT 26:58:53

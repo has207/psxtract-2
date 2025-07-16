@@ -1,4 +1,5 @@
-FILE "Makeruna! Makendou 2 (Japan) (Track 01).bin" BINARY
+REM MD5 757d125b0d74057bb1eb36092d25e109
+FILE "Makeruna! Makendou 2 (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

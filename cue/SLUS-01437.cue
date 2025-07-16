@@ -1,0 +1,8 @@
+REM MD5 3e1d4079d5c993bac5492c3e7e6fc288
+FILE "Disney's Pooh's Party Game - In Search of the Treasure (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 36:13:01
+    INDEX 01 36:15:01
+REM LEADOUT 53:59:61

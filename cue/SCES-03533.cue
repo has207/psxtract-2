@@ -1,3 +1,4 @@
+REM MD5 f6cbb697e51f54f307254b7cff405d2e
 FILE "Disney's Atlantis - The Lost Empire (Europe).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

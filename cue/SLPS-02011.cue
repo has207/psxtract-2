@@ -1,0 +1,5 @@
+REM MD5 166381682a9bb18c5c36c25d8daad404
+FILE "Doukyuu Re-mix - Billiards Multiple (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 54:26:29

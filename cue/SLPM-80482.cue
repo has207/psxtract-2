@@ -1,0 +1,5 @@
+REM MD5 b0eaeacbb2656181ffcc8bc814c4b4cb
+FILE "Click Manga (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 12:06:14

@@ -1,0 +1,5 @@
+REM MD5 e12b557b9f5f37a3547f8d0917fdde34
+FILE "Jikkyou Powerful Pro Yakyuu 2000 - Kaimakuban (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 21:56:23

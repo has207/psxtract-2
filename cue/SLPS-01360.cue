@@ -1,3 +1,4 @@
+REM MD5 65b0dbf40b04fd74c526b46fef058768
 FILE "Pocket Fighter (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

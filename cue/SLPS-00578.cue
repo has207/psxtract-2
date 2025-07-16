@@ -1,0 +1,5 @@
+REM MD5 944cefc703d8fc16462b61f5b9f44350
+FILE "Harukaze Sentai V-Force (Japan) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 65:03:30

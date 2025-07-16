@@ -1,0 +1,11 @@
+REM MD5 1f2c3ddf2c97ce1569457db9587e4e51
+FILE "Yuukyuu Gensoukyoku 3 - Perpetual Blue - Visual Collection (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 04:51:38
+    INDEX 01 04:53:38
+  TRACK 03 AUDIO
+    INDEX 00 07:07:02
+    INDEX 01 07:09:02
+REM LEADOUT 10:07:27

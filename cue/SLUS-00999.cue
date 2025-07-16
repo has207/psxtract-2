@@ -1,0 +1,5 @@
+REM MD5 fe10e8e6bc7d309d0b4f1d9aa104dfae
+FILE "Fisherman's Bait 2 - Big Ol' Bass (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 11:13:13

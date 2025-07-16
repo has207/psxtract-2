@@ -1,3 +1,4 @@
+REM MD5 b162b27a8feac994e1277303cd979bfb
 FILE "Zutto Issho - With Me Everytime... (Japan) (Major Wave).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,3 +1,4 @@
+REM MD5 95efc1fb4765ac87365920474ad8ff51
 FILE "Fade to Black (Europe) (En,Fr,De,Es,It).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

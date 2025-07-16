@@ -1,0 +1,5 @@
+REM MD5 fd353612045a7452cbe695c83575a80e
+FILE "Quiz$Millionaire - Waku Waku Party (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 37:41:31

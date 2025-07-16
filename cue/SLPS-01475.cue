@@ -1,0 +1,8 @@
+REM MD5 ea56a7ba699d96136b17ed05f49982b2
+FILE "Zen Nihon Joshi Pro Wrestling - Joou Densetsu - Yume no Taikousen (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 34:23:56
+    INDEX 01 34:25:56
+REM LEADOUT 37:35:57

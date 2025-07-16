@@ -1,0 +1,5 @@
+REM MD5 cf0c3c1665c97b55ee2b9cb4456a8fd6
+FILE "Hunchback of Notredame (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 63:04:39

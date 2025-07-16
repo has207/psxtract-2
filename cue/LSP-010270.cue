@@ -1,0 +1,5 @@
+REM MD5 4b382837de4d9f4638fd900e755be78d
+FILE "Mars Moose Cosmic Quest 2 - Fairy Tale Island (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 32:50:34

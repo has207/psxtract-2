@@ -1,3 +1,4 @@
+REM MD5 e420aea0049da48c8eb2f1be669d4ee0
 FILE "Ground Stroke - Advanced Tennis Game (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

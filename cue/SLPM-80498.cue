@@ -1,0 +1,5 @@
+REM MD5 2ed99e9d9fb2b5e230ee7f61ea49c410
+FILE "Famitsu Wave 11gatsu-gou Vol. 16 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 56:49:10

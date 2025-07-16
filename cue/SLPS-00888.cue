@@ -1,0 +1,5 @@
+REM MD5 1e3203b032600ee74933cecb4c1d9cdb
+FILE "Burger Burger - Hamburger Simulation (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 07:02:22

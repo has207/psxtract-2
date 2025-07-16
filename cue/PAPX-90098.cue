@@ -1,0 +1,5 @@
+REM MD5 b86c1ddcedd261f8ba40601660b2d05b
+FILE "Robbit mon Dieu (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 31:46:23

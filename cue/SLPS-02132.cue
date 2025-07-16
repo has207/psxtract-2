@@ -1,0 +1,5 @@
+REM MD5 3326a2eb2655cb79617998e09c90b1ad
+FILE "Ore no Yotto - Ganbare! Nippon Challenge (Japan) (En,Ja).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 18:51:64

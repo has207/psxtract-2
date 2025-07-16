@@ -1,3 +1,4 @@
+REM MD5 b39bd58db8f7dfe6f2405ad1dfe7e8e7
 FILE "Smash Court 3 (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,0 +1,5 @@
+REM MD5 3e8d7d5fc881c5556604349289fc4061
+FILE "Hi-Hou-Ou - Mou Omae to wa Kuchi Kikan!! (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 05:56:09

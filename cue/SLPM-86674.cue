@@ -1,3 +1,4 @@
+REM MD5 82b88abaca2f2082015042f1a97f65b8
 FILE "Puzzle Mania 2 (Japan) (Major Wave).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

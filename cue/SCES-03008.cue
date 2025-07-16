@@ -1,0 +1,5 @@
+REM MD5 b4a089153934a63edcb8088346b7ba7a
+FILE "Disney Aladdin - La Venganza de Nasira (Spain).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 58:06:55

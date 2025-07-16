@@ -1,3 +1,4 @@
+REM MD5 93df824e6f88ffc7a47fd28eb6c84de7
 FILE "Bushido Blade (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

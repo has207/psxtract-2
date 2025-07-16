@@ -1,0 +1,5 @@
+REM MD5 6cfb3c48990891e0cde387c92b4d5530
+FILE "Angelique - Tenkuu no Requiem (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 68:13:47

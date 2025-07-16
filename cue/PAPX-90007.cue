@@ -1,0 +1,5 @@
+REM MD5 843c57486eadb8e2c7e97272492da0de
+FILE "Rap-la-MuuMuu from Jumping Flash! 2 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 08:57:01

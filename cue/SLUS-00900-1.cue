@@ -1,0 +1,5 @@
+REM MD5 5f5b379fb4e313923b89f8863c9d08a2
+FILE "Final Fantasy Anthology - Final Fantasy VI (USA) (Rev 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 25:23:05

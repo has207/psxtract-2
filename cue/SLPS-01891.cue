@@ -1,0 +1,5 @@
+REM MD5 ed968e722d01e00b55124e1e68ca54ee
+FILE "Himiko-den - Renge (Japan) (Disc 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 65:18:60

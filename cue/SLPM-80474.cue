@@ -1,0 +1,5 @@
+REM MD5 f3cc4c23654f5cb0bbb226797dfdede8
+FILE "Touge Max G (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 23:25:17

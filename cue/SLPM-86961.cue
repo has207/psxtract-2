@@ -1,0 +1,5 @@
+REM MD5 0bcfb243adb05f7b0ebb3143d5ec58d7
+FILE "Housoukyoku, The - SatelliTV (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 09:58:37

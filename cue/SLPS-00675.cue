@@ -1,0 +1,5 @@
+REM MD5 563ba473f08703b231431b9d39cad39b
+FILE "Tetsuya Komuro - Gaball Screen (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 54:39:09

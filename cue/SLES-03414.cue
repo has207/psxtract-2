@@ -1,0 +1,5 @@
+REM MD5 44ddd26070c89b2192d5c978ffae62fe
+FILE "Army Men - Lock 'n' Load (Europe) (En,Fr,De,Es,It).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 43:32:33

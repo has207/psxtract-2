@@ -1,3 +1,4 @@
+REM MD5 a19676915595210621fe060febee32a5
 FILE "Disneys Lilo & Stitch - Ballade pa Hawaii! (Denmark).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

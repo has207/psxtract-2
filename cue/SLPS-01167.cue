@@ -1,0 +1,5 @@
+REM MD5 78078424aa6779b93b50e5ae7d7eabb1
+FILE "Tour Party - Sotsugyou Ryokou ni Ikou (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 52:23:45

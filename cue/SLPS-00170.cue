@@ -1,0 +1,5 @@
+REM MD5 e9346c6ab7761047b573b85d4cb915f9
+FILE "Kileak, The Blood 2 - Reason in Madness (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 69:46:11

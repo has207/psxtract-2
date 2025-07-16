@@ -1,3 +1,4 @@
+REM MD5 53d829aef42c920b86555c19fe4a9bba
 FILE "Chocobo Racing - Genkai e no Road (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

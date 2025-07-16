@@ -1,0 +1,5 @@
+REM MD5 c65c3b2f65db0b5736eb7123a768fdef
+FILE "Tomica Town o Tsukurou! (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 10:33:26

@@ -1,0 +1,5 @@
+REM MD5 64d3bc8f180ab86cb285f418f9b56a13
+FILE "Disney's Tigger's Honey Hunt (Europe).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 34:26:22

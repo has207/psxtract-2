@@ -1,0 +1,5 @@
+REM MD5 74f97bc4642c5aa94ed122ce039248ec
+FILE "Ronaldo V-Football (Europe) (En,Fr,Nl,Sv).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 64:08:04

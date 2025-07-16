@@ -1,0 +1,5 @@
+REM MD5 9c389623f50a1d9931064eadaf7b9d85
+FILE "Gex 3D - Enter the Gecko (Europe) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 05:45:56

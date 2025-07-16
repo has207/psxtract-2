@@ -1,0 +1,5 @@
+REM MD5 97310cb7174c3a0a40a0a8e8d9b38cc6
+FILE "International Superstar Soccer (Europe) (En,De).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 32:36:10

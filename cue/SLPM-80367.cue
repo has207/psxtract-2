@@ -1,0 +1,8 @@
+REM MD5 ee8540e747c199e4b086ef8ed4e3cb6f
+FILE "Susume! Kaizoku - Be Pirates! (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 08:14:66
+    INDEX 01 08:16:66
+REM LEADOUT 11:46:67

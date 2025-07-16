@@ -1,0 +1,8 @@
+REM MD5 a0e400317befbd08746aaa129c072da1
+FILE "Princess Maker - Yumemiru Yousei (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 42:00:42
+    INDEX 01 42:02:42
+REM LEADOUT 46:14:37

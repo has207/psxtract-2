@@ -1,0 +1,5 @@
+REM MD5 989e3eb1dd5f513dc1b081b41f6b48f8
+FILE "Vampire Savior - EX Edition (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 70:55:06

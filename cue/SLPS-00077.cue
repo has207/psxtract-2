@@ -1,0 +1,5 @@
+REM MD5 9ee771659ee28f952a84507d8c1881be
+FILE "Douga de Puzzle da! Puppukupuu (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 59:41:05

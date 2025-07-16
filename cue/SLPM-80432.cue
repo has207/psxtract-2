@@ -1,0 +1,5 @@
+REM MD5 ccfae9a5fdc1591116f67d7d79b49531
+FILE "Soukou Kidoutai L.A.P.D. (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 10:31:48

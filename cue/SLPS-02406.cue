@@ -1,3 +1,4 @@
+REM MD5 8f211133416a7965be97fd4082f8e6c6
 FILE "Dai-2-Ji Super Robot Taisen (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

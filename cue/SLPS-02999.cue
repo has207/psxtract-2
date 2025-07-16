@@ -1,0 +1,5 @@
+REM MD5 9519659be4c8822d8022e7fc1a94f230
+FILE "Hissatsu Pachinko Station Now 6 - Shinsei!! Areddin 21 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 04:10:29

@@ -1,3 +1,4 @@
+REM MD5 e116bccbc0828e45d7b3f19234cd3670
 FILE "Vib-Ribbon (Japan, Asia).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

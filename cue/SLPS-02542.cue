@@ -1,3 +1,4 @@
+REM MD5 e9b6277ad7f5718786ddbd11d6fd17a8
 FILE "Summon Night (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

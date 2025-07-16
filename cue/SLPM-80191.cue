@@ -1,0 +1,5 @@
+REM MD5 4a9abca5688464729a4169e4f47bc150
+FILE "V-Rally - Championship Edition (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 04:51:49

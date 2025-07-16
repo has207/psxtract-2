@@ -1,0 +1,5 @@
+REM MD5 009def0a129ecf831e8c853f2ad03f9d
+FILE "FIFA - Die WM-Qualifikation 98 (Germany) (En,Fr,De,Es,Nl,Sv).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 55:35:40

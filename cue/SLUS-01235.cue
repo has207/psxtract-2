@@ -1,3 +1,4 @@
+REM MD5 9883fd26cb43ea0520c988d69a5cb2e7
 FILE "Rayman 2 - The Great Escape (USA) (En,Fr,Es).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

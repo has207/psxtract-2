@@ -1,0 +1,5 @@
+REM MD5 00a67110d6b01e9bae84b99a38caf966
+FILE "MeltyLancer - Re-inforce (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 18:12:74

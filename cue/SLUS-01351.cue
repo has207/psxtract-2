@@ -1,0 +1,5 @@
+REM MD5 05619a3ae988a57e798b90ed9e0f0fa9
+FILE "Saban's Power Rangers - Time Force (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 30:15:51

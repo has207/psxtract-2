@@ -1,0 +1,5 @@
+REM MD5 51ec0a9bf1e8ec782f4b645b0c39774c
+FILE "Nickelodeon Rugrats - Totally Angelica (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 16:58:73

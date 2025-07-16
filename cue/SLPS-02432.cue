@@ -1,0 +1,5 @@
+REM MD5 8ae26ae9e6f480c73513703762ad572c
+FILE "Haishin 2 (Japan) (DigiCube Best Selection).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 14:44:61

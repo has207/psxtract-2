@@ -1,0 +1,5 @@
+REM MD5 dc99aa2d42a6a69e63f860168ab86ca3
+FILE "EA Sports Supercross 2000 (Europe) (En,Fr,De,Es,It,Nl,Sv).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 16:44:63

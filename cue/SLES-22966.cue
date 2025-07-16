@@ -1,3 +1,4 @@
+REM MD5 2446d1bb692d29647acdf652c56d1f6b
 FILE "Final Fantasy IX (France) (Disc 3).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

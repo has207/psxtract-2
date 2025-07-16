@@ -1,0 +1,5 @@
+REM MD5 ea1fb53ddb6f97386f0b3ba239140d48
+FILE "Inagawa Junji - Kyoufu no Yashiki (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 52:24:21

@@ -1,0 +1,5 @@
+REM MD5 892f27d8ac9d4de04ba90dc91f606d74
+FILE "Le Concert - pp - Pianissimo (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 51:44:32

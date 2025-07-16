@@ -1,0 +1,5 @@
+REM MD5 797eeba9c0d4f3af69137e39de20cdde
+FILE "Tactical Armor Custom Gasaraki (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 09:08:67

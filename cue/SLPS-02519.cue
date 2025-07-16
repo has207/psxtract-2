@@ -1,0 +1,5 @@
+REM MD5 33f41b0de4312156dad22ce3db865657
+FILE "Parlor! Pro Jr. Vol. 4 - Thunder Skeleton X (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 04:43:10

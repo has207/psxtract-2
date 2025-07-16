@@ -1,0 +1,5 @@
+REM MD5 adcfd5205854381a4d64a5b3f4a7e349
+FILE "Nickelodeon SpongeBob SquarePants - SuperSponge (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 19:26:52

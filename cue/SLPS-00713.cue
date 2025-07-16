@@ -1,0 +1,8 @@
+REM MD5 285caa7af967e6f976e2302ebc18685a
+FILE "Cross Romance - Koi to Mahjong to Hanafuda to (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 59:31:74
+    INDEX 01 59:33:74
+REM LEADOUT 63:45:17

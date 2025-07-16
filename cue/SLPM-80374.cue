@@ -1,0 +1,5 @@
+REM MD5 af87f1ae42652ee69950837dda521a11
+FILE "Fishing Freaks - BassRise (Japan) (Demo).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 19:32:60

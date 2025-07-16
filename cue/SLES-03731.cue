@@ -1,0 +1,5 @@
+REM MD5 bfe7952eeb4c568d64f54d2b3bd65984
+FILE "Power Rangers - La Force du Temps (France).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 29:40:48

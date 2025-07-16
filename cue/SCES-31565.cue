@@ -1,0 +1,5 @@
+REM MD5 49a475fdf8c2cae723b15be64eae08ad
+FILE "X-Files, The (Europe, Australia) (Disc 4).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 68:55:71

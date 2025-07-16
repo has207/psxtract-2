@@ -1,0 +1,5 @@
+REM MD5 e625d70b2f12825474ba887c4a8e0a43
+FILE "Jouki Kikansha Unten Simulation - SL de Ikou! II (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 14:49:10

@@ -1,3 +1,4 @@
+REM MD5 1a6c411a13d1a440ff23963e3721d2be
 FILE "Vib-Ribbon (Europe) (En,Fr,De,Es,It).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

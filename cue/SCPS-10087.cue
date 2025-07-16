@@ -1,3 +1,4 @@
+REM MD5 09b708c3a752d5f9eada1c85d997a8ca
 FILE "Gekisou Tomarunner (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

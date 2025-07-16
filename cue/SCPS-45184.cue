@@ -1,3 +1,4 @@
+REM MD5 79c7d722179b65cb36b845bfcbf88dfe
 FILE "Suikoden (Asia).bin" BINARY
   TRACK 01 MODE2/2352
     FLAGS DCP

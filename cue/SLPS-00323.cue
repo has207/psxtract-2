@@ -1,4 +1,5 @@
-FILE "Neo Planet (Japan) (Track 01).bin" BINARY
+REM MD5 40f415637e42209cdea08dc78c5560ec
+FILE "Neo Planet (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

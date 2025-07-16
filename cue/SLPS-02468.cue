@@ -1,0 +1,5 @@
+REM MD5 c1836754f1f6c801cafb5afb024c726c
+FILE "Transformers - Beast Wars Metals (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 58:23:73

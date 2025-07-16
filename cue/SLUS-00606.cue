@@ -1,4 +1,5 @@
-FILE "Dead or Alive (USA) (Track 01).bin" BINARY
+REM MD5 3f61d4a7bc3b5f43c8ceaf7517a5d897
+FILE "Dead or Alive (USA).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

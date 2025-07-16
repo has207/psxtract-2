@@ -1,0 +1,8 @@
+REM MD5 fea8950fe223fd30c3a42604a280d2a7
+FILE "Bio Hazard - Director's Cut - Dual Shock Ver. (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 66:31:33
+    INDEX 01 66:33:33
+REM LEADOUT 70:03:33

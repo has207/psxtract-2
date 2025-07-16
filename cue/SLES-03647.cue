@@ -1,0 +1,5 @@
+REM MD5 a49fa4099eaf0c87c36dac0a8f04e19b
+FILE "Tony Hawk's Pro Skater 3 (Germany).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 66:42:36

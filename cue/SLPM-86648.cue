@@ -1,0 +1,5 @@
+REM MD5 fc215f195018d14e20b193d2157b7f69
+FILE "Blue Breaker Burst - Egao no Asu ni (Japan) (Major Wave).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 66:05:48

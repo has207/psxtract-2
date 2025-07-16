@@ -1,0 +1,5 @@
+REM MD5 174191ccc03a08d1e4a73996bbf4a752
+FILE "Magical Drop III - Yokubari Tokudai-gou! (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 44:45:51

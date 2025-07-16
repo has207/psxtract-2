@@ -1,0 +1,8 @@
+REM MD5 08665db1bad0d01d9bce03e13eab05bb
+FILE "Hokuto no Ken - Seikimatsu Kyuuseishu Densetsu (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 62:16:11
+    INDEX 01 62:18:11
+REM LEADOUT 65:48:11

@@ -1,0 +1,5 @@
+REM MD5 7c0f0e03e86706efaf5f261dc91abc80
+FILE "Simple 1500 Series Vol. 50 - The Billiard 2 (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 15:01:44

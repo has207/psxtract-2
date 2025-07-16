@@ -1,0 +1,5 @@
+REM MD5 6a68fadfbceb0d6bf830ce26e7e24e6b
+FILE "X-Files, The (Germany) (Disc 3).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 57:32:63

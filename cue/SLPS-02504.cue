@@ -1,0 +1,5 @@
+REM MD5 aa6a4fa609fddb4621f7cf1f792dfe44
+FILE "Countdown Vampires (Japan) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 40:35:21

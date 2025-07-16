@@ -1,0 +1,5 @@
+REM MD5 5dc079371f3bc10616a28fa5cf0c66a1
+FILE "Ide Yousuke no Mahjong Kazoku (Japan) (Rev 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 55:12:52

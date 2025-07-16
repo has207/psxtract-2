@@ -1,0 +1,5 @@
+REM MD5 8453500185b8effeef288f0bf828dff7
+FILE "Kunoichi Torimonochou (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 65:02:22

@@ -1,3 +1,4 @@
+REM MD5 4096ececec2135ded23e9d35e62cfb85
 FILE "Simple 1500 Series Vol. 32 - The Boxing (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

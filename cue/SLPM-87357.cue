@@ -1,0 +1,5 @@
+REM MD5 01f91e0192abc3e100b8d809420e0ba4
+FILE "Star Ocean - The Second Story (Japan) (Disc 1) (Rev 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 52:32:29

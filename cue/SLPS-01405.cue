@@ -1,3 +1,4 @@
+REM MD5 a062d2df6ce0001900ba77a3a572e874
 FILE "Theme Hospital (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

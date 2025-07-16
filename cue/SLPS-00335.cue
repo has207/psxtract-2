@@ -1,3 +1,4 @@
+REM MD5 f1f403f11f4e7b5e6c44c99b800d5dd2
 FILE "Dezaemon Plus (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,0 +1,5 @@
+REM MD5 1e077c16e26e2991453b1c1b756ccefd
+FILE "Nakajima Miyuki - Namiromu (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 51:57:41

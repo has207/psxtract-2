@@ -1,0 +1,5 @@
+REM MD5 e569942efe6c2160a42982b5fdb09f79
+FILE "Nibiiro no Koubou - 32-nin no Senshachou (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 55:07:20

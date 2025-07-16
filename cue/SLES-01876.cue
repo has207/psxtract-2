@@ -1,0 +1,5 @@
+REM MD5 5135457d9117b9bf709b4c4c5a7f8af4
+FILE "Need for Speed - High Stakes (Australia).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 69:31:36

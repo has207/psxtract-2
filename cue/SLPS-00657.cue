@@ -1,3 +1,4 @@
+REM MD5 5d8e182e50d8c6c2e9aeccf81feafcb4
 FILE "Clock Tower 2 (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

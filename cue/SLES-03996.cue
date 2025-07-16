@@ -1,0 +1,5 @@
+REM MD5 1cb355d9b6f6e39ec36d9e76ea605b1e
+FILE "Shrek Treasure Hunt (Europe) (En,Fr,De,Es).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 41:44:48

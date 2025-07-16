@@ -1,3 +1,4 @@
+REM MD5 8556b16659553ccde62a8bacc7571ba5
 FILE "Aquanaut no Kyuujitsu 2 (Japan) (Demo).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,0 +1,5 @@
+REM MD5 b84bb5e01a2f617a5522500ccff5d6a2
+FILE "Disney-Pixar Sma-kryp (Norway).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 69:58:19

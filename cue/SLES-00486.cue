@@ -1,4 +1,5 @@
-FILE "Tomb Raider (Germany) (Track 01).bin" BINARY
+REM MD5 ae84e7463bfe1a9f2ee02c650e0d3109
+FILE "Tomb Raider (Germany).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
   TRACK 02 AUDIO

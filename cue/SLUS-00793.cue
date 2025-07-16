@@ -1,0 +1,5 @@
+REM MD5 a182cf4649be619c78c0aeb172f5246b
+FILE "Marvel Super Heroes vs. Street Fighter (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 52:14:24

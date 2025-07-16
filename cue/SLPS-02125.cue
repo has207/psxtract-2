@@ -1,3 +1,4 @@
+REM MD5 4b0725d127412c9347cdcf1f7fa582f9
 FILE "Grandia (Japan) (Disc 2).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

@@ -1,0 +1,5 @@
+REM MD5 79ba285ee55815d9f1b0be49c2859f2c
+FILE "Sister Princess - Pure Stories (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 48:15:29

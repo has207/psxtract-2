@@ -1,3 +1,4 @@
+REM MD5 f17fec696dda4073a621110e7b3a47ef
 FILE "Syphon Filter 3 (France).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

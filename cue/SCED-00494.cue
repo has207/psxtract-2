@@ -1,0 +1,8 @@
+REM MD5 ad2bdb75b708ea5f23d65cef0e30a1cc
+FILE "Tekken 2 + Fade to Black + F1 + V-CD (Germany).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 14:41:35
+    INDEX 01 14:43:35
+REM LEADOUT 19:17:02

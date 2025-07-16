@@ -1,0 +1,5 @@
+REM MD5 9f95616ec2e9534189616173b103cd84
+FILE "Kids Station - Oshaberi Oekaki - Soreike! Anpanman (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 13:34:67

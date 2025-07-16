@@ -1,0 +1,5 @@
+REM MD5 0ae7b3ef9dff6b8e4c722367a6deebd9
+FILE "Disney's Dinosaurier (Germany).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 46:58:57

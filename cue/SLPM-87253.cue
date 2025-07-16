@@ -1,0 +1,5 @@
+REM MD5 c76b0ffed98b06a1633c4ea88acb37c2
+FILE "SuperLite 1500 Series - The FamiRes (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 26:06:68

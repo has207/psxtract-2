@@ -1,3 +1,4 @@
+REM MD5 3e9af862676eb46f76de98c5e06702cd
 FILE "Robin Lloyd no Bouken (Japan).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00

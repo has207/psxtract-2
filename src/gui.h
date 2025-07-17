@@ -13,6 +13,9 @@ void enableExtractButton(bool enabled);
 extern void setGUIMode(bool enabled);
 extern bool isGUIMode();
 extern int gui_printf(const char* format, ...);
+
+// Function for important messages that should go to GUI log
+extern int gui_log_printf(const char* format, ...);
 // Forward declaration
 extern bool isVerboseMode();
 

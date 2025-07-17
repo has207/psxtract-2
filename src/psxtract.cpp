@@ -1964,9 +1964,9 @@ int decrypt_single_disc(FILE* psar, long long psar_size, long long startdat_offs
 		}
 		
 		// MD5 verification using prebaked CUE
-		printf("\n=== MD5 VERIFICATION ===\n");
+		gui_log_printf("\n=== MD5 VERIFICATION ===\n");
 		verify_data_track_md5_cue(data_bin_fixed, iso_disc_name);
-		printf("========================\n\n");
+		gui_log_printf("========================\n\n");
 		
 		printf("Disc successfully converted using prebaked CUE file!\n");
 	}
@@ -1981,9 +1981,9 @@ int decrypt_single_disc(FILE* psar, long long psar_size, long long startdat_offs
 		}
 		
 		// MD5 verification using prebaked CUE
-		printf("\n=== MD5 VERIFICATION ===\n");
+		gui_log_printf("\n=== MD5 VERIFICATION ===\n");
 		verify_data_track_md5_cue(data_bin_fixed, iso_disc_name);
-		printf("========================\n\n");
+		gui_log_printf("========================\n\n");
 		
 		printf("Disc successfully converted to BIN/CUE format!\n");
 	}
@@ -2270,7 +2270,7 @@ int decrypt_multi_disc(FILE *psar, long long psar_size, long long startdat_offse
 	}
 
 	// MD5 verification using prebaked CUE files
-	printf("\n=== MD5 VERIFICATION ===\n");
+	gui_log_printf("\n=== MD5 VERIFICATION ===\n");
 	// Verify each disc's data track
 	for (int i = 0; i < MAX_DISCS; i++) {
 		if (disc_offset[i] > 0) {
@@ -2294,7 +2294,7 @@ int decrypt_multi_disc(FILE *psar, long long psar_size, long long startdat_offse
 			}
 		}
 	}
-	printf("========================\n\n");
+	gui_log_printf("========================\n\n");
 	
 	printf("Successfully reconstructed %d discs!\n", disc_count);
 	fclose(iso_map);

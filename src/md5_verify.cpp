@@ -104,10 +104,10 @@ bool verify_data_track_md5_cue(const char* data_track_file, const char* disc_ser
     // Compare MD5 hashes
     bool match = (strcmp(actual_md5, expected_md5) == 0);
     
-    printf("MD5 verification for %s (prebaked CUE):\n", disc_serial);
-    printf("  Expected: %s\n", expected_md5);
-    printf("  Actual:   %s\n", actual_md5);
-    printf("  Result:   %s\n", match ? "PASS" : "FAIL");
+    gui_log_printf("MD5 verification for %s (prebaked CUE):\n", disc_serial);
+    gui_log_printf("  Expected: %s\n", expected_md5);
+    gui_log_printf("  Actual:   %s\n", actual_md5);
+    gui_log_printf("  Result:   %s\n", match ? "PASS" : "FAIL");
     
     return match;
 }

@@ -35,6 +35,7 @@ static HWND g_hOutputEdit = NULL;
 static char g_selectedFiles[32768] = "";  // Buffer for multiple file paths
 static int g_fileCount = 0;
 static char g_outputFolder[MAX_PATH];
+static FILE* g_logFile = NULL;
 
 // Thread management
 static HANDLE g_hExtractionThread = NULL;
@@ -54,6 +55,8 @@ void onExtract();
 void onCancel();
 void appendToLog(const char* text);
 void appendToLogDirect(const char* text);
+void openLogFile(const char* pbpPath);
+void closeLogFile();
 LRESULT CALLBACK ProgressDialogProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 void showProgressDialog();
 void hideProgressDialog();
@@ -159,6 +162,9 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
             appendToLog(logMsg);
         }
         
+        // Open log file for this extraction
+        openLogFile(currentPos);
+        
         // Run extraction in separate process to avoid memory accumulation
         char cmdLine[2048];
         char cleanupFlag[8] = "";
@@ -243,6 +249,9 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
             CloseHandle(pi.hProcess);
             CloseHandle(pi.hThread);
             
+            // Close log file for this extraction
+            closeLogFile();
+            
             if (exitCode == 0) {
                 successCount++;
                 sprintf(logMsg, "File completed successfully.\n");
@@ -297,6 +306,9 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
                 PostMessage(g_hMainWnd, WM_UPDATE_PROGRESS, 0, (LPARAM)_strdup(logMsg));
                 Sleep(50); // Brief delay to let UI update
             }
+            
+            // Open log file for this extraction
+            openLogFile(fullPath);
             
             // Run extraction in separate process to avoid memory accumulation
             char cmdLine[2048];
@@ -380,6 +392,9 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
                 
                 CloseHandle(pi.hProcess);
                 CloseHandle(pi.hThread);
+                
+                // Close log file for this extraction
+                closeLogFile();
                 
                 if (exitCode == 0) {
                     successCount++;
@@ -603,10 +618,77 @@ void appendToLog(const char* text) {
     }
 }
 
+void openLogFile(const char* pbpPath) {
+    if (g_logFile) {
+        fclose(g_logFile);
+        g_logFile = NULL;
+    }
+    
+    // Extract filename from path and create log filename
+    const char* filename = strrchr(pbpPath, '\\');
+    if (!filename) filename = strrchr(pbpPath, '/');
+    if (!filename) filename = pbpPath;
+    else filename++; // Skip the slash
+    
+    // Remove .PBP extension and add .log
+    char logFileName[MAX_PATH];
+    strcpy(logFileName, filename);
+    char* ext = strrchr(logFileName, '.');
+    if (ext) *ext = '\0'; // Remove extension
+    strcat(logFileName, ".log");
+    
+    // Create full path in output directory
+    char logPath[MAX_PATH];
+    snprintf(logPath, sizeof(logPath), "%s\\%s", g_outputFolder, logFileName);
+    
+    g_logFile = fopen(logPath, "w");
+    if (!g_logFile) {
+        // Debug: show error if log file couldn't be opened
+        char errorMsg[512];
+        sprintf(errorMsg, "Failed to open log file: %s\n", logPath);
+        appendToLog(errorMsg);
+    } else {
+        // Debug: confirm log file opened
+        char successMsg[512];
+        sprintf(successMsg, "Log file opened: %s\n", logPath);
+        appendToLog(successMsg);
+    }
+}
+
+void closeLogFile() {
+    if (g_logFile) {
+        fclose(g_logFile);
+        g_logFile = NULL;
+    }
+}
+
 void appendToLogDirect(const char* text) {
-    // This is used by pipe output from child processes - always show
-    fprintf(stdout, "%s", text);
-    fflush(stdout);
+    // This is used by pipe output from child processes
+    if (g_logFile) {
+        // Write to log file if one is open
+        fprintf(g_logFile, "%s", text);
+        fflush(g_logFile);
+    } else {
+        // Write to stdout if no log file
+        fprintf(stdout, "%s", text);
+        fflush(stdout);
+    }
+}
+
+// Function for important messages that should go to GUI log
+int gui_log_printf(const char* format, ...) {
+    char buffer[1024];
+    va_list args;
+    va_start(args, format);
+    int result = vsnprintf(buffer, sizeof(buffer), format, args);
+    va_end(args);
+    
+    // Send to GUI log area
+    if (g_guiMode && g_hLogEdit) {
+        appendToLog(buffer);
+    }
+    
+    return result;
 }
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
@@ -766,9 +848,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
             
             if (result == 0) {
                 if (g_fileCount == 1) {
-                    appendToLogDirect("Extraction completed successfully!\n");
+                    appendToLog("Extraction completed successfully!\n");
                 } else {
-                    appendToLogDirect("Batch extraction completed successfully!\n");
+                    appendToLog("Batch extraction completed successfully!\n");
                 }
             } else if (result == -2) {
                 // Cancellation - message already logged

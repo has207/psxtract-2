@@ -9,8 +9,6 @@
 #include "cdrom.h"
 #include "gui.h"
 
-// Define printf to use GUI-aware version
-#define printf gui_printf
 
 struct fixImageStatus fixImage(char* inputfilepath, char* outputfilepath, int num_sectors, enum EDCMode form2EDCMode, bool verbose)
 {

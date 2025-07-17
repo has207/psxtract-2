@@ -6,8 +6,6 @@
 #include <stdio.h>
 #include <string.h>
 
-// Define printf to use GUI-aware version
-#define printf gui_printf
 
 // MD5 hash calculation function
 bool calculate_md5(const char* filename, char* md5_string)

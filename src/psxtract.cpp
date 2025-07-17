@@ -8,8 +8,6 @@
 #include "gui.h"
 #include "cue_resources.h"
 
-// Define printf to use GUI-aware version
-#define printf gui_printf
 
 
 // Helper function to check if output files exist and prompt for overwrite
@@ -2331,6 +2329,7 @@ int main(int argc, char **argv)
 
 	// Check if we want to clean up temp files before exiting.
 	bool cleanup = false;
+	bool verbose = false;
 	
 	// Parse command line arguments
 	for (int i = 1; i < argc; i++) {
@@ -2339,6 +2338,9 @@ int main(int argc, char **argv)
 			arg_offset++;
 		} else if (!strcmp(argv[i], "--gui")) {
 			setGUIMode(true);
+			arg_offset++;
+		} else if (!strcmp(argv[i], "--verbose") || !strcmp(argv[i], "-v")) {
+			verbose = true;
 			arg_offset++;
 		} else {
 			break; // Stop at first non-flag argument
@@ -2350,11 +2352,21 @@ int main(int argc, char **argv)
 	                     (argc - arg_offset) >= 3 ? argv[arg_offset + 2] : NULL,
 	                     (argc - arg_offset) >= 4 ? argv[arg_offset + 3] : NULL,
 	                     cleanup,
+	                     verbose,
 	                     NULL);
 }
 
-int psxtract_main(const char* pbp_file, const char* document_file, const char* keys_file, bool cleanup, const char* output_dir)
+static bool g_verbose = false;
+
+bool isVerboseMode() {
+    return g_verbose;
+}
+
+int psxtract_main(const char* pbp_file, const char* document_file, const char* keys_file, bool cleanup, bool verbose, const char* output_dir)
 {
+	// Set global verbose flag
+	g_verbose = verbose;
+	
 	// Change to output directory if specified
 	char original_dir[MAX_PATH];
 	if (output_dir && strcmp(output_dir, ".") != 0) {

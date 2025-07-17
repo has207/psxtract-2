@@ -1,3 +1,4 @@
+#define GUI_CPP_INTERNAL
 #include "gui.h"
 #include "utils.h"
 #include <commctrl.h>
@@ -52,6 +53,7 @@ void onOutputSelect();
 void onExtract();
 void onCancel();
 void appendToLog(const char* text);
+void appendToLogDirect(const char* text);
 LRESULT CALLBACK ProgressDialogProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 void showProgressDialog();
 void hideProgressDialog();
@@ -99,7 +101,7 @@ UINT_PTR CALLBACK OFNHookProc(HWND hdlg, UINT uiMsg, WPARAM wParam, LPARAM lPara
     return 0;
 }
 
-// Custom printf replacement that logs to GUI
+// Printf for GUI progress messages (important messages)
 int gui_printf(const char* format, ...) {
     char buffer[1024];
     va_list args;
@@ -107,19 +109,20 @@ int gui_printf(const char* format, ...) {
     int result = vsnprintf(buffer, sizeof(buffer), format, args);
     va_end(args);
     
+    // Always send to console
+    fprintf(stdout, "%s", buffer);
+    fflush(stdout);
+    
+    // Also send to GUI log
     if (g_guiMode && g_hLogEdit) {
         appendToLog(buffer);
-    } else {
-        // Fall back to console output  
-        fprintf(stdout, "%s", buffer);
-        fflush(stdout);
     }
     
     return result;
 }
 
 // Forward declaration of the main extraction function
-extern int psxtract_main(const char* pbp_file, const char* document_file, const char* keys_file, bool cleanup, const char* output_dir);
+extern int psxtract_main(const char* pbp_file, const char* document_file, const char* keys_file, bool cleanup, bool verbose, const char* output_dir);
 
 // Thread function for extraction
 DWORD WINAPI extractionThread(LPVOID lpParam) {
@@ -221,7 +224,7 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
                 while (PeekNamedPipe(hStdOutRead, NULL, 0, NULL, &bytesRead, NULL) && bytesRead > 0) {
                     if (ReadFile(hStdOutRead, buffer, sizeof(buffer) - 1, &bytesRead, NULL) && bytesRead > 0) {
                         buffer[bytesRead] = '\0';
-                        appendToLog(buffer);
+                        appendToLogDirect(buffer);
                     }
                 }
                 
@@ -232,7 +235,7 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
             // Read any remaining output
             while (ReadFile(hStdOutRead, buffer, sizeof(buffer) - 1, &bytesRead, NULL) && bytesRead > 0) {
                 buffer[bytesRead] = '\0';
-                appendToLog(buffer);
+                appendToLogDirect(buffer);
             }
             
             CloseHandle(hStdOutRead);
@@ -284,14 +287,15 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
             char fullPath[MAX_PATH];
             sprintf(fullPath, "%s\\%s", directory, currentPos);
             
-            // Update progress dialog or log
+            // Always send processing message to GUI log
+            sprintf(logMsg, "\n=== Processing file %d/%d: %s ===\n", fileIndex, g_fileCount, currentPos);
+            appendToLog(logMsg);
+            
+            // Update progress dialog if shown
             if (showProgressDlg) {
                 sprintf(logMsg, "BATCH_UPDATE_PROGRESS:%d:%d:%s", fileIndex, g_fileCount, currentPos);
                 PostMessage(g_hMainWnd, WM_UPDATE_PROGRESS, 0, (LPARAM)_strdup(logMsg));
                 Sleep(50); // Brief delay to let UI update
-            } else {
-                sprintf(logMsg, "\n=== Processing file %d/%d: %s ===\n", fileIndex, g_fileCount, currentPos);
-                appendToLog(logMsg);
             }
             
             // Run extraction in separate process to avoid memory accumulation
@@ -358,7 +362,7 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
                     while (PeekNamedPipe(hStdOutRead, NULL, 0, NULL, &bytesRead, NULL) && bytesRead > 0) {
                         if (ReadFile(hStdOutRead, buffer, sizeof(buffer) - 1, &bytesRead, NULL) && bytesRead > 0) {
                             buffer[bytesRead] = '\0';
-                            appendToLog(buffer);
+                            appendToLogDirect(buffer);
                         }
                     }
                     
@@ -369,7 +373,7 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
                 // Read any remaining output
                 while (ReadFile(hStdOutRead, buffer, sizeof(buffer) - 1, &bytesRead, NULL) && bytesRead > 0) {
                     buffer[bytesRead] = '\0';
-                    appendToLog(buffer);
+                    appendToLogDirect(buffer);
                 }
                 
                 CloseHandle(hStdOutRead);
@@ -494,19 +498,59 @@ void onFileSelect() {
     }
 }
 
+int CALLBACK BrowseCallbackProc(HWND hwnd, UINT uMsg, LPARAM lParam, LPARAM lpData) {
+    switch (uMsg) {
+        case BFFM_INITIALIZED:
+            // Set the initial selection to the current output folder
+            if (lpData) {
+                char* path = (char*)lpData;
+                // Convert to wide char for SHParseDisplayName
+                wchar_t widePath[MAX_PATH];
+                MultiByteToWideChar(CP_ACP, 0, path, -1, widePath, MAX_PATH);
+                
+                // Convert path to PIDL and use that instead
+                ITEMIDLIST* pidlPath = NULL;
+                if (SUCCEEDED(SHParseDisplayName(widePath, NULL, &pidlPath, 0, NULL))) {
+                    SendMessage(hwnd, BFFM_SETSELECTION, FALSE, (LPARAM)pidlPath);
+                    CoTaskMemFree(pidlPath);
+                } else {
+                    // Fallback to string path
+                    SendMessage(hwnd, BFFM_SETSELECTION, TRUE, (LPARAM)path);
+                }
+            }
+            break;
+    }
+    return 0;
+}
+
 void onOutputSelect() {
     BROWSEINFO bi;
     char szDir[MAX_PATH];
+    char fullPath[MAX_PATH];
     ITEMIDLIST* pidl;
+    
+    // Get the full path of the current output folder
+    if (_fullpath(fullPath, g_outputFolder, MAX_PATH) == NULL) {
+        // If _fullpath fails, try GetFullPathName
+        if (GetFullPathName(g_outputFolder, MAX_PATH, fullPath, NULL) == 0) {
+            strcpy(fullPath, g_outputFolder);
+        }
+    }
+    
+    // Ensure the path exists, if not use current directory
+    DWORD attrs = GetFileAttributes(fullPath);
+    if (attrs == INVALID_FILE_ATTRIBUTES || !(attrs & FILE_ATTRIBUTE_DIRECTORY)) {
+        GetCurrentDirectory(MAX_PATH, fullPath);
+    }
     
     ZeroMemory(&bi, sizeof(bi));
     bi.hwndOwner = g_hMainWnd;
-    bi.pidlRoot = NULL;
+    bi.pidlRoot = NULL;  // Keep NULL for full filesystem access
     bi.pszDisplayName = szDir;
     bi.lpszTitle = "Select Output Folder:";
     bi.ulFlags = BIF_RETURNONLYFSDIRS | BIF_NEWDIALOGSTYLE;
-    bi.lpfn = NULL;
-    bi.lParam = 0;
+    bi.lpfn = BrowseCallbackProc;  // Set callback function
+    bi.lParam = (LPARAM)fullPath;  // Pass full path as parameter
     
     pidl = SHBrowseForFolder(&bi);
     if (pidl != NULL) {
@@ -560,14 +604,9 @@ void appendToLog(const char* text) {
 }
 
 void appendToLogDirect(const char* text) {
-    if (!g_hLogEdit) return;
-    
-    int length = GetWindowTextLength(g_hLogEdit);
-    SendMessage(g_hLogEdit, EM_SETSEL, length, length);
-    SendMessage(g_hLogEdit, EM_REPLACESEL, FALSE, (LPARAM)text);
-    
-    // Auto-scroll to bottom
-    SendMessage(g_hLogEdit, EM_SCROLL, SB_BOTTOM, 0);
+    // This is used by pipe output from child processes - always show
+    fprintf(stdout, "%s", text);
+    fflush(stdout);
 }
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
@@ -676,7 +715,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
         {
             char* logText = (char*)lParam;
             if (logText) {
-                appendToLogDirect(logText);
+                // Add to GUI log area
+                if (g_hLogEdit) {
+                    int length = GetWindowTextLength(g_hLogEdit);
+                    SendMessage(g_hLogEdit, EM_SETSEL, length, length);
+                    SendMessage(g_hLogEdit, EM_REPLACESEL, FALSE, (LPARAM)logText);
+                    SendMessage(g_hLogEdit, EM_SCROLL, SB_BOTTOM, 0);
+                }
                 free(logText);
             }
         }
@@ -792,7 +837,7 @@ int showGUI() {
     int x = (screenWidth - windowWidth) / 2;
     int y = (screenHeight - windowHeight) / 2;
     
-    g_hMainWnd = CreateWindow(className, "PSX Extractor v3",
+    g_hMainWnd = CreateWindow(className, "PSX Extractor GUI",
                             WS_OVERLAPPEDWINDOW,
                             x, y, windowWidth, windowHeight,
                             NULL, NULL, GetModuleHandle(NULL), NULL);

@@ -50,6 +50,7 @@ char* load_cue_resource(const char* game_id) {
     return result;
 }
 
+
 void free_cue_resource(char* data) {
     if (data) {
         free(data);

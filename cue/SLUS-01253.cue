@@ -1,5 +1,5 @@
-REM MD5 f957f526e8a45255c687bec8a8459541
-FILE "Arc the Lad Collection - Arc the Lad III (USA) (Disc 2).bin" BINARY
+REM MD5 a16911072393d5c3850400cfea6876f7
+FILE "Arc the Lad Collection - Arc the Lad III (USA) (Disc 1).bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
-REM LEADOUT 69:09:38
+REM LEADOUT 60:25:05

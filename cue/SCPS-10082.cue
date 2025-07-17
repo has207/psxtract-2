@@ -1,5 +1,0 @@
-REM MD5 32441a74e9ad1844c2f737e7cf5a2a7b
-FILE "Global Force - Shin Sentou Kokka (Japan) (Demo).bin" BINARY
-  TRACK 01 MODE2/2352
-    INDEX 01 00:00:00
-REM LEADOUT 27:23:44

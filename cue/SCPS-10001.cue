@@ -1,5 +1,0 @@
-REM MD5 3e7ee199aaf03f203f4e30a8f83cabf2
-FILE "Motor Toon Grand Prix (Japan).bin" BINARY
-  TRACK 01 MODE2/2352
-    INDEX 01 00:00:00
-REM LEADOUT 34:06:47

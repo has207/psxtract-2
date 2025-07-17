@@ -1,5 +1,0 @@
-REM MD5 468a6974027cdb4771acda3daa432bb6
-FILE "Anna Kournikova's Smash Court Tennis (Europe).bin" BINARY
-  TRACK 01 MODE2/2352
-    INDEX 01 00:00:00
-REM LEADOUT 35:52:21

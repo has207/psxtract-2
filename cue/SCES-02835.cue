@@ -1,5 +1,0 @@
-REM MD5 edd092fecba64c7a79d4412d3b38eba1
-FILE "Spyro - Year of the Dragon (USA).bin" BINARY
-  TRACK 01 MODE2/2352
-    INDEX 01 00:00:00
-REM LEADOUT 56:25:58

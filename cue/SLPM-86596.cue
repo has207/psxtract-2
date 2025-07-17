@@ -1,5 +1,0 @@
-REM MD5 a73a3c929eeeea7c8839eb16077a29e5
-FILE "Beatmania Best Hits (Japan) (Rev 1).bin" BINARY
-  TRACK 01 MODE2/2352
-    INDEX 01 00:00:00
-REM LEADOUT 34:46:50

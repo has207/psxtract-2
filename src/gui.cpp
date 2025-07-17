@@ -4,6 +4,7 @@
 #include <commctrl.h>
 #include <commdlg.h>
 #include <shlobj.h>
+#include <shlwapi.h>
 #include <direct.h>
 #include <stdio.h>
 #include <string.h>
@@ -18,6 +19,7 @@
 #define ID_OUTPUT_BUTTON    1006
 #define ID_OUTPUT_EDIT      1007
 #define ID_CANCEL_BUTTON    1008
+#define ID_LOGCLEANUP_CHECK 1009
 
 // Custom message for thread-safe logging
 #define WM_APPEND_LOG       (WM_USER + 1)
@@ -26,11 +28,12 @@
 
 // Global variables
 static HWND g_hMainWnd = NULL;
-static HWND g_hLogEdit = NULL;
+HWND g_hLogEdit = NULL;
 static HWND g_hFileEdit = NULL;
 static HWND g_hExtractButton = NULL;
 static HWND g_hCancelButton = NULL;
 static HWND g_hCleanupCheck = NULL;
+static HWND g_hLogCleanupCheck = NULL;
 static HWND g_hOutputEdit = NULL;
 static char g_selectedFiles[32768] = "";  // Buffer for multiple file paths
 static int g_fileCount = 0;
@@ -39,6 +42,9 @@ static FILE* g_logFile = NULL;
 
 // Thread management
 static HANDLE g_hExtractionThread = NULL;
+static HANDLE g_hLogTailThread = NULL;
+static bool g_logTailActive = false;
+static char g_currentLogPath[MAX_PATH] = "";
 
 // Progress dialog
 static HWND g_hProgressDialog = NULL;
@@ -56,7 +62,13 @@ void onCancel();
 void appendToLog(const char* text);
 void appendToLogDirect(const char* text);
 void openLogFile(const char* pbpPath);
+void openLogFileForWriting(const char* pbpPath);
 void closeLogFile();
+void cleanupLogFile(const char* pbpPath);
+void startLogTailing(const char* logPath);
+void stopLogTailing();
+void clearGUILog();
+DWORD WINAPI logTailThread(LPVOID lpParam);
 LRESULT CALLBACK ProgressDialogProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 void showProgressDialog();
 void hideProgressDialog();
@@ -104,21 +116,27 @@ UINT_PTR CALLBACK OFNHookProc(HWND hdlg, UINT uiMsg, WPARAM wParam, LPARAM lPara
     return 0;
 }
 
-// Printf for GUI progress messages (important messages)
-int gui_printf(const char* format, ...) {
+
+// Printf implementation that's GUI-aware
+int gui_printf_impl(const char* format, ...) {
     char buffer[1024];
     va_list args;
     va_start(args, format);
     int result = vsnprintf(buffer, sizeof(buffer), format, args);
     va_end(args);
     
-    // Always send to console
-    fprintf(stdout, "%s", buffer);
-    fflush(stdout);
-    
-    // Also send to GUI log
-    if (g_guiMode && g_hLogEdit) {
-        appendToLog(buffer);
+    if (isGUIMode()) {
+        if (g_hLogEdit) {
+            // Parent GUI process - send to GUI log
+            appendToLog(buffer);
+        } else {
+            // Child process with --gui flag - write to log file
+            appendToLogDirect(buffer);
+        }
+    } else {
+        // Console mode - send to stdout
+        fprintf(stdout, "%s", buffer);
+        fflush(stdout);
     }
     
     return result;
@@ -143,8 +161,12 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
     
     // Check if cleanup is requested
     bool cleanup = (BST_CHECKED == SendMessage(g_hCleanupCheck, BM_GETCHECK, 0, 0));
+    bool logCleanup = (BST_CHECKED == SendMessage(g_hLogCleanupCheck, BM_GETCHECK, 0, 0));
     if (!showProgressDlg && cleanup) {
         appendToLog("Cleanup mode enabled\n");
+    }
+    if (!showProgressDlg && logCleanup) {
+        appendToLog("Log cleanup mode enabled\n");
     }
     
     int overallResult = 0;
@@ -185,66 +207,19 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
         _getcwd(originalDir, sizeof(originalDir));
         _chdir(g_outputFolder);
         
-        // Create pipes for stdout/stderr capture
-        HANDLE hStdOutRead, hStdOutWrite;
-        SECURITY_ATTRIBUTES saAttr;
-        saAttr.nLength = sizeof(SECURITY_ATTRIBUTES);
-        saAttr.bInheritHandle = TRUE;
-        saAttr.lpSecurityDescriptor = NULL;
-        
-        if (!CreatePipe(&hStdOutRead, &hStdOutWrite, &saAttr, 0)) {
-            failureCount++;
-            overallResult = -1;
-            sprintf(logMsg, "Failed to create output pipe.\n");
-            appendToLog(logMsg);
-            _chdir(originalDir);
-            return 0;
-        }
-        
-        // Ensure the read handle is not inherited
-        SetHandleInformation(hStdOutRead, HANDLE_FLAG_INHERIT, 0);
-        
         STARTUPINFOA si;
         PROCESS_INFORMATION pi;
         ZeroMemory(&si, sizeof(si));
         ZeroMemory(&pi, sizeof(pi));
         si.cb = sizeof(si);
-        si.hStdOutput = hStdOutWrite;
-        si.hStdError = hStdOutWrite;
-        si.dwFlags |= STARTF_USESTDHANDLES;
         
-        if (CreateProcessA(NULL, cmdLine, NULL, NULL, TRUE, 0, NULL, NULL, &si, &pi)) {
-            // Close write end of pipe in parent process
-            CloseHandle(hStdOutWrite);
+        if (CreateProcessA(NULL, cmdLine, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi)) {
+            // Wait for the process to complete
+            WaitForSingleObject(pi.hProcess, INFINITE);
             
-            // Read output in real-time
-            char buffer[1024];
-            DWORD bytesRead;
-            DWORD exitCode = STILL_ACTIVE;
-            
-            while (exitCode == STILL_ACTIVE) {
-                // Check if process is still running
-                GetExitCodeProcess(pi.hProcess, &exitCode);
-                
-                // Read any available output
-                while (PeekNamedPipe(hStdOutRead, NULL, 0, NULL, &bytesRead, NULL) && bytesRead > 0) {
-                    if (ReadFile(hStdOutRead, buffer, sizeof(buffer) - 1, &bytesRead, NULL) && bytesRead > 0) {
-                        buffer[bytesRead] = '\0';
-                        appendToLogDirect(buffer);
-                    }
-                }
-                
-                // Small delay to prevent excessive CPU usage
-                Sleep(50);
-            }
-            
-            // Read any remaining output
-            while (ReadFile(hStdOutRead, buffer, sizeof(buffer) - 1, &bytesRead, NULL) && bytesRead > 0) {
-                buffer[bytesRead] = '\0';
-                appendToLogDirect(buffer);
-            }
-            
-            CloseHandle(hStdOutRead);
+            // Get exit code
+            DWORD exitCode;
+            GetExitCodeProcess(pi.hProcess, &exitCode);
             
             CloseHandle(pi.hProcess);
             CloseHandle(pi.hThread);
@@ -256,6 +231,11 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
                 successCount++;
                 sprintf(logMsg, "File completed successfully.\n");
                 appendToLog(logMsg);
+                
+                // Clean up log file if requested
+                if (logCleanup) {
+                    cleanupLogFile(currentPos);
+                }
             } else if (exitCode == (DWORD)-2 || exitCode == 4294967294U) { // -2 as unsigned (user cancellation)
                 skippedCount++;
                 sprintf(logMsg, "File extraction cancelled by user.\n");
@@ -267,8 +247,6 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
                 appendToLog(logMsg);
             }
         } else {
-            CloseHandle(hStdOutWrite);
-            CloseHandle(hStdOutRead);
             failureCount++;
             overallResult = -1;
             sprintf(logMsg, "Failed to start extraction process.\n");
@@ -295,6 +273,11 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
             // Build full path
             char fullPath[MAX_PATH];
             sprintf(fullPath, "%s\\%s", directory, currentPos);
+            
+            // Clear GUI log for each file (except first) to keep it clean in batch mode
+            if (fileIndex > 1) {
+                clearGUILog();
+            }
             
             // Always send processing message to GUI log
             sprintf(logMsg, "\n=== Processing file %d/%d: %s ===\n", fileIndex, g_fileCount, currentPos);
@@ -330,65 +313,19 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
             _getcwd(originalDir, sizeof(originalDir));
             _chdir(g_outputFolder);
             
-            // Create pipes for stdout/stderr capture
-            HANDLE hStdOutRead, hStdOutWrite;
-            SECURITY_ATTRIBUTES saAttr;
-            saAttr.nLength = sizeof(SECURITY_ATTRIBUTES);
-            saAttr.bInheritHandle = TRUE;
-            saAttr.lpSecurityDescriptor = NULL;
-            
-            if (!CreatePipe(&hStdOutRead, &hStdOutWrite, &saAttr, 0)) {
-                failureCount++;
-                overallResult = -1;
-                sprintf(logMsg, "Failed to create output pipe.\n");
-                appendToLog(logMsg);
-                continue;
-            }
-            
-            // Ensure the read handle is not inherited
-            SetHandleInformation(hStdOutRead, HANDLE_FLAG_INHERIT, 0);
-            
             STARTUPINFOA si;
             PROCESS_INFORMATION pi;
             ZeroMemory(&si, sizeof(si));
             ZeroMemory(&pi, sizeof(pi));
             si.cb = sizeof(si);
-            si.hStdOutput = hStdOutWrite;
-            si.hStdError = hStdOutWrite;
-            si.dwFlags |= STARTF_USESTDHANDLES;
             
-            if (CreateProcessA(NULL, cmdLine, NULL, NULL, TRUE, 0, NULL, NULL, &si, &pi)) {
-                // Close write end of pipe in parent process
-                CloseHandle(hStdOutWrite);
+            if (CreateProcessA(NULL, cmdLine, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi)) {
+                // Wait for the process to complete
+                WaitForSingleObject(pi.hProcess, INFINITE);
                 
-                // Read output in real-time
-                char buffer[1024];
-                DWORD bytesRead;
-                DWORD exitCode = STILL_ACTIVE;
-                
-                while (exitCode == STILL_ACTIVE) {
-                    // Check if process is still running
-                    GetExitCodeProcess(pi.hProcess, &exitCode);
-                    
-                    // Read any available output
-                    while (PeekNamedPipe(hStdOutRead, NULL, 0, NULL, &bytesRead, NULL) && bytesRead > 0) {
-                        if (ReadFile(hStdOutRead, buffer, sizeof(buffer) - 1, &bytesRead, NULL) && bytesRead > 0) {
-                            buffer[bytesRead] = '\0';
-                            appendToLogDirect(buffer);
-                        }
-                    }
-                    
-                    // Small delay to prevent excessive CPU usage
-                    Sleep(50);
-                }
-                
-                // Read any remaining output
-                while (ReadFile(hStdOutRead, buffer, sizeof(buffer) - 1, &bytesRead, NULL) && bytesRead > 0) {
-                    buffer[bytesRead] = '\0';
-                    appendToLogDirect(buffer);
-                }
-                
-                CloseHandle(hStdOutRead);
+                // Get exit code
+                DWORD exitCode;
+                GetExitCodeProcess(pi.hProcess, &exitCode);
                 
                 CloseHandle(pi.hProcess);
                 CloseHandle(pi.hThread);
@@ -400,6 +337,11 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
                     successCount++;
                     sprintf(logMsg, "File completed successfully.\n");
                     appendToLog(logMsg);
+                    
+                    // Clean up log file if requested
+                    if (logCleanup) {
+                        cleanupLogFile(fullPath);
+                    }
                 } else {
                     failureCount++;
                     overallResult = exitCode;
@@ -407,8 +349,6 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
                     appendToLog(logMsg);
                 }
             } else {
-                CloseHandle(hStdOutWrite);
-                CloseHandle(hStdOutRead);
                 failureCount++;
                 overallResult = -1;
                 sprintf(logMsg, "Failed to start extraction process.\n");
@@ -596,6 +536,9 @@ void onExtract() {
 
 void onCancel() {
     if (g_hExtractionThread) {
+        // Stop log tailing immediately
+        stopLogTailing();
+        
         // Immediately terminate the extraction thread
         TerminateThread(g_hExtractionThread, 1);
         
@@ -619,11 +562,48 @@ void appendToLog(const char* text) {
 }
 
 void openLogFile(const char* pbpPath) {
+    stopLogTailing();
+    
+    char logFileName[MAX_PATH];
+    strcpy(logFileName, PathFindFileNameA(pbpPath));
+    PathRemoveExtensionA(logFileName);
+    strcat(logFileName, ".log");
+    
+    char logPath[MAX_PATH];
+    PathCombineA(logPath, g_outputFolder, logFileName);
+    
+    char successMsg[512];
+    sprintf(successMsg, "Log file opened: %s\n", logPath);
+    appendToLog(successMsg);
+    
+    startLogTailing(logPath);
+}
+
+void openLogFileForWriting(const char* pbpPath) {
     if (g_logFile) {
         fclose(g_logFile);
         g_logFile = NULL;
     }
     
+    char logFileName[MAX_PATH];
+    strcpy(logFileName, PathFindFileNameA(pbpPath));
+    PathRemoveExtensionA(logFileName);
+    strcat(logFileName, ".log");
+    
+    g_logFile = fopen(logFileName, "w");
+}
+
+void closeLogFile() {
+    // Stop log tailing
+    stopLogTailing();
+    
+    if (g_logFile) {
+        fclose(g_logFile);
+        g_logFile = NULL;
+    }
+}
+
+void cleanupLogFile(const char* pbpPath) {
     // Extract filename from path and create log filename
     const char* filename = strrchr(pbpPath, '\\');
     if (!filename) filename = strrchr(pbpPath, '/');
@@ -641,29 +621,101 @@ void openLogFile(const char* pbpPath) {
     char logPath[MAX_PATH];
     snprintf(logPath, sizeof(logPath), "%s\\%s", g_outputFolder, logFileName);
     
-    g_logFile = fopen(logPath, "w");
-    if (!g_logFile) {
-        // Debug: show error if log file couldn't be opened
-        char errorMsg[512];
-        sprintf(errorMsg, "Failed to open log file: %s\n", logPath);
-        appendToLog(errorMsg);
-    } else {
-        // Debug: confirm log file opened
+    // Delete the log file
+    if (DeleteFileA(logPath)) {
         char successMsg[512];
-        sprintf(successMsg, "Log file opened: %s\n", logPath);
+        sprintf(successMsg, "Cleaned up log file: %s\n", logFileName);
         appendToLog(successMsg);
+    } else {
+        // Only show error if file exists (ignore "file not found" errors)
+        DWORD error = GetLastError();
+        if (error != ERROR_FILE_NOT_FOUND) {
+            char errorMsg[512];
+            sprintf(errorMsg, "Failed to clean up log file: %s (Error: %lu)\n", logFileName, error);
+            appendToLog(errorMsg);
+        }
     }
 }
 
-void closeLogFile() {
-    if (g_logFile) {
-        fclose(g_logFile);
-        g_logFile = NULL;
+void clearGUILog() {
+    if (g_hLogEdit) {
+        SetWindowText(g_hLogEdit, "");
     }
+}
+
+void startLogTailing(const char* logPath) {
+    stopLogTailing(); // Stop any existing tailing
+    
+    strcpy(g_currentLogPath, logPath);
+    g_logTailActive = true;
+    
+    g_hLogTailThread = CreateThread(NULL, 0, logTailThread, NULL, 0, NULL);
+}
+
+void stopLogTailing() {
+    if (g_logTailActive) {
+        g_logTailActive = false;
+        if (g_hLogTailThread) {
+            WaitForSingleObject(g_hLogTailThread, 1000); // Wait up to 1 second
+            CloseHandle(g_hLogTailThread);
+            g_hLogTailThread = NULL;
+        }
+    }
+}
+
+DWORD WINAPI logTailThread(LPVOID lpParam) {
+    FILE* logFile = NULL;
+    long lastPosition = 0;
+    char buffer[1024];
+    
+    while (g_logTailActive) {
+        // Try to open the log file if not already open
+        if (!logFile) {
+            logFile = fopen(g_currentLogPath, "r");
+            if (!logFile) {
+                Sleep(100); // Wait and retry
+                continue;
+            }
+            lastPosition = 0;
+        }
+        
+        // Seek to last known position
+        fseek(logFile, lastPosition, SEEK_SET);
+        
+        // Read new content
+        size_t bytesRead = fread(buffer, 1, sizeof(buffer) - 1, logFile);
+        if (bytesRead > 0) {
+            buffer[bytesRead] = '\0';
+            
+            // Send new content to GUI log
+            appendToLog(buffer);
+            
+            // Update position
+            lastPosition = ftell(logFile);
+        }
+        
+        // Check if file was truncated or recreated
+        long currentSize = ftell(logFile);
+        fseek(logFile, 0, SEEK_END);
+        long endSize = ftell(logFile);
+        
+        if (currentSize > endSize) {
+            // File was truncated, start from beginning
+            lastPosition = 0;
+        }
+        
+        Sleep(50); // Check every 50ms
+    }
+    
+    if (logFile) {
+        fclose(logFile);
+    }
+    
+    return 0;
 }
 
 void appendToLogDirect(const char* text) {
-    // This is used by pipe output from child processes
+    // This is used by the psxtract core to write directly to log files
     if (g_logFile) {
         // Write to log file if one is open
         fprintf(g_logFile, "%s", text);
@@ -723,24 +775,29 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
                         WS_VISIBLE | WS_CHILD | BS_AUTOCHECKBOX,
                         10, 90, 300, 20, hWnd, (HMENU)ID_CLEANUP_CHECK, GetModuleHandle(NULL), NULL);
             
+            g_hLogCleanupCheck = CreateWindow("BUTTON", "Clean up log files after extraction", 
+                        WS_VISIBLE | WS_CHILD | BS_AUTOCHECKBOX,
+                        10, 115, 300, 20, hWnd, (HMENU)ID_LOGCLEANUP_CHECK, GetModuleHandle(NULL), NULL);
+            
             // Default cleanup to checked in GUI mode
             SendMessage(g_hCleanupCheck, BM_SETCHECK, BST_CHECKED, 0);
+            SendMessage(g_hLogCleanupCheck, BM_SETCHECK, BST_CHECKED, 0);
             
             g_hExtractButton = CreateWindow("BUTTON", "Extract", WS_VISIBLE | WS_CHILD | BS_PUSHBUTTON,
-                        10, 120, 100, 30, hWnd, (HMENU)ID_EXTRACT_BUTTON, GetModuleHandle(NULL), NULL);
+                        10, 145, 100, 30, hWnd, (HMENU)ID_EXTRACT_BUTTON, GetModuleHandle(NULL), NULL);
             
             g_hCancelButton = CreateWindow("BUTTON", "Cancel", WS_VISIBLE | WS_CHILD | BS_PUSHBUTTON,
-                        120, 120, 100, 30, hWnd, (HMENU)ID_CANCEL_BUTTON, GetModuleHandle(NULL), NULL);
+                        120, 145, 100, 30, hWnd, (HMENU)ID_CANCEL_BUTTON, GetModuleHandle(NULL), NULL);
             
             EnableWindow(g_hExtractButton, FALSE);
             EnableWindow(g_hCancelButton, FALSE);
             
             CreateWindow("STATIC", "Log:", WS_VISIBLE | WS_CHILD,
-                        10, 160, 40, 20, hWnd, NULL, GetModuleHandle(NULL), NULL);
+                        10, 185, 40, 20, hWnd, NULL, GetModuleHandle(NULL), NULL);
             
             g_hLogEdit = CreateWindow("EDIT", "", 
                         WS_VISIBLE | WS_CHILD | WS_BORDER | WS_VSCROLL | ES_MULTILINE | ES_READONLY,
-                        10, 185, 560, 300, hWnd, (HMENU)ID_LOG_EDIT, GetModuleHandle(NULL), NULL);
+                        10, 210, 560, 300, hWnd, (HMENU)ID_LOG_EDIT, GetModuleHandle(NULL), NULL);
             
             // Set default font
             HFONT hFont = CreateFont(14, 0, 0, 0, FW_NORMAL, FALSE, FALSE, FALSE,
@@ -753,6 +810,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
             SendMessage(g_hExtractButton, WM_SETFONT, (WPARAM)hFont, TRUE);
             SendMessage(g_hCancelButton, WM_SETFONT, (WPARAM)hFont, TRUE);
             SendMessage(g_hCleanupCheck, WM_SETFONT, (WPARAM)hFont, TRUE);
+            SendMessage(g_hLogCleanupCheck, WM_SETFONT, (WPARAM)hFont, TRUE);
             SendMessage(g_hLogEdit, WM_SETFONT, (WPARAM)hFont, TRUE);
         }
         break;
@@ -856,11 +914,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
                 // Cancellation - message already logged
             } else {
                 if (g_fileCount == 1) {
-                    appendToLogDirect("Extraction failed with errors.\n");
+                    appendToLog("Extraction failed with errors.\n");
                 } else {
-                    appendToLogDirect("Batch extraction completed with some failures.\n");
+                    appendToLog("Batch extraction completed with some failures.\n");
                 }
             }
+            
+            // Stop log tailing
+            stopLogTailing();
             
             // Clean up thread handle
             if (g_hExtractionThread) {
@@ -913,7 +974,7 @@ int showGUI() {
     
     // Create main window centered on screen
     int windowWidth = 600;
-    int windowHeight = 560;
+    int windowHeight = 585;
     int screenWidth = GetSystemMetrics(SM_CXSCREEN);
     int screenHeight = GetSystemMetrics(SM_CYSCREEN);
     int x = (screenWidth - windowWidth) / 2;

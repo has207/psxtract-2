@@ -8,6 +8,8 @@
 #include "gui.h"
 #include "cue_resources.h"
 
+extern void openLogFileForWriting(const char* pbpPath);
+
 
 
 // Helper function to check if output files exist and prompt for overwrite
@@ -2366,6 +2368,11 @@ int psxtract_main(const char* pbp_file, const char* document_file, const char* k
 {
 	// Set global verbose flag
 	g_verbose = verbose;
+	
+	// If in GUI mode, open log file for writing
+	if (isGUIMode()) {
+		openLogFileForWriting(pbp_file);
+	}
 	
 	// Change to output directory if specified
 	char original_dir[MAX_PATH];

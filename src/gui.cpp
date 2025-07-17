@@ -286,11 +286,6 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
             
             // Update progress dialog or log
             if (showProgressDlg) {
-                // Debug: log what we're about to send
-                char debugMsg[1024];
-                sprintf(debugMsg, "DEBUG: Sending progress update for file: '%s'\n", currentPos);
-                appendToLog(debugMsg);
-                
                 sprintf(logMsg, "BATCH_UPDATE_PROGRESS:%d:%d:%s", fileIndex, g_fileCount, currentPos);
                 PostMessage(g_hMainWnd, WM_UPDATE_PROGRESS, 0, (LPARAM)_strdup(logMsg));
                 Sleep(50); // Brief delay to let UI update
@@ -585,49 +580,46 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
             }
             
             // Create controls
-            CreateWindow("STATIC", "PSX Extractor v3", WS_VISIBLE | WS_CHILD | SS_CENTER,
-                        10, 10, 560, 25, hWnd, NULL, GetModuleHandle(NULL), NULL);
-            
             CreateWindow("STATIC", "PBP File:", WS_VISIBLE | WS_CHILD,
-                        10, 45, 80, 20, hWnd, NULL, GetModuleHandle(NULL), NULL);
+                        10, 20, 80, 20, hWnd, NULL, GetModuleHandle(NULL), NULL);
             
             g_hFileEdit = CreateWindow("EDIT", "", WS_VISIBLE | WS_CHILD | WS_BORDER | ES_READONLY,
-                        100, 45, 350, 25, hWnd, (HMENU)ID_FILE_EDIT, GetModuleHandle(NULL), NULL);
+                        100, 20, 350, 25, hWnd, (HMENU)ID_FILE_EDIT, GetModuleHandle(NULL), NULL);
             
             CreateWindow("BUTTON", "Browse...", WS_VISIBLE | WS_CHILD | BS_PUSHBUTTON,
-                        460, 45, 80, 25, hWnd, (HMENU)ID_FILE_BUTTON, GetModuleHandle(NULL), NULL);
+                        460, 20, 80, 25, hWnd, (HMENU)ID_FILE_BUTTON, GetModuleHandle(NULL), NULL);
             
             CreateWindow("STATIC", "Output Folder:", WS_VISIBLE | WS_CHILD,
-                        10, 80, 100, 20, hWnd, NULL, GetModuleHandle(NULL), NULL);
+                        10, 55, 100, 20, hWnd, NULL, GetModuleHandle(NULL), NULL);
             
             g_hOutputEdit = CreateWindow("EDIT", g_outputFolder, WS_VISIBLE | WS_CHILD | WS_BORDER | ES_READONLY,
-                        120, 80, 330, 25, hWnd, (HMENU)ID_OUTPUT_EDIT, GetModuleHandle(NULL), NULL);
+                        120, 55, 330, 25, hWnd, (HMENU)ID_OUTPUT_EDIT, GetModuleHandle(NULL), NULL);
             
             CreateWindow("BUTTON", "Browse...", WS_VISIBLE | WS_CHILD | BS_PUSHBUTTON,
-                        460, 80, 80, 25, hWnd, (HMENU)ID_OUTPUT_BUTTON, GetModuleHandle(NULL), NULL);
+                        460, 55, 80, 25, hWnd, (HMENU)ID_OUTPUT_BUTTON, GetModuleHandle(NULL), NULL);
             
             g_hCleanupCheck = CreateWindow("BUTTON", "Clean up TEMP files after extraction", 
                         WS_VISIBLE | WS_CHILD | BS_AUTOCHECKBOX,
-                        10, 115, 300, 20, hWnd, (HMENU)ID_CLEANUP_CHECK, GetModuleHandle(NULL), NULL);
+                        10, 90, 300, 20, hWnd, (HMENU)ID_CLEANUP_CHECK, GetModuleHandle(NULL), NULL);
             
             // Default cleanup to checked in GUI mode
             SendMessage(g_hCleanupCheck, BM_SETCHECK, BST_CHECKED, 0);
             
             g_hExtractButton = CreateWindow("BUTTON", "Extract", WS_VISIBLE | WS_CHILD | BS_PUSHBUTTON,
-                        10, 145, 100, 30, hWnd, (HMENU)ID_EXTRACT_BUTTON, GetModuleHandle(NULL), NULL);
+                        10, 120, 100, 30, hWnd, (HMENU)ID_EXTRACT_BUTTON, GetModuleHandle(NULL), NULL);
             
             g_hCancelButton = CreateWindow("BUTTON", "Cancel", WS_VISIBLE | WS_CHILD | BS_PUSHBUTTON,
-                        120, 145, 100, 30, hWnd, (HMENU)ID_CANCEL_BUTTON, GetModuleHandle(NULL), NULL);
+                        120, 120, 100, 30, hWnd, (HMENU)ID_CANCEL_BUTTON, GetModuleHandle(NULL), NULL);
             
             EnableWindow(g_hExtractButton, FALSE);
             EnableWindow(g_hCancelButton, FALSE);
             
             CreateWindow("STATIC", "Log:", WS_VISIBLE | WS_CHILD,
-                        10, 185, 40, 20, hWnd, NULL, GetModuleHandle(NULL), NULL);
+                        10, 160, 40, 20, hWnd, NULL, GetModuleHandle(NULL), NULL);
             
             g_hLogEdit = CreateWindow("EDIT", "", 
                         WS_VISIBLE | WS_CHILD | WS_BORDER | WS_VSCROLL | ES_MULTILINE | ES_READONLY,
-                        10, 210, 560, 300, hWnd, (HMENU)ID_LOG_EDIT, GetModuleHandle(NULL), NULL);
+                        10, 185, 560, 300, hWnd, (HMENU)ID_LOG_EDIT, GetModuleHandle(NULL), NULL);
             
             // Set default font
             HFONT hFont = CreateFont(14, 0, 0, 0, FW_NORMAL, FALSE, FALSE, FALSE,
@@ -700,9 +692,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
                     // Parse: BATCH_UPDATE_PROGRESS:current:total:filename
                     int current, total;
                     char filename[512];
-                    char debugMsg[1024];
-                    sprintf(debugMsg, "DEBUG: Received progress message: '%s'\n", progressMsg);
-                    appendToLogDirect(debugMsg);
                     
                     // Parse current and total first
                     if (sscanf(progressMsg + 22, "%d:%d:", &current, &total) == 2) {
@@ -712,8 +701,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
                         char* secondColon = firstColon ? strchr(firstColon + 1, ':') : NULL;
                         if (secondColon && *(secondColon + 1)) {
                             strcpy(filename, secondColon + 1);
-                            sprintf(debugMsg, "DEBUG: Parsed filename: '%s'\n", filename);
-                            appendToLogDirect(debugMsg);
                             updateProgress(current, total, filename);
                         }
                     }
@@ -805,7 +792,7 @@ int showGUI() {
     int x = (screenWidth - windowWidth) / 2;
     int y = (screenHeight - windowHeight) / 2;
     
-    g_hMainWnd = CreateWindow(className, "PSX Extractor v2",
+    g_hMainWnd = CreateWindow(className, "PSX Extractor v3",
                             WS_OVERLAPPEDWINDOW,
                             x, y, windowWidth, windowHeight,
                             NULL, NULL, GetModuleHandle(NULL), NULL);
@@ -969,5 +956,188 @@ void updateProgress(int current, int total, const char* filename) {
         justFilename = justFilename ? justFilename + 1 : filename;
         sprintf(fileText, "Extracting %s", justFilename);
         SetWindowText(g_hProgressFile, fileText);
+    }
+}
+
+// Selection dialog data
+struct SelectionDialogData {
+    const char** options;
+    int option_count;
+    int selected_index;
+    const char* message;
+};
+
+// Global variables for selection dialog
+static int g_selectionResult = -1;
+static HWND g_selectionDialog = NULL;
+
+// Selection dialog procedure
+LRESULT CALLBACK SelectionDialogProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
+    switch (message) {
+    case WM_CREATE:
+        {
+            CREATESTRUCT* cs = (CREATESTRUCT*)lParam;
+            SelectionDialogData* pData = (SelectionDialogData*)cs->lpCreateParams;
+            if (!pData) return -1;
+            
+            // Store data pointer
+            SetWindowLongPtr(hWnd, GWLP_USERDATA, (LONG_PTR)pData);
+            
+            // Create message text with more space and word wrap
+            CreateWindow("STATIC", pData->message,
+                WS_VISIBLE | WS_CHILD | SS_LEFT,
+                20, 20, 360, 60,
+                hWnd, NULL, GetModuleHandle(NULL), NULL);
+            
+            // Create buttons for each option (moved down to make room)
+            int buttonY = 90;
+            for (int i = 0; i < pData->option_count; i++) {
+                CreateWindow("BUTTON", pData->options[i],
+                    WS_VISIBLE | WS_CHILD | BS_PUSHBUTTON,
+                    20, buttonY, 360, 30,
+                    hWnd, (HMENU)(1000 + i), GetModuleHandle(NULL), NULL);
+                buttonY += 35;
+            }
+            
+            return 0;
+        }
+        
+    case WM_COMMAND:
+        {
+            int buttonId = LOWORD(wParam);
+            if (buttonId >= 1000 && buttonId < 1020) {
+                // Option button clicked
+                g_selectionResult = buttonId - 1000;
+                DestroyWindow(hWnd);
+                return 0;
+            }
+            break;
+        }
+        
+    case WM_CLOSE:
+        g_selectionResult = 0; // Default to first option
+        DestroyWindow(hWnd);
+        return 0;
+        
+    case WM_DESTROY:
+        g_selectionDialog = NULL;
+        return 0;
+    }
+    
+    return DefWindowProc(hWnd, message, wParam, lParam);
+}
+
+// Create selection dialog with individual buttons
+int gui_create_selection_dialog(const char* title, const char* message, const char* options[], int option_count) {
+    SelectionDialogData data;
+    data.options = options;
+    data.option_count = option_count;
+    data.selected_index = 0;
+    data.message = message;
+    
+    g_selectionResult = 0; // Default to first option
+    
+    // Register window class if needed
+    static bool classRegistered = false;
+    if (!classRegistered) {
+        WNDCLASS wc = {0};
+        wc.lpfnWndProc = SelectionDialogProc;
+        wc.hInstance = GetModuleHandle(NULL);
+        wc.lpszClassName = "CueSelectionDialog";
+        wc.hbrBackground = (HBRUSH)(COLOR_BTNFACE + 1);
+        wc.hCursor = LoadCursor(NULL, IDC_ARROW);
+        
+        if (RegisterClass(&wc)) {
+            classRegistered = true;
+        }
+    }
+    
+    // Calculate dialog height based on option count (extra space for message)
+    int dialogHeight = 140 + (option_count * 35);
+    
+    // Create the dialog
+    HWND parent = g_hMainWnd;
+    
+    // Get parent window rect for centering
+    RECT parentRect;
+    int x, y;
+    if (parent && GetWindowRect(parent, &parentRect)) {
+        x = parentRect.left + (parentRect.right - parentRect.left - 420) / 2;
+        y = parentRect.top + (parentRect.bottom - parentRect.top - dialogHeight) / 2;
+    } else {
+        // Center on screen if parent rect is invalid
+        x = (GetSystemMetrics(SM_CXSCREEN) - 420) / 2;
+        y = (GetSystemMetrics(SM_CYSCREEN) - dialogHeight) / 2;
+    }
+    
+    g_selectionDialog = CreateWindowEx(WS_EX_DLGMODALFRAME | WS_EX_TOPMOST,
+        "CueSelectionDialog",
+        title,
+        WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_VISIBLE,
+        x, y, 420, dialogHeight,
+        parent, NULL, GetModuleHandle(NULL), &data);
+        
+    if (g_selectionDialog) {
+        // Force the window to be visible and on top
+        ShowWindow(g_selectionDialog, SW_SHOW);
+        UpdateWindow(g_selectionDialog);
+        SetWindowPos(g_selectionDialog, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE);
+        BringWindowToTop(g_selectionDialog);
+        
+        // Make it modal
+        EnableWindow(parent, FALSE);
+        SetForegroundWindow(g_selectionDialog);
+        SetActiveWindow(g_selectionDialog);
+        
+        // Message loop
+        MSG msg;
+        while (IsWindow(g_selectionDialog)) {
+            if (GetMessage(&msg, NULL, 0, 0)) {
+                TranslateMessage(&msg);
+                DispatchMessage(&msg);
+            } else {
+                break;
+            }
+        }
+        
+        // Re-enable parent
+        EnableWindow(parent, TRUE);
+        SetForegroundWindow(parent);
+    }
+    
+    return g_selectionResult;
+}
+
+// GUI-aware selection function
+int gui_select_option(const char* title, const char* message, const char* options[], int option_count) {
+    if (!isGUIMode()) {
+        // Console mode - use existing console selection logic
+        printf("\n%s\n", message);
+        
+        for (int i = 0; i < option_count; i++) {
+            printf("  %d) %s\n", i + 1, options[i]);
+        }
+        
+        printf("\nEnter your choice (1-%d): ", option_count);
+        fflush(stdout);
+        
+        int choice = 0;
+        char input[16];
+        
+        if (fgets(input, sizeof(input), stdin)) {
+            choice = atoi(input);
+        }
+        
+        // Validate choice
+        if (choice < 1 || choice > option_count) {
+            printf("Invalid choice. Using first option: %s\n", options[0]);
+            return 0; // Return 0-based index
+        }
+        
+        printf("Selected: %s\n\n", options[choice - 1]);
+        return choice - 1; // Return 0-based index
+    } else {
+        // GUI mode - create a proper dialog with individual buttons
+        return gui_create_selection_dialog(title, message, options, option_count);
     }
 }

@@ -39,10 +39,7 @@ static bool check_output_files_overwrite(const char* game_title, bool use_prebak
     if (cue_exists) printf("  %s\n", cue_path);
     if (bin_exists) printf("  %s\n", bin_path);
     
-    printf("DEBUG: isGUIMode() = %s\n", isGUIMode() ? "true" : "false");
-    
     if (isGUIMode()) {
-        printf("DEBUG: Using GUI prompt\n");
         // For GUI mode, use GUI prompt
         char message[1024];
         sprintf(message, "Output files already exist:\n");
@@ -58,7 +55,6 @@ static bool check_output_files_overwrite(const char* game_title, bool use_prebak
         }
         strcat(message, "\nOverwrite existing files?");
         
-        printf("DEBUG: About to call gui_prompt\n");
         if (gui_prompt(message, "Output Files Exist")) {
             printf("User chose to overwrite existing files.\n");
             return true; // Overwrite
@@ -67,7 +63,6 @@ static bool check_output_files_overwrite(const char* game_title, bool use_prebak
             return false; // Cancel
         }
     } else {
-        printf("DEBUG: Using console prompt\n");
         // For console mode, ask user for action
         char input[10];
         printf("Do you want to overwrite existing files? (y/N): ");
@@ -1341,7 +1336,15 @@ bool check_prebaked_cue_file(char* disc_name, char* game_title)
     // Convert disc name to CUE format
     convert_disc_name_to_cue_format(disc_name, cue_name);
     
-    // Load CUE file from embedded resources
+    // First, handle CUE variant selection and update the disc name if needed
+    if (!select_cue_variant_and_update_serial(cue_name)) {
+        return false; // No CUE file found
+    }
+    
+    // Update the original disc_name to reflect the selected variant
+    strcpy(disc_name, cue_name);
+    
+    // Load CUE file from embedded resources (now guaranteed to exist)
     char* cue_data = load_cue_resource(cue_name);
     if (cue_data == NULL)
     {
@@ -2331,17 +2334,13 @@ int main(int argc, char **argv)
 	
 	// Parse command line arguments
 	for (int i = 1; i < argc; i++) {
-		printf("DEBUG: Processing argument %d: '%s'\n", i, argv[i]);
 		if (!strcmp(argv[i], "-c")) {
 			cleanup = true;
 			arg_offset++;
-			printf("DEBUG: Found -c flag, cleanup enabled\n");
 		} else if (!strcmp(argv[i], "--gui")) {
 			setGUIMode(true);
 			arg_offset++;
-			printf("DEBUG: Found --gui flag, GUI mode enabled\n");
 		} else {
-			printf("DEBUG: Non-flag argument, stopping parsing\n");
 			break; // Stop at first non-flag argument
 		}
 	}
@@ -2411,15 +2410,35 @@ int psxtract_main(const char* pbp_file, const char* document_file, const char* k
 			printf("TEMP directory exists from previous run. Removing automatically (cleanup mode)...\n");
 			system("rmdir /S /Q TEMP");
 		} else {
-			printf("WARNING: TEMP directory already exists from a previous run.\n");
-			printf("This may contain files that could interfere with the current extraction.\n");
-			
-			if (gui_prompt("TEMP directory already exists from a previous run.\nThis may contain files that could interfere with the current extraction.\n\nDelete TEMP directory and continue?", "TEMP Directory Exists")) {
-				printf("Removing existing TEMP directory...\n");
-				system("rmdir /S /Q TEMP");
+			if (isGUIMode()) {
+				// GUI mode - use dialog only
+				if (gui_prompt("TEMP directory already exists from a previous run.\nThis may contain files that could interfere with the current extraction.\n\nDelete TEMP directory and continue?", "TEMP Directory Exists")) {
+					printf("Removing existing TEMP directory...\n");
+					system("rmdir /S /Q TEMP");
+				} else {
+					printf("Extraction cancelled. Please manually remove TEMP directory and try again.\n");
+					return 1;
+				}
 			} else {
-				printf("Extraction cancelled. Please manually remove TEMP directory and try again.\n");
-				return 1;
+				// Console mode - use text prompt
+				printf("WARNING: TEMP directory already exists from a previous run.\n");
+				printf("This may contain files that could interfere with the current extraction.\n");
+				printf("Do you want to delete TEMP directory and continue? (y/N): ");
+				
+				char input[10];
+				if (fgets(input, sizeof(input), stdin) != NULL) {
+					char response = input[0];
+					if (response == 'y' || response == 'Y') {
+						printf("Removing existing TEMP directory...\n");
+						system("rmdir /S /Q TEMP");
+					} else {
+						printf("Extraction cancelled. Please manually remove TEMP directory and try again.\n");
+						return 1;
+					}
+				} else {
+					printf("Extraction cancelled. Please manually remove TEMP directory and try again.\n");
+					return 1;
+				}
 			}
 		}
 	}

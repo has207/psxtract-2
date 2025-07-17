@@ -1,0 +1,5 @@
+REM MD5 74b1a2ae8d8776f1b15d0b6fde9c2f79
+FILE "Rockman 4 - Aratanaru Yabou!! (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 58:38:07

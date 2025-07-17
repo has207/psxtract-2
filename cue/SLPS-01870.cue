@@ -1,0 +1,5 @@
+REM MD5 702c33b9b5901df72ea6c44beeea3d52
+FILE "Monster Complete World (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 47:32:28

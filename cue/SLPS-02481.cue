@@ -1,0 +1,5 @@
+REM MD5 5eb0efac7d981e45b54fbabf7006a267
+FILE "Parasite Eve II (Japan, Asia) (Disc 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 57:36:04

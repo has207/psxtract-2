@@ -1,0 +1,5 @@
+REM MD5 7421e5bf758bd921f7ac39d8f4584f76
+FILE "Metal Gear Solid - Integral (Japan, Asia) (En,Ja) (Disc 2).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 70:27:62

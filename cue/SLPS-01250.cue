@@ -1,0 +1,5 @@
+REM MD5 e43b224f09f19e46a31d29b712f5dc0d
+FILE "Hoshi de Hakken!! Tamagotchi (Japan, Asia).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 18:55:27

@@ -1,0 +1,5 @@
+REM MD5 17c48c1475fc2151699b31bdc2376b7f
+FILE "Shin Sedai Robot Senki - Brave Saga (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 64:46:16

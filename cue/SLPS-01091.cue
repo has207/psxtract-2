@@ -1,0 +1,8 @@
+REM MD5 a8afcf376e1ef7e4f187cf8db77ce582
+FILE "Magical Date - Doki Doki Kokuhaku Daisakusen (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 41:26:65
+    INDEX 01 41:28:65
+REM LEADOUT 45:26:48

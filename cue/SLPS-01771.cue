@@ -1,0 +1,5 @@
+REM MD5 9e2beda3172ad4c2ff0f38991950d558
+FILE "Chocobo no Fushigi na Dungeon 2 (Japan, Asia).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 42:03:62

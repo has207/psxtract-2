@@ -1,0 +1,5 @@
+REM MD5 f34b92cefb8d44dcbe7ad64e47d150ae
+FILE "Angelique Duet (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 64:01:08

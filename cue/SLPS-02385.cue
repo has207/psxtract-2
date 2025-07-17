@@ -1,0 +1,5 @@
+REM MD5 8df0d0f2a51324a60d421652139b8ba9
+FILE "Kouklotheatro - Yuukyuu no Hitomi (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 36:07:39

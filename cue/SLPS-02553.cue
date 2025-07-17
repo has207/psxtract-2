@@ -1,0 +1,5 @@
+REM MD5 31af4c66f62fe3ff5d6d69e5753f6063
+FILE "Biohazard - Gun Survivor (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 39:37:65

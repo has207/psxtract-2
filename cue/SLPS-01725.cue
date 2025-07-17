@@ -1,0 +1,8 @@
+REM MD5 9b7fe9d5f3b4381df6f1cf181df880c2
+FILE "Capcom Generation - Dai-5-shuu Kakutouka-tachi (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 43:17:30
+    INDEX 01 43:19:30
+REM LEADOUT 46:49:30

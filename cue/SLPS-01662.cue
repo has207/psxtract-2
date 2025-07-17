@@ -1,0 +1,5 @@
+REM MD5 95721bb69d6c159a288f667fd465c9cc
+FILE "Yamagata Digital Museum (Japan) (Disc 3) (Autumn).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 08:02:10

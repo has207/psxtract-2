@@ -1,0 +1,5 @@
+REM MD5 844e3f18c053dd46dc845b07ecab1645
+FILE "Carnage Heart (USA) (Mission Briefing).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 58:44:02

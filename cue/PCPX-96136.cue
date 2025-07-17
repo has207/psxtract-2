@@ -1,0 +1,5 @@
+REM MD5 f3c0535508a664505c30297168344dce
+FILE "PlayStation Comic - 2999-nen no Game Kids (Japan) (Demo 3).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 23:40:05

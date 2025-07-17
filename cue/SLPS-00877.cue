@@ -1,0 +1,5 @@
+REM MD5 6be6302dd15ba87d7f9c3b7eaed06efe
+FILE "Robo-Pit 2 (Japan, Asia).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 38:57:64

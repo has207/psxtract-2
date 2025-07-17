@@ -1,0 +1,5 @@
+REM MD5 892b91f7e57bdde04e83840f51b65072
+FILE "MTV Sports - Skateboarding featuring Andy Macdonald (USA).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 63:04:22

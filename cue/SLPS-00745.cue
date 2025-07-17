@@ -1,0 +1,5 @@
+REM MD5 17593ca7a1de1c5571662a68d92eb8a8
+FILE "Angelique Special 2 (Japan) (Premium Box).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 62:28:71

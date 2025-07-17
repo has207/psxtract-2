@@ -1,0 +1,5 @@
+REM MD5 9354bc00a7133f75bb6850ee00d34765
+FILE "Lupin 3sei - Cagliostro no Shiro - Saikai (Japan) (Disc 1).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 58:58:48

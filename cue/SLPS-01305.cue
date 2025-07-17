@@ -1,0 +1,8 @@
+REM MD5 13ada46bf29700e2c995e5edd5ebdcb6
+FILE "Suikoden - Tendou Hyaku Hachi-sei (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+  TRACK 02 AUDIO
+    INDEX 00 18:58:43
+    INDEX 01 19:00:43
+REM LEADOUT 22:32:69

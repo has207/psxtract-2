@@ -1,0 +1,5 @@
+REM MD5 4e5a1b868615fa1c5d53ff7b455d9b0d
+FILE "Square's Preview Vol. 4 (Japan, Asia).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 55:00:48

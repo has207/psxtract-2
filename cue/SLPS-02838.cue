@@ -1,0 +1,5 @@
+REM MD5 923667faed916b9ded916ee210be76b5
+FILE "Inagawa Junji - Mayonaka no Taxi (Japan).bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+REM LEADOUT 55:02:66

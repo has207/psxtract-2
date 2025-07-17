@@ -75,6 +75,19 @@ bool calculate_md5(const char* filename, char* md5_string)
     return true;
 }
 
+// Print MD5 hash of data track (always)
+void print_data_track_md5(const char* data_track_file, const char* disc_serial)
+{
+    // Calculate MD5 of the data track
+    char actual_md5[33];
+    if (!calculate_md5(data_track_file, actual_md5)) {
+        printf("Failed to calculate MD5 for data track: %s\n", data_track_file);
+        return;
+    }
+    
+    printf("Data track MD5 for %s: %s\n", disc_serial, actual_md5);
+}
+
 // Verify data track MD5 using prebaked CUE files only
 bool verify_data_track_md5_cue(const char* data_track_file, const char* disc_serial)
 {
@@ -87,27 +100,28 @@ bool verify_data_track_md5_cue(const char* data_track_file, const char* disc_ser
         }
     }
     
-    // Get expected MD5 from prebaked CUE file
-    char expected_md5[33];
-    if (!extract_cue_md5(cue_name, expected_md5)) {
-        printf("No prebaked CUE MD5 found for disc serial: %s\n", disc_serial);
-        return false;
-    }
-    
-    // Calculate actual MD5 of the data track
+    // Calculate actual MD5 of the data track first
     char actual_md5[33];
     if (!calculate_md5(data_track_file, actual_md5)) {
         printf("Failed to calculate MD5 for data track: %s\n", data_track_file);
         return false;
     }
     
+    // Get expected MD5 from prebaked CUE file
+    char expected_md5[33];
+    if (!extract_cue_md5(cue_name, expected_md5)) {
+        printf("Data track MD5 for %s: %s\n", disc_serial, actual_md5);
+        printf("No prebaked CUE MD5 found for comparison\n");
+        return false;
+    }
+    
     // Compare MD5 hashes
     bool match = (strcmp(actual_md5, expected_md5) == 0);
     
-    gui_log_printf("MD5 verification for %s (prebaked CUE):\n", disc_serial);
-    gui_log_printf("  Expected: %s\n", expected_md5);
-    gui_log_printf("  Actual:   %s\n", actual_md5);
-    gui_log_printf("  Result:   %s\n", match ? "PASS" : "FAIL");
+    printf("MD5 verification for %s (prebaked CUE):\n", disc_serial);
+    printf("  Expected: %s\n", expected_md5);
+    printf("  Actual:   %s\n", actual_md5);
+    printf("  Result:   %s\n", match ? "PASS" : "FAIL");
     
     return match;
 }

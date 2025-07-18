@@ -1,5 +1,0 @@
-REM MD5 ea9a248a933657f72641eccb5b372413
-FILE "Final Fantasy Chronicles - Chrono Trigger (USA) (Rev 1).bin" BINARY
-  TRACK 01 MODE2/2352
-    INDEX 01 00:00:00
-REM LEADOUT 51:43:49

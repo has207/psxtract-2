@@ -134,50 +134,73 @@ struct fixImageStatus fixImage(char* inputfilepath, char* outputfilepath, int nu
     }
     printf("Processing %d sectors\n", num_sectors);
     status.totalsectors = 0;
+    bool reached_zero_padding = false;
     for(int i = 0; i < num_sectors * SECTOR_SIZE; i += SECTOR_SIZE)
     {
-        //Read next sector
-        int bytesread = fread(sector, 1, SECTOR_SIZE, inputfile);
-        if(bytesread != SECTOR_SIZE)
+        if(!reached_zero_padding)
         {
-            //Free memory
-            free(sector);
+            //Read next sector
+            int bytesread = fread(sector, 1, SECTOR_SIZE, inputfile);
+            if(bytesread != SECTOR_SIZE)
+            {
+                //Free memory
+                free(sector);
 
-            //Close the input and output files
-            fclose(inputfile);
-            fclose(outputfile);
+                //Close the input and output files
+                fclose(inputfile);
+                fclose(outputfile);
 
-            status.errorcode = ERROR_IMAGE_INCOMPLETE;
-            return status;
+                status.errorcode = ERROR_IMAGE_INCOMPLETE;
+                return status;
+            }
+        }
+        else
+        {
+            //We've reached zero padding, generate all-zero sectors
+            memset(sector, 0, SECTOR_SIZE);
         }
 
-        //Find mode
-        unsigned char mode = sector[HEADER_OFFSET + 3];
+        //Find mode (or set to 0 if we're generating zero sectors)
+        unsigned char mode;
+        if(reached_zero_padding)
+        {
+            mode = MODE_0;
+        }
+        else
+        {
+            mode = sector[HEADER_OFFSET + 3];
+        }
 
         //Process sector based on mode
         if(mode == MODE_0)
         {
-            //Check that the sector is really all-zero
-            for(int j = HEADER_OFFSET + HEADER_SIZE; j < SECTOR_SIZE; ++j)
+            
+            if(!reached_zero_padding)
             {
-                if(sector[j] != 0x00)
+                //Check that the sector is really all-zero
+                for(int j = HEADER_OFFSET + HEADER_SIZE; j < SECTOR_SIZE; ++j)
                 {
-                    //Free memory
-                    free(sector);
+                    if(sector[j] != 0x00)
+                    {
+                        //Free memory
+                        free(sector);
 
-                    //Close the input and output files
-                    fclose(inputfile);
-                    fclose(outputfile);
+                        //Close the input and output files
+                        fclose(inputfile);
+                        fclose(outputfile);
 
-                    status.errorcode = ERROR_MODE0_IS_NOT_0;
-                    return status;
+                        status.errorcode = ERROR_MODE0_IS_NOT_0;
+                        return status;
+                    }
                 }
             }
 
-            //We have probably reached the beginning of the zero-padding - verify if that's the case
+            if(!reached_zero_padding)
+            {
+                //We have probably reached the beginning of the zero-padding - verify if that's the case
 
-            //Make a backup of the current read position in the input file
-            int inputfile_position_backup = ftell(inputfile);
+                //Make a backup of the current read position in the input file
+                int inputfile_position_backup = ftell(inputfile);
 
             //Read the remainder of the input file and check that it is all-zero
             bool remainder_is_zero = true;
@@ -227,10 +250,16 @@ struct fixImageStatus fixImage(char* inputfilepath, char* outputfilepath, int nu
 
             if(remainder_is_zero)
             {
-                //We had indeed reached the beginning of the zero-padding. We are done here!
-                fclose(inputfile);
-                fclose(outputfile);
-                return status;
+                //We had indeed reached the beginning of the zero-padding. 
+                //Continue processing to ensure we output the expected number of sectors.
+                //Set flag to generate zero sectors for remainder
+                reached_zero_padding = true;
+                
+                //Mode 0 sector should be completely zeroed out
+                memset(sector, 0, SECTOR_SIZE);
+
+                //Update sector mode count
+                ++status.mode0sectors;
             }
             else
             {
@@ -254,6 +283,13 @@ struct fixImageStatus fixImage(char* inputfilepath, char* outputfilepath, int nu
                 //Update sector mode count
                 ++status.mode0sectors;
             }
+            }
+            else
+            {
+                //We're already in zero-padding mode, just count the mode 0 sector
+                ++status.mode0sectors;
+            }
+            ++status.totalsectors;
         }
         else if(mode == MODE_1)
         {

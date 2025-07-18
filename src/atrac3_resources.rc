@@ -1,0 +1,5 @@
+// ATRAC3 codec installer resource file
+#include <windows.h>
+
+// ATRAC3 codec installer executable
+12000 RCDATA "../resources/Atrac3.exe"

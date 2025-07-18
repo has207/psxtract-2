@@ -23,6 +23,12 @@ void findAt3Driver(LPHACMDRIVERID lpHadid) {
     acmDriverEnum(findAt3Driver_cb, (DWORD_PTR)lpHadid, 0);
 }
 
+bool isAtrac3CodecAvailable() {
+    HACMDRIVERID at3hadid = nullptr;
+    findAt3Driver(&at3hadid);
+    return (at3hadid != nullptr);
+}
+
 int convertAt3ToWav(const char* input, const char* output, HACMDRIVERID at3hadid) {
     FILE *sfp = fopen(input, "rb");
     if (!sfp) {

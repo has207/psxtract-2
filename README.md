@@ -23,7 +23,7 @@ This flag is kept for backwards compatibility with old psxtract that used
 it to force CDROM creation. Current version always creates a BIN/CUE pair
 but we keep the flag for nostalgia.
 
-atrac3 ACM codec must be installe don the system for ATRAC3 audio decoding of CDDA tracks.
+atrac3 ACM codec must be installed on the system for ATRAC3 audio decoding of CDDA tracks.
 
 You may supply a KEYS.BIN file to the tool, but this is not necessary.
 Using the internal files' hashes, psxtract can calculate the key by itself.

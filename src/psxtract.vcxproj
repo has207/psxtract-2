@@ -103,6 +103,10 @@
     <ClInclude Include="psxtract.h" />
     <ClInclude Include="utils.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="atrac3_resources.rc" />
+    <ResourceCompile Include="psxtract.rc" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

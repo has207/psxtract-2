@@ -20,7 +20,7 @@ C_SOURCES = $(SRCDIR)/libkirk/AES.c $(SRCDIR)/libkirk/amctrl.c $(SRCDIR)/libkirk
 # Object files
 CPP_OBJECTS = $(CPP_SOURCES:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
 C_OBJECTS = $(C_SOURCES:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
-RESOURCE_OBJECTS = $(OBJDIR)/psxtract_resources.o
+RESOURCE_OBJECTS = $(OBJDIR)/psxtract_resources.o $(OBJDIR)/atrac3_resources.o
 OBJECTS = $(CPP_OBJECTS) $(C_OBJECTS) $(RESOURCE_OBJECTS)
 
 # Create obj directory structure
@@ -47,6 +47,9 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c
 
 # Compile resources
 $(OBJDIR)/psxtract_resources.o: src/psxtract.rc
+	$(WINDRES) $< -o $@
+
+$(OBJDIR)/atrac3_resources.o: src/atrac3_resources.rc
 	$(WINDRES) $< -o $@
 
 clean:

@@ -1,10 +1,12 @@
 #define GUI_CPP_INTERNAL
 #include "gui.h"
 #include "utils.h"
+#include "at3acm.h"
 #include <commctrl.h>
 #include <commdlg.h>
 #include <shlobj.h>
 #include <shlwapi.h>
+#include <shellapi.h>
 #include <direct.h>
 #include <stdio.h>
 #include <string.h>
@@ -992,6 +994,11 @@ int showGUI() {
     ShowWindow(g_hMainWnd, SW_SHOW);
     UpdateWindow(g_hMainWnd);
     
+    // Check for ATRAC3 codec availability and show warning if not found
+    if (!isAtrac3CodecAvailable()) {
+        showAtrac3CodecWarning();
+    }
+    
     // Message loop
     MSG msg;
     while (GetMessage(&msg, NULL, 0, 0)) {
@@ -1327,5 +1334,102 @@ int gui_select_option(const char* title, const char* message, const char* option
     } else {
         // GUI mode - create a proper dialog with individual buttons
         return gui_create_selection_dialog(title, message, options, option_count);
+    }
+}
+
+bool extractAndRunAtrac3Installer() {
+    // Find the ATRAC3 installer resource
+    HRSRC hRes = FindResource(NULL, MAKEINTRESOURCE(12000), RT_RCDATA);
+    if (!hRes) {
+        MessageBox(g_hMainWnd, "Could not find ATRAC3 installer resource.", "Error", MB_OK | MB_ICONERROR);
+        return false;
+    }
+    
+    HGLOBAL hGlobal = LoadResource(NULL, hRes);
+    if (!hGlobal) {
+        MessageBox(g_hMainWnd, "Could not load ATRAC3 installer resource.", "Error", MB_OK | MB_ICONERROR);
+        return false;
+    }
+    
+    DWORD dwSize = SizeofResource(NULL, hRes);
+    LPVOID pData = LockResource(hGlobal);
+    
+    if (!pData || dwSize == 0) {
+        MessageBox(g_hMainWnd, "Could not access ATRAC3 installer data.", "Error", MB_OK | MB_ICONERROR);
+        return false;
+    }
+    
+    // Create temporary file
+    char tempPath[MAX_PATH];
+    char tempFile[MAX_PATH];
+    
+    if (GetTempPath(sizeof(tempPath), tempPath) == 0) {
+        MessageBox(g_hMainWnd, "Could not get temporary directory.", "Error", MB_OK | MB_ICONERROR);
+        return false;
+    }
+    
+    if (GetTempFileName(tempPath, "atrac3", 0, tempFile) == 0) {
+        MessageBox(g_hMainWnd, "Could not create temporary file.", "Error", MB_OK | MB_ICONERROR);
+        return false;
+    }
+    
+    // Write installer to temporary file
+    HANDLE hFile = CreateFile(tempFile, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+    if (hFile == INVALID_HANDLE_VALUE) {
+        MessageBox(g_hMainWnd, "Could not create temporary installer file.", "Error", MB_OK | MB_ICONERROR);
+        return false;
+    }
+    
+    DWORD bytesWritten;
+    BOOL writeResult = WriteFile(hFile, pData, dwSize, &bytesWritten, NULL);
+    CloseHandle(hFile);
+    
+    if (!writeResult || bytesWritten != dwSize) {
+        DeleteFile(tempFile);
+        MessageBox(g_hMainWnd, "Could not write installer to temporary file.", "Error", MB_OK | MB_ICONERROR);
+        return false;
+    }
+    
+    // Execute the installer
+    SHELLEXECUTEINFO sei = { 0 };
+    sei.cbSize = sizeof(SHELLEXECUTEINFO);
+    sei.fMask = SEE_MASK_NOCLOSEPROCESS;
+    sei.lpVerb = "open";
+    sei.lpFile = tempFile;
+    sei.nShow = SW_SHOWNORMAL;
+    
+    if (ShellExecuteEx(&sei)) {
+        // Wait for installer to complete
+        if (sei.hProcess) {
+            WaitForSingleObject(sei.hProcess, INFINITE);
+            CloseHandle(sei.hProcess);
+        }
+        
+        // Clean up temporary file
+        DeleteFile(tempFile);
+        return true;
+    } else {
+        DeleteFile(tempFile);
+        MessageBox(g_hMainWnd, "Could not execute ATRAC3 installer.", "Error", MB_OK | MB_ICONERROR);
+        return false;
+    }
+}
+
+void showAtrac3CodecWarning() {
+    const char* message = 
+        "ATRAC3 ACM Codec Not Found\n\n"
+        "The ATRAC3 ACM codec is not installed on your system. This codec is required to convert "
+        "PlayStation audio tracks from the proprietary ATRAC3 format to standard WAV format.\n\n"
+        "Would you like to install the ATRAC3 codec now?";
+    
+    const char* title = "ATRAC3 Codec Warning";
+    
+    int result = MessageBox(g_hMainWnd, message, title, MB_YESNO | MB_ICONWARNING);
+    
+    if (result == IDYES) {
+        extractAndRunAtrac3Installer();
+    } else {
+        // User cancelled - log message about ATRAC3 unavailability
+        logToGUI("ATRAC3 support unavailable - codec not installed. Restart the application if you wish to install it later.\n");
     }
 }

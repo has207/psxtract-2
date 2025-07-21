@@ -16,9 +16,23 @@ extern void openLogFileForWriting(const char* pbpPath);
 static bool check_output_files_overwrite(const char* game_title, bool use_prebaked_cue) {
     char cue_path[512];
     char bin_path[512];
+    char cue_filename[300];
+    char bin_filename[300];
     
-    sprintf(cue_path, "../%s.cue", game_title);
-    sprintf(bin_path, "../%s.bin", game_title);
+    // Build filenames
+    sprintf(cue_filename, "%s.cue", game_title);
+    sprintf(bin_filename, "%s.bin", game_title);
+    
+    // Build full paths using helper function
+    if (build_output_path(cue_filename, cue_path, 512) != 0) {
+        printf("ERROR: Failed to build CUE path\n");
+        return false;
+    }
+    
+    if (build_output_path(bin_filename, bin_path, 512) != 0) {
+        printf("ERROR: Failed to build BIN path\n");
+        return false;
+    }
     
     // Check if either file exists
     FILE* test_cue = fopen(cue_path, "r");
@@ -1125,10 +1139,21 @@ int fix_iso(FILE *iso_table, char* data_track_file_name, char* data_fixed_file_p
 int build_bin_cue(FILE *iso_table, char *data_fixed_file_path, char *cdrom_file_name, char *cue_file_name, char *iso_disc_name, int disc_num, int data_gap, const PREGAP_OVERRIDE *pregap_override
 )
 {
-	char cdrom_file_path[256] = "../";
-	strcat(cdrom_file_path, cdrom_file_name);
-	char cue_file_path[256] = "../";
-	strcat(cue_file_path, cue_file_name);
+	char cdrom_file_path[256];
+	char cue_file_path[256];
+	
+	// Build full paths using helper function
+	if (build_output_path(cdrom_file_name, cdrom_file_path, 256) != 0)
+	{
+		printf("ERROR: Failed to build CDROM file path\n");
+		return -1;
+	}
+	
+	if (build_output_path(cue_file_name, cue_file_path, 256) != 0)
+	{
+		printf("ERROR: Failed to build CUE file path\n");
+		return -1;
+	}
 
 	// Generate a CUE file for mounting/burning.
 	FILE* cue_file = fopen(cue_file_path, "wb");
@@ -1324,7 +1349,6 @@ void convert_disc_name_to_cue_format(char* disc_name, char* cue_name)
 bool check_prebaked_cue_file(char* disc_name, char* game_title)
 {
     char cue_name[0x20];
-    char cue_file_path[256];
     char exe_dir[_MAX_PATH];
     
     // Get executable directory (same logic as copy_prebaked_cue_file)
@@ -1676,7 +1700,6 @@ PREGAP_OVERRIDE* parse_prebaked_cue_pregaps(char* disc_name)
 int copy_prebaked_cue_file(char* disc_name, char* game_title, char* output_bin_name)
 {
     char cue_name[0x20];
-    char cue_file_path[256];
     char output_cue_path[256];
     char exe_dir[_MAX_PATH];
     
@@ -1690,8 +1713,15 @@ int copy_prebaked_cue_file(char* disc_name, char* game_title, char* output_bin_n
     // Convert disc name to CUE format
     convert_disc_name_to_cue_format(disc_name, cue_name);
     
-    // Build output path
-    sprintf(output_cue_path, "../%s.cue", game_title);
+    // Build full output path using helper function
+    char cue_filename[300];
+    sprintf(cue_filename, "%s.cue", game_title);
+    
+    if (build_output_path(cue_filename, output_cue_path, 256) != 0)
+    {
+        printf("ERROR: Failed to build output CUE path\n");
+        return -1;
+    }
     
     // Load CUE file from embedded resources
     char* cue_data = load_cue_resource(cue_name);
@@ -1893,9 +1923,14 @@ int decrypt_single_disc(FILE* psar, long long psar_size, long long startdat_offs
 		// and copy the prebaked CUE file with the correct BIN filename
 		printf("Using prebaked CUE file, generating BIN file only...\n");
 		
-		// Build the BIN file with the correct name
+		// Build the BIN file path using helper function
 		char bin_file_path[256];
-		sprintf(bin_file_path, "../%s", output_bin_name);
+		
+		if (build_output_path(output_bin_name, bin_file_path, 256) != 0)
+		{
+			printf("ERROR: Failed to build BIN file path\n");
+			return -1;
+		}
 		
 		FILE* bin_file = fopen(bin_file_path, "wb");
 		if (bin_file == NULL)
@@ -2182,9 +2217,14 @@ int decrypt_multi_disc(FILE *psar, long long psar_size, long long startdat_offse
 				// and copy the prebaked CUE file with the correct BIN filename
 				printf("Using prebaked CUE file for disc %d, generating BIN file only...\n", i + 1);
 				
-				// Build the BIN file with the correct name
+				// Build the BIN file path using helper function
 				char bin_file_path[256];
-				sprintf(bin_file_path, "../%s", output_bin_name);
+				
+				if (build_output_path(output_bin_name, bin_file_path, 256) != 0)
+				{
+					printf("ERROR: Failed to build BIN file path\n");
+					return -1;
+				}
 				
 				FILE* bin_file = fopen(bin_file_path, "wb");
 				if (bin_file == NULL)
@@ -2307,8 +2347,55 @@ int main(int argc, char **argv)
 {
 	SetConsoleOutputCP(CP_UTF8);
 	
+	save_original_working_directory();
+	
+	// Get Unicode command line and convert arguments to UTF-8
+	LPWSTR cmdLineW = GetCommandLineW();
+	int argcW = 0;
+	LPWSTR* argvW = CommandLineToArgvW(cmdLineW, &argcW);
+	
+	if (!argvW) {
+		printf("ERROR: Failed to parse Unicode command line\n");
+		return 1;
+	}
+	
+	// Convert wide char arguments to UTF-8 strings
+	char** utf8_argv = (char**)malloc(argcW * sizeof(char*));
+	if (!utf8_argv) {
+		LocalFree(argvW);
+		printf("ERROR: Failed to allocate memory for arguments\n");
+		return 1;
+	}
+	
+	for (int i = 0; i < argcW; i++) {
+		int len = WideCharToMultiByte(CP_UTF8, 0, argvW[i], -1, NULL, 0, NULL, NULL);
+		utf8_argv[i] = (char*)malloc(len);
+		if (!utf8_argv[i]) {
+			// Clean up allocated memory on failure
+			for (int j = 0; j < i; j++) {
+				free(utf8_argv[j]);
+			}
+			free(utf8_argv);
+			LocalFree(argvW);
+			printf("ERROR: Failed to allocate memory for argument %d\n", i);
+			return 1;
+		}
+		WideCharToMultiByte(CP_UTF8, 0, argvW[i], -1, utf8_argv[i], len, NULL, NULL);
+	}
+	
+	LocalFree(argvW);
+	
+	// Use the converted UTF-8 arguments
+	argc = argcW;
+	argv = utf8_argv;
+	
 	// If no arguments provided, launch GUI
 	if (argc <= 1) {
+		// Clean up allocated arguments
+		for (int i = 0; i < argc; i++) {
+			free(utf8_argv[i]);
+		}
+		free(utf8_argv);
 		return showGUI();
 	}
 	
@@ -2323,6 +2410,12 @@ int main(int argc, char **argv)
 		printf("EBOOT.PBP - Your PSOne Classic main PBP.\n");
 		printf("DOCUMENT.DAT - Game manual file (optional).\n");
 		printf("KEYS.BIN - Key file (optional).\n");
+		
+		// Clean up allocated arguments
+		for (int i = 0; i < argc; i++) {
+			free(utf8_argv[i]);
+		}
+		free(utf8_argv);
 		return 0;
 	}
 
@@ -2350,12 +2443,20 @@ int main(int argc, char **argv)
 	}
 
 	// Call the main extraction function
-	return psxtract_main(argv[arg_offset + 1], 
-	                     (argc - arg_offset) >= 3 ? argv[arg_offset + 2] : NULL,
-	                     (argc - arg_offset) >= 4 ? argv[arg_offset + 3] : NULL,
-	                     cleanup,
-	                     verbose,
-	                     NULL);
+	int result = psxtract_main(argv[arg_offset + 1], 
+	                           (argc - arg_offset) >= 3 ? argv[arg_offset + 2] : NULL,
+	                           (argc - arg_offset) >= 4 ? argv[arg_offset + 3] : NULL,
+	                           cleanup,
+	                           verbose,
+	                           NULL);
+	
+	// Clean up allocated arguments
+	for (int i = 0; i < argc; i++) {
+		free(utf8_argv[i]);
+	}
+	free(utf8_argv);
+	
+	return result;
 }
 
 static bool g_verbose = false;
@@ -2388,6 +2489,10 @@ int psxtract_main(const char* pbp_file, const char* document_file, const char* k
 		printf("Changed to output directory: %s\n", output_dir);
 	}
 	FILE* input = fopen(pbp_file, "rb");
+	if (input == NULL) {
+		printf("ERROR: Can't open input PBP file: %s\n", pbp_file);
+		return 1;
+	}
 
 	// Start KIRK.
 	kirk_init();

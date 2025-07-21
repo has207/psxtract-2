@@ -8,6 +8,7 @@
 #include <direct.h>
 #include <sys/stat.h>
 #include <windows.h>
+#include <shlwapi.h>
 #include <cstring>
 #include <ctype.h>
 #include <stdio.h>

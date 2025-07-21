@@ -37,7 +37,8 @@ static HWND g_hCancelButton = NULL;
 static HWND g_hCleanupCheck = NULL;
 static HWND g_hLogCleanupCheck = NULL;
 static HWND g_hOutputEdit = NULL;
-static char g_selectedFiles[32768] = "";  // Buffer for multiple file paths
+static wchar_t g_selectedFilesW[32768] = L"";  // Buffer for multiple file paths (Unicode)
+static char g_selectedFiles[32768] = "";  // Buffer for multiple file paths (UTF-8 converted)
 static int g_fileCount = 0;
 static char g_outputFolder[MAX_PATH];
 static FILE* g_logFile = NULL;
@@ -164,6 +165,13 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
     // Check if cleanup is requested
     bool cleanup = (BST_CHECKED == SendMessage(g_hCleanupCheck, BM_GETCHECK, 0, 0));
     bool logCleanup = (BST_CHECKED == SendMessage(g_hLogCleanupCheck, BM_GETCHECK, 0, 0));
+    
+    // Debug: Always show checkbox states
+    sprintf(logMsg, "Debug: Cleanup checkbox = %s, Log cleanup checkbox = %s\n", 
+            cleanup ? "CHECKED" : "UNCHECKED", 
+            logCleanup ? "CHECKED" : "UNCHECKED");
+    appendToLog(logMsg);
+    
     if (!showProgressDlg && cleanup) {
         appendToLog("Cleanup mode enabled\n");
     }
@@ -202,20 +210,44 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
             strcpy(exePath, "psxtract.exe"); // fallback
         }
         
-        sprintf(cmdLine, "\"%s\" %s--gui \"%s\"", exePath, cleanupFlag, currentPos);
+        // Build command line using Unicode APIs
+        wchar_t wcmdLine[4096];
+        wchar_t wexePath[MAX_PATH];
+        wchar_t wcleanupFlag[16];
+        wchar_t wcurrentPos[MAX_PATH];
+        
+        MultiByteToWideChar(CP_UTF8, 0, exePath, -1, wexePath, MAX_PATH);
+        MultiByteToWideChar(CP_UTF8, 0, cleanupFlag, -1, wcleanupFlag, 16);
+        MultiByteToWideChar(CP_UTF8, 0, currentPos, -1, wcurrentPos, MAX_PATH);
+        
+        swprintf(wcmdLine, 4096, L"\"%ls\" %ls--gui \"%ls\"", wexePath, wcleanupFlag, wcurrentPos);
         
         // Change to output directory for this extraction
         char originalDir[MAX_PATH];
-        _getcwd(originalDir, sizeof(originalDir));
-        _chdir(g_outputFolder);
+        wchar_t woriginal[MAX_PATH];
+        if (GetCurrentDirectoryW(MAX_PATH, woriginal) != 0) {
+            WideCharToMultiByte(CP_UTF8, 0, woriginal, -1, originalDir, sizeof(originalDir), NULL, NULL);
+        } else {
+            strcpy(originalDir, ".");
+        }
         
-        STARTUPINFOA si;
+        // Convert output folder to wide char and change directory
+        int wlen = MultiByteToWideChar(CP_UTF8, 0, g_outputFolder, -1, NULL, 0);
+        wchar_t* woutputfolder = (wchar_t*)malloc(wlen * sizeof(wchar_t));
+        if (woutputfolder) {
+            MultiByteToWideChar(CP_UTF8, 0, g_outputFolder, -1, woutputfolder, wlen);
+            SetCurrentDirectoryW(woutputfolder);
+            free(woutputfolder);
+        }
+        
+        STARTUPINFOW si;
         PROCESS_INFORMATION pi;
         ZeroMemory(&si, sizeof(si));
         ZeroMemory(&pi, sizeof(pi));
         si.cb = sizeof(si);
         
-        if (CreateProcessA(NULL, cmdLine, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi)) {
+        
+        if (CreateProcessW(NULL, wcmdLine, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi)) {
             // Wait for the process to complete
             WaitForSingleObject(pi.hProcess, INFINITE);
             
@@ -256,7 +288,13 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
         }
         
         // Restore original directory
-        _chdir(originalDir);
+        int woriglen = MultiByteToWideChar(CP_UTF8, 0, originalDir, -1, NULL, 0);
+        wchar_t* woriginaldir = (wchar_t*)malloc(woriglen * sizeof(wchar_t));
+        if (woriginaldir) {
+            MultiByteToWideChar(CP_UTF8, 0, originalDir, -1, woriginaldir, woriglen);
+            SetCurrentDirectoryW(woriginaldir);
+            free(woriginaldir);
+        }
     } else {
         // Multiple files - first part is directory, then individual filenames
         char directory[MAX_PATH];
@@ -292,6 +330,7 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
                 Sleep(50); // Brief delay to let UI update
             }
             
+            
             // Open log file for this extraction
             openLogFile(fullPath);
             
@@ -308,20 +347,44 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
                 strcpy(exePath, "psxtract.exe"); // fallback
             }
             
-            sprintf(cmdLine, "\"%s\" %s--gui \"%s\"", exePath, cleanupFlag, fullPath);
+            // Build command line using Unicode APIs
+            wchar_t wcmdLine[4096];
+            wchar_t wexePath[MAX_PATH];
+            wchar_t wcleanupFlag[16];
+            wchar_t wfullPath[MAX_PATH];
+            
+            MultiByteToWideChar(CP_UTF8, 0, exePath, -1, wexePath, MAX_PATH);
+            MultiByteToWideChar(CP_UTF8, 0, cleanupFlag, -1, wcleanupFlag, 16);
+            MultiByteToWideChar(CP_UTF8, 0, fullPath, -1, wfullPath, MAX_PATH);
+            
+            swprintf(wcmdLine, 4096, L"\"%ls\" %ls--gui \"%ls\"", wexePath, wcleanupFlag, wfullPath);
             
             // Change to output directory for this extraction
             char originalDir[MAX_PATH];
-            _getcwd(originalDir, sizeof(originalDir));
-            _chdir(g_outputFolder);
+            wchar_t woriginal[MAX_PATH];
+            if (GetCurrentDirectoryW(MAX_PATH, woriginal) != 0) {
+                WideCharToMultiByte(CP_UTF8, 0, woriginal, -1, originalDir, sizeof(originalDir), NULL, NULL);
+            } else {
+                strcpy(originalDir, ".");
+            }
             
-            STARTUPINFOA si;
+            // Convert output folder to wide char and change directory
+            int wlen = MultiByteToWideChar(CP_UTF8, 0, g_outputFolder, -1, NULL, 0);
+            wchar_t* woutputfolder = (wchar_t*)malloc(wlen * sizeof(wchar_t));
+            if (woutputfolder) {
+                MultiByteToWideChar(CP_UTF8, 0, g_outputFolder, -1, woutputfolder, wlen);
+                SetCurrentDirectoryW(woutputfolder);
+                free(woutputfolder);
+            }
+            
+            STARTUPINFOW si;
             PROCESS_INFORMATION pi;
             ZeroMemory(&si, sizeof(si));
             ZeroMemory(&pi, sizeof(pi));
             si.cb = sizeof(si);
             
-            if (CreateProcessA(NULL, cmdLine, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi)) {
+            
+            if (CreateProcessW(NULL, wcmdLine, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi)) {
                 // Wait for the process to complete
                 WaitForSingleObject(pi.hProcess, INFINITE);
                 
@@ -358,7 +421,13 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
             }
             
             // Restore original directory
-            _chdir(originalDir);
+            int woriglen = MultiByteToWideChar(CP_UTF8, 0, originalDir, -1, NULL, 0);
+            wchar_t* woriginaldir = (wchar_t*)malloc(woriglen * sizeof(wchar_t));
+            if (woriginaldir) {
+                MultiByteToWideChar(CP_UTF8, 0, originalDir, -1, woriginaldir, woriglen);
+                SetCurrentDirectoryW(woriginaldir);
+                free(woriginaldir);
+            }
             
             // Move to next filename
             currentPos += strlen(currentPos) + 1;
@@ -400,16 +469,17 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
 }
 
 void onFileSelect() {
-    OPENFILENAME ofn;
+    OPENFILENAMEW ofn;
     
     ZeroMemory(&ofn, sizeof(ofn));
+    ZeroMemory(g_selectedFilesW, sizeof(g_selectedFilesW));
     ZeroMemory(g_selectedFiles, sizeof(g_selectedFiles));
     
     ofn.lStructSize = sizeof(ofn);
     ofn.hwndOwner = g_hMainWnd;
-    ofn.lpstrFile = g_selectedFiles;
-    ofn.nMaxFile = sizeof(g_selectedFiles);
-    ofn.lpstrFilter = "PBP Files\0*.PBP\0All Files\0*.*\0";
+    ofn.lpstrFile = g_selectedFilesW;
+    ofn.nMaxFile = sizeof(g_selectedFilesW) / sizeof(wchar_t);
+    ofn.lpstrFilter = L"PBP Files\0*.PBP\0All Files\0*.*\0";
     ofn.nFilterIndex = 1;
     ofn.lpstrFileTitle = NULL;
     ofn.nMaxFileTitle = 0;
@@ -417,28 +487,54 @@ void onFileSelect() {
     ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_READONLY | OFN_HIDEREADONLY | OFN_EXPLORER | OFN_ENABLEHOOK | OFN_ALLOWMULTISELECT;
     ofn.lpfnHook = OFNHookProc;
     
-    if (GetOpenFileName(&ofn)) {
-        // Parse multiple file selection
+    if (GetOpenFileNameW(&ofn)) {
+        // Convert Unicode result to UTF-8 and parse multiple file selection
         g_fileCount = 0;
         char displayText[1024] = "";
         
         // Check if multiple files were selected
-        char* fileName = g_selectedFiles + strlen(g_selectedFiles) + 1;
-        if (*fileName == '\0') {
-            // Single file selected
+        wchar_t* fileName = g_selectedFilesW + wcslen(g_selectedFilesW) + 1;
+        if (*fileName == L'\0') {
+            // Single file selected - convert to UTF-8
             g_fileCount = 1;
-            sprintf(displayText, "1 file selected: %s", strrchr(g_selectedFiles, '\\') ? strrchr(g_selectedFiles, '\\') + 1 : g_selectedFiles);
+            WideCharToMultiByte(CP_UTF8, 0, g_selectedFilesW, -1, g_selectedFiles, sizeof(g_selectedFiles), NULL, NULL);
+            
+            // Create display text with just filename
+            wchar_t* lastSlash = wcsrchr(g_selectedFilesW, L'\\');
+            wchar_t* displayName = lastSlash ? lastSlash + 1 : g_selectedFilesW;
+            char displayNameUTF8[512];
+            WideCharToMultiByte(CP_UTF8, 0, displayName, -1, displayNameUTF8, sizeof(displayNameUTF8), NULL, NULL);
+            sprintf(displayText, "1 file selected: %s", displayNameUTF8);
         } else {
             // Multiple files selected
-            char directory[MAX_PATH];
-            strcpy(directory, g_selectedFiles);
+            wchar_t directory[MAX_PATH];
+            wcscpy(directory, g_selectedFilesW);
             
-            while (*fileName != '\0') {
+            // Count files and build UTF-8 paths
+            char* utf8Pos = g_selectedFiles;
+            size_t remaining = sizeof(g_selectedFiles);
+            
+            while (*fileName != L'\0') {
                 g_fileCount++;
-                fileName += strlen(fileName) + 1;
+                
+                // Build full path: directory + filename
+                wchar_t fullPath[MAX_PATH];
+                swprintf(fullPath, MAX_PATH, L"%s\\%s", directory, fileName);
+                
+                // Convert to UTF-8 and store
+                int len = WideCharToMultiByte(CP_UTF8, 0, fullPath, -1, utf8Pos, remaining, NULL, NULL);
+                if (len > 0) {
+                    utf8Pos += len;
+                    remaining -= len;
+                }
+                
+                fileName += wcslen(fileName) + 1;
             }
             
-            sprintf(displayText, "%d files selected in: %s", g_fileCount, directory);
+            // Convert directory name for display
+            char directoryUTF8[MAX_PATH];
+            WideCharToMultiByte(CP_UTF8, 0, directory, -1, directoryUTF8, sizeof(directoryUTF8), NULL, NULL);
+            sprintf(displayText, "%d files selected in: %s", g_fileCount, directoryUTF8);
         }
         
         SetWindowText(g_hFileEdit, displayText);
@@ -460,10 +556,7 @@ int CALLBACK BrowseCallbackProc(HWND hwnd, UINT uMsg, LPARAM lParam, LPARAM lpDa
         case BFFM_INITIALIZED:
             // Set the initial selection to the current output folder
             if (lpData) {
-                char* path = (char*)lpData;
-                // Convert to wide char for SHParseDisplayName
-                wchar_t widePath[MAX_PATH];
-                MultiByteToWideChar(CP_ACP, 0, path, -1, widePath, MAX_PATH);
+                wchar_t* widePath = (wchar_t*)lpData;
                 
                 // Convert path to PIDL and use that instead
                 ITEMIDLIST* pidlPath = NULL;
@@ -471,8 +564,8 @@ int CALLBACK BrowseCallbackProc(HWND hwnd, UINT uMsg, LPARAM lParam, LPARAM lpDa
                     SendMessage(hwnd, BFFM_SETSELECTION, FALSE, (LPARAM)pidlPath);
                     CoTaskMemFree(pidlPath);
                 } else {
-                    // Fallback to string path
-                    SendMessage(hwnd, BFFM_SETSELECTION, TRUE, (LPARAM)path);
+                    // Fallback to wide string path
+                    SendMessage(hwnd, BFFM_SETSELECTION, TRUE, (LPARAM)widePath);
                 }
             }
             break;
@@ -481,9 +574,10 @@ int CALLBACK BrowseCallbackProc(HWND hwnd, UINT uMsg, LPARAM lParam, LPARAM lpDa
 }
 
 void onOutputSelect() {
-    BROWSEINFO bi;
-    char szDir[MAX_PATH];
+    BROWSEINFOW bi;
+    wchar_t szDir[MAX_PATH];
     char fullPath[MAX_PATH];
+    wchar_t wfullPath[MAX_PATH];
     ITEMIDLIST* pidl;
     
     // Get the full path of the current output folder
@@ -494,26 +588,32 @@ void onOutputSelect() {
         }
     }
     
+    // Convert to wide char for Unicode operations
+    MultiByteToWideChar(CP_UTF8, 0, fullPath, -1, wfullPath, MAX_PATH);
+    
     // Ensure the path exists, if not use current directory
-    DWORD attrs = GetFileAttributes(fullPath);
+    DWORD attrs = GetFileAttributesW(wfullPath);
     if (attrs == INVALID_FILE_ATTRIBUTES || !(attrs & FILE_ATTRIBUTE_DIRECTORY)) {
-        GetCurrentDirectory(MAX_PATH, fullPath);
+        GetCurrentDirectoryW(MAX_PATH, wfullPath);
+        WideCharToMultiByte(CP_UTF8, 0, wfullPath, -1, fullPath, MAX_PATH, NULL, NULL);
     }
     
     ZeroMemory(&bi, sizeof(bi));
     bi.hwndOwner = g_hMainWnd;
     bi.pidlRoot = NULL;  // Keep NULL for full filesystem access
     bi.pszDisplayName = szDir;
-    bi.lpszTitle = "Select Output Folder:";
+    bi.lpszTitle = L"Select Output Folder:";
     bi.ulFlags = BIF_RETURNONLYFSDIRS | BIF_NEWDIALOGSTYLE;
     bi.lpfn = BrowseCallbackProc;  // Set callback function
-    bi.lParam = (LPARAM)fullPath;  // Pass full path as parameter
+    bi.lParam = (LPARAM)wfullPath;  // Pass wide char path as parameter
     
-    pidl = SHBrowseForFolder(&bi);
+    pidl = SHBrowseForFolderW(&bi);
     if (pidl != NULL) {
-        if (SHGetPathFromIDList(pidl, szDir)) {
-            strcpy(g_outputFolder, szDir);
-            SetWindowText(g_hOutputEdit, g_outputFolder);
+        if (SHGetPathFromIDListW(pidl, szDir)) {
+            // Convert back from wide char to UTF-8
+            WideCharToMultiByte(CP_UTF8, 0, szDir, -1, g_outputFolder, sizeof(g_outputFolder), NULL, NULL);
+            // Display using Unicode API to avoid mojibake
+            SetWindowTextW(g_hOutputEdit, szDir);
         }
         CoTaskMemFree(pidl);
     }
@@ -571,12 +671,9 @@ void openLogFile(const char* pbpPath) {
     PathRemoveExtensionA(logFileName);
     strcat(logFileName, ".log");
     
+    // Build path in output folder (where the CLI will create the log file)
     char logPath[MAX_PATH];
     PathCombineA(logPath, g_outputFolder, logFileName);
-    
-    char successMsg[512];
-    sprintf(successMsg, "Log file opened: %s\n", logPath);
-    appendToLog(successMsg);
     
     startLogTailing(logPath);
 }
@@ -592,6 +689,7 @@ void openLogFileForWriting(const char* pbpPath) {
     PathRemoveExtensionA(logFileName);
     strcat(logFileName, ".log");
     
+    // Write log file to current working directory (which is the output folder when launched from GUI)
     g_logFile = fopen(logFileName, "w");
 }
 
@@ -606,25 +704,25 @@ void closeLogFile() {
 }
 
 void cleanupLogFile(const char* pbpPath) {
-    // Extract filename from path and create log filename
-    const char* filename = strrchr(pbpPath, '\\');
-    if (!filename) filename = strrchr(pbpPath, '/');
-    if (!filename) filename = pbpPath;
-    else filename++; // Skip the slash
-    
-    // Remove .PBP extension and add .log
+    // Create log filename the same way openLogFileForWriting does
     char logFileName[MAX_PATH];
-    strcpy(logFileName, filename);
-    char* ext = strrchr(logFileName, '.');
-    if (ext) *ext = '\0'; // Remove extension
+    strcpy(logFileName, PathFindFileNameA(pbpPath));
+    PathRemoveExtensionA(logFileName);
     strcat(logFileName, ".log");
     
-    // Create full path in output directory
-    char logPath[MAX_PATH];
-    snprintf(logPath, sizeof(logPath), "%s\\%s", g_outputFolder, logFileName);
+    // Convert to wide characters for Unicode-aware delete
+    int wlen = MultiByteToWideChar(CP_UTF8, 0, logFileName, -1, NULL, 0);
+    wchar_t* wlogPath = (wchar_t*)malloc(wlen * sizeof(wchar_t));
+    if (!wlogPath) {
+        char errorMsg[512];
+        sprintf(errorMsg, "Failed to allocate memory for log path cleanup\n");
+        appendToLog(errorMsg);
+        return;
+    }
+    MultiByteToWideChar(CP_UTF8, 0, logFileName, -1, wlogPath, wlen);
     
-    // Delete the log file
-    if (DeleteFileA(logPath)) {
+    // Delete the log file using Unicode-aware function
+    if (DeleteFileW(wlogPath)) {
         char successMsg[512];
         sprintf(successMsg, "Cleaned up log file: %s\n", logFileName);
         appendToLog(successMsg);
@@ -637,6 +735,8 @@ void cleanupLogFile(const char* pbpPath) {
             appendToLog(errorMsg);
         }
     }
+    
+    free(wlogPath);
 }
 
 void clearGUILog() {
@@ -749,8 +849,15 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
     switch (message) {
     case WM_CREATE:
         {
-            // Initialize output folder with current directory
-            if (_getcwd(g_outputFolder, sizeof(g_outputFolder)) == NULL) {
+            // Initialize output folder with current directory using Unicode-aware method
+            wchar_t wbuffer[MAX_PATH];
+            if (GetCurrentDirectoryW(MAX_PATH, wbuffer) != 0) {
+                // Convert from wide char to multibyte using UTF-8 encoding
+                int result = WideCharToMultiByte(CP_UTF8, 0, wbuffer, -1, g_outputFolder, sizeof(g_outputFolder), NULL, NULL);
+                if (result == 0) {
+                    strcpy(g_outputFolder, ".");
+                }
+            } else {
                 strcpy(g_outputFolder, ".");
             }
             
@@ -767,8 +874,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
             CreateWindow("STATIC", "Output Folder:", WS_VISIBLE | WS_CHILD,
                         10, 55, 100, 20, hWnd, NULL, GetModuleHandle(NULL), NULL);
             
-            g_hOutputEdit = CreateWindow("EDIT", g_outputFolder, WS_VISIBLE | WS_CHILD | WS_BORDER | ES_READONLY,
+            g_hOutputEdit = CreateWindow("EDIT", "", WS_VISIBLE | WS_CHILD | WS_BORDER | ES_READONLY,
                         120, 55, 330, 25, hWnd, (HMENU)ID_OUTPUT_EDIT, GetModuleHandle(NULL), NULL);
+            
+            // Set initial text using Unicode API to avoid mojibake
+            wchar_t winitialPath[MAX_PATH];
+            MultiByteToWideChar(CP_UTF8, 0, g_outputFolder, -1, winitialPath, MAX_PATH);
+            SetWindowTextW(g_hOutputEdit, winitialPath);
             
             CreateWindow("BUTTON", "Browse...", WS_VISIBLE | WS_CHILD | BS_PUSHBUTTON,
                         460, 55, 80, 25, hWnd, (HMENU)ID_OUTPUT_BUTTON, GetModuleHandle(NULL), NULL);

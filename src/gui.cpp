@@ -49,6 +49,33 @@ static HANDLE g_hLogTailThread = NULL;
 static bool g_logTailActive = false;
 static char g_currentLogPath[MAX_PATH] = "";
 
+// Every extraction runs in a child process. They are placed in a job object
+// configured to kill-on-close, so that if this GUI process exits or is killed,
+// Windows terminates the in-flight extraction rather than orphaning it.
+static HANDLE g_hExtractionJob = NULL;
+
+static void ensureExtractionJob() {
+    if (g_hExtractionJob) return;
+    g_hExtractionJob = CreateJobObject(NULL, NULL);
+    if (g_hExtractionJob) {
+        JOBOBJECT_EXTENDED_LIMIT_INFORMATION jeli;
+        ZeroMemory(&jeli, sizeof(jeli));
+        jeli.BasicLimitInformation.LimitFlags = JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE;
+        SetInformationJobObject(g_hExtractionJob, JobObjectExtendedLimitInformation, &jeli, sizeof(jeli));
+    }
+}
+
+// Put a freshly spawned extraction child under the kill-on-close job.
+static void superviseChild(HANDLE hProcess) {
+    ensureExtractionJob();
+    if (g_hExtractionJob) AssignProcessToJobObject(g_hExtractionJob, hProcess);
+}
+
+// Kill any running extraction child processes immediately (used by Cancel).
+static void killExtractionChildren() {
+    if (g_hExtractionJob) TerminateJobObject(g_hExtractionJob, 1);
+}
+
 // Progress dialog
 static HWND g_hProgressDialog = NULL;
 static HWND g_hProgressText = NULL;
@@ -248,6 +275,8 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
         
         
         if (CreateProcessW(NULL, wcmdLine, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi)) {
+            // Tie the child's lifetime to this GUI process (kill-on-close job).
+            superviseChild(pi.hProcess);
             // Wait for the process to complete
             WaitForSingleObject(pi.hProcess, INFINITE);
             
@@ -384,6 +413,8 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
             
             
             if (CreateProcessW(NULL, wcmdLine, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi)) {
+                // Tie the child's lifetime to this GUI process (kill-on-close job).
+                superviseChild(pi.hProcess);
                 // Wait for the process to complete
                 WaitForSingleObject(pi.hProcess, INFINITE);
                 
@@ -642,8 +673,10 @@ void onCancel() {
     if (g_hExtractionThread) {
         // Stop log tailing immediately
         stopLogTailing();
-        
-        // Immediately terminate the extraction thread
+
+        // Kill the running extraction child process, then terminate the thread
+        // that was blocked waiting on it (thread alone would orphan the child).
+        killExtractionChildren();
         TerminateThread(g_hExtractionThread, 1);
         
         appendToLog("Extraction cancelled.\n");
@@ -1162,8 +1195,9 @@ LRESULT CALLBACK ProgressDialogProc(HWND hWnd, UINT message, WPARAM wParam, LPAR
     switch (message) {
     case WM_COMMAND:
         if (LOWORD(wParam) == IDCANCEL) {
-            // Cancel button pressed - terminate extraction thread
+            // Cancel button pressed - kill the child process then the thread
             if (g_hExtractionThread) {
+                killExtractionChildren();
                 TerminateThread(g_hExtractionThread, 1);
                 appendToLog("Batch extraction cancelled by user.\n");
                 PostMessage(g_hMainWnd, WM_EXTRACTION_DONE, (WPARAM)-2, 0);
@@ -1325,7 +1359,7 @@ LRESULT CALLBACK SelectionDialogProc(HWND hWnd, UINT message, WPARAM wParam, LPA
         }
         
     case WM_CLOSE:
-        g_selectionResult = 0; // Default to first option
+        g_selectionResult = -1; // Closing the dialog cancels the extraction
         DestroyWindow(hWnd);
         return 0;
         
@@ -1345,8 +1379,8 @@ int gui_create_selection_dialog(const char* title, const char* message, const ch
     data.selected_index = 0;
     data.message = message;
     
-    g_selectionResult = 0; // Default to first option
-    
+    g_selectionResult = -1; // Default to cancel unless an option is chosen
+
     // Register window class if needed
     static bool classRegistered = false;
     if (!classRegistered) {

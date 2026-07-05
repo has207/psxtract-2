@@ -22,5 +22,7 @@ extern bool extract_cue_title(const char* cue_data, char* title_output);
 // Enhanced load function with candidate selection
 extern char* load_cue_resource_with_selection(const char* game_id);
 
-// Function to select CUE variant and update the disc serial in-place
-extern bool select_cue_variant_and_update_serial(char* disc_serial);
+// Function to select CUE variant and update the disc serial in-place.
+// Returns: 1 = a CUE was matched/selected (serial updated), 0 = no CUE found
+// (caller should generate one), -1 = user cancelled the selection dialog.
+extern int select_cue_variant_and_update_serial(char* disc_serial);

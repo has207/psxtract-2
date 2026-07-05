@@ -220,29 +220,29 @@ bool extract_cue_md5(const char* game_id, char* md5_output) {
     return false;
 }
 
-bool select_cue_variant_and_update_serial(char* disc_serial) {
+int select_cue_variant_and_update_serial(char* disc_serial) {
     if (!disc_serial) {
-        return false;
+        return 0;
     }
-    
+
     // First try exact match
     if (find_resource_id(disc_serial) != 0) {
         // Exact match found, no need to update
-        return true;
+        return 1;
     }
-    
+
     // If no exact match, look for candidates
     CueCandidate candidates[12];
     int candidate_count = find_cue_candidates(disc_serial, candidates, 12);
-    
+
     if (candidate_count == 0) {
-        return false; // No candidates found
+        return 0; // No candidates found
     }
-    
+
     if (candidate_count == 1) {
         // Only one candidate, update serial to use it
         strcpy(disc_serial, candidates[0].game_id);
-        return true;
+        return 1;
     }
     
     // Multiple candidates found - present user with choices
@@ -260,13 +260,20 @@ bool select_cue_variant_and_update_serial(char* disc_serial) {
     
     // Use GUI-aware selection
     int choice = gui_select_option("CUE File Selection", message, options, candidate_count);
-    
+
+    // A negative/out-of-range result means the user closed or cancelled the
+    // dialog - signal cancellation so the caller can abort the extraction.
+    if (choice < 0 || choice >= candidate_count) {
+        printf("CUE selection cancelled by user.\n\n");
+        return -1;
+    }
+
     printf("Selected: %s - %s\n\n", candidates[choice].game_id, candidates[choice].title);
-    
+
     // Update the disc serial to the selected variant
     strcpy(disc_serial, candidates[choice].game_id);
-    
-    return true;
+
+    return 1;
 }
 
 char* load_cue_resource_with_selection(const char* game_id) {

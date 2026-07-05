@@ -1353,23 +1353,29 @@ void convert_disc_name_to_cue_format(char* disc_name, char* cue_name)
 }
 
 // Check if a prebaked CUE file exists and extract the title from it
-bool check_prebaked_cue_file(char* disc_name, char* game_title)
+// Returns: 1 = use prebaked CUE (game_title filled), 0 = no prebaked CUE
+// (caller generates one), -1 = user cancelled the CUE selection dialog.
+int check_prebaked_cue_file(char* disc_name, char* game_title)
 {
     char cue_name[0x20];
     char exe_dir[_MAX_PATH];
-    
+
     // Get executable directory (same logic as copy_prebaked_cue_file)
     if (get_exe_directory(exe_dir, _MAX_PATH) != 0)
     {
-        return false;
+        return 0;
     }
-    
+
     // Convert disc name to CUE format
     convert_disc_name_to_cue_format(disc_name, cue_name);
-    
+
     // First, handle CUE variant selection and update the disc name if needed
-    if (!select_cue_variant_and_update_serial(cue_name)) {
-        return false; // No CUE file found
+    int sel = select_cue_variant_and_update_serial(cue_name);
+    if (sel < 0) {
+        return -1; // User cancelled the selection dialog
+    }
+    if (sel == 0) {
+        return 0; // No CUE file found
     }
     
     // Update the original disc_name to reflect the selected variant
@@ -1379,7 +1385,7 @@ bool check_prebaked_cue_file(char* disc_name, char* game_title)
     char* cue_data = load_cue_resource(cue_name);
     if (cue_data == NULL)
     {
-        return false;
+        return 0;
     }
     
     char line[512];
@@ -1423,7 +1429,7 @@ bool check_prebaked_cue_file(char* disc_name, char* game_title)
                         
                         // Found the FILE line, break out of loop
                         free_cue_resource(cue_data);
-                        return true;
+                        return 1;
                     }
                 }
                 break; // Found FILE line, stop searching
@@ -1435,7 +1441,7 @@ bool check_prebaked_cue_file(char* disc_name, char* game_title)
     }
     
     free_cue_resource(cue_data);
-    return strlen(game_title) > 0;
+    return (strlen(game_title) > 0) ? 1 : 0;
 }
 
 // Parse prebaked CUE file and generate pregap override
@@ -1813,7 +1819,15 @@ int decrypt_single_disc(FILE* psar, long long psar_size, long long startdat_offs
 
 	// Check if we have a prebaked CUE file for this disc
 	char game_title[256];
-	bool use_prebaked_cue = check_prebaked_cue_file(iso_disc_name, game_title);
+	int prebaked = check_prebaked_cue_file(iso_disc_name, game_title);
+	if (prebaked < 0)
+	{
+		// User cancelled the CUE selection dialog - abort this extraction.
+		printf("Extraction cancelled by user.\n");
+		fclose(iso_table);
+		return -2;
+	}
+	bool use_prebaked_cue = (prebaked > 0);
 	
 	if (use_prebaked_cue)
 	{
@@ -2128,7 +2142,16 @@ int decrypt_multi_disc(FILE *psar, long long psar_size, long long startdat_offse
 
 			// Check if we have a prebaked CUE file for this specific disc
 			char disc_game_title[256];
-			bool use_prebaked_cue = check_prebaked_cue_file(disc_iso_disc_name, disc_game_title);
+			int prebaked = check_prebaked_cue_file(disc_iso_disc_name, disc_game_title);
+			if (prebaked < 0)
+			{
+				// User cancelled the CUE selection dialog - abort the extraction.
+				printf("Extraction cancelled by user.\n");
+				fclose(iso_table);
+				fclose(iso_map);
+				return -2;
+			}
+			bool use_prebaked_cue = (prebaked > 0);
 			
 			if (use_prebaked_cue)
 			{

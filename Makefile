@@ -15,6 +15,14 @@ LIBS = -lkernel32 -luser32 -ladvapi32 -lmsacm32 -lgdi32 -lcomctl32 -lcomdlg32 -l
 SRCDIR = src
 OBJDIR = obj
 
+# Embedded CUE data. generate_rc.py turns the cue/ directory into two generated
+# sources (src/psxtract.rc + src/cue_lookup_table.autogen); both must stay in
+# lockstep with the cue/ set or resource IDs desync from the lookup table.
+CUE_DIR = cue
+CUE_FILES = $(wildcard $(CUE_DIR)/*.cue)
+GEN_RC = $(SRCDIR)/psxtract.rc
+GEN_TABLE = $(SRCDIR)/cue_lookup_table.autogen
+
 # Source files
 CPP_SOURCES = $(SRCDIR)/psxtract.cpp $(SRCDIR)/crypto.cpp $(SRCDIR)/cdrom.cpp $(SRCDIR)/lz.cpp $(SRCDIR)/utils.cpp $(SRCDIR)/md5_verify.cpp $(SRCDIR)/at3acm.cpp $(SRCDIR)/gui.cpp $(SRCDIR)/cue_resources.cpp
 C_SOURCES = $(SRCDIR)/libkirk/AES.c $(SRCDIR)/libkirk/amctrl.c $(SRCDIR)/libkirk/bn.c $(SRCDIR)/libkirk/DES.c $(SRCDIR)/libkirk/ec.c $(SRCDIR)/libkirk/kirk_engine.c $(SRCDIR)/libkirk/SHA1.c
@@ -47,12 +55,33 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+# Regenerate the embedded CUE resources whenever the cue/ set changes: content
+# edits are caught via $(CUE_FILES), and additions/removals via the cue/ dir
+# mtime. psxtract.rc is the canonical target; the same generate_rc.py invocation
+# writes the lookup table beside it (run from src/ so paths resolve as ../cue).
+$(GEN_RC): $(SRCDIR)/generate_rc.py $(CUE_DIR) $(CUE_FILES)
+	cd $(SRCDIR) && python3 generate_rc.py ../$(CUE_DIR)
+
+# Produced by the same recipe as $(GEN_RC); tie it to the rc so it is never
+# generated twice and never ends up older than its consumers.
+$(GEN_TABLE): $(GEN_RC)
+	@touch $@
+
+# Force a regeneration on demand (also covers pure deletions on odd filesystems).
+regen:
+	cd $(SRCDIR) && python3 generate_rc.py ../$(CUE_DIR)
+
 # Compile resources
-$(OBJDIR)/psxtract_resources.o: src/psxtract.rc
+$(OBJDIR)/psxtract_resources.o: $(GEN_RC)
 	$(WINDRES) $< -o $@
 
 $(OBJDIR)/atrac3_resources.o: src/atrac3_resources.rc
 	$(WINDRES) $< -o $@
+
+# cue_resources.cpp #includes the generated lookup table, so it must be
+# recompiled whenever the table is regenerated (the %.o: %.cpp rule supplies
+# the recipe; this line only adds the missing header prerequisite).
+$(OBJDIR)/cue_resources.o: $(GEN_TABLE)
 
 clean:
 	rm -rf $(OBJDIR) $(TARGET)
@@ -73,4 +102,4 @@ release: $(TARGET)
 	@echo "Contents:"
 	@unzip -l psxtract-2.zip
 
-.PHONY: all clean install release
+.PHONY: all clean install release regen

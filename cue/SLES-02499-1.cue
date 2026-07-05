@@ -1,5 +1,0 @@
-REM MD5 c994a8980316cbde2686afaa101e25c4
-FILE "Midnight in Vegas (Europe) (En,Fr,De) (Rev 1).bin" BINARY
-  TRACK 01 MODE2/2352
-    INDEX 01 00:00:00
-REM LEADOUT 21:43:22

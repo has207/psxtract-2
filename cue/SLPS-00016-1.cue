@@ -1,5 +1,0 @@
-REM MD5 5ccb0070440fc50c618b26c3c53cd3b5
-FILE "Jikkyou Powerful Pro Yakyuu '95 (Japan) (Rev 1).bin" BINARY
-  TRACK 01 MODE2/2352
-    INDEX 01 00:00:00
-REM LEADOUT 13:49:74

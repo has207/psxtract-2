@@ -6,6 +6,11 @@
 
 #define WAVE_FORMAT_SONY_SCX 0x0270
 
+// Driver id of the codec we registered for this process via acmDriverAdd (see
+// registerBundledAtrac3Codec). Such a driver reports an EMPTY szShortName, so it
+// can't be located again by the name scan below - we must remember its id here.
+static HACMDRIVERID g_bundledAt3Driver = nullptr;
+
 static BOOL WINAPI findAt3Driver_cb(HACMDRIVERID hadid, DWORD_PTR dwInstance, DWORD fdwSupport) {
     ACMDRIVERDETAILS details;
     details.cbStruct = sizeof(ACMDRIVERDETAILS);
@@ -20,6 +25,13 @@ static BOOL WINAPI findAt3Driver_cb(HACMDRIVERID hadid, DWORD_PTR dwInstance, DW
 }
 
 void findAt3Driver(LPHACMDRIVERID lpHadid) {
+    // Prefer the codec we registered ourselves this session; fall back to a
+    // system-installed ATRAC3 driver (which does report a szShortName).
+    if (g_bundledAt3Driver) {
+        *lpHadid = g_bundledAt3Driver;
+        return;
+    }
+    *lpHadid = nullptr;
     acmDriverEnum(findAt3Driver_cb, (DWORD_PTR)lpHadid, 0);
 }
 
@@ -27,6 +39,74 @@ bool isAtrac3CodecAvailable() {
     HACMDRIVERID at3hadid = nullptr;
     findAt3Driver(&at3hadid);
     return (at3hadid != nullptr);
+}
+
+// Resource id of the embedded atrac3.acm (see atrac3_resources.rc).
+#define IDR_ATRAC3_ACM 12001
+
+bool registerBundledAtrac3Codec() {
+    // If the codec is already present (e.g. installed system-wide), do nothing.
+    if (isAtrac3CodecAvailable())
+        return true;
+
+    // Locate the ATRAC3 codec DLL embedded in our own executable.
+    HRSRC hRes = FindResource(nullptr, MAKEINTRESOURCE(IDR_ATRAC3_ACM), RT_RCDATA);
+    if (!hRes)
+        return false;
+    HGLOBAL hGlobal = LoadResource(nullptr, hRes);
+    if (!hGlobal)
+        return false;
+    DWORD dwSize = SizeofResource(nullptr, hRes);
+    LPVOID pData = LockResource(hGlobal);
+    if (!pData || dwSize == 0)
+        return false;
+
+    // acmDriverAdd(ACM_DRIVERADDF_FUNCTION) needs a real, loadable module, so the
+    // codec has to exist on disk. Use a stable name in %TEMP% so repeated runs
+    // (the GUI launches a fresh process per extraction) reuse one file instead of
+    // littering the temp folder.
+    char tempPath[MAX_PATH];
+    char acmPath[MAX_PATH];
+    if (GetTempPath(sizeof(tempPath), tempPath) == 0)
+        return false;
+    _snprintf(acmPath, sizeof(acmPath), "%spsxtract_atrac3.acm", tempPath);
+
+    // Best-effort write. If another psxtract process already has this file loaded
+    // it will be locked, but the on-disk copy is identical, so we just load it.
+    HANDLE hFile = CreateFile(acmPath, GENERIC_WRITE, 0, nullptr,
+                              CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
+    if (hFile != INVALID_HANDLE_VALUE) {
+        DWORD written = 0;
+        WriteFile(hFile, pData, dwSize, &written, nullptr);
+        CloseHandle(hFile);
+    }
+
+    // Load the codec and hand its DriverProc entry point to msacm. This registers
+    // the driver for this process only - no admin rights, System32 copy, or
+    // registry writes, which is exactly what the old INF-based installer needed
+    // (and frequently failed to do on 64-bit Windows).
+    HMODULE hAcm = LoadLibrary(acmPath);
+    if (!hAcm)
+        return false;
+    FARPROC driverProc = GetProcAddress(hAcm, "DriverProc");
+    if (!driverProc) {
+        FreeLibrary(hAcm);
+        return false;
+    }
+
+    HACMDRIVERID hadid = nullptr;
+    MMRESULT mr = acmDriverAdd(&hadid, hAcm, (LPARAM)driverProc, 0,
+                               ACM_DRIVERADDF_FUNCTION);
+    if (mr != MMSYSERR_NOERROR || !hadid) {
+        FreeLibrary(hAcm);
+        return false;
+    }
+
+    // A FUNCTION-added driver has no szShortName, so remember its id for
+    // findAt3Driver(). The module stays mapped for the life of the process; the
+    // OS releases it (and unlocks the temp file) at exit.
+    g_bundledAt3Driver = hadid;
+    return isAtrac3CodecAvailable();
 }
 
 int convertAt3ToWav(const char* input, const char* output, HACMDRIVERID at3hadid) {

@@ -1279,6 +1279,13 @@ int extract_and_convert_audio(FILE *psar, FILE *iso_table, int base_audio_offset
 
 	// Check for ATRAC3 driver availability before attempting conversion
 	if (num_tracks > 0) {
+		// psxtract_main() is the shared conversion path for every mode - direct
+		// command-line runs AND the child process the GUI spawns per extraction.
+		// Register the bundled ATRAC3 codec here so it is available regardless of
+		// how we were launched (per-process registration does not cross the GUI
+		// parent -> child boundary, so registering in the GUI alone is not enough).
+		registerBundledAtrac3Codec();
+
 		HACMDRIVERID at3hadid = nullptr;
 		findAt3Driver(&at3hadid);
 		if (!at3hadid) {
@@ -2345,6 +2352,17 @@ int decrypt_multi_disc(FILE *psar, long long psar_size, long long startdat_offse
 
 int main(int argc, char **argv)
 {
+	// This is a GUI-subsystem app, so no console window pops up when the GUI is
+	// launched from Explorer. When started from an existing terminal (command-line
+	// use), attach to that console and point the standard streams at it so printf
+	// output is still visible. If there is no parent console (GUI launch), this is
+	// a harmless no-op and the program runs windowless.
+	if (AttachConsole(ATTACH_PARENT_PROCESS)) {
+		freopen("CONOUT$", "w", stdout);
+		freopen("CONOUT$", "w", stderr);
+		freopen("CONIN$", "r", stdin);
+	}
+
 	SetConsoleOutputCP(CP_UTF8);
 	
 	save_original_working_directory();

@@ -296,23 +296,22 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
             free(woriginaldir);
         }
     } else {
-        // Multiple files - first part is directory, then individual filenames
-        char directory[MAX_PATH];
-        strcpy(directory, currentPos);
-        
-        if (!showProgressDlg) {
-            sprintf(logMsg, "Base directory: %s\n", directory);
-            appendToLog(logMsg);
-        }
-        
-        // Move past directory name
-        currentPos += strlen(currentPos) + 1;
-        
+        // Multiple files - g_selectedFiles holds a sequence of full,
+        // null-terminated paths (built during selection), so use each directly.
+        // Selection already flattened the raw Win32 "directory\0file\0file"
+        // format into full paths, so we must NOT treat the first entry as a base
+        // directory - doing that dropped the first file and mangled the rest into
+        // paths like "C:\dir\a.PBP\C:\dir\b.PBP".
         int fileIndex = 1;
         while (*currentPos != '\0') {
-            // Build full path
+            // Each entry is already a complete path.
             char fullPath[MAX_PATH];
-            sprintf(fullPath, "%s\\%s", directory, currentPos);
+            strncpy(fullPath, currentPos, sizeof(fullPath) - 1);
+            fullPath[sizeof(fullPath) - 1] = '\0';
+
+            // Use just the file name (basename) in progress/log messages.
+            const char* displayName = strrchr(currentPos, '\\');
+            displayName = displayName ? displayName + 1 : currentPos;
             
             // Clear GUI log for each file (except first) to keep it clean in batch mode
             if (fileIndex > 1) {
@@ -320,12 +319,12 @@ DWORD WINAPI extractionThread(LPVOID lpParam) {
             }
             
             // Always send processing message to GUI log
-            sprintf(logMsg, "\n=== Processing file %d/%d: %s ===\n", fileIndex, g_fileCount, currentPos);
+            sprintf(logMsg, "\n=== Processing file %d/%d: %s ===\n", fileIndex, g_fileCount, displayName);
             appendToLog(logMsg);
             
             // Update progress dialog if shown
             if (showProgressDlg) {
-                sprintf(logMsg, "BATCH_UPDATE_PROGRESS:%d:%d:%s", fileIndex, g_fileCount, currentPos);
+                sprintf(logMsg, "BATCH_UPDATE_PROGRESS:%d:%d:%s", fileIndex, g_fileCount, displayName);
                 PostMessage(g_hMainWnd, WM_UPDATE_PROGRESS, 0, (LPARAM)_strdup(logMsg));
                 Sleep(50); // Brief delay to let UI update
             }
@@ -519,7 +518,10 @@ void onFileSelect() {
                 
                 // Build full path: directory + filename
                 wchar_t fullPath[MAX_PATH];
-                swprintf(fullPath, MAX_PATH, L"%s\\%s", directory, fileName);
+                // Use %ls (not %s): in a wide swprintf on this toolchain %s reads
+                // its argument as a NARROW string, which truncates each wchar_t*
+                // path to its first character (e.g. "E:\Games\Xeno.PBP" -> "E").
+                swprintf(fullPath, MAX_PATH, L"%ls\\%ls", directory, fileName);
                 
                 // Convert to UTF-8 and store
                 int len = WideCharToMultiByte(CP_UTF8, 0, fullPath, -1, utf8Pos, remaining, NULL, NULL);
@@ -1106,8 +1108,9 @@ int showGUI() {
     ShowWindow(g_hMainWnd, SW_SHOW);
     UpdateWindow(g_hMainWnd);
     
-    // Check for ATRAC3 codec availability and show warning if not found
-    if (!isAtrac3CodecAvailable()) {
+    // Register the bundled ATRAC3 ACM codec for this process (no admin/installer
+    // needed). Only warn if that fails and no system-wide codec is present.
+    if (!registerBundledAtrac3Codec()) {
         showAtrac3CodecWarning();
     }
     
@@ -1449,99 +1452,18 @@ int gui_select_option(const char* title, const char* message, const char* option
     }
 }
 
-bool extractAndRunAtrac3Installer() {
-    // Find the ATRAC3 installer resource
-    HRSRC hRes = FindResource(NULL, MAKEINTRESOURCE(12000), RT_RCDATA);
-    if (!hRes) {
-        MessageBox(g_hMainWnd, "Could not find ATRAC3 installer resource.", "Error", MB_OK | MB_ICONERROR);
-        return false;
-    }
-    
-    HGLOBAL hGlobal = LoadResource(NULL, hRes);
-    if (!hGlobal) {
-        MessageBox(g_hMainWnd, "Could not load ATRAC3 installer resource.", "Error", MB_OK | MB_ICONERROR);
-        return false;
-    }
-    
-    DWORD dwSize = SizeofResource(NULL, hRes);
-    LPVOID pData = LockResource(hGlobal);
-    
-    if (!pData || dwSize == 0) {
-        MessageBox(g_hMainWnd, "Could not access ATRAC3 installer data.", "Error", MB_OK | MB_ICONERROR);
-        return false;
-    }
-    
-    // Create temporary file
-    char tempPath[MAX_PATH];
-    char tempFile[MAX_PATH];
-    
-    if (GetTempPath(sizeof(tempPath), tempPath) == 0) {
-        MessageBox(g_hMainWnd, "Could not get temporary directory.", "Error", MB_OK | MB_ICONERROR);
-        return false;
-    }
-    
-    if (GetTempFileName(tempPath, "atrac3", 0, tempFile) == 0) {
-        MessageBox(g_hMainWnd, "Could not create temporary file.", "Error", MB_OK | MB_ICONERROR);
-        return false;
-    }
-    
-    // Write installer to temporary file
-    HANDLE hFile = CreateFile(tempFile, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
-    if (hFile == INVALID_HANDLE_VALUE) {
-        MessageBox(g_hMainWnd, "Could not create temporary installer file.", "Error", MB_OK | MB_ICONERROR);
-        return false;
-    }
-    
-    DWORD bytesWritten;
-    BOOL writeResult = WriteFile(hFile, pData, dwSize, &bytesWritten, NULL);
-    CloseHandle(hFile);
-    
-    if (!writeResult || bytesWritten != dwSize) {
-        DeleteFile(tempFile);
-        MessageBox(g_hMainWnd, "Could not write installer to temporary file.", "Error", MB_OK | MB_ICONERROR);
-        return false;
-    }
-    
-    // Execute the installer
-    SHELLEXECUTEINFO sei = { 0 };
-    sei.cbSize = sizeof(SHELLEXECUTEINFO);
-    sei.fMask = SEE_MASK_NOCLOSEPROCESS;
-    sei.lpVerb = "open";
-    sei.lpFile = tempFile;
-    sei.nShow = SW_SHOWNORMAL;
-    
-    if (ShellExecuteEx(&sei)) {
-        // Wait for installer to complete
-        if (sei.hProcess) {
-            WaitForSingleObject(sei.hProcess, INFINITE);
-            CloseHandle(sei.hProcess);
-        }
-        
-        // Clean up temporary file
-        DeleteFile(tempFile);
-        return true;
-    } else {
-        DeleteFile(tempFile);
-        MessageBox(g_hMainWnd, "Could not execute ATRAC3 installer.", "Error", MB_OK | MB_ICONERROR);
-        return false;
-    }
-}
-
 void showAtrac3CodecWarning() {
-    const char* message = 
-        "ATRAC3 ACM Codec Not Found\n\n"
-        "The ATRAC3 ACM codec is not installed on your system. This codec is required to convert "
-        "PlayStation audio tracks from the proprietary ATRAC3 format to standard WAV format.\n\n"
-        "Would you like to install the ATRAC3 codec now?";
-    
-    const char* title = "ATRAC3 Codec Warning";
-    
-    int result = MessageBox(g_hMainWnd, message, title, MB_YESNO | MB_ICONWARNING);
-    
-    if (result == IDYES) {
-        extractAndRunAtrac3Installer();
-    } else {
-        // User cancelled - log message about ATRAC3 unavailability
-        logToGUI("ATRAC3 support unavailable - codec not installed. Restart the application if you wish to install it later.\n");
-    }
+    // Reached only when registerBundledAtrac3Codec() failed AND no system-wide
+    // codec is present - i.e. the bundled atrac3.acm could not be loaded/added.
+    const char* message =
+        "ATRAC3 ACM Codec Could Not Be Loaded\n\n"
+        "psxtract bundles the Sony ATRAC3 ACM codec and normally registers it "
+        "automatically for this session, but registration failed this time. "
+        "PlayStation CDDA audio tracks cannot be converted to WAV without it.\n\n"
+        "This is usually caused by security software blocking the codec from "
+        "loading out of the temporary folder. Disc extraction and all other "
+        "features still work - only audio-track conversion is affected.";
+
+    MessageBox(g_hMainWnd, message, "ATRAC3 Codec Warning", MB_OK | MB_ICONWARNING);
+    logToGUI("WARNING: ATRAC3 codec could not be registered - audio track conversion is disabled.\n");
 }

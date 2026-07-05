@@ -1,5 +1,7 @@
-// ATRAC3 codec installer resource file
+// ATRAC3 codec resource file
 #include <windows.h>
 
-// ATRAC3 codec installer executable
-12000 RCDATA "../resources/Atrac3.exe"
+// Sony ATRAC3 ACM codec DLL. Registered for the current process at startup via
+// acmDriverAdd() (see registerBundledAtrac3Codec) - no admin rights, no System32
+// copy, and no registry writes are required.
+12001 RCDATA "../resources/atrac3.acm"

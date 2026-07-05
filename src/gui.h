@@ -9,7 +9,6 @@ int showGUI();
 void logToGUI(const char* message);
 void enableExtractButton(bool enabled);
 void showAtrac3CodecWarning();
-bool extractAndRunAtrac3Installer();
 
 // Printf redirection
 extern void setGUIMode(bool enabled);

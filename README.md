@@ -14,21 +14,18 @@ And uses atrac3 ACM code for ATRAC3 decoding of CDDA audio tracks.
 Notes
 -------
 
-Output of running psxtract.exe EBOOT.PBP is two files - CDROM.BIN and
-CDROM.CUE in the current directory. You should know what to do with those.
+The tool now supports a graphical interface which is the preferred way to run
+it, though commandline is still supported. Batch extraction of multiple EBOOTS
+is supported, you can select as many as you want and they will be extracted one
+by one without further interaction, unless there's confusion about which cue
+file a particular EBOOT requires, but that should be rare.
 
-Using the "-c" option on the command line, psxtract will clean up any
-temporary files it generates while it runs (of which there are many).
-This flag is kept for backwards compatibility with old psxtract that used
-it to force CDROM creation. Current version always creates a BIN/CUE pair
-but we keep the flag for nostalgia.
+It also ships with cue files for the known PSX games sourced from redump.org,
+processed and manually filtered, so errors are possible and some EBOOTs may not
+get an automatically assigned cue file. You can file a bug here if that happens.
 
-atrac3 ACM codec must be installed on the system for ATRAC3 audio decoding of CDDA tracks.
-
-You may supply a KEYS.BIN file to the tool, but this is not necessary.
-Using the internal files' hashes, psxtract can calculate the key by itself.
-
-Game file manual decryption is also supported (DOCUMENT.DAT).
+The GUI does not support providing custom KEYS.BIN or generating DOCUMENT.DAT
+for manual decryption, use the commandline for that.
 
 Native Linux code has diverged significantly and has been removed. In addition
 ATRAC3 support essentially requires Windows so any idea of doing a full posix port
@@ -76,13 +73,6 @@ mismatches for the audio tracks.
 
 The easiest way to verify hashes is by importing the game into Duckstation and checking hashes from
 the game Properties menu.
-
-There is one additional known issue that is actually working as intended -- with Resident Evil 2 Dualshock Edition. The EBOOT for that game retains
-CUE entries and pointers to audio tracks, however these were not included in the EBOOT.
-The audio tracks present on the physical discs are empty so this is not a real loss, just an issue
-with the EBOOT itself, so there will be warnings when this EBOOT is extracted but the resulting
-BIN/CUE is fully playable.
-
 
 Credits
 -------
